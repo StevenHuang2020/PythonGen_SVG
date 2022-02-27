@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+  <g opacity="1.0">
+    <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
+    <circle cx="10.0" cy="10.0" r="4.4" fill="black" id="circle_NaCc">
+      <animate xlink:href="#circle_NaCc" id="animate_circle_NaCc" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="9" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="30.0" r="2.7" fill="black" id="circle_q0UZ">
+      <animate xlink:href="#circle_q0UZ" id="animate_circle_q0UZ" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="1" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="50.0" r="2.0" fill="black" id="circle_m9Mh">
+      <animate xlink:href="#circle_m9Mh" id="animate_circle_m9Mh" fill="freeze" attributeName="r" from="2.0" to="7.5" dur="7" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="70.0" r="6.5" fill="black" id="circle_izG4">
+      <animate xlink:href="#circle_izG4" id="animate_circle_izG4" fill="freeze" attributeName="r" from="6.5" to="7.5" dur="4" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="90.0" r="1.3" fill="black" id="circle_Kqxf">
+      <animate xlink:href="#circle_Kqxf" id="animate_circle_Kqxf" fill="freeze" attributeName="r" from="1.3" to="7.5" dur="0" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="110.0" r="2.4" fill="black" id="circle_5qdH">
+      <animate xlink:href="#circle_5qdH" id="animate_circle_5qdH" fill="freeze" attributeName="r" from="2.4" to="7.5" dur="4" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="130.0" r="7.5" fill="black" id="circle_ynlO">
+      <animate xlink:href="#circle_ynlO" id="animate_circle_ynlO" fill="freeze" attributeName="r" from="7.5" to="7.5" dur="1" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="150.0" r="3.7" fill="black" id="circle_CsFP">
+      <animate xlink:href="#circle_CsFP" id="animate_circle_CsFP" fill="freeze" attributeName="r" from="3.7" to="7.5" dur="10" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="170.0" r="5.8" fill="black" id="circle_ijbw">
+      <animate xlink:href="#circle_ijbw" id="animate_circle_ijbw" fill="freeze" attributeName="r" from="5.8" to="7.5" dur="0" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.0" cy="190.0" r="1.0" fill="black" id="circle_Ee8K">
+      <animate xlink:href="#circle_Ee8K" id="animate_circle_Ee8K" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="2" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="10.0" r="2.7" fill="black" id="circle_0kQY">
+      <animate xlink:href="#circle_0kQY" id="animate_circle_0kQY" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="7" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="30.0" r="6.1" fill="black" id="circle_bC37">
+      <animate xlink:href="#circle_bC37" id="animate_circle_bC37" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="2" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="50.0" r="5.1" fill="black" id="circle_Ws0t">
+      <animate xlink:href="#circle_Ws0t" id="animate_circle_Ws0t" fill="freeze" attributeName="r" from="5.1" to="7.5" dur="8" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="70.0" r="4.4" fill="black" id="circle_xJmI">
+      <animate xlink:href="#circle_xJmI" id="animate_circle_xJmI" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="5" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="90.0" r="1.3" fill="black" id="circle_QrEv">
+      <animate xlink:href="#circle_QrEv" id="animate_circle_QrEv" fill="freeze" attributeName="r" from="1.3" to="7.5" dur="6" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="110.0" r="5.1" fill="black" id="circle_DoIG">
+      <animate xlink:href="#circle_DoIG" id="animate_circle_DoIG" fill="freeze" attributeName="r" from="5.1" to="7.5" dur="3" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="130.0" r="1.0" fill="black" id="circle_w0E4">
+      <animate xlink:href="#circle_w0E4" id="animate_circle_w0E4" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="5" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="150.0" r="1.0" fill="black" id="circle_lruT">
+      <animate xlink:href="#circle_lruT" id="animate_circle_lruT" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="5" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="170.0" r="6.8" fill="black" id="circle_BRd4">
+      <animate xlink:href="#circle_BRd4" id="animate_circle_BRd4" fill="freeze" attributeName="r" from="6.8" to="7.5" dur="0" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30.0" cy="190.0" r="5.8" fill="black" id="circle_NQRL">
+      <animate xlink:href="#circle_NQRL" id="animate_circle_NQRL" fill="freeze" attributeName="r" from="5.8" to="7.5" dur="7" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="10.0" r="7.5" fill="black" id="circle_5m68">
+      <animate xlink:href="#circle_5m68" id="animate_circle_5m68" fill="freeze" attributeName="r" from="7.5" to="7.5" dur="4" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="30.0" r="4.8" fill="black" id="circle_AHST">
+      <animate xlink:href="#circle_AHST" id="animate_circle_AHST" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="0" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="50.0" r="3.1" fill="black" id="circle_zdBs">
+      <animate xlink:href="#circle_zdBs" id="animate_circle_zdBs" fill="freeze" attributeName="r" from="3.1" to="7.5" dur="7" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="70.0" r="6.5" fill="black" id="circle_7PNz">
+      <animate xlink:href="#circle_7PNz" id="animate_circle_7PNz" fill="freeze" attributeName="r" from="6.5" to="7.5" dur="3" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="90.0" r="1.0" fill="black" id="circle_7nPq">
+      <animate xlink:href="#circle_7nPq" id="animate_circle_7nPq" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="10" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="110.0" r="6.1" fill="black" id="circle_8Yel">
+      <animate xlink:href="#circle_8Yel" id="animate_circle_8Yel" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="7" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="130.0" r="2.7" fill="black" id="circle_oLaf">
+      <animate xlink:href="#circle_oLaf" id="animate_circle_oLaf" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="5" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="150.0" r="2.4" fill="black" id="circle_FlSO">
+      <animate xlink:href="#circle_FlSO" id="animate_circle_FlSO" fill="freeze" attributeName="r" from="2.4" to="7.5" dur="0" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="170.0" r="5.1" fill="black" id="circle_pXlE">
+      <animate xlink:href="#circle_pXlE" id="animate_circle_pXlE" fill="freeze" attributeName="r" from="5.1" to="7.5" dur="2" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50.0" cy="190.0" r="4.4" fill="black" id="circle_huqb">
+      <animate xlink:href="#circle_huqb" id="animate_circle_huqb" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="0" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="10.0" r="6.8" fill="black" id="circle_wudN">
+      <animate xlink:href="#circle_wudN" id="animate_circle_wudN" fill="freeze" attributeName="r" from="6.8" to="7.5" dur="1" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="30.0" r="7.5" fill="black" id="circle_9H1F">
+      <animate xlink:href="#circle_9H1F" id="animate_circle_9H1F" fill="freeze" attributeName="r" from="7.5" to="7.5" dur="7" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="50.0" r="1.7" fill="black" id="circle_T82X">
+      <animate xlink:href="#circle_T82X" id="animate_circle_T82X" fill="freeze" attributeName="r" from="1.7" to="7.5" dur="8" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="70.0" r="6.8" fill="black" id="circle_vNeT">
+      <animate xlink:href="#circle_vNeT" id="animate_circle_vNeT" fill="freeze" attributeName="r" from="6.8" to="7.5" dur="0" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="90.0" r="6.5" fill="black" id="circle_6tYT">
+      <animate xlink:href="#circle_6tYT" id="animate_circle_6tYT" fill="freeze" attributeName="r" from="6.5" to="7.5" dur="9" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="110.0" r="5.1" fill="black" id="circle_2tzZ">
+      <animate xlink:href="#circle_2tzZ" id="animate_circle_2tzZ" fill="freeze" attributeName="r" from="5.1" to="7.5" dur="1" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="130.0" r="5.8" fill="black" id="circle_g1fB">
+      <animate xlink:href="#circle_g1fB" id="animate_circle_g1fB" fill="freeze" attributeName="r" from="5.8" to="7.5" dur="4" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="150.0" r="4.1" fill="black" id="circle_bopH">
+      <animate xlink:href="#circle_bopH" id="animate_circle_bopH" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="9" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="170.0" r="4.8" fill="black" id="circle_sHuf">
+      <animate xlink:href="#circle_sHuf" id="animate_circle_sHuf" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="2" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70.0" cy="190.0" r="1.7" fill="black" id="circle_v6KQ">
+      <animate xlink:href="#circle_v6KQ" id="animate_circle_v6KQ" fill="freeze" attributeName="r" from="1.7" to="7.5" dur="8" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="10.0" r="4.4" fill="black" id="circle_H7eX">
+      <animate xlink:href="#circle_H7eX" id="animate_circle_H7eX" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="9" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="30.0" r="6.1" fill="black" id="circle_o6Bu">
+      <animate xlink:href="#circle_o6Bu" id="animate_circle_o6Bu" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="7" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="50.0" r="4.4" fill="black" id="circle_5781">
+      <animate xlink:href="#circle_5781" id="animate_circle_5781" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="6" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="70.0" r="5.1" fill="black" id="circle_ANJ6">
+      <animate xlink:href="#circle_ANJ6" id="animate_circle_ANJ6" fill="freeze" attributeName="r" from="5.1" to="7.5" dur="5" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="90.0" r="4.8" fill="black" id="circle_8KpP">
+      <animate xlink:href="#circle_8KpP" id="animate_circle_8KpP" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="2" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="110.0" r="4.4" fill="black" id="circle_mZE4">
+      <animate xlink:href="#circle_mZE4" id="animate_circle_mZE4" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="1" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="130.0" r="7.2" fill="black" id="circle_3gSi">
+      <animate xlink:href="#circle_3gSi" id="animate_circle_3gSi" fill="freeze" attributeName="r" from="7.2" to="7.5" dur="7" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="150.0" r="2.7" fill="black" id="circle_2x6P">
+      <animate xlink:href="#circle_2x6P" id="animate_circle_2x6P" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="0" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="170.0" r="6.1" fill="black" id="circle_AWMo">
+      <animate xlink:href="#circle_AWMo" id="animate_circle_AWMo" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="10" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90.0" cy="190.0" r="3.4" fill="black" id="circle_LXpq">
+      <animate xlink:href="#circle_LXpq" id="animate_circle_LXpq" fill="freeze" attributeName="r" from="3.4" to="7.5" dur="1" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="10.0" r="4.1" fill="black" id="circle_xO8c">
+      <animate xlink:href="#circle_xO8c" id="animate_circle_xO8c" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="1" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="30.0" r="1.0" fill="black" id="circle_wzfq">
+      <animate xlink:href="#circle_wzfq" id="animate_circle_wzfq" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="4" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="50.0" r="1.0" fill="black" id="circle_Ouyc">
+      <animate xlink:href="#circle_Ouyc" id="animate_circle_Ouyc" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="9" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="70.0" r="1.3" fill="black" id="circle_NoDE">
+      <animate xlink:href="#circle_NoDE" id="animate_circle_NoDE" fill="freeze" attributeName="r" from="1.3" to="7.5" dur="5" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="90.0" r="4.1" fill="black" id="circle_DfnW">
+      <animate xlink:href="#circle_DfnW" id="animate_circle_DfnW" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="0" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="110.0" r="7.2" fill="black" id="circle_Cu59">
+      <animate xlink:href="#circle_Cu59" id="animate_circle_Cu59" fill="freeze" attributeName="r" from="7.2" to="7.5" dur="2" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="130.0" r="2.4" fill="black" id="circle_EB8w">
+      <animate xlink:href="#circle_EB8w" id="animate_circle_EB8w" fill="freeze" attributeName="r" from="2.4" to="7.5" dur="9" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="150.0" r="5.4" fill="black" id="circle_M4V3">
+      <animate xlink:href="#circle_M4V3" id="animate_circle_M4V3" fill="freeze" attributeName="r" from="5.4" to="7.5" dur="8" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="170.0" r="6.5" fill="black" id="circle_59a7">
+      <animate xlink:href="#circle_59a7" id="animate_circle_59a7" fill="freeze" attributeName="r" from="6.5" to="7.5" dur="0" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110.0" cy="190.0" r="4.8" fill="black" id="circle_beD8">
+      <animate xlink:href="#circle_beD8" id="animate_circle_beD8" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="7" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="10.0" r="4.8" fill="black" id="circle_cTu2">
+      <animate xlink:href="#circle_cTu2" id="animate_circle_cTu2" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="5" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="30.0" r="4.1" fill="black" id="circle_VIC3">
+      <animate xlink:href="#circle_VIC3" id="animate_circle_VIC3" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="0" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="50.0" r="2.7" fill="black" id="circle_LIsn">
+      <animate xlink:href="#circle_LIsn" id="animate_circle_LIsn" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="8" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="70.0" r="7.2" fill="black" id="circle_R2Lq">
+      <animate xlink:href="#circle_R2Lq" id="animate_circle_R2Lq" fill="freeze" attributeName="r" from="7.2" to="7.5" dur="4" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="90.0" r="1.3" fill="black" id="circle_Clk0">
+      <animate xlink:href="#circle_Clk0" id="animate_circle_Clk0" fill="freeze" attributeName="r" from="1.3" to="7.5" dur="8" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="110.0" r="4.4" fill="black" id="circle_JbOw">
+      <animate xlink:href="#circle_JbOw" id="animate_circle_JbOw" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="6" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="130.0" r="2.7" fill="black" id="circle_QuXl">
+      <animate xlink:href="#circle_QuXl" id="animate_circle_QuXl" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="8" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="150.0" r="1.3" fill="black" id="circle_Eo3z">
+      <animate xlink:href="#circle_Eo3z" id="animate_circle_Eo3z" fill="freeze" attributeName="r" from="1.3" to="7.5" dur="2" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="170.0" r="7.2" fill="black" id="circle_Lgib">
+      <animate xlink:href="#circle_Lgib" id="animate_circle_Lgib" fill="freeze" attributeName="r" from="7.2" to="7.5" dur="10" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130.0" cy="190.0" r="6.5" fill="black" id="circle_IDvX">
+      <animate xlink:href="#circle_IDvX" id="animate_circle_IDvX" fill="freeze" attributeName="r" from="6.5" to="7.5" dur="7" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="10.0" r="3.4" fill="black" id="circle_EyN5">
+      <animate xlink:href="#circle_EyN5" id="animate_circle_EyN5" fill="freeze" attributeName="r" from="3.4" to="7.5" dur="10" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="30.0" r="4.1" fill="black" id="circle_l05q">
+      <animate xlink:href="#circle_l05q" id="animate_circle_l05q" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="9" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="50.0" r="4.1" fill="black" id="circle_R80g">
+      <animate xlink:href="#circle_R80g" id="animate_circle_R80g" fill="freeze" attributeName="r" from="4.1" to="7.5" dur="8" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="70.0" r="4.4" fill="black" id="circle_w7mL">
+      <animate xlink:href="#circle_w7mL" id="animate_circle_w7mL" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="2" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="90.0" r="4.8" fill="black" id="circle_tZlq">
+      <animate xlink:href="#circle_tZlq" id="animate_circle_tZlq" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="6" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="110.0" r="4.8" fill="black" id="circle_Pi4h">
+      <animate xlink:href="#circle_Pi4h" id="animate_circle_Pi4h" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="6" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="130.0" r="6.8" fill="black" id="circle_WLpn">
+      <animate xlink:href="#circle_WLpn" id="animate_circle_WLpn" fill="freeze" attributeName="r" from="6.8" to="7.5" dur="6" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="150.0" r="3.1" fill="black" id="circle_6HIM">
+      <animate xlink:href="#circle_6HIM" id="animate_circle_6HIM" fill="freeze" attributeName="r" from="3.1" to="7.5" dur="1" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="170.0" r="2.7" fill="black" id="circle_6XbL">
+      <animate xlink:href="#circle_6XbL" id="animate_circle_6XbL" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="1" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150.0" cy="190.0" r="1.0" fill="black" id="circle_LabE">
+      <animate xlink:href="#circle_LabE" id="animate_circle_LabE" fill="freeze" attributeName="r" from="1.0" to="7.5" dur="2" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="10.0" r="6.1" fill="black" id="circle_jOCT">
+      <animate xlink:href="#circle_jOCT" id="animate_circle_jOCT" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="7" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="30.0" r="4.4" fill="black" id="circle_KNe0">
+      <animate xlink:href="#circle_KNe0" id="animate_circle_KNe0" fill="freeze" attributeName="r" from="4.4" to="7.5" dur="2" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="50.0" r="2.0" fill="black" id="circle_atrL">
+      <animate xlink:href="#circle_atrL" id="animate_circle_atrL" fill="freeze" attributeName="r" from="2.0" to="7.5" dur="4" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="70.0" r="5.4" fill="black" id="circle_5aDT">
+      <animate xlink:href="#circle_5aDT" id="animate_circle_5aDT" fill="freeze" attributeName="r" from="5.4" to="7.5" dur="3" begin="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="90.0" r="2.7" fill="black" id="circle_hvfD">
+      <animate xlink:href="#circle_hvfD" id="animate_circle_hvfD" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="7" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="110.0" r="6.1" fill="black" id="circle_zysM">
+      <animate xlink:href="#circle_zysM" id="animate_circle_zysM" fill="freeze" attributeName="r" from="6.1" to="7.5" dur="8" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="130.0" r="4.8" fill="black" id="circle_3waA">
+      <animate xlink:href="#circle_3waA" id="animate_circle_3waA" fill="freeze" attributeName="r" from="4.8" to="7.5" dur="8" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="150.0" r="3.7" fill="black" id="circle_z3Nh">
+      <animate xlink:href="#circle_z3Nh" id="animate_circle_z3Nh" fill="freeze" attributeName="r" from="3.7" to="7.5" dur="2" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="170.0" r="1.7" fill="black" id="circle_rXPE">
+      <animate xlink:href="#circle_rXPE" id="animate_circle_rXPE" fill="freeze" attributeName="r" from="1.7" to="7.5" dur="7" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170.0" cy="190.0" r="3.7" fill="black" id="circle_5nv0">
+      <animate xlink:href="#circle_5nv0" id="animate_circle_5nv0" fill="freeze" attributeName="r" from="3.7" to="7.5" dur="1" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="10.0" r="1.7" fill="black" id="circle_RfOh">
+      <animate xlink:href="#circle_RfOh" id="animate_circle_RfOh" fill="freeze" attributeName="r" from="1.7" to="7.5" dur="0" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="30.0" r="7.5" fill="black" id="circle_59Vf">
+      <animate xlink:href="#circle_59Vf" id="animate_circle_59Vf" fill="freeze" attributeName="r" from="7.5" to="7.5" dur="0" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="50.0" r="2.4" fill="black" id="circle_O46U">
+      <animate xlink:href="#circle_O46U" id="animate_circle_O46U" fill="freeze" attributeName="r" from="2.4" to="7.5" dur="9" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="70.0" r="6.8" fill="black" id="circle_pLVf">
+      <animate xlink:href="#circle_pLVf" id="animate_circle_pLVf" fill="freeze" attributeName="r" from="6.8" to="7.5" dur="4" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="90.0" r="5.4" fill="black" id="circle_3sUO">
+      <animate xlink:href="#circle_3sUO" id="animate_circle_3sUO" fill="freeze" attributeName="r" from="5.4" to="7.5" dur="10" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="110.0" r="7.2" fill="black" id="circle_8Q4k">
+      <animate xlink:href="#circle_8Q4k" id="animate_circle_8Q4k" fill="freeze" attributeName="r" from="7.2" to="7.5" dur="9" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="130.0" r="2.7" fill="black" id="circle_3r8y">
+      <animate xlink:href="#circle_3r8y" id="animate_circle_3r8y" fill="freeze" attributeName="r" from="2.7" to="7.5" dur="5" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="150.0" r="3.1" fill="black" id="circle_aP56">
+      <animate xlink:href="#circle_aP56" id="animate_circle_aP56" fill="freeze" attributeName="r" from="3.1" to="7.5" dur="8" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="170.0" r="2.0" fill="black" id="circle_R3N1">
+      <animate xlink:href="#circle_R3N1" id="animate_circle_R3N1" fill="freeze" attributeName="r" from="2.0" to="7.5" dur="3" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190.0" cy="190.0" r="2.4" fill="black" id="circle_7Su1">
+      <animate xlink:href="#circle_7Su1" id="animate_circle_7Su1" fill="freeze" attributeName="r" from="2.4" to="7.5" dur="5" begin="0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

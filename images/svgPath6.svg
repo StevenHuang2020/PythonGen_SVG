@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 100 100" style="border:1px solid black">
+  <path d="M0 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 0 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M10 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 10 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M20 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 20 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M30 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 30 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M40 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 40 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M50 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 50 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M60 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 60 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M70 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 70 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M80 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 80 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M90 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 90 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M100 0 V100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M0 100 H100" stroke="green" stroke-width="0.2" fill="transparent"/>
+  <path d="M20 10 H50 V0 L 80 20 L 50 40 V30 H20 Z" stroke="green" stroke-width="0.6" fill="green"/>
+  <path d="M10 40 h30 v-10 l30 20 l-30 20 v-10 h-30 Z" stroke="green" stroke-width="0.6" fill="red"/>
+  <path d="M20 70 h30 v-10 l30 20 l-30 20 v-10 h-30 Z" stroke="green" stroke-width="0.6" fill="yellow"/>
+</svg>

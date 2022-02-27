@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="1.0">
+    <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
+    <style> text { fill: black; font-family: Microsoft YaHei; font-size: 50px;  } </style>
+    <text x="70.0" y="70.0" text-anchor="middle" dominant-baseline="central" transform="rotate(0,70.0,70.0)">怡</text>
+    <text x="130.0" y="70.0" text-anchor="middle" dominant-baseline="central" transform="rotate(90,130.0,70.0)">红</text>
+    <text x="70.0" y="130.0" text-anchor="middle" dominant-baseline="central" transform="rotate(180,70.0,130.0)">快</text>
+    <text x="130.0" y="130.0" text-anchor="middle" dominant-baseline="central" transform="rotate(270,130.0,130.0)">绿</text>
+  </g>
+</svg>

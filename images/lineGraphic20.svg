@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" viewBox="0 0 200 200">
+  <rect x="0" y="0" width="200" height="200" fill="black" stroke="black" stroke-width="1" id="border" opacity="0.8"/>
+  <rect x="50" y="163" width="10" height="10" fill="#00ff76" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 55 168" to="360 55 168" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="38" y="166" width="10" height="10" fill="#00a4ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 43 171" to="360 43 171" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="189" y="137" width="10" height="10" fill="#00aeff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 194 142" to="360 194 142" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="103" y="92" width="10" height="10" fill="#ff0800" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 108 97" to="360 108 97" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="101" y="12" width="10" height="10" fill="#006bff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 106 17" to="360 106 17" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="6" y="177" width="10" height="10" fill="#00ffed" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 11 182" to="360 11 182" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="136" y="61" width="10" height="10" fill="#ff004b" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 141 66" to="360 141 66" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="65" y="28" width="10" height="10" fill="#ffcb00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 70 33" to="360 70 33" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="128" y="175" width="10" height="10" fill="#82ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 133 180" to="360 133 180" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="132" y="148" width="10" height="10" fill="#00ff96" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 137 153" to="360 137 153" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="165" y="6" width="10" height="10" fill="#00ff6d" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 170 11" to="360 170 11" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="64" y="117" width="10" height="10" fill="#00ffb9" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 69 122" to="360 69 122" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="101" y="152" width="10" height="10" fill="#ff5300" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 106 157" to="360 106 157" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="89" y="4" width="10" height="10" fill="#ff0010" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 94 9" to="360 94 9" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="133" y="136" width="10" height="10" fill="#8f00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 138 141" to="360 138 141" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="77" y="132" width="10" height="10" fill="#caff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 82 137" to="360 82 137" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="96" y="186" width="10" height="10" fill="#f300ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 101 191" to="360 101 191" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="163" y="67" width="10" height="10" fill="#bf00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 168 72" to="360 168 72" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="171" y="170" width="10" height="10" fill="#fc00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 176 175" to="360 176 175" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="184" y="181" width="10" height="10" fill="#007eff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 189 186" to="360 189 186" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="36" y="51" width="10" height="10" fill="#00ff5f" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 41 56" to="360 41 56" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="133" y="159" width="10" height="10" fill="#ff00e3" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 138 164" to="360 138 164" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="16" y="57" width="10" height="10" fill="#00eaff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 21 62" to="360 21 62" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="26" y="174" width="10" height="10" fill="#00fdff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 31 179" to="360 31 179" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="58" y="135" width="10" height="10" fill="#3fff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 63 140" to="360 63 140" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="48" y="60" width="10" height="10" fill="#ff009e" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 53 65" to="360 53 65" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="173" y="182" width="10" height="10" fill="#00ff83" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 178 187" to="360 178 187" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="61" y="50" width="10" height="10" fill="#4dff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 66 55" to="360 66 55" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="102" y="121" width="10" height="10" fill="#3900ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 107 126" to="360 107 126" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="75" y="46" width="10" height="10" fill="#0080ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 80 51" to="360 80 51" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="115" y="35" width="10" height="10" fill="#0037ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 120 40" to="360 120 40" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="10" y="13" width="10" height="10" fill="#00ff1b" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 15 18" to="360 15 18" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="127" y="108" width="10" height="10" fill="#03ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 132 113" to="360 132 113" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="38" y="86" width="10" height="10" fill="#ff00d4" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 43 91" to="360 43 91" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="43" y="188" width="10" height="10" fill="#ff004b" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 48 193" to="360 48 193" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="9" y="146" width="10" height="10" fill="#00ff4c" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 14 151" to="360 14 151" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="116" y="130" width="10" height="10" fill="#ff0060" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 121 135" to="360 121 135" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="82" y="98" width="10" height="10" fill="#0081ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 87 103" to="360 87 103" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="31" y="145" width="10" height="10" fill="#df00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 36 150" to="360 36 150" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="89" y="48" width="10" height="10" fill="#b200ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 94 53" to="360 94 53" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="105" y="104" width="10" height="10" fill="#1eff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 110 109" to="360 110 109" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="77" y="155" width="10" height="10" fill="#00ff2d" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 82 160" to="360 82 160" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="55" y="81" width="10" height="10" fill="#b7ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 60 86" to="360 60 86" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="69" y="72" width="10" height="10" fill="#ff2d00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 74 77" to="360 74 77" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="7" y="91" width="10" height="10" fill="#00faff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 12 96" to="360 12 96" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="70" y="101" width="10" height="10" fill="#00ffcb" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 75 106" to="360 75 106" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="117" y="70" width="10" height="10" fill="#a5ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 122 75" to="360 122 75" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="103" y="46" width="10" height="10" fill="#00ff05" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 108 51" to="360 108 51" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="22" y="159" width="10" height="10" fill="#f4ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 27 164" to="360 27 164" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="99" y="138" width="10" height="10" fill="#ff00d4" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 104 143" to="360 104 143" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="187" y="16" width="10" height="10" fill="#00feff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 192 21" to="360 192 21" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="187" y="107" width="10" height="10" fill="#004fff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 192 112" to="360 192 112" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="136" y="42" width="10" height="10" fill="#ffe500" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 141 47" to="360 141 47" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="69" y="180" width="10" height="10" fill="#00ff2e" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 74 185" to="360 74 185" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="96" y="168" width="10" height="10" fill="#ff8600" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 101 173" to="360 101 173" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="61" y="10" width="10" height="10" fill="#00ff10" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 66 15" to="360 66 15" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="150" y="160" width="10" height="10" fill="#6aff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 155 165" to="360 155 165" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="179" y="56" width="10" height="10" fill="#3dff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 184 61" to="360 184 61" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="122" y="4" width="10" height="10" fill="#ff4a00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 127 9" to="360 127 9" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="169" y="121" width="10" height="10" fill="#ff8600" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 174 126" to="360 174 126" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="89" y="35" width="10" height="10" fill="#ff0500" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 94 40" to="360 94 40" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="189" y="37" width="10" height="10" fill="#ff001f" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 194 42" to="360 194 42" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="147" y="26" width="10" height="10" fill="#005dff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 152 31" to="360 152 31" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="153" y="41" width="10" height="10" fill="#00b5ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 158 46" to="360 158 46" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="112" y="178" width="10" height="10" fill="#abff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 117 183" to="360 117 183" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="185" y="85" width="10" height="10" fill="#007eff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 190 90" to="360 190 90" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="119" y="16" width="10" height="10" fill="#ad00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 124 21" to="360 124 21" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="87" y="113" width="10" height="10" fill="#00c7ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 92 118" to="360 92 118" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="21" y="118" width="10" height="10" fill="#e5ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 26 123" to="360 26 123" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="71" y="166" width="10" height="10" fill="#8bff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 76 171" to="360 76 171" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="147" y="98" width="10" height="10" fill="#0000ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 152 103" to="360 152 103" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="154" y="184" width="10" height="10" fill="#ff0f00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 159 189" to="360 159 189" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="147" y="58" width="10" height="10" fill="#00ff38" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 152 63" to="360 152 63" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="162" y="23" width="10" height="10" fill="#0d00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 167 28" to="360 167 28" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="133" y="29" width="10" height="10" fill="#ff7500" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 138 34" to="360 138 34" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="168" y="151" width="10" height="10" fill="#ffb000" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 173 156" to="360 173 156" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="21" y="186" width="10" height="10" fill="#ff6e00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 26 191" to="360 26 191" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="42" y="146" width="10" height="10" fill="#ff2a00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 47 151" to="360 47 151" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="31" y="7" width="10" height="10" fill="#bb00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 36 12" to="360 36 12" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="170" y="94" width="10" height="10" fill="#ff008c" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 175 99" to="360 175 99" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="65" y="154" width="10" height="10" fill="#ffb000" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 70 159" to="360 70 159" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="140" y="180" width="10" height="10" fill="#e9ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 145 185" to="360 145 185" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="33" y="26" width="10" height="10" fill="#0b00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 38 31" to="360 38 31" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="178" y="2" width="10" height="10" fill="#0076ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 183 7" to="360 183 7" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="85" y="87" width="10" height="10" fill="#2800ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 90 92" to="360 90 92" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="34" y="97" width="10" height="10" fill="#9b00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 39 102" to="360 39 102" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="155" y="110" width="10" height="10" fill="#ff009d" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 160 115" to="360 160 115" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="156" y="84" width="10" height="10" fill="#ff00b3" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 161 89" to="360 161 89" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="112" y="151" width="10" height="10" fill="#ff0052" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 117 156" to="360 117 156" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="132" y="72" width="10" height="10" fill="#4000ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 137 77" to="360 137 77" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="105" y="63" width="10" height="10" fill="#ff9400" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 110 68" to="360 110 68" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="179" y="71" width="10" height="10" fill="#0400ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 184 76" to="360 184 76" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="98" y="75" width="10" height="10" fill="#0600ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 103 80" to="360 103 80" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="42" y="120" width="10" height="10" fill="#0049ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 47 125" to="360 47 125" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="147" y="69" width="10" height="10" fill="#00ff06" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 152 74" to="360 152 74" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="8" y="42" width="10" height="10" fill="#009eff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 13 47" to="360 13 47" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="111" y="166" width="10" height="10" fill="#c1ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 116 171" to="360 116 171" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="189" y="166" width="10" height="10" fill="#00ff2f" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 194 171" to="360 194 171" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="45" y="109" width="10" height="10" fill="#7000ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 50 114" to="360 50 114" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="20" y="104" width="10" height="10" fill="#ff1300" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 25 109" to="360 25 109" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="48" y="40" width="10" height="10" fill="#00ff67" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 53 45" to="360 53 45" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="164" y="38" width="10" height="10" fill="#ff002d" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 169 43" to="360 169 43" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="58" y="97" width="10" height="10" fill="#1eff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 63 102" to="360 63 102" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="145" y="9" width="10" height="10" fill="#ff1600" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 150 14" to="360 150 14" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="147" y="142" width="10" height="10" fill="#04ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 152 147" to="360 152 147" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="2" y="116" width="10" height="10" fill="#ff003e" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 7 121" to="360 7 121" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="127" y="120" width="10" height="10" fill="#00ffbb" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 132 125" to="360 132 125" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="77" y="9" width="10" height="10" fill="#00ff1e" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 82 14" to="360 82 14" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="22" y="77" width="10" height="10" fill="#2000ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 27 82" to="360 27 82" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="130" y="92" width="10" height="10" fill="#ff00a7" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 135 97" to="360 135 97" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="3" y="54" width="10" height="10" fill="#17ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 8 59" to="360 8 59" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="158" y="133" width="10" height="10" fill="#a600ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 163 138" to="360 163 138" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="25" y="132" width="10" height="10" fill="#00b6ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 30 137" to="360 30 137" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="138" y="119" width="10" height="10" fill="#ffd600" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 143 124" to="360 143 124" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="45" y="29" width="10" height="10" fill="#00ff4a" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 50 34" to="360 50 34" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="71" y="88" width="10" height="10" fill="#00a9ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 76 93" to="360 76 93" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="94" y="63" width="10" height="10" fill="#ff001c" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 99 68" to="360 99 68" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="1" y="188" width="10" height="10" fill="#00fffe" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 6 193" to="360 6 193" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="26" y="38" width="10" height="10" fill="#0010ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 31 43" to="360 31 43" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="44" y="134" width="10" height="10" fill="#00ff8c" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 49 139" to="360 49 139" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="88" y="154" width="10" height="10" fill="#daff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 93 159" to="360 93 159" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="11" y="72" width="10" height="10" fill="#32ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 16 77" to="360 16 77" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="43" y="13" width="10" height="10" fill="#00ffe9" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 48 18" to="360 48 18" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="10" y="2" width="10" height="10" fill="#00b1ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 15 7" to="360 15 7" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="80" y="74" width="10" height="10" fill="#ff3500" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 85 79" to="360 85 79" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="56" y="186" width="10" height="10" fill="#a400ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 61 191" to="360 61 191" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="9" y="133" width="10" height="10" fill="#ff6a00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 14 138" to="360 14 138" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="20" y="88" width="10" height="10" fill="#46ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 25 93" to="360 25 93" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="35" y="74" width="10" height="10" fill="#00ff95" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 40 79" to="360 40 79" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="108" y="189" width="10" height="10" fill="#ff0075" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 113 194" to="360 113 194" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="104" y="35" width="10" height="10" fill="#c1ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 109 40" to="360 109 40" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="173" y="83" width="10" height="10" fill="#ff00f6" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 178 88" to="360 178 88" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="172" y="136" width="10" height="10" fill="#6500ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 177 141" to="360 177 141" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="150" y="122" width="10" height="10" fill="#6fff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 155 127" to="360 155 127" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="7" y="26" width="10" height="10" fill="#ff0026" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 12 31" to="360 12 31" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="122" y="53" width="10" height="10" fill="#00b0ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 127 58" to="360 127 58" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="6" y="157" width="10" height="10" fill="#6bff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 11 162" to="360 11 162" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="99" y="24" width="10" height="10" fill="#c300ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 104 29" to="360 104 29" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="101" y="0" width="10" height="10" fill="#004bff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 106 5" to="360 106 5" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="50" y="174" width="10" height="10" fill="#2e00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 55 179" to="360 55 179" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="184" y="148" width="10" height="10" fill="#8dff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 189 153" to="360 189 153" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="133" y="6" width="10" height="10" fill="#5c00ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 138 11" to="360 138 11" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="127" y="187" width="10" height="10" fill="#ff7d00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 132 192" to="360 132 192" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="76" y="32" width="10" height="10" fill="#baff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 81 37" to="360 81 37" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="7" y="104" width="10" height="10" fill="#8500ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 12 109" to="360 12 109" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="167" y="55" width="10" height="10" fill="#ff0011" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 172 60" to="360 172 60" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="81" y="143" width="10" height="10" fill="#02ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 86 148" to="360 86 148" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="81" y="186" width="10" height="10" fill="#a4ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 86 191" to="360 86 191" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="156" y="171" width="10" height="10" fill="#00f8ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 161 176" to="360 161 176" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="176" y="30" width="10" height="10" fill="#a600ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 181 35" to="360 181 35" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="88" y="21" width="10" height="10" fill="#00f9ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 93 26" to="360 93 26" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="53" y="123" width="10" height="10" fill="#96ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 58 128" to="360 58 128" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="114" y="86" width="10" height="10" fill="#ffe300" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 119 91" to="360 119 91" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="32" y="189" width="10" height="10" fill="#4100ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 37 194" to="360 37 194" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="20" y="148" width="10" height="10" fill="#ff7500" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 25 153" to="360 25 153" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="180" y="121" width="10" height="10" fill="#00ffa5" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 185 126" to="360 185 126" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="134" y="17" width="10" height="10" fill="#4eff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 139 22" to="360 139 22" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="83" y="174" width="10" height="10" fill="#00c7ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 88 179" to="360 88 179" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="184" y="96" width="10" height="10" fill="#ff00ca" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 189 101" to="360 189 101" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="22" y="24" width="10" height="10" fill="#00ff6d" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 27 29" to="360 27 29" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="30" y="62" width="10" height="10" fill="#23ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 35 67" to="360 35 67" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="172" y="110" width="10" height="10" fill="#79ff00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 177 115" to="360 177 115" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="113" y="116" width="10" height="10" fill="#00f2ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 118 121" to="360 118 121" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="75" width="10" height="10" fill="#00ff0f" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 5 80" to="360 5 80" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="77" y="59" width="10" height="10" fill="#ffae00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 82 64" to="360 82 64" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="176" y="43" width="10" height="10" fill="#1000ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 181 48" to="360 181 48" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="53" y="146" width="10" height="10" fill="#ff00bc" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 58 151" to="360 58 151" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="38" y="177" width="10" height="10" fill="#0010ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 43 182" to="360 43 182" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="60" y="61" width="10" height="10" fill="#00ff08" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 65 66" to="360 65 66" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="118" y="97" width="10" height="10" fill="#fffd00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 123 102" to="360 123 102" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="174" y="17" width="10" height="10" fill="#ff1c00" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 179 22" to="360 179 22" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="159" y="99" width="10" height="10" fill="#ff00bf" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 164 104" to="360 164 104" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="46" y="2" width="10" height="10" fill="#ff000a" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 51 7" to="360 51 7" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="189" y="1" width="10" height="10" fill="#fff300" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 194 6" to="360 194 6" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="75" y="115" width="10" height="10" fill="#f100ff" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 80 120" to="360 80 120" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="64" y="39" width="10" height="10" fill="#00ff5c" stroke="None" stroke-width="0.5">
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 69 44" to="360 69 44" dur="5s" repeatCount="indefinite"/>
+  </rect>
+</svg>

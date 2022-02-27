@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="120" version="1.1">
+  <rect x="0" y="0" width="200" height="120" fill="none" stroke="black" stroke-width="1" opacity="0.8"/>
+  <title>draw Datafrane data</title>
+  <g opacity="1.0">
+    <style> line { stroke: black; stroke-width: 0.5;  } </style>
+    <line x1="5" y1="5.0" x2="195.0" y2="5.0"/>
+    <line x1="5" y1="27.0" x2="195.0" y2="27.0"/>
+    <line x1="5" y1="49.0" x2="195.0" y2="49.0"/>
+    <line x1="5" y1="71.0" x2="195.0" y2="71.0"/>
+    <line x1="5" y1="93.0" x2="195.0" y2="93.0"/>
+    <line x1="5" y1="115.0" x2="195.0" y2="115.0"/>
+    <line x1="5.0" y1="5" x2="5.0" y2="115.0"/>
+    <line x1="52.5" y1="5" x2="52.5" y2="115.0"/>
+    <line x1="100.0" y1="5" x2="100.0" y2="115.0"/>
+    <line x1="147.5" y1="5" x2="147.5" y2="115.0"/>
+    <line x1="195.0" y1="5" x2="195.0" y2="115.0"/>
+    <style> text { font-family: Consolas; dominant-baseline: middle; text-anchor: middle;  } </style>
+    <text font-size="14px" fill="red" x="28.75" y="38.0">0</text>
+    <text font-size="14px" fill="red" x="28.75" y="60.0">1</text>
+    <text font-size="14px" fill="red" x="28.75" y="82.0">2</text>
+    <text font-size="14px" fill="red" x="28.75" y="104.0">3</text>
+    <text font-size="14px" fill="red" x="76.25" y="16.0">Name</text>
+    <text font-size="14px" fill="red" x="123.75" y="16.0">Gender</text>
+    <text font-size="14px" fill="red" x="171.25" y="16.0">Age</text>
+    <text font-size="12px" fill="black" x="76.25" y="38.0">Tom</text>
+    <text font-size="12px" fill="black" x="123.75" y="38.0">Male</text>
+    <text font-size="12px" fill="black" x="171.25" y="38.0">28</text>
+    <text font-size="12px" fill="black" x="76.25" y="60.0">Jane</text>
+    <text font-size="12px" fill="black" x="123.75" y="60.0">Female</text>
+    <text font-size="12px" fill="black" x="171.25" y="60.0">34</text>
+    <text font-size="12px" fill="black" x="76.25" y="82.0">Steve</text>
+    <text font-size="12px" fill="black" x="123.75" y="82.0">Male</text>
+    <text font-size="12px" fill="black" x="171.25" y="82.0">29</text>
+    <text font-size="12px" fill="black" x="76.25" y="104.0">Ricky</text>
+    <text font-size="12px" fill="black" x="123.75" y="104.0">Male</text>
+    <text font-size="12px" fill="black" x="171.25" y="104.0">42</text>
+  </g>
+</svg>

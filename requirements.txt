@@ -1,0 +1,10 @@
+lxml
+numpy
+pandas
+matplotlib
+scipy
+potracer
+cairosvg
+svglib
+reportlab
+pdf2image

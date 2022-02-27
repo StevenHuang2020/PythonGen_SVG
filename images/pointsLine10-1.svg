@@ -1,0 +1,1081 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 200 200">
+  <rect x="0" y="0" width="200" height="200" fill="none" stroke="black" stroke-width="1" id="border" opacity="0.8"/>
+  <line x1="162.8" y1="186.5" x2="169.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="153.6" y1="17.3" x2="163.8" y2="20.0" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="65.0" x2="200.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="176.0" y1="47.9" x2="184.6" y2="46.2" stroke="green" stroke-width="0.5"/>
+  <line x1="61.0" y1="101.6" x2="57.3" y2="110.7" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="3.3" x2="29.3" y2="8.1" stroke="green" stroke-width="0.5"/>
+  <line x1="86.3" y1="125.3" x2="87.4" y2="138.9" stroke="green" stroke-width="0.5"/>
+  <line x1="49.2" y1="29.7" x2="57.4" y2="36.6" stroke="green" stroke-width="0.5"/>
+  <line x1="16.9" y1="146.2" x2="0.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="43.1" y1="185.0" x2="56.0" y2="172.7" stroke="green" stroke-width="0.5"/>
+  <line x1="132.7" y1="126.8" x2="134.6" y2="133.3" stroke="green" stroke-width="0.5"/>
+  <line x1="96.6" y1="31.4" x2="114.4" y2="31.1" stroke="green" stroke-width="0.5"/>
+  <line x1="123.1" y1="60.7" x2="132.8" y2="55.1" stroke="green" stroke-width="0.5"/>
+  <line x1="6.3" y1="110.6" x2="8.3" y2="126.7" stroke="green" stroke-width="0.5"/>
+  <line x1="31.6" y1="135.7" x2="31.3" y2="153.0" stroke="green" stroke-width="0.5"/>
+  <line x1="174.2" y1="59.5" x2="184.3" y2="60.0" stroke="green" stroke-width="0.5"/>
+  <line x1="87.4" y1="138.9" x2="81.4" y2="153.2" stroke="green" stroke-width="0.5"/>
+  <line x1="42.6" y1="43.1" x2="56.1" y2="42.4" stroke="green" stroke-width="0.5"/>
+  <line x1="68.2" y1="72.9" x2="81.4" y2="71.0" stroke="green" stroke-width="0.5"/>
+  <line x1="110.1" y1="159.7" x2="113.1" y2="171.3" stroke="green" stroke-width="0.5"/>
+  <line x1="127.7" y1="71.6" x2="140.0" y2="70.1" stroke="green" stroke-width="0.5"/>
+  <line x1="163.0" y1="165.9" x2="163.2" y2="178.7" stroke="green" stroke-width="0.5"/>
+  <line x1="91.0" y1="200.0" x2="104.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="152.6" y1="99.3" x2="166.2" y2="100.6" stroke="green" stroke-width="0.5"/>
+  <line x1="31.3" y1="153.0" x2="35.8" y2="166.0" stroke="green" stroke-width="0.5"/>
+  <line x1="10.2" y1="152.5" x2="0.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="56.0" y1="172.7" x2="60.7" y2="185.1" stroke="green" stroke-width="0.5"/>
+  <line x1="68.3" y1="84.3" x2="86.5" y2="84.4" stroke="green" stroke-width="0.5"/>
+  <line x1="113.1" y1="171.3" x2="110.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="195.0" y1="0.0" x2="200.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="107.9" y1="72.5" x2="123.1" y2="60.7" stroke="green" stroke-width="0.5"/>
+  <line x1="151.4" y1="108.4" x2="163.2" y2="110.2" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="117.0" x2="0.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.3" y1="95.7" x2="29.7" y2="100.4" stroke="green" stroke-width="0.5"/>
+  <line x1="100.0" y1="16.9" x2="96.6" y2="31.4" stroke="green" stroke-width="0.5"/>
+  <line x1="153.6" y1="17.3" x2="147.7" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="98.1" y1="120.9" x2="109.7" y2="122.7" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="3.3" x2="22.0" y2="16.9" stroke="green" stroke-width="0.5"/>
+  <line x1="49.2" y1="29.7" x2="42.6" y2="43.1" stroke="green" stroke-width="0.5"/>
+  <line x1="139.7" y1="110.4" x2="152.6" y2="99.3" stroke="green" stroke-width="0.5"/>
+  <line x1="174.5" y1="152.3" x2="185.0" y2="146.0" stroke="green" stroke-width="0.5"/>
+  <line x1="96.6" y1="31.4" x2="95.8" y2="42.0" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="137.8" x2="62.7" y2="133.6" stroke="green" stroke-width="0.5"/>
+  <line x1="72.9" y1="175.6" x2="82.2" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="121.5" y1="164.0" x2="134.2" y2="160.9" stroke="green" stroke-width="0.5"/>
+  <line x1="174.2" y1="59.5" x2="175.5" y2="73.9" stroke="green" stroke-width="0.5"/>
+  <line x1="42.6" y1="43.1" x2="46.5" y2="60.6" stroke="green" stroke-width="0.5"/>
+  <line x1="68.2" y1="72.9" x2="68.3" y2="84.3" stroke="green" stroke-width="0.5"/>
+  <line x1="31.6" y1="135.7" x2="44.2" y2="126.0" stroke="green" stroke-width="0.5"/>
+  <line x1="127.7" y1="71.6" x2="120.5" y2="88.3" stroke="green" stroke-width="0.5"/>
+  <line x1="113.6" y1="22.3" x2="119.7" y2="33.4" stroke="green" stroke-width="0.5"/>
+  <line x1="110.1" y1="159.7" x2="123.9" y2="152.4" stroke="green" stroke-width="0.5"/>
+  <line x1="68.3" y1="84.3" x2="74.9" y2="101.8" stroke="green" stroke-width="0.5"/>
+  <line x1="57.4" y1="36.6" x2="67.2" y2="45.2" stroke="green" stroke-width="0.5"/>
+  <line x1="56.0" y1="172.7" x2="68.1" y2="164.3" stroke="green" stroke-width="0.5"/>
+  <line x1="151.4" y1="108.4" x2="152.0" y2="121.5" stroke="green" stroke-width="0.5"/>
+  <line x1="21.3" y1="95.7" x2="21.5" y2="108.4" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="189.1" x2="195.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="20.4" y2="55.8" stroke="green" stroke-width="0.5"/>
+  <line x1="6.8" y1="190.2" x2="19.9" y2="176.4" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="36.6" x2="200.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="98.1" y1="120.9" x2="95.7" y2="134.2" stroke="green" stroke-width="0.5"/>
+  <line x1="100.0" y1="16.9" x2="112.3" y2="10.6" stroke="green" stroke-width="0.5"/>
+  <line x1="174.5" y1="152.3" x2="179.8" y2="162.7" stroke="green" stroke-width="0.5"/>
+  <line x1="166.2" y1="100.6" x2="178.2" y2="106.7" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="137.8" x2="42.9" y2="149.5" stroke="green" stroke-width="0.5"/>
+  <line x1="29.2" y1="85.7" x2="41.3" y2="98.2" stroke="green" stroke-width="0.5"/>
+  <line x1="49.2" y1="29.7" x2="54.4" y2="16.3" stroke="green" stroke-width="0.5"/>
+  <line x1="86.5" y1="84.4" x2="94.0" y2="96.7" stroke="green" stroke-width="0.5"/>
+  <line x1="121.5" y1="164.0" x2="120.6" y2="178.9" stroke="green" stroke-width="0.5"/>
+  <line x1="107.5" y1="111.0" x2="120.8" y2="125.1" stroke="green" stroke-width="0.5"/>
+  <line x1="179.8" y1="162.7" x2="171.4" y2="178.5" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="104.0" x2="200.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="20.2" y1="82.7" x2="29.2" y2="85.7" stroke="green" stroke-width="0.5"/>
+  <line x1="176.9" y1="192.6" x2="182.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="93.5" y1="107.2" x2="107.5" y2="111.0" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="152.0" x2="151.1" y2="158.9" stroke="green" stroke-width="0.5"/>
+  <line x1="2.4" y1="135.9" x2="16.9" y2="146.2" stroke="green" stroke-width="0.5"/>
+  <line x1="152.6" y1="99.3" x2="161.1" y2="85.9" stroke="green" stroke-width="0.5"/>
+  <line x1="179.6" y1="135.3" x2="184.4" y2="133.3" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="126.0" x2="57.9" y2="121.8" stroke="green" stroke-width="0.5"/>
+  <line x1="186.3" y1="123.5" x2="200.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="20.0" x2="160.8" y2="30.7" stroke="green" stroke-width="0.5"/>
+  <line x1="134.2" y1="160.9" x2="147.9" y2="173.1" stroke="green" stroke-width="0.5"/>
+  <line x1="123.9" y1="152.4" x2="137.8" y2="152.0" stroke="green" stroke-width="0.5"/>
+  <line x1="130.0" y1="200.0" x2="143.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="31.2" y1="172.9" x2="43.1" y2="185.0" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="0.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="88.6" y1="173.8" x2="99.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="68.1" y1="164.3" x2="82.0" y2="161.9" stroke="green" stroke-width="0.5"/>
+  <line x1="184.3" y1="60.0" x2="191.3" y2="67.4" stroke="green" stroke-width="0.5"/>
+  <line x1="191.5" y1="177.2" x2="200.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="143.0" y1="0.0" x2="156.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="150.8" y1="190.0" x2="162.8" y2="186.5" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="156.0" x2="0.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="19.9" y1="176.4" x2="31.2" y2="172.9" stroke="green" stroke-width="0.5"/>
+  <line x1="72.9" y1="175.6" x2="88.6" y2="173.8" stroke="green" stroke-width="0.5"/>
+  <line x1="112.3" y1="10.6" x2="120.1" y2="7.2" stroke="green" stroke-width="0.5"/>
+  <line x1="184.8" y1="80.5" x2="200.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="20.2" y1="82.7" x2="21.3" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="163.9" y1="8.1" x2="171.8" y2="9.0" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="156.0" x2="200.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="23.7" y1="192.6" x2="34.3" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="93.5" y1="107.2" x2="98.1" y2="120.9" stroke="green" stroke-width="0.5"/>
+  <line x1="54.4" y1="16.3" x2="71.0" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="113.6" y1="22.3" x2="122.8" y2="15.4" stroke="green" stroke-width="0.5"/>
+  <line x1="136.9" y1="44.1" x2="150.3" y2="43.5" stroke="green" stroke-width="0.5"/>
+  <line x1="179.6" y1="135.3" x2="174.5" y2="152.3" stroke="green" stroke-width="0.5"/>
+  <line x1="182.0" y1="0.0" x2="195.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="3.6" y1="33.3" x2="19.1" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="126.0" x2="44.2" y2="137.8" stroke="green" stroke-width="0.5"/>
+  <line x1="57.4" y1="36.6" x2="75.5" y2="29.9" stroke="green" stroke-width="0.5"/>
+  <line x1="2.4" y1="135.9" x2="0.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="123.9" y1="152.4" x2="121.5" y2="164.0" stroke="green" stroke-width="0.5"/>
+  <line x1="84.6" y1="61.1" x2="95.3" y2="61.7" stroke="green" stroke-width="0.5"/>
+  <line x1="132.8" y1="55.1" x2="153.4" y2="58.8" stroke="green" stroke-width="0.5"/>
+  <line x1="182.0" y1="200.0" x2="195.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="22.8" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="68.1" y1="164.3" x2="72.9" y2="175.6" stroke="green" stroke-width="0.5"/>
+  <line x1="35.2" y1="74.8" x2="48.1" y2="75.8" stroke="green" stroke-width="0.5"/>
+  <line x1="81.4" y1="71.0" x2="99.3" y2="68.7" stroke="green" stroke-width="0.5"/>
+  <line x1="127.8" y1="110.1" x2="132.7" y2="126.8" stroke="green" stroke-width="0.5"/>
+  <line x1="114.1" y1="99.0" x2="125.0" y2="97.2" stroke="green" stroke-width="0.5"/>
+  <line x1="191.3" y1="67.4" x2="200.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="13.0" y1="0.0" x2="26.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="19.9" y1="176.4" x2="23.7" y2="192.6" stroke="green" stroke-width="0.5"/>
+  <line x1="166.2" y1="100.6" x2="171.5" y2="95.2" stroke="green" stroke-width="0.5"/>
+  <line x1="8.3" y1="126.7" x2="16.1" y2="136.7" stroke="green" stroke-width="0.5"/>
+  <line x1="29.2" y1="85.7" x2="43.2" y2="84.2" stroke="green" stroke-width="0.5"/>
+  <line x1="72.9" y1="175.6" x2="71.2" y2="192.1" stroke="green" stroke-width="0.5"/>
+  <line x1="57.3" y1="110.7" x2="71.8" y2="114.8" stroke="green" stroke-width="0.5"/>
+  <line x1="112.3" y1="10.6" x2="113.6" y2="22.3" stroke="green" stroke-width="0.5"/>
+  <line x1="163.9" y1="8.1" x2="163.8" y2="20.0" stroke="green" stroke-width="0.5"/>
+  <line x1="107.5" y1="111.0" x2="127.8" y2="110.1" stroke="green" stroke-width="0.5"/>
+  <line x1="13.0" y1="200.0" x2="26.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="134.6" y1="133.3" x2="149.2" y2="132.3" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="26.0" x2="200.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="54.4" y1="16.3" x2="57.4" y2="36.6" stroke="green" stroke-width="0.5"/>
+  <line x1="71.6" y1="9.2" x2="65.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="35.8" y1="166.0" x2="46.0" y2="171.5" stroke="green" stroke-width="0.5"/>
+  <line x1="57.9" y1="121.8" x2="68.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="113.6" y1="22.3" x2="114.4" y2="31.1" stroke="green" stroke-width="0.5"/>
+  <line x1="136.9" y1="44.1" x2="132.8" y2="55.1" stroke="green" stroke-width="0.5"/>
+  <line x1="191.8" y1="109.2" x2="200.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="81.4" y1="153.2" x2="93.4" y2="148.0" stroke="green" stroke-width="0.5"/>
+  <line x1="3.6" y1="33.3" x2="10.7" y2="47.4" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="152.0" x2="153.3" y2="150.1" stroke="green" stroke-width="0.5"/>
+  <line x1="184.6" y1="46.2" x2="184.3" y2="60.0" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="39.0" x2="0.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="57.4" y1="36.6" x2="56.1" y2="42.4" stroke="green" stroke-width="0.5"/>
+  <line x1="2.4" y1="135.9" x2="16.1" y2="136.7" stroke="green" stroke-width="0.5"/>
+  <line x1="84.6" y1="61.1" x2="81.4" y2="71.0" stroke="green" stroke-width="0.5"/>
+  <line x1="3.6" y1="33.3" x2="0.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.6" y1="9.2" x2="88.3" y2="19.9" stroke="green" stroke-width="0.5"/>
+  <line x1="132.8" y1="55.1" x2="140.0" y2="70.1" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="161.9" x2="98.3" y2="163.3" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="8.0" y2="55.2" stroke="green" stroke-width="0.5"/>
+  <line x1="35.2" y1="74.8" x2="29.2" y2="85.7" stroke="green" stroke-width="0.5"/>
+  <line x1="187.0" y1="166.7" x2="200.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="162.8" y1="186.5" x2="176.9" y2="192.6" stroke="green" stroke-width="0.5"/>
+  <line x1="81.4" y1="71.0" x2="86.5" y2="84.4" stroke="green" stroke-width="0.5"/>
+  <line x1="31.2" y1="172.9" x2="46.0" y2="171.5" stroke="green" stroke-width="0.5"/>
+  <line x1="8.7" y1="176.6" x2="0.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="114.1" y1="99.0" x2="107.5" y2="111.0" stroke="green" stroke-width="0.5"/>
+  <line x1="95.8" y1="42.0" x2="106.2" y2="57.7" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="6.3" x2="78.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="166.2" y1="100.6" x2="163.2" y2="110.2" stroke="green" stroke-width="0.5"/>
+  <line x1="65.0" y1="0.0" x2="78.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.2" y1="85.7" x2="29.7" y2="100.4" stroke="green" stroke-width="0.5"/>
+  <line x1="191.3" y1="67.4" x2="200.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="57.3" y1="110.7" x2="57.9" y2="121.8" stroke="green" stroke-width="0.5"/>
+  <line x1="150.8" y1="190.0" x2="163.2" y2="178.7" stroke="green" stroke-width="0.5"/>
+  <line x1="46.5" y1="60.6" x2="54.5" y2="73.4" stroke="green" stroke-width="0.5"/>
+  <line x1="107.5" y1="111.0" x2="109.7" y2="122.7" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="23.5" x2="88.3" y2="19.9" stroke="green" stroke-width="0.5"/>
+  <line x1="134.6" y1="133.3" x2="137.8" y2="152.0" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="200.0" x2="0.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.3" y1="8.1" x2="39.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="184.4" y1="133.3" x2="185.0" y2="146.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="13.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="58.9" x2="86.0" y2="43.0" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="78.0" x2="200.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="57.9" y1="121.8" x2="62.7" y2="133.6" stroke="green" stroke-width="0.5"/>
+  <line x1="150.3" y1="43.5" x2="160.9" y2="42.6" stroke="green" stroke-width="0.5"/>
+  <line x1="179.0" y1="81.4" x2="191.1" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="81.4" y1="153.2" x2="82.0" y2="161.9" stroke="green" stroke-width="0.5"/>
+  <line x1="48.1" y1="75.8" x2="57.3" y2="86.6" stroke="green" stroke-width="0.5"/>
+  <line x1="74.9" y1="101.8" x2="83.7" y2="110.6" stroke="green" stroke-width="0.5"/>
+  <line x1="54.4" y1="16.3" x2="71.6" y2="9.2" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="152.0" x2="134.2" y2="160.9" stroke="green" stroke-width="0.5"/>
+  <line x1="21.4" y1="71.6" x2="29.2" y2="58.3" stroke="green" stroke-width="0.5"/>
+  <line x1="122.8" y1="15.4" x2="130.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="161.9" x2="88.6" y2="173.8" stroke="green" stroke-width="0.5"/>
+  <line x1="71.8" y1="114.8" x2="86.3" y2="125.3" stroke="green" stroke-width="0.5"/>
+  <line x1="6.8" y1="190.2" x2="13.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="42.7" y1="109.0" x2="61.0" y2="101.6" stroke="green" stroke-width="0.5"/>
+  <line x1="31.2" y1="172.9" x2="34.3" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="19.7" y1="122.3" x2="31.6" y2="135.7" stroke="green" stroke-width="0.5"/>
+  <line x1="35.2" y1="74.8" x2="46.5" y2="60.6" stroke="green" stroke-width="0.5"/>
+  <line x1="120.1" y1="7.2" x2="122.8" y2="15.4" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="3.3" x2="26.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="114.1" y1="99.0" x2="120.5" y2="88.3" stroke="green" stroke-width="0.5"/>
+  <line x1="171.4" y1="178.5" x2="188.9" y2="189.1" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="23.5" x2="75.5" y2="29.9" stroke="green" stroke-width="0.5"/>
+  <line x1="8.3" y1="126.7" x2="19.7" y2="122.3" stroke="green" stroke-width="0.5"/>
+  <line x1="44.3" y1="165.7" x2="56.0" y2="172.7" stroke="green" stroke-width="0.5"/>
+  <line x1="150.3" y1="43.5" x2="153.4" y2="58.8" stroke="green" stroke-width="0.5"/>
+  <line x1="18.5" y1="159.3" x2="31.3" y2="153.0" stroke="green" stroke-width="0.5"/>
+  <line x1="35.8" y1="166.0" x2="44.3" y2="165.7" stroke="green" stroke-width="0.5"/>
+  <line x1="140.6" y1="5.7" x2="153.6" y2="17.3" stroke="green" stroke-width="0.5"/>
+  <line x1="110.4" y1="190.8" x2="120.5" y2="190.4" stroke="green" stroke-width="0.5"/>
+  <line x1="52.0" y1="200.0" x2="65.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.6" y1="9.2" x2="82.0" y2="6.3" stroke="green" stroke-width="0.5"/>
+  <line x1="110.2" y1="45.0" x2="123.1" y2="60.7" stroke="green" stroke-width="0.5"/>
+  <line x1="112.3" y1="10.6" x2="104.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="186.3" y1="123.5" x2="200.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="160.9" y1="42.6" x2="174.2" y2="59.5" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="78.0" x2="0.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="22.0" y1="16.9" x2="31.5" y2="19.4" stroke="green" stroke-width="0.5"/>
+  <line x1="58.2" y1="56.8" x2="68.2" y2="72.9" stroke="green" stroke-width="0.5"/>
+  <line x1="95.8" y1="42.0" x2="110.2" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="8.3" y1="126.7" x2="2.4" y2="135.9" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="20.2" y2="82.7" stroke="green" stroke-width="0.5"/>
+  <line x1="46.5" y1="60.6" x2="58.2" y2="56.8" stroke="green" stroke-width="0.5"/>
+  <line x1="80.9" y1="94.1" x2="93.5" y2="107.2" stroke="green" stroke-width="0.5"/>
+  <line x1="161.1" y1="85.9" x2="175.5" y2="73.9" stroke="green" stroke-width="0.5"/>
+  <line x1="95.3" y1="61.7" x2="106.2" y2="57.7" stroke="green" stroke-width="0.5"/>
+  <line x1="8.3" y1="126.7" x2="0.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="104.0" y1="0.0" x2="117.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="35.8" y1="166.0" x2="31.2" y2="172.9" stroke="green" stroke-width="0.5"/>
+  <line x1="153.6" y1="17.3" x2="156.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="179.0" y1="81.4" x2="184.8" y2="80.5" stroke="green" stroke-width="0.5"/>
+  <line x1="120.1" y1="7.2" x2="117.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.1" y1="88.8" x2="0.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="98.2" y1="3.0" x2="91.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="74.9" y1="101.8" x2="80.9" y2="94.1" stroke="green" stroke-width="0.5"/>
+  <line x1="188.5" y1="2.4" x2="195.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="34.3" y1="184.7" x2="39.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.9" y1="8.1" x2="169.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="125.0" y1="97.2" x2="134.8" y2="99.2" stroke="green" stroke-width="0.5"/>
+  <line x1="104.0" y1="200.0" x2="117.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="159.7" y1="139.6" x2="174.5" y2="152.3" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="117.0" x2="200.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.5" y1="108.4" x2="33.4" y2="111.2" stroke="green" stroke-width="0.5"/>
+  <line x1="71.6" y1="9.2" x2="71.0" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="71.8" y1="114.8" x2="83.7" y2="110.6" stroke="green" stroke-width="0.5"/>
+  <line x1="95.7" y1="134.2" x2="113.8" y2="133.2" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="189.1" x2="200.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="22.0" y1="16.9" x2="19.1" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="149.2" y1="132.3" x2="159.7" y2="139.6" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="130.0" x2="0.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="95.8" y1="42.0" x2="95.3" y2="61.7" stroke="green" stroke-width="0.5"/>
+  <line x1="42.9" y1="149.5" x2="60.4" y2="151.5" stroke="green" stroke-width="0.5"/>
+  <line x1="93.4" y1="148.0" x2="108.3" y2="153.1" stroke="green" stroke-width="0.5"/>
+  <line x1="191.1" y1="95.7" x2="200.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="143.0" y1="200.0" x2="156.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="46.5" y1="60.6" x2="48.1" y2="75.8" stroke="green" stroke-width="0.5"/>
+  <line x1="171.4" y1="178.5" x2="191.5" y2="177.2" stroke="green" stroke-width="0.5"/>
+  <line x1="23.7" y1="192.6" x2="26.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="171.8" y1="9.0" x2="182.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="147.7" y1="29.7" x2="160.8" y2="30.7" stroke="green" stroke-width="0.5"/>
+  <line x1="95.3" y1="61.7" x2="99.3" y2="68.7" stroke="green" stroke-width="0.5"/>
+  <line x1="44.3" y1="165.7" x2="61.7" y2="162.5" stroke="green" stroke-width="0.5"/>
+  <line x1="71.2" y1="192.1" x2="82.2" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="120.5" y1="190.4" x2="133.4" y2="186.9" stroke="green" stroke-width="0.5"/>
+  <line x1="179.0" y1="81.4" x2="171.5" y2="95.2" stroke="green" stroke-width="0.5"/>
+  <line x1="156.0" y1="0.0" x2="169.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="176.2" y1="30.3" x2="184.6" y2="46.2" stroke="green" stroke-width="0.5"/>
+  <line x1="48.1" y1="75.8" x2="43.2" y2="84.2" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="169.0" x2="0.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.3" y1="8.1" x2="43.2" y2="9.9" stroke="green" stroke-width="0.5"/>
+  <line x1="74.9" y1="101.8" x2="71.8" y2="114.8" stroke="green" stroke-width="0.5"/>
+  <line x1="35.8" y1="166.0" x2="42.9" y2="149.5" stroke="green" stroke-width="0.5"/>
+  <line x1="125.0" y1="97.2" x2="127.8" y2="110.1" stroke="green" stroke-width="0.5"/>
+  <line x1="175.5" y1="73.9" x2="191.3" y2="67.4" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="6.3" x2="98.2" y2="3.0" stroke="green" stroke-width="0.5"/>
+  <line x1="191.8" y1="109.2" x2="200.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.5" y1="108.4" x2="19.7" y2="122.3" stroke="green" stroke-width="0.5"/>
+  <line x1="110.4" y1="190.8" x2="120.6" y2="178.9" stroke="green" stroke-width="0.5"/>
+  <line x1="160.8" y1="30.7" x2="176.2" y2="30.3" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="169.0" x2="200.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.8" y1="114.8" x2="68.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="120.5" y1="88.3" x2="137.8" y2="87.7" stroke="green" stroke-width="0.5"/>
+  <line x1="95.7" y1="134.2" x2="93.4" y2="148.0" stroke="green" stroke-width="0.5"/>
+  <line x1="110.2" y1="45.0" x2="124.2" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="149.2" y1="132.3" x2="153.3" y2="150.1" stroke="green" stroke-width="0.5"/>
+  <line x1="19.7" y1="122.3" x2="16.1" y2="136.7" stroke="green" stroke-width="0.5"/>
+  <line x1="42.9" y1="149.5" x2="44.3" y2="165.7" stroke="green" stroke-width="0.5"/>
+  <line x1="22.0" y1="16.9" x2="29.3" y2="8.1" stroke="green" stroke-width="0.5"/>
+  <line x1="110.4" y1="190.8" x2="104.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="58.2" y1="56.8" x2="71.0" y2="58.9" stroke="green" stroke-width="0.5"/>
+  <line x1="93.4" y1="148.0" x2="98.3" y2="163.3" stroke="green" stroke-width="0.5"/>
+  <line x1="152.0" y1="121.5" x2="163.8" y2="120.4" stroke="green" stroke-width="0.5"/>
+  <line x1="8.7" y1="176.6" x2="0.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="171.4" y1="178.5" x2="176.9" y2="192.6" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="87.7" x2="150.5" y2="88.6" stroke="green" stroke-width="0.5"/>
+  <line x1="61.0" y1="101.6" x2="68.3" y2="84.3" stroke="green" stroke-width="0.5"/>
+  <line x1="147.7" y1="29.7" x2="150.3" y2="43.5" stroke="green" stroke-width="0.5"/>
+  <line x1="44.3" y1="165.7" x2="46.0" y2="171.5" stroke="green" stroke-width="0.5"/>
+  <line x1="147.5" y1="3.2" x2="143.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="111.2" x2="44.2" y2="126.0" stroke="green" stroke-width="0.5"/>
+  <line x1="62.7" y1="133.6" x2="68.5" y2="153.3" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="0.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="80.9" y1="94.1" x2="94.0" y2="96.7" stroke="green" stroke-width="0.5"/>
+  <line x1="179.8" y1="162.7" x2="187.0" y2="166.7" stroke="green" stroke-width="0.5"/>
+  <line x1="29.3" y1="8.1" x2="31.5" y2="19.4" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="120.4" x2="171.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="10.2" y1="152.5" x2="18.5" y2="159.3" stroke="green" stroke-width="0.5"/>
+  <line x1="120.6" y1="178.9" x2="133.5" y2="174.7" stroke="green" stroke-width="0.5"/>
+  <line x1="175.5" y1="73.9" x2="179.0" y2="81.4" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="6.3" x2="88.3" y2="19.9" stroke="green" stroke-width="0.5"/>
+  <line x1="163.0" y1="165.9" x2="174.5" y2="152.3" stroke="green" stroke-width="0.5"/>
+  <line x1="160.8" y1="30.7" x2="160.9" y2="42.6" stroke="green" stroke-width="0.5"/>
+  <line x1="120.5" y1="88.3" x2="125.0" y2="97.2" stroke="green" stroke-width="0.5"/>
+  <line x1="120.5" y1="190.4" x2="117.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="31.5" y1="19.4" x2="28.9" y2="35.8" stroke="green" stroke-width="0.5"/>
+  <line x1="4.9" y1="165.7" x2="19.9" y2="176.4" stroke="green" stroke-width="0.5"/>
+  <line x1="113.1" y1="171.3" x2="121.5" y2="164.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.5" y1="108.4" x2="29.7" y2="100.4" stroke="green" stroke-width="0.5"/>
+  <line x1="110.2" y1="45.0" x2="106.2" y2="57.7" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="20.0" x2="175.0" y2="16.2" stroke="green" stroke-width="0.5"/>
+  <line x1="185.0" y1="146.0" x2="200.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="95.7" y1="134.2" x2="109.7" y2="122.7" stroke="green" stroke-width="0.5"/>
+  <line x1="100.0" y1="16.9" x2="113.6" y2="22.3" stroke="green" stroke-width="0.5"/>
+  <line x1="191.3" y1="67.4" x2="184.8" y2="80.5" stroke="green" stroke-width="0.5"/>
+  <line x1="140.6" y1="5.7" x2="130.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="60.7" y1="185.1" x2="72.9" y2="175.6" stroke="green" stroke-width="0.5"/>
+  <line x1="71.2" y1="192.1" x2="78.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="58.2" y1="56.8" x2="54.5" y2="73.4" stroke="green" stroke-width="0.5"/>
+  <line x1="152.0" y1="121.5" x2="149.2" y2="132.3" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="9.9" x2="54.4" y2="16.3" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="0.0" x2="0.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="43.1" y1="185.0" x2="52.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="114.4" y1="31.1" x2="119.7" y2="33.4" stroke="green" stroke-width="0.5"/>
+  <line x1="153.6" y1="17.3" x2="163.9" y2="8.1" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="87.7" x2="134.8" y2="99.2" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="4.1" y2="88.8" stroke="green" stroke-width="0.5"/>
+  <line x1="22.8" y1="45.0" x2="29.2" y2="58.3" stroke="green" stroke-width="0.5"/>
+  <line x1="96.6" y1="31.4" x2="113.6" y2="22.3" stroke="green" stroke-width="0.5"/>
+  <line x1="80.9" y1="94.1" x2="83.7" y2="110.6" stroke="green" stroke-width="0.5"/>
+  <line x1="133.4" y1="186.9" x2="130.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="120.4" x2="159.7" y2="139.6" stroke="green" stroke-width="0.5"/>
+  <line x1="147.8" y1="70.7" x2="161.1" y2="85.9" stroke="green" stroke-width="0.5"/>
+  <line x1="120.6" y1="178.9" x2="120.5" y2="190.4" stroke="green" stroke-width="0.5"/>
+  <line x1="6.3" y1="110.6" x2="0.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="127.7" y1="71.6" x2="132.8" y2="55.1" stroke="green" stroke-width="0.5"/>
+  <line x1="56.1" y1="42.4" x2="67.2" y2="45.2" stroke="green" stroke-width="0.5"/>
+  <line x1="100.1" y1="86.7" x2="114.1" y2="99.0" stroke="green" stroke-width="0.5"/>
+  <line x1="175.5" y1="73.9" x2="184.3" y2="60.0" stroke="green" stroke-width="0.5"/>
+  <line x1="188.5" y1="2.4" x2="200.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="187.0" y1="166.7" x2="191.5" y2="177.2" stroke="green" stroke-width="0.5"/>
+  <line x1="60.7" y1="185.1" x2="65.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="68.3" y1="84.3" x2="81.4" y2="71.0" stroke="green" stroke-width="0.5"/>
+  <line x1="178.2" y1="106.7" x2="186.3" y2="123.5" stroke="green" stroke-width="0.5"/>
+  <line x1="8.0" y1="55.2" x2="20.4" y2="55.8" stroke="green" stroke-width="0.5"/>
+  <line x1="4.9" y1="165.7" x2="0.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.3" y1="95.7" x2="29.2" y2="85.7" stroke="green" stroke-width="0.5"/>
+  <line x1="114.4" y1="31.1" x2="110.2" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="98.1" y1="120.9" x2="107.5" y2="111.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.7" y1="100.4" x2="41.3" y2="98.2" stroke="green" stroke-width="0.5"/>
+  <line x1="74.0" y1="132.8" x2="81.4" y2="153.2" stroke="green" stroke-width="0.5"/>
+  <line x1="152.0" y1="121.5" x2="163.2" y2="110.2" stroke="green" stroke-width="0.5"/>
+  <line x1="26.0" y1="0.0" x2="39.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="62.7" y1="133.6" x2="74.0" y2="132.8" stroke="green" stroke-width="0.5"/>
+  <line x1="96.4" y1="172.9" x2="110.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="179.8" y1="162.7" x2="185.0" y2="146.0" stroke="green" stroke-width="0.5"/>
+  <line x1="150.8" y1="190.0" x2="143.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="26.0" y1="200.0" x2="39.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="39.0" x2="200.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="56.1" y1="42.4" x2="58.2" y2="56.8" stroke="green" stroke-width="0.5"/>
+  <line x1="10.2" y1="152.5" x2="16.9" y2="146.2" stroke="green" stroke-width="0.5"/>
+  <line x1="184.4" y1="133.3" x2="200.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="135.9" y1="23.5" x2="147.7" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="8.0" y1="55.2" x2="8.4" y2="70.8" stroke="green" stroke-width="0.5"/>
+  <line x1="163.9" y1="8.1" x2="156.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="52.0" x2="0.0" y2="65.0" stroke="green" stroke-width="0.5"/>
+  <line x1="34.3" y1="184.7" x2="43.1" y2="185.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="20.0" x2="171.8" y2="9.0" stroke="green" stroke-width="0.5"/>
+  <line x1="184.6" y1="46.2" x2="200.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="65.0" y1="200.0" x2="78.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.7" y1="100.4" x2="33.4" y2="111.2" stroke="green" stroke-width="0.5"/>
+  <line x1="175.0" y1="16.2" x2="185.1" y2="20.7" stroke="green" stroke-width="0.5"/>
+  <line x1="6.8" y1="190.2" x2="0.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="140.0" y1="70.1" x2="147.8" y2="70.7" stroke="green" stroke-width="0.5"/>
+  <line x1="162.8" y1="186.5" x2="156.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="78.0" y1="0.0" x2="91.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="86.5" y1="84.4" x2="100.1" y2="86.7" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="91.0" x2="0.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="62.7" y1="133.6" x2="60.4" y2="151.5" stroke="green" stroke-width="0.5"/>
+  <line x1="22.8" y1="45.0" x2="34.9" y2="45.5" stroke="green" stroke-width="0.5"/>
+  <line x1="4.0" y1="98.8" x2="0.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="113.8" y1="133.2" x2="108.3" y2="153.1" stroke="green" stroke-width="0.5"/>
+  <line x1="171.8" y1="9.0" x2="169.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.2" y1="110.2" x2="178.2" y2="106.7" stroke="green" stroke-width="0.5"/>
+  <line x1="10.2" y1="152.5" x2="4.9" y2="165.7" stroke="green" stroke-width="0.5"/>
+  <line x1="147.8" y1="70.7" x2="161.2" y2="71.9" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="91.0" x2="200.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="109.7" y1="122.7" x2="120.8" y2="125.1" stroke="green" stroke-width="0.5"/>
+  <line x1="133.5" y1="174.7" x2="133.4" y2="186.9" stroke="green" stroke-width="0.5"/>
+  <line x1="10.2" y1="152.5" x2="0.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="117.0" y1="0.0" x2="130.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="178.2" y1="106.7" x2="191.8" y2="109.2" stroke="green" stroke-width="0.5"/>
+  <line x1="134.2" y1="160.9" x2="151.1" y2="158.9" stroke="green" stroke-width="0.5"/>
+  <line x1="8.0" y1="55.2" x2="0.0" y2="65.0" stroke="green" stroke-width="0.5"/>
+  <line x1="120.8" y1="125.1" x2="132.7" y2="126.8" stroke="green" stroke-width="0.5"/>
+  <line x1="175.0" y1="16.2" x2="176.2" y2="30.3" stroke="green" stroke-width="0.5"/>
+  <line x1="117.0" y1="200.0" x2="130.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="140.0" y1="70.1" x2="137.8" y2="87.7" stroke="green" stroke-width="0.5"/>
+  <line x1="88.6" y1="173.8" x2="96.4" y2="172.9" stroke="green" stroke-width="0.5"/>
+  <line x1="99.4" y1="190.8" x2="104.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="119.7" y1="33.4" x2="124.2" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="86.5" y1="84.4" x2="80.9" y2="94.1" stroke="green" stroke-width="0.5"/>
+  <line x1="22.8" y1="45.0" x2="20.4" y2="55.8" stroke="green" stroke-width="0.5"/>
+  <line x1="151.1" y1="158.9" x2="163.0" y2="165.9" stroke="green" stroke-width="0.5"/>
+  <line x1="72.9" y1="175.6" x2="82.0" y2="161.9" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="143.0" x2="0.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="122.8" y1="15.4" x2="135.9" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="163.2" y1="110.2" x2="163.8" y2="120.4" stroke="green" stroke-width="0.5"/>
+  <line x1="96.4" y1="172.9" x2="113.1" y2="171.3" stroke="green" stroke-width="0.5"/>
+  <line x1="147.8" y1="70.7" x2="150.5" y2="88.6" stroke="green" stroke-width="0.5"/>
+  <line x1="75.5" y1="29.9" x2="80.9" y2="36.8" stroke="green" stroke-width="0.5"/>
+  <line x1="109.7" y1="122.7" x2="113.8" y2="133.2" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="22.0" y2="16.9" stroke="green" stroke-width="0.5"/>
+  <line x1="185.0" y1="146.0" x2="187.0" y2="166.7" stroke="green" stroke-width="0.5"/>
+  <line x1="100.1" y1="86.7" x2="94.0" y2="96.7" stroke="green" stroke-width="0.5"/>
+  <line x1="153.4" y1="58.8" x2="158.8" y2="62.3" stroke="green" stroke-width="0.5"/>
+  <line x1="135.9" y1="23.5" x2="153.6" y2="17.3" stroke="green" stroke-width="0.5"/>
+  <line x1="178.2" y1="106.7" x2="171.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="57.4" y1="36.6" x2="71.0" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="134.2" y1="160.9" x2="133.5" y2="174.7" stroke="green" stroke-width="0.5"/>
+  <line x1="99.3" y1="68.7" x2="107.9" y2="72.5" stroke="green" stroke-width="0.5"/>
+  <line x1="34.9" y1="45.5" x2="46.5" y2="60.6" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="189.1" x2="182.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="120.8" y1="125.1" x2="123.8" y2="138.2" stroke="green" stroke-width="0.5"/>
+  <line x1="171.5" y1="95.2" x2="191.1" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="19.1" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="84.2" x2="57.3" y2="86.6" stroke="green" stroke-width="0.5"/>
+  <line x1="88.6" y1="173.8" x2="82.2" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="81.4" y1="71.0" x2="95.3" y2="61.7" stroke="green" stroke-width="0.5"/>
+  <line x1="74.0" y1="132.8" x2="68.5" y2="153.3" stroke="green" stroke-width="0.5"/>
+  <line x1="171.8" y1="9.0" x2="175.0" y2="16.2" stroke="green" stroke-width="0.5"/>
+  <line x1="127.8" y1="110.1" x2="139.7" y2="110.4" stroke="green" stroke-width="0.5"/>
+  <line x1="140.0" y1="70.1" x2="153.4" y2="58.8" stroke="green" stroke-width="0.5"/>
+  <line x1="151.1" y1="158.9" x2="147.9" y2="173.1" stroke="green" stroke-width="0.5"/>
+  <line x1="139.7" y1="110.4" x2="152.0" y2="121.5" stroke="green" stroke-width="0.5"/>
+  <line x1="122.8" y1="15.4" x2="119.7" y2="33.4" stroke="green" stroke-width="0.5"/>
+  <line x1="4.0" y1="98.8" x2="21.5" y2="108.4" stroke="green" stroke-width="0.5"/>
+  <line x1="98.3" y1="163.3" x2="113.1" y2="171.3" stroke="green" stroke-width="0.5"/>
+  <line x1="86.5" y1="84.4" x2="99.3" y2="68.7" stroke="green" stroke-width="0.5"/>
+  <line x1="96.4" y1="172.9" x2="99.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="86.3" y1="125.3" x2="95.7" y2="134.2" stroke="green" stroke-width="0.5"/>
+  <line x1="75.5" y1="29.9" x2="67.2" y2="45.2" stroke="green" stroke-width="0.5"/>
+  <line x1="188.5" y1="2.4" x2="185.1" y2="20.7" stroke="green" stroke-width="0.5"/>
+  <line x1="57.9" y1="121.8" x2="71.8" y2="114.8" stroke="green" stroke-width="0.5"/>
+  <line x1="153.4" y1="58.8" x2="147.8" y2="70.7" stroke="green" stroke-width="0.5"/>
+  <line x1="31.6" y1="135.7" x2="42.9" y2="149.5" stroke="green" stroke-width="0.5"/>
+  <line x1="176.9" y1="192.6" x2="169.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="152.0" x2="149.2" y2="132.3" stroke="green" stroke-width="0.5"/>
+  <line x1="135.9" y1="23.5" x2="136.6" y2="35.7" stroke="green" stroke-width="0.5"/>
+  <line x1="99.3" y1="68.7" x2="100.1" y2="86.7" stroke="green" stroke-width="0.5"/>
+  <line x1="88.3" y1="19.9" x2="96.6" y2="31.4" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="161.9" x2="93.4" y2="148.0" stroke="green" stroke-width="0.5"/>
+  <line x1="171.5" y1="95.2" x2="178.2" y2="106.7" stroke="green" stroke-width="0.5"/>
+  <line x1="16.1" y1="136.7" x2="31.6" y2="135.7" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="84.2" x2="41.3" y2="98.2" stroke="green" stroke-width="0.5"/>
+  <line x1="28.9" y1="35.8" x2="42.6" y2="43.1" stroke="green" stroke-width="0.5"/>
+  <line x1="162.8" y1="186.5" x2="171.4" y2="178.5" stroke="green" stroke-width="0.5"/>
+  <line x1="127.8" y1="110.1" x2="120.8" y2="125.1" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="36.6" x2="200.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="88.6" y1="173.8" x2="98.3" y2="163.3" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="29.7" x2="28.9" y2="35.8" stroke="green" stroke-width="0.5"/>
+  <line x1="54.5" y1="73.4" x2="68.3" y2="84.3" stroke="green" stroke-width="0.5"/>
+  <line x1="156.0" y1="200.0" x2="169.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="176.0" y1="47.9" x2="184.3" y2="60.0" stroke="green" stroke-width="0.5"/>
+  <line x1="49.2" y1="29.7" x2="56.1" y2="42.4" stroke="green" stroke-width="0.5"/>
+  <line x1="122.8" y1="15.4" x2="140.6" y2="5.7" stroke="green" stroke-width="0.5"/>
+  <line x1="4.1" y1="88.8" x2="21.3" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="150.3" y1="43.5" x2="160.8" y2="30.7" stroke="green" stroke-width="0.5"/>
+  <line x1="184.8" y1="80.5" x2="200.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="48.1" y1="75.8" x2="54.5" y2="73.4" stroke="green" stroke-width="0.5"/>
+  <line x1="83.7" y1="110.6" x2="98.1" y2="120.9" stroke="green" stroke-width="0.5"/>
+  <line x1="75.5" y1="29.9" x2="88.3" y2="19.9" stroke="green" stroke-width="0.5"/>
+  <line x1="153.4" y1="58.8" x2="160.9" y2="42.6" stroke="green" stroke-width="0.5"/>
+  <line x1="152.6" y1="99.3" x2="163.2" y2="110.2" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="9.9" x2="52.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="16.1" y1="136.7" x2="16.9" y2="146.2" stroke="green" stroke-width="0.5"/>
+  <line x1="99.3" y1="68.7" x2="106.2" y2="57.7" stroke="green" stroke-width="0.5"/>
+  <line x1="2.4" y1="135.9" x2="0.0" y2="130.0" stroke="green" stroke-width="0.5"/>
+  <line x1="19.7" y1="122.3" x2="33.4" y2="125.4" stroke="green" stroke-width="0.5"/>
+  <line x1="68.6" y1="125.0" x2="86.3" y2="125.3" stroke="green" stroke-width="0.5"/>
+  <line x1="10.7" y1="47.4" x2="0.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="127.8" y1="110.1" x2="134.8" y2="99.2" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="29.7" x2="22.8" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="153.3" y1="150.1" x2="158.7" y2="148.5" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="130.0" x2="200.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="191.5" y1="177.2" x2="200.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="13.0" x2="200.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="98.3" y1="163.3" x2="110.1" y2="159.7" stroke="green" stroke-width="0.5"/>
+  <line x1="56.5" y1="4.9" x2="65.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="176.9" y1="192.6" x2="188.9" y2="189.1" stroke="green" stroke-width="0.5"/>
+  <line x1="46.0" y1="171.5" x2="56.0" y2="172.7" stroke="green" stroke-width="0.5"/>
+  <line x1="140.6" y1="5.7" x2="147.5" y2="3.2" stroke="green" stroke-width="0.5"/>
+  <line x1="31.5" y1="19.4" x2="42.8" y2="23.7" stroke="green" stroke-width="0.5"/>
+  <line x1="39.0" y1="200.0" x2="52.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="88.3" y1="19.9" x2="100.0" y2="16.9" stroke="green" stroke-width="0.5"/>
+  <line x1="185.1" y1="20.7" x2="200.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="160.9" y1="42.6" x2="176.0" y2="47.9" stroke="green" stroke-width="0.5"/>
+  <line x1="68.6" y1="125.0" x2="74.0" y2="132.8" stroke="green" stroke-width="0.5"/>
+  <line x1="139.7" y1="110.4" x2="132.7" y2="126.8" stroke="green" stroke-width="0.5"/>
+  <line x1="191.1" y1="95.7" x2="191.8" y2="109.2" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="65.0" x2="0.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="106.2" y1="57.7" x2="123.1" y2="60.7" stroke="green" stroke-width="0.5"/>
+  <line x1="153.3" y1="150.1" x2="151.1" y2="158.9" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="21.4" y2="71.6" stroke="green" stroke-width="0.5"/>
+  <line x1="175.0" y1="16.2" x2="182.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="191.3" y1="67.4" x2="200.0" y2="65.0" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="29.7" x2="31.5" y2="19.4" stroke="green" stroke-width="0.5"/>
+  <line x1="98.3" y1="163.3" x2="96.4" y2="172.9" stroke="green" stroke-width="0.5"/>
+  <line x1="54.5" y1="73.4" x2="68.2" y2="72.9" stroke="green" stroke-width="0.5"/>
+  <line x1="134.8" y1="99.2" x2="152.6" y2="99.3" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="13.0" x2="0.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.3" y1="8.1" x2="26.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.1" y1="88.8" x2="20.2" y2="82.7" stroke="green" stroke-width="0.5"/>
+  <line x1="46.0" y1="171.5" x2="43.1" y2="185.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="0.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="158.7" y1="148.5" x2="163.0" y2="165.9" stroke="green" stroke-width="0.5"/>
+  <line x1="71.6" y1="9.2" x2="78.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="91.0" y1="0.0" x2="104.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="83.7" y1="110.6" x2="93.5" y2="107.2" stroke="green" stroke-width="0.5"/>
+  <line x1="140.6" y1="5.7" x2="135.9" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="125.0" y1="97.2" x2="137.8" y2="87.7" stroke="green" stroke-width="0.5"/>
+  <line x1="159.7" y1="139.6" x2="179.6" y2="135.3" stroke="green" stroke-width="0.5"/>
+  <line x1="88.3" y1="19.9" x2="80.9" y2="36.8" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="125.4" x2="44.2" y2="126.0" stroke="green" stroke-width="0.5"/>
+  <line x1="179.6" y1="135.3" x2="185.0" y2="146.0" stroke="green" stroke-width="0.5"/>
+  <line x1="108.3" y1="153.1" x2="123.9" y2="152.4" stroke="green" stroke-width="0.5"/>
+  <line x1="3.6" y1="33.3" x2="0.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="39.0" y1="0.0" x2="52.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="6.8" y1="190.2" x2="0.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="28.9" y1="35.8" x2="34.9" y2="45.5" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="126.0" x2="62.7" y2="133.6" stroke="green" stroke-width="0.5"/>
+  <line x1="160.9" y1="42.6" x2="158.8" y2="62.3" stroke="green" stroke-width="0.5"/>
+  <line x1="149.2" y1="132.3" x2="163.8" y2="120.4" stroke="green" stroke-width="0.5"/>
+  <line x1="147.5" y1="3.2" x2="153.6" y2="17.3" stroke="green" stroke-width="0.5"/>
+  <line x1="19.7" y1="122.3" x2="33.4" y2="111.2" stroke="green" stroke-width="0.5"/>
+  <line x1="123.9" y1="152.4" x2="134.2" y2="160.9" stroke="green" stroke-width="0.5"/>
+  <line x1="187.0" y1="166.7" x2="200.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="106.2" y1="57.7" x2="107.9" y2="72.5" stroke="green" stroke-width="0.5"/>
+  <line x1="61.7" y1="162.5" x2="68.1" y2="164.3" stroke="green" stroke-width="0.5"/>
+  <line x1="19.1" y1="3.3" x2="13.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="133.4" y1="186.9" x2="150.8" y2="190.0" stroke="green" stroke-width="0.5"/>
+  <line x1="184.8" y1="80.5" x2="191.1" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="52.0" x2="200.0" y2="65.0" stroke="green" stroke-width="0.5"/>
+  <line x1="54.5" y1="73.4" x2="57.3" y2="86.6" stroke="green" stroke-width="0.5"/>
+  <line x1="153.3" y1="150.1" x2="159.7" y2="139.6" stroke="green" stroke-width="0.5"/>
+  <line x1="82.0" y1="6.3" x2="91.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="171.4" y1="178.5" x2="187.0" y2="166.7" stroke="green" stroke-width="0.5"/>
+  <line x1="176.0" y1="47.9" x2="174.2" y2="59.5" stroke="green" stroke-width="0.5"/>
+  <line x1="44.3" y1="165.7" x2="60.4" y2="151.5" stroke="green" stroke-width="0.5"/>
+  <line x1="134.8" y1="99.2" x2="139.7" y2="110.4" stroke="green" stroke-width="0.5"/>
+  <line x1="124.2" y1="45.0" x2="132.8" y2="55.1" stroke="green" stroke-width="0.5"/>
+  <line x1="4.1" y1="88.8" x2="4.0" y2="98.8" stroke="green" stroke-width="0.5"/>
+  <line x1="98.3" y1="163.3" x2="108.3" y2="153.1" stroke="green" stroke-width="0.5"/>
+  <line x1="19.9" y1="176.4" x2="34.3" y2="184.7" stroke="green" stroke-width="0.5"/>
+  <line x1="123.1" y1="60.7" x2="127.7" y2="71.6" stroke="green" stroke-width="0.5"/>
+  <line x1="176.2" y1="30.3" x2="188.9" y2="36.6" stroke="green" stroke-width="0.5"/>
+  <line x1="112.3" y1="10.6" x2="122.8" y2="15.4" stroke="green" stroke-width="0.5"/>
+  <line x1="83.7" y1="110.6" x2="86.3" y2="125.3" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="58.9" x2="81.4" y2="71.0" stroke="green" stroke-width="0.5"/>
+  <line x1="159.7" y1="139.6" x2="158.7" y2="148.5" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="125.4" x2="31.6" y2="135.7" stroke="green" stroke-width="0.5"/>
+  <line x1="21.4" y1="71.6" x2="29.2" y2="85.7" stroke="green" stroke-width="0.5"/>
+  <line x1="152.6" y1="99.3" x2="151.4" y2="108.4" stroke="green" stroke-width="0.5"/>
+  <line x1="31.5" y1="19.4" x2="43.2" y2="9.9" stroke="green" stroke-width="0.5"/>
+  <line x1="136.9" y1="44.1" x2="153.4" y2="58.8" stroke="green" stroke-width="0.5"/>
+  <line x1="108.3" y1="153.1" x2="110.1" y2="159.7" stroke="green" stroke-width="0.5"/>
+  <line x1="94.0" y1="96.7" x2="107.5" y2="111.0" stroke="green" stroke-width="0.5"/>
+  <line x1="88.3" y1="19.9" x2="98.2" y2="3.0" stroke="green" stroke-width="0.5"/>
+  <line x1="110.2" y1="45.0" x2="119.7" y2="33.4" stroke="green" stroke-width="0.5"/>
+  <line x1="191.5" y1="177.2" x2="188.9" y2="189.1" stroke="green" stroke-width="0.5"/>
+  <line x1="171.6" y1="125.0" x2="184.4" y2="133.3" stroke="green" stroke-width="0.5"/>
+  <line x1="61.7" y1="162.5" x2="56.0" y2="172.7" stroke="green" stroke-width="0.5"/>
+  <line x1="160.9" y1="42.6" x2="176.2" y2="30.3" stroke="green" stroke-width="0.5"/>
+  <line x1="42.7" y1="109.0" x2="57.9" y2="121.8" stroke="green" stroke-width="0.5"/>
+  <line x1="28.9" y1="35.8" x2="42.8" y2="23.7" stroke="green" stroke-width="0.5"/>
+  <line x1="58.2" y1="56.8" x2="67.2" y2="45.2" stroke="green" stroke-width="0.5"/>
+  <line x1="35.2" y1="74.8" x2="43.2" y2="84.2" stroke="green" stroke-width="0.5"/>
+  <line x1="123.8" y1="138.2" x2="137.8" y2="152.0" stroke="green" stroke-width="0.5"/>
+  <line x1="42.8" y1="23.7" x2="42.6" y2="43.1" stroke="green" stroke-width="0.5"/>
+  <line x1="137.8" y1="87.7" x2="147.8" y2="70.7" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="20.4" y2="55.8" stroke="green" stroke-width="0.5"/>
+  <line x1="114.1" y1="99.0" x2="127.8" y2="110.1" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="111.2" x2="42.7" y2="109.0" stroke="green" stroke-width="0.5"/>
+  <line x1="68.5" y1="153.3" x2="82.0" y2="161.9" stroke="green" stroke-width="0.5"/>
+  <line x1="176.2" y1="30.3" x2="176.0" y2="47.9" stroke="green" stroke-width="0.5"/>
+  <line x1="195.0" y1="200.0" x2="200.0" y2="182.0" stroke="green" stroke-width="0.5"/>
+  <line x1="113.8" y1="133.2" x2="123.8" y2="138.2" stroke="green" stroke-width="0.5"/>
+  <line x1="8.3" y1="126.7" x2="0.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="134.8" y1="99.2" x2="150.5" y2="88.6" stroke="green" stroke-width="0.5"/>
+  <line x1="18.5" y1="159.3" x2="31.2" y2="172.9" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="120.4" x2="178.2" y2="106.7" stroke="green" stroke-width="0.5"/>
+  <line x1="60.4" y1="151.5" x2="68.5" y2="153.3" stroke="green" stroke-width="0.5"/>
+  <line x1="4.1" y1="88.8" x2="0.0" y2="78.0" stroke="green" stroke-width="0.5"/>
+  <line x1="188.5" y1="2.4" x2="182.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="133.5" y1="174.7" x2="147.9" y2="173.1" stroke="green" stroke-width="0.5"/>
+  <line x1="159.7" y1="139.6" x2="171.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.9" y1="165.7" x2="18.5" y2="159.3" stroke="green" stroke-width="0.5"/>
+  <line x1="82.2" y1="184.7" x2="99.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="136.6" y1="35.7" x2="150.3" y2="43.5" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="9.9" x2="39.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="108.3" y1="153.1" x2="123.8" y2="138.2" stroke="green" stroke-width="0.5"/>
+  <line x1="9.2" y1="22.8" x2="19.1" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="112.3" y1="10.6" x2="117.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="8.7" y1="176.6" x2="19.9" y2="176.4" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="9.9" x2="56.5" y2="4.9" stroke="green" stroke-width="0.5"/>
+  <line x1="86.0" y1="43.0" x2="95.3" y2="61.7" stroke="green" stroke-width="0.5"/>
+  <line x1="61.7" y1="162.5" x2="68.5" y2="153.3" stroke="green" stroke-width="0.5"/>
+  <line x1="98.2" y1="3.0" x2="112.3" y2="10.6" stroke="green" stroke-width="0.5"/>
+  <line x1="119.7" y1="33.4" x2="136.6" y2="35.7" stroke="green" stroke-width="0.5"/>
+  <line x1="191.1" y1="95.7" x2="200.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="133.4" y1="186.9" x2="147.9" y2="173.1" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="111.2" x2="33.4" y2="125.4" stroke="green" stroke-width="0.5"/>
+  <line x1="42.8" y1="23.7" x2="54.4" y2="16.3" stroke="green" stroke-width="0.5"/>
+  <line x1="67.2" y1="45.2" x2="86.0" y2="43.0" stroke="green" stroke-width="0.5"/>
+  <line x1="23.7" y1="192.6" x2="13.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="184.3" y1="60.0" x2="200.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="82.2" y1="184.7" x2="91.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="124.2" y1="45.0" x2="136.9" y2="44.1" stroke="green" stroke-width="0.5"/>
+  <line x1="78.0" y1="200.0" x2="91.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="161.1" y1="85.9" x2="171.5" y2="95.2" stroke="green" stroke-width="0.5"/>
+  <line x1="20.4" y1="55.8" x2="29.2" y2="58.3" stroke="green" stroke-width="0.5"/>
+  <line x1="60.4" y1="151.5" x2="61.7" y2="162.5" stroke="green" stroke-width="0.5"/>
+  <line x1="176.2" y1="30.3" x2="185.1" y2="20.7" stroke="green" stroke-width="0.5"/>
+  <line x1="56.5" y1="4.9" x2="52.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="58.9" x2="84.6" y2="61.1" stroke="green" stroke-width="0.5"/>
+  <line x1="120.1" y1="7.2" x2="130.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="100.1" y1="86.7" x2="114.4" y2="84.0" stroke="green" stroke-width="0.5"/>
+  <line x1="98.2" y1="3.0" x2="104.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.9" y1="165.7" x2="8.7" y2="176.6" stroke="green" stroke-width="0.5"/>
+  <line x1="150.5" y1="88.6" x2="161.1" y2="85.9" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="104.0" x2="0.0" y2="117.0" stroke="green" stroke-width="0.5"/>
+  <line x1="21.4" y1="71.6" x2="35.2" y2="74.8" stroke="green" stroke-width="0.5"/>
+  <line x1="41.3" y1="98.2" x2="61.0" y2="101.6" stroke="green" stroke-width="0.5"/>
+  <line x1="94.0" y1="96.7" x2="114.1" y2="99.0" stroke="green" stroke-width="0.5"/>
+  <line x1="8.7" y1="176.6" x2="6.8" y2="190.2" stroke="green" stroke-width="0.5"/>
+  <line x1="185.1" y1="20.7" x2="200.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="43.2" y1="9.9" x2="42.8" y2="23.7" stroke="green" stroke-width="0.5"/>
+  <line x1="171.6" y1="125.0" x2="186.3" y2="123.5" stroke="green" stroke-width="0.5"/>
+  <line x1="9.2" y1="22.8" x2="0.0" y2="26.0" stroke="green" stroke-width="0.5"/>
+  <line x1="42.7" y1="109.0" x2="57.3" y2="110.7" stroke="green" stroke-width="0.5"/>
+  <line x1="98.2" y1="3.0" x2="100.0" y2="16.9" stroke="green" stroke-width="0.5"/>
+  <line x1="74.0" y1="132.8" x2="87.4" y2="138.9" stroke="green" stroke-width="0.5"/>
+  <line x1="123.8" y1="138.2" x2="134.6" y2="133.3" stroke="green" stroke-width="0.5"/>
+  <line x1="130.0" y1="0.0" x2="143.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="42.8" y1="23.7" x2="49.2" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="67.2" y1="45.2" x2="71.0" y2="58.9" stroke="green" stroke-width="0.5"/>
+  <line x1="16.9" y1="146.2" x2="31.3" y2="153.0" stroke="green" stroke-width="0.5"/>
+  <line x1="33.4" y1="111.2" x2="41.3" y2="98.2" stroke="green" stroke-width="0.5"/>
+  <line x1="124.2" y1="45.0" x2="123.1" y2="60.7" stroke="green" stroke-width="0.5"/>
+  <line x1="68.5" y1="153.3" x2="81.4" y2="153.2" stroke="green" stroke-width="0.5"/>
+  <line x1="62.7" y1="133.6" x2="68.6" y2="125.0" stroke="green" stroke-width="0.5"/>
+  <line x1="8.4" y1="70.8" x2="0.0" y2="65.0" stroke="green" stroke-width="0.5"/>
+  <line x1="23.7" y1="192.6" x2="39.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="20.4" y1="55.8" x2="21.4" y2="71.6" stroke="green" stroke-width="0.5"/>
+  <line x1="113.8" y1="133.2" x2="120.8" y2="125.1" stroke="green" stroke-width="0.5"/>
+  <line x1="147.9" y1="173.1" x2="163.2" y2="178.7" stroke="green" stroke-width="0.5"/>
+  <line x1="200.0" y1="143.0" x2="200.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="71.0" y1="58.9" x2="68.2" y2="72.9" stroke="green" stroke-width="0.5"/>
+  <line x1="18.5" y1="159.3" x2="35.8" y2="166.0" stroke="green" stroke-width="0.5"/>
+  <line x1="99.4" y1="190.8" x2="110.4" y2="190.8" stroke="green" stroke-width="0.5"/>
+  <line x1="150.5" y1="88.6" x2="152.6" y2="99.3" stroke="green" stroke-width="0.5"/>
+  <line x1="21.4" y1="71.6" x2="20.2" y2="82.7" stroke="green" stroke-width="0.5"/>
+  <line x1="41.3" y1="98.2" x2="42.7" y2="109.0" stroke="green" stroke-width="0.5"/>
+  <line x1="94.0" y1="96.7" x2="93.5" y2="107.2" stroke="green" stroke-width="0.5"/>
+  <line x1="56.5" y1="4.9" x2="71.6" y2="9.2" stroke="green" stroke-width="0.5"/>
+  <line x1="136.6" y1="35.7" x2="147.7" y2="29.7" stroke="green" stroke-width="0.5"/>
+  <line x1="171.6" y1="125.0" x2="179.6" y2="135.3" stroke="green" stroke-width="0.5"/>
+  <line x1="169.0" y1="200.0" x2="182.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="42.7" y1="109.0" x2="44.2" y2="126.0" stroke="green" stroke-width="0.5"/>
+  <line x1="9.2" y1="22.8" x2="22.0" y2="16.9" stroke="green" stroke-width="0.5"/>
+  <line x1="175.0" y1="16.2" x2="188.5" y2="2.4" stroke="green" stroke-width="0.5"/>
+  <line x1="71.2" y1="192.1" x2="65.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="43.1" y1="185.0" x2="39.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="86.0" y1="43.0" x2="95.8" y2="42.0" stroke="green" stroke-width="0.5"/>
+  <line x1="123.8" y1="138.2" x2="123.9" y2="152.4" stroke="green" stroke-width="0.5"/>
+  <line x1="110.4" y1="190.8" x2="117.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="16.9" y1="146.2" x2="18.5" y2="159.3" stroke="green" stroke-width="0.5"/>
+  <line x1="119.7" y1="33.4" x2="135.9" y2="23.5" stroke="green" stroke-width="0.5"/>
+  <line x1="161.2" y1="71.9" x2="175.5" y2="73.9" stroke="green" stroke-width="0.5"/>
+  <line x1="68.5" y1="153.3" x2="68.1" y2="164.3" stroke="green" stroke-width="0.5"/>
+  <line x1="22.8" y1="45.0" x2="28.9" y2="35.8" stroke="green" stroke-width="0.5"/>
+  <line x1="61.0" y1="101.6" x2="71.8" y2="114.8" stroke="green" stroke-width="0.5"/>
+  <line x1="67.2" y1="45.2" x2="80.9" y2="36.8" stroke="green" stroke-width="0.5"/>
+  <line x1="147.5" y1="3.2" x2="156.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="114.4" y1="84.0" x2="120.5" y2="88.3" stroke="green" stroke-width="0.5"/>
+  <line x1="147.9" y1="173.1" x2="150.8" y2="190.0" stroke="green" stroke-width="0.5"/>
+  <line x1="132.7" y1="126.8" x2="149.2" y2="132.3" stroke="green" stroke-width="0.5"/>
+  <line x1="18.5" y1="159.3" x2="19.9" y2="176.4" stroke="green" stroke-width="0.5"/>
+  <line x1="124.2" y1="45.0" x2="136.6" y2="35.7" stroke="green" stroke-width="0.5"/>
+  <line x1="6.3" y1="110.6" x2="19.7" y2="122.3" stroke="green" stroke-width="0.5"/>
+  <line x1="161.1" y1="85.9" x2="179.0" y2="81.4" stroke="green" stroke-width="0.5"/>
+  <line x1="147.8" y1="70.7" x2="158.8" y2="62.3" stroke="green" stroke-width="0.5"/>
+  <line x1="6.3" y1="110.6" x2="0.0" y2="104.0" stroke="green" stroke-width="0.5"/>
+  <line x1="87.4" y1="138.9" x2="93.4" y2="148.0" stroke="green" stroke-width="0.5"/>
+  <line x1="100.1" y1="86.7" x2="107.9" y2="72.5" stroke="green" stroke-width="0.5"/>
+  <line x1="185.1" y1="20.7" x2="188.9" y2="36.6" stroke="green" stroke-width="0.5"/>
+  <line x1="163.0" y1="165.9" x2="171.4" y2="178.5" stroke="green" stroke-width="0.5"/>
+  <line x1="56.5" y1="4.9" x2="54.4" y2="16.3" stroke="green" stroke-width="0.5"/>
+  <line x1="60.7" y1="185.1" x2="52.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="178.2" y1="106.7" x2="191.1" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="120.5" y1="190.4" x2="130.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="41.3" y1="98.2" x2="57.3" y2="86.6" stroke="green" stroke-width="0.5"/>
+  <line x1="136.6" y1="35.7" x2="136.9" y2="44.1" stroke="green" stroke-width="0.5"/>
+  <line x1="9.2" y1="22.8" x2="3.6" y2="33.3" stroke="green" stroke-width="0.5"/>
+  <line x1="188.9" y1="36.6" x2="184.6" y2="46.2" stroke="green" stroke-width="0.5"/>
+  <line x1="185.0" y1="146.0" x2="200.0" y2="156.0" stroke="green" stroke-width="0.5"/>
+  <line x1="95.7" y1="134.2" x2="108.3" y2="153.1" stroke="green" stroke-width="0.5"/>
+  <line x1="86.0" y1="43.0" x2="84.6" y2="61.1" stroke="green" stroke-width="0.5"/>
+  <line x1="140.6" y1="5.7" x2="143.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="74.0" y1="132.8" x2="86.3" y2="125.3" stroke="green" stroke-width="0.5"/>
+  <line x1="161.2" y1="71.9" x2="161.1" y2="85.9" stroke="green" stroke-width="0.5"/>
+  <line x1="153.6" y1="17.3" x2="160.8" y2="30.7" stroke="green" stroke-width="0.5"/>
+  <line x1="123.8" y1="138.2" x2="132.7" y2="126.8" stroke="green" stroke-width="0.5"/>
+  <line x1="163.2" y1="178.7" x2="171.4" y2="178.5" stroke="green" stroke-width="0.5"/>
+  <line x1="151.1" y1="158.9" x2="158.7" y2="148.5" stroke="green" stroke-width="0.5"/>
+  <line x1="16.9" y1="146.2" x2="31.6" y2="135.7" stroke="green" stroke-width="0.5"/>
+  <line x1="114.4" y1="84.0" x2="114.1" y2="99.0" stroke="green" stroke-width="0.5"/>
+  <line x1="43.1" y1="185.0" x2="60.7" y2="185.1" stroke="green" stroke-width="0.5"/>
+  <line x1="96.6" y1="31.4" x2="110.2" y2="45.0" stroke="green" stroke-width="0.5"/>
+  <line x1="161.1" y1="85.9" x2="166.2" y2="100.6" stroke="green" stroke-width="0.5"/>
+  <line x1="191.8" y1="109.2" x2="186.3" y2="123.5" stroke="green" stroke-width="0.5"/>
+  <line x1="133.4" y1="186.9" x2="143.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="169.0" y1="0.0" x2="182.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="147.9" y1="173.1" x2="163.0" y2="165.9" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="19.1" y2="3.3" stroke="green" stroke-width="0.5"/>
+  <line x1="42.6" y1="43.1" x2="58.2" y2="56.8" stroke="green" stroke-width="0.5"/>
+  <line x1="80.9" y1="36.8" x2="96.6" y2="31.4" stroke="green" stroke-width="0.5"/>
+  <line x1="127.7" y1="71.6" x2="137.8" y2="87.7" stroke="green" stroke-width="0.5"/>
+  <line x1="186.3" y1="123.5" x2="184.4" y2="133.3" stroke="green" stroke-width="0.5"/>
+  <line x1="175.5" y1="73.9" x2="184.8" y2="80.5" stroke="green" stroke-width="0.5"/>
+  <line x1="158.8" y1="62.3" x2="174.2" y2="59.5" stroke="green" stroke-width="0.5"/>
+  <line x1="34.9" y1="45.5" x2="42.6" y2="43.1" stroke="green" stroke-width="0.5"/>
+  <line x1="68.3" y1="84.3" x2="80.9" y2="94.1" stroke="green" stroke-width="0.5"/>
+  <line x1="107.9" y1="72.5" x2="127.7" y2="71.6" stroke="green" stroke-width="0.5"/>
+  <line x1="184.6" y1="46.2" x2="200.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="0.0" x2="13.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.9" y1="165.7" x2="0.0" y2="169.0" stroke="green" stroke-width="0.5"/>
+  <line x1="29.2" y1="58.3" x2="46.5" y2="60.6" stroke="green" stroke-width="0.5"/>
+  <line x1="57.3" y1="86.6" x2="68.3" y2="84.3" stroke="green" stroke-width="0.5"/>
+  <line x1="86.0" y1="43.0" x2="96.6" y2="31.4" stroke="green" stroke-width="0.5"/>
+  <line x1="163.2" y1="178.7" x2="162.8" y2="186.5" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="200.0" x2="13.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="139.7" y1="110.4" x2="151.4" y2="108.4" stroke="green" stroke-width="0.5"/>
+  <line x1="4.0" y1="98.8" x2="21.3" y2="95.7" stroke="green" stroke-width="0.5"/>
+  <line x1="161.2" y1="71.9" x2="174.2" y2="59.5" stroke="green" stroke-width="0.5"/>
+  <line x1="44.2" y1="137.8" x2="60.4" y2="151.5" stroke="green" stroke-width="0.5"/>
+  <line x1="4.0" y1="98.8" x2="0.0" y2="91.0" stroke="green" stroke-width="0.5"/>
+  <line x1="61.0" y1="101.6" x2="74.9" y2="101.8" stroke="green" stroke-width="0.5"/>
+  <line x1="86.3" y1="125.3" x2="98.1" y2="120.9" stroke="green" stroke-width="0.5"/>
+  <line x1="121.5" y1="164.0" x2="133.5" y2="174.7" stroke="green" stroke-width="0.5"/>
+  <line x1="114.4" y1="84.0" x2="127.7" y2="71.6" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="9.2" y2="22.8" stroke="green" stroke-width="0.5"/>
+  <line x1="132.7" y1="126.8" x2="152.0" y2="121.5" stroke="green" stroke-width="0.5"/>
+  <line x1="82.2" y1="184.7" x2="78.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="0.0" y1="26.0" x2="0.0" y2="39.0" stroke="green" stroke-width="0.5"/>
+  <line x1="158.7" y1="148.5" x2="174.5" y2="152.3" stroke="green" stroke-width="0.5"/>
+  <line x1="6.3" y1="110.6" x2="21.5" y2="108.4" stroke="green" stroke-width="0.5"/>
+  <line x1="80.9" y1="36.8" x2="86.0" y2="43.0" stroke="green" stroke-width="0.5"/>
+  <line x1="150.8" y1="190.0" x2="156.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.5" y1="5.8" x2="0.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="31.6" y1="135.7" x2="44.2" y2="137.8" stroke="green" stroke-width="0.5"/>
+  <line x1="87.4" y1="138.9" x2="95.7" y2="134.2" stroke="green" stroke-width="0.5"/>
+  <line x1="120.6" y1="178.9" x2="133.4" y2="186.9" stroke="green" stroke-width="0.5"/>
+  <line x1="110.1" y1="159.7" x2="121.5" y2="164.0" stroke="green" stroke-width="0.5"/>
+  <line x1="158.8" y1="62.3" x2="161.2" y2="71.9" stroke="green" stroke-width="0.5"/>
+  <line x1="34.9" y1="45.5" x2="29.2" y2="58.3" stroke="green" stroke-width="0.5"/>
+  <line x1="184.4" y1="133.3" x2="200.0" y2="143.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.0" y1="165.9" x2="179.8" y2="162.7" stroke="green" stroke-width="0.5"/>
+  <line x1="31.3" y1="153.0" x2="42.9" y2="149.5" stroke="green" stroke-width="0.5"/>
+  <line x1="56.0" y1="172.7" x2="72.9" y2="175.6" stroke="green" stroke-width="0.5"/>
+  <line x1="107.9" y1="72.5" x2="114.4" y2="84.0" stroke="green" stroke-width="0.5"/>
+  <line x1="113.1" y1="171.3" x2="120.6" y2="178.9" stroke="green" stroke-width="0.5"/>
+  <line x1="8.0" y1="55.2" x2="0.0" y2="52.0" stroke="green" stroke-width="0.5"/>
+  <line x1="52.0" y1="0.0" x2="65.0" y2="0.0" stroke="green" stroke-width="0.5"/>
+  <line x1="163.8" y1="20.0" x2="176.2" y2="30.3" stroke="green" stroke-width="0.5"/>
+  <line x1="29.2" y1="58.3" x2="35.2" y2="74.8" stroke="green" stroke-width="0.5"/>
+  <line x1="57.3" y1="86.6" x2="61.0" y2="101.6" stroke="green" stroke-width="0.5"/>
+  <line x1="6.8" y1="190.2" x2="23.7" y2="192.6" stroke="green" stroke-width="0.5"/>
+  <line x1="9.2" y1="22.8" x2="0.0" y2="13.0" stroke="green" stroke-width="0.5"/>
+  <line x1="60.7" y1="185.1" x2="71.2" y2="192.1" stroke="green" stroke-width="0.5"/>
+  <line x1="99.4" y1="190.8" x2="91.0" y2="200.0" stroke="green" stroke-width="0.5"/>
+  <line x1="4.0" y1="98.8" x2="6.3" y2="110.6" stroke="green" stroke-width="0.5"/>
+  <circle cx="4.5" cy="5.8" r="0.8" fill="black"/>
+  <circle cx="9.2" cy="22.8" r="0.8" fill="black"/>
+  <circle cx="3.6" cy="33.3" r="0.8" fill="black"/>
+  <circle cx="10.7" cy="47.4" r="0.8" fill="black"/>
+  <circle cx="8.0" cy="55.2" r="0.8" fill="black"/>
+  <circle cx="8.4" cy="70.8" r="0.8" fill="black"/>
+  <circle cx="4.1" cy="88.8" r="0.8" fill="black"/>
+  <circle cx="4.0" cy="98.8" r="0.8" fill="black"/>
+  <circle cx="6.3" cy="110.6" r="0.8" fill="black"/>
+  <circle cx="8.3" cy="126.7" r="0.8" fill="black"/>
+  <circle cx="2.4" cy="135.9" r="0.8" fill="black"/>
+  <circle cx="10.2" cy="152.5" r="0.8" fill="black"/>
+  <circle cx="4.9" cy="165.7" r="0.8" fill="black"/>
+  <circle cx="8.7" cy="176.6" r="0.8" fill="black"/>
+  <circle cx="6.8" cy="190.2" r="0.8" fill="black"/>
+  <circle cx="19.1" cy="3.3" r="0.8" fill="black"/>
+  <circle cx="22.0" cy="16.9" r="0.8" fill="black"/>
+  <circle cx="19.1" cy="29.7" r="0.8" fill="black"/>
+  <circle cx="22.8" cy="45.0" r="0.8" fill="black"/>
+  <circle cx="20.4" cy="55.8" r="0.8" fill="black"/>
+  <circle cx="21.4" cy="71.6" r="0.8" fill="black"/>
+  <circle cx="20.2" cy="82.7" r="0.8" fill="black"/>
+  <circle cx="21.3" cy="95.7" r="0.8" fill="black"/>
+  <circle cx="21.5" cy="108.4" r="0.8" fill="black"/>
+  <circle cx="19.7" cy="122.3" r="0.8" fill="black"/>
+  <circle cx="16.1" cy="136.7" r="0.8" fill="black"/>
+  <circle cx="16.9" cy="146.2" r="0.8" fill="black"/>
+  <circle cx="18.5" cy="159.3" r="0.8" fill="black"/>
+  <circle cx="19.9" cy="176.4" r="0.8" fill="black"/>
+  <circle cx="23.7" cy="192.6" r="0.8" fill="black"/>
+  <circle cx="29.3" cy="8.1" r="0.8" fill="black"/>
+  <circle cx="31.5" cy="19.4" r="0.8" fill="black"/>
+  <circle cx="28.9" cy="35.8" r="0.8" fill="black"/>
+  <circle cx="34.9" cy="45.5" r="0.8" fill="black"/>
+  <circle cx="29.2" cy="58.3" r="0.8" fill="black"/>
+  <circle cx="35.2" cy="74.8" r="0.8" fill="black"/>
+  <circle cx="29.2" cy="85.7" r="0.8" fill="black"/>
+  <circle cx="29.7" cy="100.4" r="0.8" fill="black"/>
+  <circle cx="33.4" cy="111.2" r="0.8" fill="black"/>
+  <circle cx="33.4" cy="125.4" r="0.8" fill="black"/>
+  <circle cx="31.6" cy="135.7" r="0.8" fill="black"/>
+  <circle cx="31.3" cy="153.0" r="0.8" fill="black"/>
+  <circle cx="35.8" cy="166.0" r="0.8" fill="black"/>
+  <circle cx="31.2" cy="172.9" r="0.8" fill="black"/>
+  <circle cx="34.3" cy="184.7" r="0.8" fill="black"/>
+  <circle cx="43.2" cy="9.9" r="0.8" fill="black"/>
+  <circle cx="42.8" cy="23.7" r="0.8" fill="black"/>
+  <circle cx="49.2" cy="29.7" r="0.8" fill="black"/>
+  <circle cx="42.6" cy="43.1" r="0.8" fill="black"/>
+  <circle cx="46.5" cy="60.6" r="0.8" fill="black"/>
+  <circle cx="48.1" cy="75.8" r="0.8" fill="black"/>
+  <circle cx="43.2" cy="84.2" r="0.8" fill="black"/>
+  <circle cx="41.3" cy="98.2" r="0.8" fill="black"/>
+  <circle cx="42.7" cy="109.0" r="0.8" fill="black"/>
+  <circle cx="44.2" cy="126.0" r="0.8" fill="black"/>
+  <circle cx="44.2" cy="137.8" r="0.8" fill="black"/>
+  <circle cx="42.9" cy="149.5" r="0.8" fill="black"/>
+  <circle cx="44.3" cy="165.7" r="0.8" fill="black"/>
+  <circle cx="46.0" cy="171.5" r="0.8" fill="black"/>
+  <circle cx="43.1" cy="185.0" r="0.8" fill="black"/>
+  <circle cx="56.5" cy="4.9" r="0.8" fill="black"/>
+  <circle cx="54.4" cy="16.3" r="0.8" fill="black"/>
+  <circle cx="57.4" cy="36.6" r="0.8" fill="black"/>
+  <circle cx="56.1" cy="42.4" r="0.8" fill="black"/>
+  <circle cx="58.2" cy="56.8" r="0.8" fill="black"/>
+  <circle cx="54.5" cy="73.4" r="0.8" fill="black"/>
+  <circle cx="57.3" cy="86.6" r="0.8" fill="black"/>
+  <circle cx="61.0" cy="101.6" r="0.8" fill="black"/>
+  <circle cx="57.3" cy="110.7" r="0.8" fill="black"/>
+  <circle cx="57.9" cy="121.8" r="0.8" fill="black"/>
+  <circle cx="62.7" cy="133.6" r="0.8" fill="black"/>
+  <circle cx="60.4" cy="151.5" r="0.8" fill="black"/>
+  <circle cx="61.7" cy="162.5" r="0.8" fill="black"/>
+  <circle cx="56.0" cy="172.7" r="0.8" fill="black"/>
+  <circle cx="60.7" cy="185.1" r="0.8" fill="black"/>
+  <circle cx="71.6" cy="9.2" r="0.8" fill="black"/>
+  <circle cx="71.0" cy="23.5" r="0.8" fill="black"/>
+  <circle cx="75.5" cy="29.9" r="0.8" fill="black"/>
+  <circle cx="67.2" cy="45.2" r="0.8" fill="black"/>
+  <circle cx="71.0" cy="58.9" r="0.8" fill="black"/>
+  <circle cx="68.2" cy="72.9" r="0.8" fill="black"/>
+  <circle cx="68.3" cy="84.3" r="0.8" fill="black"/>
+  <circle cx="74.9" cy="101.8" r="0.8" fill="black"/>
+  <circle cx="71.8" cy="114.8" r="0.8" fill="black"/>
+  <circle cx="68.6" cy="125.0" r="0.8" fill="black"/>
+  <circle cx="74.0" cy="132.8" r="0.8" fill="black"/>
+  <circle cx="68.5" cy="153.3" r="0.8" fill="black"/>
+  <circle cx="68.1" cy="164.3" r="0.8" fill="black"/>
+  <circle cx="72.9" cy="175.6" r="0.8" fill="black"/>
+  <circle cx="71.2" cy="192.1" r="0.8" fill="black"/>
+  <circle cx="82.0" cy="6.3" r="0.8" fill="black"/>
+  <circle cx="88.3" cy="19.9" r="0.8" fill="black"/>
+  <circle cx="80.9" cy="36.8" r="0.8" fill="black"/>
+  <circle cx="86.0" cy="43.0" r="0.8" fill="black"/>
+  <circle cx="84.6" cy="61.1" r="0.8" fill="black"/>
+  <circle cx="81.4" cy="71.0" r="0.8" fill="black"/>
+  <circle cx="86.5" cy="84.4" r="0.8" fill="black"/>
+  <circle cx="80.9" cy="94.1" r="0.8" fill="black"/>
+  <circle cx="83.7" cy="110.6" r="0.8" fill="black"/>
+  <circle cx="86.3" cy="125.3" r="0.8" fill="black"/>
+  <circle cx="87.4" cy="138.9" r="0.8" fill="black"/>
+  <circle cx="81.4" cy="153.2" r="0.8" fill="black"/>
+  <circle cx="82.0" cy="161.9" r="0.8" fill="black"/>
+  <circle cx="88.6" cy="173.8" r="0.8" fill="black"/>
+  <circle cx="82.2" cy="184.7" r="0.8" fill="black"/>
+  <circle cx="98.2" cy="3.0" r="0.8" fill="black"/>
+  <circle cx="100.0" cy="16.9" r="0.8" fill="black"/>
+  <circle cx="96.6" cy="31.4" r="0.8" fill="black"/>
+  <circle cx="95.8" cy="42.0" r="0.8" fill="black"/>
+  <circle cx="95.3" cy="61.7" r="0.8" fill="black"/>
+  <circle cx="99.3" cy="68.7" r="0.8" fill="black"/>
+  <circle cx="100.1" cy="86.7" r="0.8" fill="black"/>
+  <circle cx="94.0" cy="96.7" r="0.8" fill="black"/>
+  <circle cx="93.5" cy="107.2" r="0.8" fill="black"/>
+  <circle cx="98.1" cy="120.9" r="0.8" fill="black"/>
+  <circle cx="95.7" cy="134.2" r="0.8" fill="black"/>
+  <circle cx="93.4" cy="148.0" r="0.8" fill="black"/>
+  <circle cx="98.3" cy="163.3" r="0.8" fill="black"/>
+  <circle cx="96.4" cy="172.9" r="0.8" fill="black"/>
+  <circle cx="99.4" cy="190.8" r="0.8" fill="black"/>
+  <circle cx="112.3" cy="10.6" r="0.8" fill="black"/>
+  <circle cx="113.6" cy="22.3" r="0.8" fill="black"/>
+  <circle cx="114.4" cy="31.1" r="0.8" fill="black"/>
+  <circle cx="110.2" cy="45.0" r="0.8" fill="black"/>
+  <circle cx="106.2" cy="57.7" r="0.8" fill="black"/>
+  <circle cx="107.9" cy="72.5" r="0.8" fill="black"/>
+  <circle cx="114.4" cy="84.0" r="0.8" fill="black"/>
+  <circle cx="114.1" cy="99.0" r="0.8" fill="black"/>
+  <circle cx="107.5" cy="111.0" r="0.8" fill="black"/>
+  <circle cx="109.7" cy="122.7" r="0.8" fill="black"/>
+  <circle cx="113.8" cy="133.2" r="0.8" fill="black"/>
+  <circle cx="108.3" cy="153.1" r="0.8" fill="black"/>
+  <circle cx="110.1" cy="159.7" r="0.8" fill="black"/>
+  <circle cx="113.1" cy="171.3" r="0.8" fill="black"/>
+  <circle cx="110.4" cy="190.8" r="0.8" fill="black"/>
+  <circle cx="120.1" cy="7.2" r="0.8" fill="black"/>
+  <circle cx="122.8" cy="15.4" r="0.8" fill="black"/>
+  <circle cx="119.7" cy="33.4" r="0.8" fill="black"/>
+  <circle cx="124.2" cy="45.0" r="0.8" fill="black"/>
+  <circle cx="123.1" cy="60.7" r="0.8" fill="black"/>
+  <circle cx="127.7" cy="71.6" r="0.8" fill="black"/>
+  <circle cx="120.5" cy="88.3" r="0.8" fill="black"/>
+  <circle cx="125.0" cy="97.2" r="0.8" fill="black"/>
+  <circle cx="127.8" cy="110.1" r="0.8" fill="black"/>
+  <circle cx="120.8" cy="125.1" r="0.8" fill="black"/>
+  <circle cx="123.8" cy="138.2" r="0.8" fill="black"/>
+  <circle cx="123.9" cy="152.4" r="0.8" fill="black"/>
+  <circle cx="121.5" cy="164.0" r="0.8" fill="black"/>
+  <circle cx="120.6" cy="178.9" r="0.8" fill="black"/>
+  <circle cx="120.5" cy="190.4" r="0.8" fill="black"/>
+  <circle cx="140.6" cy="5.7" r="0.8" fill="black"/>
+  <circle cx="135.9" cy="23.5" r="0.8" fill="black"/>
+  <circle cx="136.6" cy="35.7" r="0.8" fill="black"/>
+  <circle cx="136.9" cy="44.1" r="0.8" fill="black"/>
+  <circle cx="132.8" cy="55.1" r="0.8" fill="black"/>
+  <circle cx="140.0" cy="70.1" r="0.8" fill="black"/>
+  <circle cx="137.8" cy="87.7" r="0.8" fill="black"/>
+  <circle cx="134.8" cy="99.2" r="0.8" fill="black"/>
+  <circle cx="139.7" cy="110.4" r="0.8" fill="black"/>
+  <circle cx="132.7" cy="126.8" r="0.8" fill="black"/>
+  <circle cx="134.6" cy="133.3" r="0.8" fill="black"/>
+  <circle cx="137.8" cy="152.0" r="0.8" fill="black"/>
+  <circle cx="134.2" cy="160.9" r="0.8" fill="black"/>
+  <circle cx="133.5" cy="174.7" r="0.8" fill="black"/>
+  <circle cx="133.4" cy="186.9" r="0.8" fill="black"/>
+  <circle cx="147.5" cy="3.2" r="0.8" fill="black"/>
+  <circle cx="153.6" cy="17.3" r="0.8" fill="black"/>
+  <circle cx="147.7" cy="29.7" r="0.8" fill="black"/>
+  <circle cx="150.3" cy="43.5" r="0.8" fill="black"/>
+  <circle cx="153.4" cy="58.8" r="0.8" fill="black"/>
+  <circle cx="147.8" cy="70.7" r="0.8" fill="black"/>
+  <circle cx="150.5" cy="88.6" r="0.8" fill="black"/>
+  <circle cx="152.6" cy="99.3" r="0.8" fill="black"/>
+  <circle cx="151.4" cy="108.4" r="0.8" fill="black"/>
+  <circle cx="152.0" cy="121.5" r="0.8" fill="black"/>
+  <circle cx="149.2" cy="132.3" r="0.8" fill="black"/>
+  <circle cx="153.3" cy="150.1" r="0.8" fill="black"/>
+  <circle cx="151.1" cy="158.9" r="0.8" fill="black"/>
+  <circle cx="147.9" cy="173.1" r="0.8" fill="black"/>
+  <circle cx="150.8" cy="190.0" r="0.8" fill="black"/>
+  <circle cx="163.9" cy="8.1" r="0.8" fill="black"/>
+  <circle cx="163.8" cy="20.0" r="0.8" fill="black"/>
+  <circle cx="160.8" cy="30.7" r="0.8" fill="black"/>
+  <circle cx="160.9" cy="42.6" r="0.8" fill="black"/>
+  <circle cx="158.8" cy="62.3" r="0.8" fill="black"/>
+  <circle cx="161.2" cy="71.9" r="0.8" fill="black"/>
+  <circle cx="161.1" cy="85.9" r="0.8" fill="black"/>
+  <circle cx="166.2" cy="100.6" r="0.8" fill="black"/>
+  <circle cx="163.2" cy="110.2" r="0.8" fill="black"/>
+  <circle cx="163.8" cy="120.4" r="0.8" fill="black"/>
+  <circle cx="159.7" cy="139.6" r="0.8" fill="black"/>
+  <circle cx="158.7" cy="148.5" r="0.8" fill="black"/>
+  <circle cx="163.0" cy="165.9" r="0.8" fill="black"/>
+  <circle cx="163.2" cy="178.7" r="0.8" fill="black"/>
+  <circle cx="162.8" cy="186.5" r="0.8" fill="black"/>
+  <circle cx="171.8" cy="9.0" r="0.8" fill="black"/>
+  <circle cx="175.0" cy="16.2" r="0.8" fill="black"/>
+  <circle cx="176.2" cy="30.3" r="0.8" fill="black"/>
+  <circle cx="176.0" cy="47.9" r="0.8" fill="black"/>
+  <circle cx="174.2" cy="59.5" r="0.8" fill="black"/>
+  <circle cx="175.5" cy="73.9" r="0.8" fill="black"/>
+  <circle cx="179.0" cy="81.4" r="0.8" fill="black"/>
+  <circle cx="171.5" cy="95.2" r="0.8" fill="black"/>
+  <circle cx="178.2" cy="106.7" r="0.8" fill="black"/>
+  <circle cx="171.6" cy="125.0" r="0.8" fill="black"/>
+  <circle cx="179.6" cy="135.3" r="0.8" fill="black"/>
+  <circle cx="174.5" cy="152.3" r="0.8" fill="black"/>
+  <circle cx="179.8" cy="162.7" r="0.8" fill="black"/>
+  <circle cx="171.4" cy="178.5" r="0.8" fill="black"/>
+  <circle cx="176.9" cy="192.6" r="0.8" fill="black"/>
+  <circle cx="188.5" cy="2.4" r="0.8" fill="black"/>
+  <circle cx="185.1" cy="20.7" r="0.8" fill="black"/>
+  <circle cx="188.9" cy="36.6" r="0.8" fill="black"/>
+  <circle cx="184.6" cy="46.2" r="0.8" fill="black"/>
+  <circle cx="184.3" cy="60.0" r="0.8" fill="black"/>
+  <circle cx="191.3" cy="67.4" r="0.8" fill="black"/>
+  <circle cx="184.8" cy="80.5" r="0.8" fill="black"/>
+  <circle cx="191.1" cy="95.7" r="0.8" fill="black"/>
+  <circle cx="191.8" cy="109.2" r="0.8" fill="black"/>
+  <circle cx="186.3" cy="123.5" r="0.8" fill="black"/>
+  <circle cx="184.4" cy="133.3" r="0.8" fill="black"/>
+  <circle cx="185.0" cy="146.0" r="0.8" fill="black"/>
+  <circle cx="187.0" cy="166.7" r="0.8" fill="black"/>
+  <circle cx="191.5" cy="177.2" r="0.8" fill="black"/>
+  <circle cx="188.9" cy="189.1" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="13.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="13.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="26.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="26.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="39.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="39.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="52.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="52.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="65.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="65.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="78.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="78.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="91.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="91.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="104.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="104.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="117.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="117.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="130.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="130.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="143.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="143.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="156.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="156.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="169.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="169.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="182.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="182.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="195.0" cy="0.0" r="0.8" fill="black"/>
+  <circle cx="195.0" cy="200.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="13.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="13.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="26.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="26.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="39.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="39.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="52.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="52.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="65.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="65.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="78.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="78.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="91.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="91.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="104.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="104.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="117.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="117.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="130.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="130.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="143.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="143.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="156.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="156.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="169.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="169.0" r="0.8" fill="black"/>
+  <circle cx="0.0" cy="182.0" r="0.8" fill="black"/>
+  <circle cx="200.0" cy="182.0" r="0.8" fill="black"/>
+</svg>

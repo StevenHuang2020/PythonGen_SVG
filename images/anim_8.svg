@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" viewBox="0 0 200 200">
+  <rect x="0" y="0" width="200" height="200" fill="none" stroke="black" stroke-width="1" id="border" opacity="0.8"/>
+  <g opacity="1.0">
+    <polygon points="100.0,100.0 190.0,100.0 145.0,67.3 " stroke="None" stroke-width="0.5" fill="#1048DE"/>
+    <text x="145.0" y="90.19" fill="#efb721" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(0.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 172.8,152.9 155.6,100.0 " stroke="None" stroke-width="0.5" fill="#C21493"/>
+    <text x="145.0" y="90.19" fill="#3deb6c" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(36.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 127.8,185.6 145.0,132.7 " stroke="None" stroke-width="0.5" fill="#F41AED"/>
+    <text x="145.0" y="90.19" fill="#be512" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(72.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 72.2,185.6 117.2,152.9 " stroke="None" stroke-width="0.5" fill="#9CD8A7"/>
+    <text x="145.0" y="90.19" fill="#632758" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(108.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 27.2,152.9 82.8,152.9 " stroke="None" stroke-width="0.5" fill="#075DE6"/>
+    <text x="145.0" y="90.19" fill="#f8a219" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(144.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 10.0,100.0 55.0,132.7 " stroke="None" stroke-width="0.5" fill="#60C42F"/>
+    <text x="145.0" y="90.19" fill="#9f3bd0" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(180.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 27.2,47.1 44.4,100.0 " stroke="None" stroke-width="0.5" fill="#E40D76"/>
+    <text x="145.0" y="90.19" fill="#1bf289" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(216.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 72.2,14.4 55.0,67.3 " stroke="None" stroke-width="0.5" fill="#B4E165"/>
+    <text x="145.0" y="90.19" fill="#4b1e9a" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(252.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 127.8,14.4 82.8,47.1 " stroke="None" stroke-width="0.5" fill="#9160DA"/>
+    <text x="145.0" y="90.19" fill="#6e9f25" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(288.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <polygon points="100.0,100.0 172.8,47.1 117.2,47.1 " stroke="None" stroke-width="0.5" fill="#A3F609"/>
+    <text x="145.0" y="90.19" fill="#5c09f6" white-space="pre" font-family="Consolas" font-size="smaller" font-style="normal" font-variant="normal" transform="rotate(324.0,100,100)" text-anchor="middle" dominant-baseline="central">SVG</text>
+    <animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 100 100" to="360 100 100" dur="8s" repeatCount="indefinite"/>
+  </g>
+</svg>

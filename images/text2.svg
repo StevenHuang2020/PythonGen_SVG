@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="1.0">
+    <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
+    <style> text { fill: black; font-family: Consolas; font-size: 24px;  } </style>
+    <text x="10" y="30" rotate="0">Text rotation!</text>
+    <text x="10" y="55" rotate="30">Text rotation!</text>
+    <text x="10" y="80" rotate="60">Text rotation!</text>
+    <text x="10" y="105" rotate="90">Text rotation!</text>
+    <text x="10" y="130" rotate="120">Text rotation!</text>
+    <text x="10" y="155" rotate="150">Text rotation!</text>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="1.0">
+    <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
+    <polygon points="100.0,100.0 200.0,100.0 150.0,71.1 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 170.7,170.7 155.8,114.9 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 100.0,200.0 128.9,150.0 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 29.3,170.7 85.1,155.8 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 0.0,100.0 50.0,128.9 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 29.3,29.3 44.2,85.1 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 100.0,0.0 71.1,50.0 " stroke="None" stroke-width="0.5" fill="black"/>
+    <polygon points="100.0,100.0 170.7,29.3 114.9,44.2 " stroke="None" stroke-width="0.5" fill="black"/>
+  </g>
+</svg>

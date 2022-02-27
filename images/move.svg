@@ -1,0 +1,90 @@
+<svg width="500" height="400" style="border:1px solid black" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <circle id="orange-circle" r="20" cx="30" cy="40" fill="orange" />
+  <circle id="red-circle" r="20" cx="30" cy="90" fill="red" />
+  <circle id="blue-circle" r="20" cx="30" cy="140" fill="blue" />
+  <circle id="4-circle" r="20" cx="30" cy="190" fill="black" />
+  <circle id="5-circle" r="20" cx="230" cy="240" fill="green" />
+  
+  <rect id="6-rect" x="30" y="290" width="40" height="20" fill="red" />
+  
+  <animate 
+           xlink:href="#orange-circle"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="1s"
+           begin="click"
+           fill="freeze" 
+		   id="an_org" />
+		   
+  <animate 
+           xlink:href="#orange-circle"
+           attributeName="cy"
+           from="40"
+           to="250" 
+           dur="1s"
+           begin="click"
+           fill="freeze" 
+		   id="an_orgY" />
+		   
+  <animate 
+           xlink:href="#red-circle"
+           attributeName="cy"
+           from="80"
+           to="20" 
+           dur="1s"
+           begin="click"
+           />  
+   
+  <animate 
+           xlink:href="#blue-circle"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="1s"
+           begin="an_org.begin + 1s"
+           repeatCount="2"
+           />  
+  <animate 
+           xlink:href="#4-circle"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="1s"
+           begin="0s"
+           repeatCount="indefinite"
+           />  
+
+  <animate 
+           xlink:href="#5-circle"
+           attributeName="cy"
+           from="50"
+           to="250" 
+           dur="3s"
+           begin="click"
+           calcMode="spline"
+           values="50; 250; 120; 250; 170; 250; 210; 250"
+           keyTimes="0; 0.15; 0.3; 0.45; 0.6; 0.75; 0.9; 1"
+           keySplines="0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1"
+           fill="freeze"  
+		   repeatCount="indefinite"
+           id="circ-anim"/>
+		   
+  <animateTransform 
+						  xlink:href="#6-rect"
+						  attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 50 300"
+                          to="360 50 300"
+                          dur="10s"
+                          repeatCount="indefinite"/>
+
+
+</svg>

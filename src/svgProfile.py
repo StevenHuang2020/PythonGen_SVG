@@ -19,7 +19,7 @@ class ProfileStyleSimple:
         self._draw_()
 
     def _prepare_svg(self):  # style css define
-        self.svg.draw(draw_any('title ', text='my figure'))
+        self.svg.draw(draw_any('title ', text=self.dataDict['name']))
         styleNode = self.svg.draw(draw_any('style ', type="text/css"))
 
         dictStyle = {'fill': "black", 'font-family': "sans-serif", 'font-size': '28px'}
@@ -118,13 +118,14 @@ def Nietzsche():
 
     dataDict['quotes'].append('Without music, life would be a mistake.'.splitlines())
     dataDict['quotes'].append('That which does not kill us makes us stronger.'.splitlines())
-    dataDict['quotes'].append('To live is to suffer, to survive is to \rfind some meaning in the suffering.'.splitlines())
-    dataDict['quotes'].append('We should consider every day lost on \rwhich we have not danced at least once.'.splitlines())
-    dataDict['quotes'].append('A person who knows why he lives, \rcan endure any kind of life.'.splitlines())
-    dataDict['quotes'].append('An unfortunate marriage is not a \rlack of love, but a lack of friendship.'.splitlines())
+    dataDict['quotes'].append('To live is to suffer, to survive is to find some \rmeaning in the suffering.'.splitlines())
+    dataDict['quotes'].append('We should consider every day lost on which we have not \rdanced at least once.'.splitlines())
+    dataDict['quotes'].append('A person who knows why he lives, can endure any kind of life.'.splitlines())
+    dataDict['quotes'].append('An unfortunate marriage is not a lack of love, but \ra lack of friendship.'.splitlines())
     dataDict['quotes'].append('God is dead.'.splitlines())
-    dataDict['quotes'].append('My time has not come, and some people \rare born after death.'.splitlines())
-    dataDict['quotes'].append('You might as well take a bold risk \rin life because you have to lose it.'.splitlines())
+    dataDict['quotes'].append('My time has not come, and some people are born after death.'.splitlines())
+    dataDict['quotes'].append('You might as well take a bold risk in life because \ryou have to lose it.'.splitlines())
+    dataDict['quotes'].append('The man of knowledge must be able not only to \rlove his enemies but also to hate his friends.'.splitlines())
 
     ProfileStyleSimple(svg, dataDict)
 
@@ -151,7 +152,7 @@ def KarlPopper():
     dataDict['quotes'].append('A theory that explains everything, explains nothing.'.splitlines())
     dataDict['quotes'].append('All life is problem solving.'.splitlines())
     dataDict['quotes'].append('While differing widely in the various little bits we know, \rin our infinite ignorance we are all equal.'.splitlines())
-    dataDict['quotes'].append('Science may be described as the art of \rsystematic oversimplification.'.splitlines())
+    dataDict['quotes'].append('Science may be described as the art of systematic \roversimplification.'.splitlines())
     ProfileStyleSimple(svg, dataDict)
 
 
@@ -170,21 +171,25 @@ def Socrates():
     dataDict['quotes'] = []
 
     dataDict['quotes'].append('An unexamined life is not worth living.'.splitlines())
-    dataDict['quotes'].append('One thing only I know, and that is \rthat I know nothing.'.splitlines())
-    dataDict['quotes'].append('True knowledge exists in knowing \rthat you know nothing.'.splitlines())
-    dataDict['quotes'].append('I know that I am intelligent, because \rI know that I know nothing.'.splitlines())
-    dataDict['quotes'].append('I cannot teach anybody anything, \rI can only make them think.'.splitlines())
+    dataDict['quotes'].append('One thing only I know, and that is that I know nothing.'.splitlines())
+    dataDict['quotes'].append('True knowledge exists in knowing that you know nothing.'.splitlines())
+    dataDict['quotes'].append('I know that I am intelligent, because I know that I know nothing.'.splitlines())
+    dataDict['quotes'].append('I cannot teach anybody anything, I can only make them think.'.splitlines())
     dataDict['quotes'].append('To find yourself, think for yourself.'.splitlines())
-    dataDict['quotes'].append('Education is the kindling of a flame, \rnot the filling of a vessel.'.splitlines())
+    dataDict['quotes'].append('Education is the kindling of a flame, not the filling of a vessel.'.splitlines())
     dataDict['quotes'].append('An honest man is always a child.'.splitlines())
+    dataDict['quotes'].append('The only true wisdom is in knowing you know nothing.'.splitlines())
+    dataDict['quotes'].append('There is only one good, knowledge, and one evil, ignorance.'.splitlines())
+    dataDict['quotes'].append('Wonder is the beginning of wisdom.'.splitlines())
+    dataDict['quotes'].append('He who is not contented with what he has, would not \rbe contented with what he would like to have.'.splitlines())
 
     ProfileStyleSimple(svg, dataDict)
 
 
 def main():
-    Socrates()
+    # Socrates()
     # Nietzsche()
-    # KarlPopper()
+    KarlPopper()
 
 
 if __name__ == "__main__":

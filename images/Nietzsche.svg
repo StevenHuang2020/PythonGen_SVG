@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="660" height="800" viewBox="0 0 660 800" style="border:1px solid black">
-  <title>my figure</title>
+  <title>Friedrich Wilhelm Nietzsche</title>
   <style type="text/css">
     <style> .big { fill: black; font-family: sans-serif; font-size: 28px;  } </style>
     <style> .small { fill: black; font-family: sans-serif; font-size: 20px;  } </style>
@@ -17,18 +17,18 @@
   <text class="bodyText">
     <tspan dy="0.2em" x="10" y="190">1. Without music, life would be a mistake.</tspan>
     <tspan dy="0.2em" x="10" y="240">2. That which does not kill us makes us stronger.</tspan>
-    <tspan dy="0.2em" x="10" y="290">3. To live is to suffer, to survive is to </tspan>
-    <tspan dy="0.2em" x="10" y="320">find some meaning in the suffering.</tspan>
-    <tspan dy="0.2em" x="10" y="370">4. We should consider every day lost on </tspan>
-    <tspan dy="0.2em" x="10" y="400">which we have not danced at least once.</tspan>
-    <tspan dy="0.2em" x="10" y="450">5. A person who knows why he lives, </tspan>
-    <tspan dy="0.2em" x="10" y="480">can endure any kind of life.</tspan>
-    <tspan dy="0.2em" x="10" y="530">6. An unfortunate marriage is not a </tspan>
-    <tspan dy="0.2em" x="10" y="560">lack of love, but a lack of friendship.</tspan>
-    <tspan dy="0.2em" x="10" y="610">7. God is dead.</tspan>
-    <tspan dy="0.2em" x="10" y="660">8. My time has not come, and some people </tspan>
-    <tspan dy="0.2em" x="10" y="690">are born after death.</tspan>
-    <tspan dy="0.2em" x="10" y="740">9. You might as well take a bold risk </tspan>
-    <tspan dy="0.2em" x="10" y="770">in life because you have to lose it.</tspan>
+    <tspan dy="0.2em" x="10" y="290">3. To live is to suffer, to survive is to find some </tspan>
+    <tspan dy="0.2em" x="10" y="320">meaning in the suffering.</tspan>
+    <tspan dy="0.2em" x="10" y="370">4. We should consider every day lost on which we have not </tspan>
+    <tspan dy="0.2em" x="10" y="400">danced at least once.</tspan>
+    <tspan dy="0.2em" x="10" y="450">5. A person who knows why he lives, can endure any kind of life.</tspan>
+    <tspan dy="0.2em" x="10" y="500">6. An unfortunate marriage is not a lack of love, but </tspan>
+    <tspan dy="0.2em" x="10" y="530">a lack of friendship.</tspan>
+    <tspan dy="0.2em" x="10" y="580">7. God is dead.</tspan>
+    <tspan dy="0.2em" x="10" y="630">8. My time has not come, and some people are born after death.</tspan>
+    <tspan dy="0.2em" x="10" y="680">9. You might as well take a bold risk in life because </tspan>
+    <tspan dy="0.2em" x="10" y="710">you have to lose it.</tspan>
+    <tspan dy="0.2em" x="10" y="760">10. The man of knowledge must be able not only to </tspan>
+    <tspan dy="0.2em" x="10" y="790">love his enemies but also to hate his friends.</tspan>
   </text>
 </svg>

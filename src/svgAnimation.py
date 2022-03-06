@@ -5,12 +5,13 @@ import random
 import numpy as np
 from svg.basic import draw_circle, clip_float, draw_text
 from svg.basic import random_color, rainbow_colors, reverse_hex, random_color_hsv
-from svg.basic import rand_str, draw_tag, draw_any, draw_polygon
-from svg.basic import random_points
+from svg.basic import rand_str, draw_tag, draw_any, draw_polygon, random_point
+from svg.basic import random_points, draw_path
 from svg.file import SVGFileV2
 from svg.geo_math import get_distance
 from common import gImageOutputPath
-from svg.geo_transformation import rotation_pts_xy_point
+from svg.geo_transformation import rotation_pts_xy_point, reflection_points
+from svg.geo_transformation import combine_xy, translation_pts, translation_pts_xy
 from svgPointLine import drawPloygonNode
 
 
@@ -245,6 +246,229 @@ def drawAny(svg):
         svg.draw_node(circle, draw_any('animate', **anyDict))
 
 
+def draw_circle_path_anim(svg, node, path, radius, color='red', duration=None):
+    circle = svg.draw_node(node, draw_circle(0, 0, radius=radius, color=color))
+
+    animate_dict = {}
+
+    if duration is None:
+        animate_dict['dur'] = '5s'
+    else:
+        animate_dict['dur'] = f'{duration}s'
+    animate_dict["repeatCount"] = "indefinite"
+    animate_dict["path"] = path
+
+    addNodeAnitmation(svg, circle, animate_dict, elementName='animateMotion')
+
+
+def anim6(svg):
+    def draw_moving_circle(svg, g, radius, y, offset_x, color='red', duration=None):
+        path = f'M{radius + offset_x} {y} H{W - (radius + offset_x)} H{radius + offset_x}'
+        # svg.draw_node(g, draw_path(path, stroke_width=0.5, color='green'))
+        draw_circle_path_anim(svg, g, path, radius, color, duration)
+
+    H, W = svg.get_size()
+    print('H, W=', H, W)
+    cx, cy = W // 2, H // 2
+
+    g = svg.draw(draw_tag('g'))
+    svg.set_node(g, 'opacity', '1.0')
+
+    ver = cy
+    r = 8
+    offset_x = 0
+    offset_y = 0
+
+    draw_moving_circle(svg, g, radius=r, y=ver, offset_x=offset_x)
+
+    N = 20
+    for i in range(N):
+        rand_r = random.randint(2, r)
+        rand_ver = random.randint(offset_y + rand_r, H - 2 * rand_r - offset_y)
+        draw_moving_circle(svg, g, radius=rand_r, y=rand_ver,
+                           offset_x=offset_x, duration=random.randint(3, 10),
+                           color=random_color_hsv())
+
+
+def get_points_path(pts, close=False):
+    x = pts[0][0]
+    y = pts[0][1]
+    path = 'M %.1f %.1f L' % (x, y)
+    for pt in pts[1:]:
+        path = path + ' ' + str(pt[0]) + ' ' + str(pt[1])
+
+    if close:
+        path += ' Z'
+    return path
+
+
+def draw_ball_movin(svg, node, radius, W, H, start_pt, step_x, step_y, N=500, color=None, draw_path_line=False):
+    ball = BallCoordinates(x=start_pt[0], y=start_pt[1],
+                           vx=step_x, vy=step_y,
+                           width=W, height=H, offset=radius, N=N)
+    coords = ball.get_coordinates()
+    # print('coords=', coords, len(coords))
+
+    path = get_points_path(coords, False)
+
+    # draw path line
+    if draw_path_line:
+        svg.draw_node(node, draw_path(path, stroke_width=0.5, color='green'))
+
+    # print('path=', path[:50])
+    draw_circle_path_anim(svg, node, path, radius, duration=len(coords)*2.8, color=color)
+
+
+def anim7(svg):
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
+
+    # define gradient color
+    color_id = 'myGradient'
+    defs = svg.draw(draw_any('defs'))
+    grad = svg.draw_node(defs, draw_any('radialGradient ', id=f'{color_id}'))
+
+    stop_dict = {}
+    stop_dict['offset'] = '2%'
+    stop_dict['stop-color'] = 'gold'
+    svg.draw_node(grad, draw_any('stop', None, **stop_dict))
+    stop_dict['offset'] = '90%'
+    stop_dict['stop-color'] = 'red'
+    svg.draw_node(grad, draw_any('stop', None, **stop_dict))
+
+    g = svg.draw(draw_tag('g'))
+    svg.set_node(g, 'opacity', '1.0')
+
+    r = 8
+    pt = [cx, cy]
+    # color = 'red'
+    color = f"url('#{color_id}')"
+    draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=-2, step_y=3, N=500, color=color, draw_path_line=True)
+
+
+def anim8(svg):
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
+
+    g = svg.draw(draw_tag('g'))
+    svg.set_node(g, 'opacity', '1.0')
+    pt = (cx, cy)
+    for i in range(100):
+        r = random.randint(2, 8)
+        # pt = (random.randint(2+r, W-2-r), random.randint(2+r, H-2-r))
+        sx = random.randint(1, 8) * [-1, 1][random.randrange(2)]
+        sy = random.randint(1, 8) * [-1, 1][random.randrange(2)]
+        # print('r, sx, sy=', r, sx, sy)
+        draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=sx, step_y=sy, N=800, color=random_color_hsv())
+
+
+class BallCoordinates:
+    """get coordinates of a bouncing ball in a rect[0, 0, W, H]
+    """
+    def __init__(self, x, y, vx, vy, width, height, offset=1, N=100):
+        """init parameters
+
+        Args:
+            x (int): start point x value
+            y (int): start point y value
+            vx (int): moving speed in x-axis
+            vy (int): moving speed in y-axis
+            width (int): width of moving rect
+            height (int): height of moving rect
+            offset (int, optional): border offset, equal to ball's radius. Defaults to 1.
+            N (int, optional): moving times. Defaults to 100.
+        """
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.width = width
+        self.height = height
+        self.offset = offset
+        self.coordinates = []
+
+        self.coordinates.append([x, y])
+        self.generate(N=N)
+
+    def generate(self, N=100):
+        for _ in range(N):
+            self.move_offset()  # self.move()
+        # print(self.coordinates, len(self.coordinates))
+
+    def get_coordinates(self):
+        return np.asarray(self.coordinates)
+
+    def move_offset(self):
+        # Add the velocity to position.
+        self.x += self.vx
+        self.y += self.vy
+
+        # Bounce off vertical walls, if necessary.
+        if(self.x < self.offset or self.x > self.width - self.offset):
+            # Flip the horizontal velocity.
+            self.vx = -1 * self.vx
+
+            if (self.x < self.offset):  # if now negative, must be 2nd case
+                self.x = self.offset
+            else:
+                self.x = self.width - self.offset
+
+            self.coordinates.append([self.x, self.y])
+
+        # Bounce off horizontal walls, if necessary.
+        if (self.y < self.offset or self.y > self.height - self.offset):
+            # Follow the same logic as above.
+            self.vy = -1 * self.vy
+
+            if(self.y < self.offset):
+                self.y = self.offset
+            else:
+                self.y = self.height - self.offset
+
+            self.coordinates.append([self.x, self.y])
+        # self.coordinates.append([self.x, self.y])
+
+    # Called every frame with the current screen width and height.
+    def move(self):
+        # Add the velocity to position.
+        self.x += self.vx
+        self.y += self.vy
+
+        # Bounce off vertical walls, if necessary.
+        if(self.x < 0 or self.x > self.width):
+            # Flip the horizontal velocity.
+            self.vx = -1 * self.vx
+
+            # If x is negative (the ball is off the screen to the left),
+            # then simply flipping its sign is enough to move it to where
+            # we want it to be. Otherwise (the ball is off the screen to
+            # the right), we need to take the excess x - width and subtract
+            # it from the screen width, yielding x = width - (x - width) =
+            # width - x + width = 2*width - x. Either way, we negate x. In
+            # the first case, we’re done in the second, we just need to
+            # add 2*width.
+
+            if (self.x < 0):  # if now negative, must be 2nd case
+                self.x = -1 * self.x
+            else:
+                self.x = (2 * self.width - self.x)
+
+            # self.coordinates.append([self.x, self.y])
+
+        # Bounce off horizontal walls, if necessary.
+        if (self.y < 0 or self.y > self.height):
+            # Follow the same logic as above.
+            self.vy = -1 * self.vy
+
+            if(self.y < 0):
+                self.y = -1 * self.y
+            else:
+                self.y = (2 * self.height - self.y)
+
+            # self.coordinates.append([self.x, self.y])
+        self.coordinates.append([self.x, self.y])
+
+
 def main():
     file = gImageOutputPath + r'\animation.svg'
     svg = SVGFileV2(file, W=200, H=200, border=True)
@@ -254,8 +478,11 @@ def main():
     # animCircleInflation3(svg)
     # animCircleInflation4(svg)
     # animCircleInflation5(svg)
-    anim_Windmill(svg)
+    # anim_Windmill(svg)
     # drawAny(svg)
+    # anim6(svg)
+    # anim7(svg)
+    anim8(svg)
 
 
 if __name__ == '__main__':

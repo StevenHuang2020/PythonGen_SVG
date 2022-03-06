@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" style="border:1px solid black">
+  <defs>
+    <radialGradient id="myGradient">
+      <stop offset="2%" stop-color="gold"/>
+      <stop offset="90%" stop-color="red"/>
+    </radialGradient>
+  </defs>
+  <g opacity="1.0">
+    <path stroke="green" stroke-width="0.5" fill="transparent" fill-rule="nonzero" d="M 100.0 100.0 L 38 192 8 144 100 8 192 149 162 192 38 8 8 56 100 192 192 51 162 8 38 192 8 144 100 8"/>
+    <circle cx="0" cy="0" r="8" fill="url('#myGradient')">
+      <animateMotion dur="39.199999999999996s" repeatCount="indefinite" path="M 100.0 100.0 L 38 192 8 144 100 8 192 149 162 192 38 8 8 56 100 192 192 51 162 8 38 192 8 144 100 8"/>
+    </circle>
+  </g>
+</svg>

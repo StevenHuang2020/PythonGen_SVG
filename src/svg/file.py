@@ -39,7 +39,7 @@ class SVGFileV2:
         self.set_title(title)
 
     def get_size(self):
-        return self._width, self._height
+        return self._height, self._width
 
     def add_root_style(self, new_style):
         style = self._root.get('style')

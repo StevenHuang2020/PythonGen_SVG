@@ -35,7 +35,7 @@ https://datavizproject.com/ <br/>
 |<img src="images/poem2.svg" width="200" height="200" />|<img src="images/text1.svg" width="200" height="200" />|
 |<img src="images/anim_circle2.svg" width="200" height="200" />|<img src="images/anim_circle3.svg" width="200" height="200" />|
 |<img src="images/anim_circle6.svg" width="200" height="200" />|<img src="images/anim_8.svg" width="200" height="200" />|
-|<img src="images/lineGraphic18.svg" width="200" height="200" />|<img src="images/lineGraphic20.svg" width="200" height="200" />|
+|<img src="images/animation_8.svg" width="200" height="200" />|<img src="images/lineGraphic20.svg" width="200" height="200" />|
 |<img src="images/dataFrame3.svg" width="200" height="120" />|<img src="images/dataFrame4.svg" width="200" height="120" />|
 |<img src="images/Nietzsche.svg" width="200" height="200" />|<img src="images/KarlPopper.svg" width="200" height="200" />|
 |<img src="images/svgPath10.svg" width="200" height="200" />|<img src="images/svgPath12.svg" width="200" height="200" />|

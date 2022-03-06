@@ -2,6 +2,8 @@
 #python3 Steven Scalable Vector Graphics(SVG)
 #reference: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
 #SVG: https://www.w3.org/Graphics/SVG/
+#svg elements: https://developer.mozilla.org/en-US/docs/Web/SVG/Element
+
 """
 import svg.basic as sb
 from svg.basic import draw_line, random_color

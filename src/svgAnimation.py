@@ -6,13 +6,14 @@ import numpy as np
 from svg.basic import draw_circle, clip_float, draw_text
 from svg.basic import random_color, rainbow_colors, reverse_hex, random_color_hsv
 from svg.basic import rand_str, draw_tag, draw_any, draw_polygon, random_point
-from svg.basic import random_points, draw_path
+from svg.basic import random_points, draw_path, draw_line
 from svg.file import SVGFileV2
-from svg.geo_math import get_distance
+from svg.geo_math import get_distance, get_velocity_line, get_velocity_line_abc
+from svg.geo_math import get_line_ABC_inter, get_perpendicular_point_line_ABC, get_line_ABC, get_line_ABC_y, get_line_ABC_x
 from common import gImageOutputPath
 from svg.geo_transformation import rotation_pts_xy_point, reflection_points
 from svg.geo_transformation import combine_xy, translation_pts, translation_pts_xy
-from svgPointLine import drawPloygonNode
+from svgPointLine import drawPloygonNode, drawlinePoints
 
 
 def addNodeAnitmation(svg, objectNode, animateDict, elementName='animate'):
@@ -469,6 +470,160 @@ class BallCoordinates:
         self.coordinates.append([self.x, self.y])
 
 
+def draw_line_param(svg, node, a, b, min_x=0, max_x=100):
+    """draw line  y= a*x + b"""
+
+    def fun(x):
+        return a*x+b
+
+    # x = np.linspace(min_x, max_x, N)
+    # y = a * x + b
+    # start_pt = [min_x, fun(min_x)]
+    # stop_pt = [max_x, fun(max_x)]
+    pts = [[min_x, fun(min_x), max_x, fun(max_x)]]
+    drawlinePoints(svg, pts, node)
+
+
+def draw_line_param_abc(line, min_x=0, max_x=100, min_y=0, max_y=100):
+    """draw line  a*x + b*y + c = 0, line=[a, b, c]"""
+    a, b, c = line[0], line[1], line[2]
+    pts = []
+    if a == 0 and b == 0:
+        print('Warning, line parameters error!')
+        return pts
+
+    if b == 0:
+        pts = [[get_line_ABC_x(line, min_y), min_y, get_line_ABC_x(line, max_y), max_y]]
+    else:
+        pts = [[min_x, get_line_ABC_y(line, min_x), max_x, get_line_ABC_y(line, max_x)]]
+
+    return pts
+
+
+def get_math_bounce_parameter(line, pt, vx, vy):
+    """get math parameter of a ball bounce with a line from point pt
+
+    Args:
+        line (array): [a, b, c], a*x + b*y + c = 0
+        pt (point): [x, y] or (x, y)
+        vx (real value): x speed
+        vy (real value): y speed
+    """
+    perpend_pt = get_perpendicular_point_line_ABC(line, pt)  # perpendicular root point
+    reflect_pt = get_perpendicular_point_line_ABC(line, pt, True)  # reflection point
+    path_line = get_velocity_line_abc(pt, vx, vy)
+    inter_pt = get_line_ABC_inter(line, path_line)
+    reflect_line = get_line_ABC(inter_pt, reflect_pt)
+    return (perpend_pt, reflect_pt, inter_pt, path_line, reflect_line)
+
+
+def anim9(svg):
+    """moving ball bounce with a line"""
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
+
+    g = svg.draw(draw_tag('g'))
+    svg.set_node(g, 'opacity', '1.0')
+
+    wall_line = [2, -1.8, 1]  # line parameters
+    pt = random_point(4, W-5)
+    print(pt, type(pt))
+    vx = -2
+    vy = 1
+
+    res = get_math_bounce_parameter(wall_line, pt, vx, vy)
+    perpend_pt, reflect_pt, inter_pt, path_line, reflect_line = res
+
+    # draw_line_param(svg, g, a, b, 0, W)
+    pts = draw_line_param_abc(wall_line, 0, W, 0, H)
+    drawlinePoints(svg, pts, g, color='black')
+
+    svg.draw_node(g, draw_circle(pt[0], pt[1], 1, color='black'))
+    svg.draw_node(g, draw_circle(perpend_pt[0], perpend_pt[1], 1, color='red'))
+    svg.draw_node(g, draw_circle(reflect_pt[0], reflect_pt[1], 1, color='red'))
+    svg.draw_node(g, draw_circle(inter_pt[0], inter_pt[1], 1, color='black'))
+
+    svg.draw_node(g, draw_line(pt[0], pt[1], reflect_pt[0], reflect_pt[1], stroke_dasharray="2"))
+    svg.draw_node(g, draw_line(inter_pt[0], inter_pt[1], reflect_pt[0], reflect_pt[1], stroke_dasharray="2"))
+
+    if inter_pt is not None:
+        min_x = min(pt[0], inter_pt[0])
+        max_x = max(pt[0], inter_pt[0])
+        min_y = min(pt[1], inter_pt[1])
+        max_y = min(pt[1], inter_pt[1])
+        pts = draw_line_param_abc(path_line, min_x, max_x, min_y, max_y)
+        drawlinePoints(svg, pts, g, color='black')
+
+    coords = [pt, inter_pt]
+    if reflect_pt is not None:
+        min_x, max_x = 0, W
+        min_y, max_y = 0, H
+
+        far_pt = [0, 0]
+        if reflect_pt[0] < inter_pt[0]:
+            min_x = inter_pt[0]
+
+            far_pt[0] = max_x
+            far_pt[1] = get_line_ABC_y(reflect_line, far_pt[0])
+        else:
+            max_x = inter_pt[0]
+            far_pt[0] = min_x
+            far_pt[1] = get_line_ABC_y(reflect_line, far_pt[0])
+
+        pts = draw_line_param_abc(reflect_line, min_x, max_x, min_y, max_y)
+        drawlinePoints(svg, pts, g, color='black')
+
+        coords.append(far_pt)
+        coords = np.asarray(coords)
+        print('coords=', coords, coords.shape)
+    path = get_points_path(coords, False)
+    draw_circle_path_anim(svg, g, path, radius=6, duration=len(coords)*1.0, color='red')
+
+
+def anim10(svg):
+    """moving ball bounce with a line"""
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
+
+    g = svg.draw(draw_tag('g'))
+    svg.set_node(g, 'opacity', '1.0')
+
+    wall_line = [2, -1.8, 1]  # line parameters
+    pts = draw_line_param_abc(wall_line, 0, W, 0, H)
+    drawlinePoints(svg, pts, g, color='black')
+
+    for i in range(50):
+        pt = random_point(4, W-5)
+        # print(pt, type(pt))
+        vx = random.randint(1, 5) * [-1, 1][random.randrange(2)]
+        vy = random.randint(1, 5) * [-1, 1][random.randrange(2)]
+
+        res = get_math_bounce_parameter(wall_line, pt, vx, vy)
+        perpend_pt, reflect_pt, inter_pt, path_line, reflect_line = res
+ 
+        coords = [pt, inter_pt]
+        if reflect_pt is not None:
+            min_x, max_x = 0, W
+            # min_y, max_y = 0, H
+
+            far_pt = [0, 0]
+            if reflect_pt[0] < inter_pt[0]:
+                min_x = inter_pt[0]
+
+                far_pt[0] = max_x
+                far_pt[1] = get_line_ABC_y(reflect_line, far_pt[0])
+            else:
+                max_x = inter_pt[0]
+                far_pt[0] = min_x
+                far_pt[1] = get_line_ABC_y(reflect_line, far_pt[0])
+
+            coords.append(far_pt)
+            coords = np.asarray(coords)
+
+        path = get_points_path(coords, False)
+        draw_circle_path_anim(svg, g, path, radius=3, duration=len(coords)*1.0, color='red')
+
+
 def main():
     file = gImageOutputPath + r'\animation.svg'
     svg = SVGFileV2(file, W=200, H=200, border=True)
@@ -482,7 +637,9 @@ def main():
     # drawAny(svg)
     # anim6(svg)
     # anim7(svg)
-    anim8(svg)
+    # anim8(svg)
+    # anim9(svg)
+    anim10(svg)
 
 
 if __name__ == '__main__':

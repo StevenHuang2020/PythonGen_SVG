@@ -42,3 +42,4 @@ https://datavizproject.com/ <br/>
 |<img src="images/pointsLine10-1.svg" width="200" height="200" />|<img src="images/pointsLine10-2.svg" width="200" height="200" />|
 |<img src="images/pointsLine10-23.svg" width="200" height="200" />|<img src="images/pointsLine11.svg" width="200" height="200" />|
 |<img src="images/pointsLine12-1.svg" width="200" height="200" />|<img src="images/pointsLine12-2.svg" width="200" height="200" />|
+|<img src="images/pointsLine13.svg" width="200" height="200" />||

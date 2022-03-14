@@ -48,7 +48,7 @@ def combine_xy(x, y):
     return np.hstack(([x, y]))
 
 
-def translation_pts(points, to_pt):
+def translation_pts(points, to_pt, combine=False):
     """translation points matrix to a target point
 
     Args:
@@ -56,11 +56,14 @@ def translation_pts(points, to_pt):
         to_pt (np.array or tuple): target point
 
     Returns:
-        tuple: dst_x, dst_y
+        tuple: (dst_x, dst_y) or points array when combine is True
     """
 
     x, y = split_points(points)
-    return translation_pts_xy(x, y, to_pt)
+    x, y = translation_pts_xy(x, y, to_pt)
+    if combine:
+        return combine_xy(x, y)
+    return x, y
 
 
 def translation_pts_xy(x, y, to_pt):

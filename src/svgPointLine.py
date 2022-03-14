@@ -740,10 +740,11 @@ def drawPointsLineGraphic13(svg):
     drawlinePointsContinus(svg, linePts, stroke_width=0.5, color='black')
 
     svg.draw_node(g, draw_text(52, 15, "Pi Day of 2022", fontsize='12px'))
-    svg.draw_node(g, draw_text(25, 150, "Liu Hui's π algorithm", fontsize='12px'))
+    svg.draw_node(g, draw_text(25, 145, "Liu Hui's π algorithm", fontsize='10px'))
+    svg.draw_node(g, draw_text(15, 155, "S_2N = Chord*R*N, where N=6,12,24,48,...", fontsize='8px'))
 
     strs = []
-    y0 = 160
+    y0 = 165
     x0 = 2
 
     r = 1

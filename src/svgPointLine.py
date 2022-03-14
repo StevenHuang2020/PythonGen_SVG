@@ -7,7 +7,7 @@ from itertools import combinations
 
 from svg.file import SVGFileV2
 from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader, random_color_hsv
-from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text
+from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text, draw_ring
 from svg.basic import random_points, uniform_random_points
 from svg.geo_transformation import rotation_pts_xy_point, translation_pts, combine_xy, center_cordinates
 from svg.geo_math import get_5star, points_on_triangle, get_regular_ngons
@@ -25,9 +25,7 @@ def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_wid
         y2 = clip_float(y2)
         if stroke_widths:
             stroke_width = stroke_widths[i]
-        svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width,
-                                     color=color or random_color(),
-                                     stroke_dasharray=dash))
+        svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width, color=color or random_color(), stroke_dasharray=dash))
 
 
 def drawlinePointsContinus(svg, pts, stroke_width=0.5, color=None, stroke_widths=None):
@@ -689,6 +687,82 @@ def drawPointsLineGraphic12(svg):
     drawPointsCircle(svg, vor.vertices, node=group, r=0.8, color='green')
 
 
+def area_regular_polygon(r=1, N=6):
+    # len = 2 * np.sin(np.pi / N) * r / 2
+    len = np.sin(np.pi / N) * r
+    s = len * r * N
+    return s
+
+
+def chord_length(r=1, pre_chord_len=1, N=6):
+    """regular polygon chord length
+
+    Args:
+        r (float): radius of circle
+        pre_chord_len (float): chord length of N(6, 12, 24, 48, ...) regular polygon
+    """
+    # https://en.wikipedia.org/wiki/Liu_Hui's_%CF%80_algorithm
+    chord_len = np.sqrt(pre_chord_len**2/4 + (r - np.sqrt(r**2-pre_chord_len**2/4))**2)
+    s = pre_chord_len*r*N/2
+    return s, chord_len
+
+
+def drawPointsLineGraphic13(svg):
+    W, H = svg.get_size()
+    cx, cy = W // 2, H // 2
+    r = 55
+    cy -= 20
+
+    g = svg.draw(draw_any('g'))
+    svg.draw_node(g, draw_ring(cx, cy, radius=r))
+
+    pts_12 = get_regular_ngons(r, 12)
+    pts_12 = translation_pts(pts_12, (cx, cy), True)
+    # print('pts_12, pts_12.shape', pts_12, pts_12.shape)
+    drawPointsCircle(svg, pts_12, node=g, r=1, color='green')
+    drawPloygonNode(svg, pts_12, g, color='blue')
+
+    pts_6 = get_regular_ngons(r, 6)
+    pts_6 = translation_pts(pts_6, (cx, cy), True)
+    # print('pts_6, pts_6.shape', pts_6, pts_6.shape)
+    drawPointsCircle(svg, pts_6, node=g, r=1, color='red')
+    drawPloygonNode(svg, pts_6, g, color='green')
+
+    # draw lines
+    linePts = np.array([]).reshape(0, 2)
+    for pt in pts_6:
+        linePts = np.vstack((linePts, pt))
+        linePts = np.vstack((linePts, [cx, cy]))
+
+    linePts = np.vstack((linePts, [cx, cy]))
+    linePts = np.vstack((linePts, pts_12[3]))
+    # print('linePts=', linePts)
+    drawlinePointsContinus(svg, linePts, stroke_width=0.5, color='black')
+
+    svg.draw_node(g, draw_text(52, 15, "Pi Day of 2022", fontsize='12px'))
+    svg.draw_node(g, draw_text(25, 150, "Liu Hui's π algorithm", fontsize='12px'))
+
+    strs = []
+    y0 = 160
+    x0 = 2
+
+    r = 1
+    chord_len = r  # chord length of hexagon equal to r
+    for i in range(1, 11):
+        N = np.power(2, i - 1) * 6
+        # s = area_regular_polygon(N=N)
+        s, chord_len = chord_length(r=1, pre_chord_len=chord_len, N=N)
+        # print('N, s, chord_len=', N, s, chord_len)
+        x = f'S_{2*N}={s}'
+        print(x)
+        strs.append(x)
+
+        if i % 2 == 0:
+            svg.draw_node(g, draw_text(x0, y0, ','.join(strs), fontsize='7px'))
+            y0 += 8
+            strs = []
+
+
 def drawPointLine():
     file = gImageOutputPath + r'\pointsLine.svg'
     svg = SVGFileV2(file, W=200, H=200, border=True)
@@ -703,7 +777,8 @@ def drawPointLine():
     # drawPointsLineGraphic9(svg)
     # drawPointsLineGraphic10(svg)
     # drawPointsLineGraphic11(svg)
-    drawPointsLineGraphic12(svg)
+    # drawPointsLineGraphic12(svg)
+    drawPointsLineGraphic13(svg)
 
 
 def main():

@@ -23,12 +23,13 @@
     <circle cx="127.5" cy="32.4" r="1" fill="red"/>
     <polygon points="155.0,80.0 127.5,127.6 72.5,127.6 45.0,80.0 72.5,32.4 127.5,32.4 " stroke="None" stroke-width="0.5" fill="green"/>
     <text x="52" y="15" fill="black" white-space="pre" font-family="Consolas" font-size="12px" font-style="normal" font-variant="normal">Pi Day of 2022</text>
-    <text x="25" y="150" fill="black" white-space="pre" font-family="Consolas" font-size="12px" font-style="normal" font-variant="normal">Liu Hui's π algorithm</text>
-    <text x="2" y="160" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_12=3.0,S_24=3.105828541230249</text>
-    <text x="2" y="168" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_48=3.1326286132812378,S_96=3.1393502030468667</text>
-    <text x="2" y="176" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_192=3.14103195089051,S_384=3.1414524722854624</text>
-    <text x="2" y="184" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_768=3.141557607911858,S_1536=3.1415838921483186</text>
-    <text x="2" y="192" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_3072=3.1415904632280505,S_6144=3.1415921059992717</text>
+    <text x="25" y="145" fill="black" white-space="pre" font-family="Consolas" font-size="10px" font-style="normal" font-variant="normal">Liu Hui's π algorithm</text>
+    <text x="15" y="155" fill="black" white-space="pre" font-family="Consolas" font-size="8px" font-style="normal" font-variant="normal">S_2N = Chord*R*N, where N=6,12,24,48,...</text>
+    <text x="2" y="165" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_12=3.0,S_24=3.105828541230249</text>
+    <text x="2" y="173" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_48=3.1326286132812378,S_96=3.1393502030468667</text>
+    <text x="2" y="181" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_192=3.14103195089051,S_384=3.1414524722854624</text>
+    <text x="2" y="189" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_768=3.141557607911858,S_1536=3.1415838921483186</text>
+    <text x="2" y="197" fill="black" white-space="pre" font-family="Consolas" font-size="7px" font-style="normal" font-variant="normal">S_3072=3.1415904632280505,S_6144=3.1415921059992717</text>
   </g>
   <line x1="155.0" y1="80.0" x2="100.0" y2="80.0" stroke="black" stroke-width="0.5" stroke-dasharray="None"/>
   <line x1="100.0" y1="80.0" x2="127.5" y2="127.6" stroke="black" stroke-width="0.5" stroke-dasharray="None"/>

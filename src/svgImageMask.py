@@ -5,6 +5,7 @@ import numpy as np
 from svg.file import SVGFileV2
 from svg.basic import random_color, color_fader, draw_circle, draw_rect, random_color_hsv
 from svg.basic import convert_rgb, draw_any, clip_float, draw_path
+from svg.basic import draw_only_path, add_style, get_styles
 from svg.geo_transformation import translation_pts, translation_pts_xy
 from svg.geo_transformation import zoom_pts_xy, split_points, combine_xy, zoom_non_pts_xy
 from svgSmile import drawSmileSVG
@@ -45,7 +46,8 @@ def blur_img(img, size=(5, 5)):
 
 
 def OtsuMethodThresHold(img):
-    _, threshold = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    _, threshold = cv2.threshold(
+        img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     return threshold
 
 
@@ -64,14 +66,16 @@ def showimage(img, str='image', autoSize=False):
 
 class SVGImageMask:
     def __init__(self, imageFile, dstSvgfile, step=1):
-        self.image = loadImg(imageFile, cv2.IMREAD_COLOR)  # cv2.IMREAD_GRAYSCALE
+        # cv2.IMREAD_GRAYSCALE
+        self.image = loadImg(imageFile, cv2.IMREAD_COLOR)
         self.height = self.image.shape[0]
         self.width = self.image.shape[1]
         self.step = step
         self.svgH = int((self.height // step) * step)
         self.svgW = int((self.width // step) * step)
         self.svg = SVGFileV2(dstSvgfile, W=self.svgW, H=self.svgH)
-        print('step=', step, 'image H,W=', self.height, self.width, 'SVG H,W=', self.svgH, self.svgW)
+        print('step=', step, 'image H,W=', self.height,
+              self.width, 'SVG H,W=', self.svgH, self.svgW)
 
     def drawStep(self):
         r = self.step / 2
@@ -86,7 +90,8 @@ class SVGImageMask:
                 if 0:
                     self.svg.draw(draw_circle(y, x, r, color=color))
                 else:
-                    self.svg.draw(draw_rect(y, x, self.step, self.step, color=color))
+                    self.svg.draw(
+                        draw_rect(y, x, self.step, self.step, color=color))
 
     def get_coordinates_color(self):
         coords = []
@@ -114,7 +119,8 @@ class SVGImageMask:
         for i in range(0, self.svgH, self.step):
             for j in range(0, self.svgW, self.step):
                 color = convert_rgb(self.image[i, j, :])
-                self.svg.draw(draw_rect(j, i, r, r, stroke_width=0, color=color))
+                self.svg.draw(
+                    draw_rect(j, i, r, r, stroke_width=0, color=color))
 
 
 def maskImage():
@@ -180,14 +186,15 @@ def image2_svg():
 
 
 def my_path_potrace(paths, N=2):
-    print('len(path)=', len(paths))
+    # print('len(path)=', len(paths))
 
     # Iterate over path curves
     for curve in paths:
         start_pt = curve.start_point
         # pts = curve.decomposition_points
         # print('pts=', pts)
-        path = 'M %f %f ' % (clip_float(start_pt.x, N), clip_float(start_pt.y, N))
+        path = 'M %f %f ' % (clip_float(start_pt.x, N),
+                             clip_float(start_pt.y, N))
         # print("start_point =", start_pt)
 
         for segment in curve:
@@ -286,7 +293,8 @@ def path_potrace(path):
                 a = segment.c1
                 b = segment.c2
                 c = segment.end_point
-                parts.append("C%f,%f %f,%f %f,%f" % (a.x, a.y, b.x, b.y, c.x, c.y))
+                parts.append("C%f,%f %f,%f %f,%f" %
+                             (a.x, a.y, b.x, b.y, c.x, c.y))
         parts.append("z")
 
     return "".join(parts)
@@ -315,7 +323,8 @@ def image_svg_path(file, dst_file):
     path = path_potrace_jagged(paths)
     print('len(path)=', len(path))
     fill_color = random_color_hsv()  # 'black'
-    svg.draw(draw_path(path, stroke_width=1.8, color='none', fill_color=fill_color, fill_rule='evenodd'))
+    svg.draw(draw_path(path, stroke_width=1.8, color='none',
+             fill_color=fill_color, fill_rule='evenodd'))
 
 
 def image_svg_path2(file, dst_file):
@@ -333,24 +342,35 @@ def image_svg_path2(file, dst_file):
     for i in range(N):
         for j in range(N):
             to_point = (i * W / N, j * H / N)
-            path = path_potrace_jagged_trans(paths, zoom_x=zoom, zoom_y=zoom, to_point=to_point)
+            path = path_potrace_jagged_trans(
+                paths, zoom_x=zoom, zoom_y=zoom, to_point=to_point)
             fill_color = random_color()
-            svg.draw(draw_path(path, color='none', fill_color=fill_color, fill_rule='evenodd'))
+            svg.draw(draw_path(path, color='none',
+                     fill_color=fill_color, fill_rule='evenodd'))
 
 
 def image_svg_path3(file, dst_file):
     """potrace to multi <path/> elements
     """
     image = get_binary_image(file)
-    svg = SVGFileV2(dst_file, W=image.shape[1], H=image.shape[0], border=True)
+    svg = SVGFileV2(dst_file, W=image.shape[1], H=image.shape[0], border=False)
 
     paths = get_potrace_path(image)
-    for i, path in enumerate(my_path_potrace(paths)):
-        print(f'[{i}]', 'path=', path)
-        svg.draw(draw_path(path, stroke_width=1.8, color='none', fill_color='#000000', fill_rule='evenodd'))
-    # f.png example image
-    # M 71.640000 46.500000  right eye circle
-    # M 66.000000 39.000000  right eyeball
+    if 0:
+        for i, path in enumerate(my_path_potrace(paths)):
+            print(f'[{i}]', 'path=', path)
+            svg.draw(draw_path(path, stroke_width=1.8, color='None',
+                               fill_color='#000000', fill_rule='evenodd'))
+    else:
+        styleDict = {}
+        styleDict['stroke_width'] = '1.8'
+        styleDict['color'] = 'None'
+        styleDict['fill_color'] = '#000000'
+        styleDict['fill_rule'] = 'evenodd'
+        svg.draw(add_style('path', get_styles(styleDict)))
+
+        for i, path in enumerate(my_path_potrace(paths)):
+            svg.draw(draw_only_path(path))
 
 
 def main():
@@ -359,10 +379,11 @@ def main():
     # imgSvgElement()
     # image2_svg()
 
-    file = r'.\res\Lenna.png'  # r'.\res\f.png'  #
-    dst_file = os.path.join(gImageOutputPath, 'image_path.svg')
+    file = r'.\res\Lenna.png'  # r'.\res\f.png'
+    dst_file = os.path.join(gImageOutputPath, 'image_path3.svg')
     # image_svg_path(file, dst_file)
-    image_svg_path2(file, dst_file)
+    # image_svg_path2(file, dst_file)
+    image_svg_path3(file, dst_file)
 
 
 if __name__ == '__main__':

@@ -16,17 +16,20 @@ __all__ = ['SVGFileV2', 'SVGFile']
 class SVGFileV2:
     """lxml version svg"""
 
+    _url = 'http://www.w3.org/2000/svg'
+    _xlink = 'http://www.w3.org/1999/xlink'
+    _namespace = 'http://www.w3.org/XML/1998/namespace'
+    _version = '1.1'
+
     def __init__(self, file, W=100, H=100, title=None, border=False,
                  border_color='black', border_width=1):
         self._file = file
         self._width = W
         self._height = H
-        self._url = "http://www.w3.org/2000/svg"
-        self._xlink = "http://www.w3.org/1999/xlink"
-        # self.namespace = "http://www.w3.org/XML/1998/namespace"
-        self._version = "1.1"
-        self._root = etree.Element("svg", nsmap={None: self._url, "xlink": self._xlink},
-                                   version=self._version)
+
+        # self.
+        self._root = etree.Element("svg", nsmap={
+                                   None: SVGFileV2._url, "xlink": SVGFileV2._xlink}, version=SVGFileV2._version)
 
         self.set_node(self._root, 'width', f'{self._width}')
         self.set_node(self._root, 'height', f'{self._height}')

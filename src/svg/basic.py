@@ -3,7 +3,7 @@
 # Author: Steven Huang, Auckland, NZ
 # License: MIT License
 """
-Description: Basic svg functions and svg node(string) generate functions.
+Description: Basic svg functions and svg node(string) generating functions.
 """
 
 import random
@@ -196,7 +196,8 @@ def draw_any(tag, text=None, **kwargs):
     draw_any(tagName, text, **attrDict)
     """
 
-    attri_list = [(str(key) + '=' + '"' + str(value) + '"') for key, value in kwargs.items()]
+    attri_list = [(str(key) + '=' + '"' + str(value) + '"')
+                  for key, value in kwargs.items()]
     attris = ' '.join(attri_list)
     # print('attris=', attris)
     if text is not None:

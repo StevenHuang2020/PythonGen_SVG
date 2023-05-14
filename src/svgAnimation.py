@@ -11,6 +11,7 @@ from svg.file import SVGFileV2
 from svg.geo_math import get_distance, get_velocity_line, get_velocity_line_abc
 from svg.geo_math import get_line_ABC_inter, get_perpendicular_point_line_ABC, get_line_ABC, get_line_ABC_y, get_line_ABC_x
 from common import gImageOutputPath
+from common_path import join_path
 from svg.geo_transformation import rotation_pts_xy_point, reflection_points
 from svg.geo_transformation import combine_xy, translation_pts, translation_pts_xy
 from svgPointLine import drawPloygonNode, drawlinePoints
@@ -317,7 +318,7 @@ def draw_ball_movin(svg, node, radius, W, H, start_pt, step_x, step_y, N=500, co
         svg.draw_node(node, draw_path(path, stroke_width=0.5, color='green'))
 
     # print('path=', path[:50])
-    draw_circle_path_anim(svg, node, path, radius, duration=len(coords)*2.8, color=color)
+    draw_circle_path_anim(svg, node, path, radius, duration=len(coords) * 2.8, color=color)
 
 
 def anim7(svg):
@@ -366,6 +367,7 @@ def anim8(svg):
 class BallCoordinates:
     """get coordinates of a bouncing ball in a rect[0, 0, W, H]
     """
+
     def __init__(self, x, y, vx, vy, width, height, offset=1, N=100):
         """init parameters
 
@@ -405,7 +407,7 @@ class BallCoordinates:
         self.y += self.vy
 
         # Bounce off vertical walls, if necessary.
-        if(self.x < self.offset or self.x > self.width - self.offset):
+        if (self.x < self.offset or self.x > self.width - self.offset):
             # Flip the horizontal velocity.
             self.vx = -1 * self.vx
 
@@ -421,7 +423,7 @@ class BallCoordinates:
             # Follow the same logic as above.
             self.vy = -1 * self.vy
 
-            if(self.y < self.offset):
+            if (self.y < self.offset):
                 self.y = self.offset
             else:
                 self.y = self.height - self.offset
@@ -436,7 +438,7 @@ class BallCoordinates:
         self.y += self.vy
 
         # Bounce off vertical walls, if necessary.
-        if(self.x < 0 or self.x > self.width):
+        if (self.x < 0 or self.x > self.width):
             # Flip the horizontal velocity.
             self.vx = -1 * self.vx
 
@@ -461,7 +463,7 @@ class BallCoordinates:
             # Follow the same logic as above.
             self.vy = -1 * self.vy
 
-            if(self.y < 0):
+            if (self.y < 0):
                 self.y = -1 * self.y
             else:
                 self.y = (2 * self.height - self.y)
@@ -474,7 +476,7 @@ def draw_line_param(svg, node, a, b, min_x=0, max_x=100):
     """draw line  y= a*x + b"""
 
     def fun(x):
-        return a*x+b
+        return a * x + b
 
     # x = np.linspace(min_x, max_x, N)
     # y = a * x + b
@@ -526,7 +528,7 @@ def anim9(svg):
     svg.set_node(g, 'opacity', '1.0')
 
     wall_line = [2, -1.8, 1]  # line parameters
-    pt = random_point(4, W-5)
+    pt = random_point(4, W - 5)
     print(pt, type(pt))
     vx = -2
     vy = 1
@@ -577,7 +579,7 @@ def anim9(svg):
         coords = np.asarray(coords)
         print('coords=', coords, coords.shape)
     path = get_points_path(coords, False)
-    draw_circle_path_anim(svg, g, path, radius=6, duration=len(coords)*1.0, color='red')
+    draw_circle_path_anim(svg, g, path, radius=6, duration=len(coords) * 1.0, color='red')
 
 
 def anim10(svg):
@@ -593,14 +595,14 @@ def anim10(svg):
     drawlinePoints(svg, pts, g, color='black')
 
     for i in range(50):
-        pt = random_point(4, W-5)
+        pt = random_point(4, W - 5)
         # print(pt, type(pt))
         vx = random.randint(1, 5) * [-1, 1][random.randrange(2)]
         vy = random.randint(1, 5) * [-1, 1][random.randrange(2)]
 
         res = get_math_bounce_parameter(wall_line, pt, vx, vy)
         perpend_pt, reflect_pt, inter_pt, path_line, reflect_line = res
- 
+
         coords = [pt, inter_pt]
         if reflect_pt is not None:
             min_x, max_x = 0, W
@@ -621,11 +623,11 @@ def anim10(svg):
             coords = np.asarray(coords)
 
         path = get_points_path(coords, False)
-        draw_circle_path_anim(svg, g, path, radius=3, duration=len(coords)*1.0, color='red')
+        draw_circle_path_anim(svg, g, path, radius=5, duration=len(coords) * 1.0, color='red')
 
 
 def main():
-    file = gImageOutputPath + r'\animation.svg'
+    file = join_path(gImageOutputPath, r'animation.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
 
     # animCircleInflation(svg)

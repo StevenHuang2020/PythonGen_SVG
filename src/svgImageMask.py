@@ -1,4 +1,11 @@
-import os
+# -*- encoding: utf-8 -*-
+# Date: 14/May/2020
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: Image to svg
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 import cv2
 import potrace  # pip install potracer
 import numpy as np
@@ -10,6 +17,7 @@ from svg.geo_transformation import translation_pts, translation_pts_xy
 from svg.geo_transformation import zoom_pts_xy, split_points, combine_xy, zoom_non_pts_xy
 from svgSmile import drawSmileSVG
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def getImgHW(img):
@@ -86,7 +94,7 @@ class SVGImageMask:
 
                 roi = self.image[i:i + self.step, j:j + self.step]
                 # print(i,j,self.svgH,self.svgW,i+self.step,j+self.step)
-                color = color_fader(mix=np.mean(roi)/255)
+                color = color_fader(mix=np.mean(roi) / 255)
                 if 0:
                     self.svg.draw(draw_circle(y, x, r, color=color))
                 else:
@@ -132,7 +140,7 @@ def maskImage():
 
 def maskColorImg():
     f = r'.\res\trumps.jpg'
-    d = gImageOutputPath + r'\trumpX.svg'
+    d = join_path(gImageOutputPath, r'trumpX.svg')
     # SVGImageMask(f,d).drawStep()
     svg = SVGImageMask(f, d)
     svg.drawColor()
@@ -141,9 +149,9 @@ def maskColorImg():
 
 
 def imgSvgElement():
-    file = gImageOutputPath + r'\image.svg'
+    file = join_path(gImageOutputPath, r'image.svg')
     svg = SVGFileV2(file, W=200, H=200, border=False)
-    W, H = svg.get_size()
+    H, W = svg.get_size()
 
     styleDict = {}
     styleDict['x'] = '0'
@@ -174,7 +182,7 @@ def image2_svg():
             svg.draw(draw_rect(x, y, r, r, color=colors[i]))
 
     f = r'.\res\trumps.jpg'
-    d = gImageOutputPath + r'\trump.svg'
+    d = join_path(gImageOutputPath, r'trump.svg')
     step = 1
     mask = SVGImageMask(f, d, step=step)  # 4, 8
     coords, colors = mask.get_coordinates_color()
@@ -337,7 +345,7 @@ def image_svg_path2(file, dst_file):
 
     paths = get_potrace_path(image)
     N = 4
-    zoom = 1/N
+    zoom = 1 / N
 
     for i in range(N):
         for j in range(N):
@@ -379,8 +387,8 @@ def main():
     # imgSvgElement()
     # image2_svg()
 
-    file = r'.\res\Lenna.png'  # r'.\res\f.png'
-    dst_file = os.path.join(gImageOutputPath, 'image_path3.svg')
+    file = r'.\res\Lenna.png'
+    dst_file = join_path(gImageOutputPath, 'image_path3.svg')
     # image_svg_path(file, dst_file)
     # image_svg_path2(file, dst_file)
     image_svg_path3(file, dst_file)

@@ -3,10 +3,10 @@
 # Description: Profile svg
 # Date: 2021/09/14
 # Author: Steven Huang, Auckland, NZ
-import os
 from svg.basic import draw_any, add_style, get_styles, draw_rect, draw_path
 from svg.file import SVGFileV2
 from common import gImageOutputPath
+from common_path import join_path, abs_path
 from svgImageMask import get_binary_image, get_potrace_path, path_potrace_jagged_trans
 
 
@@ -31,7 +31,7 @@ class ProfileStyleSimple:
 
     def _draw_(self):
         self._prepare_svg()
-        W, H = self.svg.get_size()
+        H, W = self.svg.get_size()
         # ----------------header------------------- #
         dictLink = {}
         dictLink["{{{}}}".format(self.svg._xlink) + 'href'] = self.dataDict['wiki']
@@ -97,13 +97,13 @@ class ProfileStyleSimple:
         H = image.shape[0]
         paths = get_potrace_path(image)
 
-        path = path_potrace_jagged_trans(paths, zoom_x=width/W, zoom_y=height/H, to_point=to_point)
+        path = path_potrace_jagged_trans(paths, zoom_x=width / W, zoom_y=height / H, to_point=to_point)
         # print('len(path)=', len(path))
         self.svg.draw_node(node, draw_path(path, color='none', fill_color='black', fill_rule='evenodd'))
 
 
 def Nietzsche():
-    file = gImageOutputPath + r'\Nietzsche.svg'
+    file = join_path(gImageOutputPath, r'Nietzsche.svg')
     svg = SVGFileV2(file, W=660, H=800, border=True)
 
     dataDict = {}
@@ -112,7 +112,7 @@ def Nietzsche():
     dataDict['wiki'] = 'https://en.wikipedia.org/wiki/Friedrich_Nietzsche'
     dataDict['date_birth'] = '15 October 1844'
     dataDict['date_death'] = '25 August 1900'
-    dataDict['photo'] = os.path.abspath(r'.\res\download\nicai.jpg')
+    dataDict['photo'] = abs_path(r'.\res\download\nicai.jpg')
     dataDict['profile'] = 'German philosopher, cultural critic, composer, poet, writer.'
     dataDict['quotes'] = []
 
@@ -131,7 +131,7 @@ def Nietzsche():
 
 
 def KarlPopper():
-    file = gImageOutputPath + r'\KarlPopper.svg'
+    file = join_path(gImageOutputPath, r'KarlPopper.svg')
     svg = SVGFileV2(file, W=660, H=800, border=True)
 
     dataDict = {}
@@ -140,7 +140,7 @@ def KarlPopper():
     dataDict['wiki'] = 'https://en.wikipedia.org/wiki/Karl_Popper'
     dataDict['date_birth'] = '28 July 1902'
     dataDict['date_death'] = '17 September 1994'
-    dataDict['photo'] = os.path.abspath(r'.\res\download\Karl_Popper.jpg')
+    dataDict['photo'] = abs_path(r'.\res\download\Karl_Popper.jpg')
     dataDict['profile'] = ' Austrian-British philosopher, \rand social commentator'
     dataDict['quotes'] = []
 
@@ -157,7 +157,7 @@ def KarlPopper():
 
 
 def Socrates():
-    file = gImageOutputPath + r'\Socrates.svg'
+    file = join_path(gImageOutputPath, r'Socrates.svg')
     svg = SVGFileV2(file, W=660, H=800, border=True)
 
     dataDict = {}
@@ -166,7 +166,7 @@ def Socrates():
     dataDict['wiki'] = 'https://en.wikipedia.org/wiki/Socrates'
     dataDict['date_birth'] = '470 BC'
     dataDict['date_death'] = '399 BC'
-    dataDict['photo'] = os.path.abspath(r'.\res\download\Socrates.jpg')
+    dataDict['photo'] = abs_path(r'.\res\download\Socrates.jpg')
     dataDict['profile'] = 'Ancient Greek philosopher'
     dataDict['quotes'] = []
 

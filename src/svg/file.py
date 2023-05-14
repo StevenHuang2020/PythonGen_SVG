@@ -14,12 +14,14 @@ __all__ = ['SVGFileV2', 'SVGFile']
 
 
 class SVGFileV2:
-    """lxml version svg"""
+    """ lxml version svg """
 
     _url = 'http://www.w3.org/2000/svg'
     _xlink = 'http://www.w3.org/1999/xlink'
     _namespace = 'http://www.w3.org/XML/1998/namespace'
     _version = '1.1'
+    _WINDOWS_LINE_ENDING = '\r\n'
+    _UNIX_LINE_ENDING = '\n'
 
     def __init__(self, file, W=100, H=100, title=None, border=False,
                  border_color='black', border_width=1):
@@ -27,7 +29,6 @@ class SVGFileV2:
         self._width = W
         self._height = H
 
-        # self.
         self._root = etree.Element("svg", nsmap={
                                    None: SVGFileV2._url, "xlink": SVGFileV2._xlink}, version=SVGFileV2._version)
 
@@ -89,12 +90,12 @@ class SVGFileV2:
         return self._root
 
     def set_node(self, node, attri, value):
-        """set etree Element node attribute"""
+        """ set etree Element node attribute """
         if node is not None:
             node.set(attri, str(value))
 
     def get_node(self, node, attri):
-        """get etree Element node attribute"""
+        """ get etree Element node attribute """
         if node is not None:
             node.get(attri)
 
@@ -102,31 +103,35 @@ class SVGFileV2:
         for key, value in attri_dict.items():
             self.set_node(node, key, value)
 
-    def add_child(self, node_parent, child):
-        if node_parent is None:
-            self._root.append(child)
-        else:
-            node_parent.append(child)
+    def add_child(self, parent, child):
+        if parent is None:
+            parent = self._root
+        parent.append(child)
 
-    def draw(self, content: str):
-        """link child to svgRoot element"""
+    def draw(self, content: str = ''):
+        """ link child to svgRoot element """
         return self.draw_node(self._root, content)
 
-    def new_node(self, content=''):
-        # print('content=',content)
+    def new_node(self, content: str = ''):
         return etree.fromstring(content)
 
-    def draw_node(self, node=None, content=''):
-        """link child to node element"""
+    def draw_node(self, node=None, content: str = ''):
+        """ link child to node element """
         child_node = self.new_node(content)
         self.add_child(node, child_node)
         return child_node
 
     def close(self):
-        """write lxml tree to file"""
+        """ write lxml tree to file """
         tree = etree.ElementTree(self._root)
-        tree.write(self._file, pretty_print=True,
-                   xml_declaration=True, encoding='UTF-8', standalone=False)
+        if 0:
+            tree.write(self._file, pretty_print=True,
+                       xml_declaration=True, encoding=r'UTF-8', standalone=False)
+        else:
+            content = etree.tostring(tree, pretty_print=True,
+                                     xml_declaration=True, standalone=False)
+            with open(self._file, 'w', newline=SVGFileV2._WINDOWS_LINE_ENDING) as xml_fh:
+                xml_fh.write(content.decode(r'UTF-8'))
 
     def save(self):
         self.close()
@@ -136,7 +141,7 @@ class SVGFileV2:
 
 
 class SVGFile:
-    """string IO version, deprecated"""
+    """ string IO version, deprecated """
 
     def __init__(self, file_name, width=100, height=100):
         self._init_file(file_name)

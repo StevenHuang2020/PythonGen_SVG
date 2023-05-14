@@ -4,6 +4,7 @@ from svg.file import SVGFileV2
 from svg.basic import clip_float, draw_path, random_color, random_color_hsv
 from svg.geo_transformation import translation_pts_xy, reflection_points
 from common import gImageOutputPath
+from common_path import join_path
 # plot function to svg
 # from scipy.special import perm,comb
 from itertools import combinations
@@ -199,7 +200,7 @@ def reflect_xy(ptX, ptY):
 
 
 def drawFuncSVG2(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     N = 100
 
@@ -211,17 +212,17 @@ def drawFuncSVG2(svg):
     ptX = np.linspace(-50, 50, num=200)
     ptY = funcQuadratic(ptX)
     ptX, ptY = reflect_xy(ptX, ptY)
-    ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy+40))
+    ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy + 40))
     drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
-    ptY = funcSin(ptX)*20
+    ptY = funcSin(ptX) * 20
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
     drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
-    ptY = funcCos(ptX)*20
+    ptY = funcCos(ptX) * 20
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
     drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
@@ -234,7 +235,7 @@ def drawFuncSVG2(svg):
 
 
 def main():
-    file = gImageOutputPath + r'\func.svg'
+    file = join_path(gImageOutputPath, r'func.svg')
     svg = SVGFileV2(file, 100, 100, border=True)
     # drawFuncSVG(svg, offsetX=10, offsetY=10)
     drawFuncSVG2(svg)

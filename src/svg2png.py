@@ -8,6 +8,7 @@
 # Author: Steven Huang, Auckland, NZ
 
 from common import gImageOutputPath
+from common_path import join_path
 import cairosvg
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF, renderPM
@@ -62,15 +63,15 @@ def pdf2Image(file, dst, page=0, fmt='png', dpi=96):
 
 
 def main():
-    file = gImageOutputPath + r'\dataFrame.svg'
+    file = join_path(gImageOutputPath, r'text.svg')
 
-    dst_file = gImageOutputPath + r'\dataFrame.svg.pdf'
+    dst_file = join_path(gImageOutputPath, r'text.pdf')
     svg2Image(svg_file=file, dst=dst_file)
 
-    dst_file = gImageOutputPath + r'\dataFrame.svg.png'
-    svg2Image(svg_file=file, dst=dst_file, fmt='png', dpi=300)
+    dst_file = join_path(gImageOutputPath, r'text.png')
+    svg2Image(svg_file=file, dst=dst_file, fmt='png', dpi=96)
 
-    # dst_file = gImageOutputPath + r'\dataFrame.svg.pdf.png'
+    # dst_file = join_path(gImageOutputPath, r'text.svg.pdf.png')
     # pdf2Image(file, dst_file)
 
 

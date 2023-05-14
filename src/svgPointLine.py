@@ -14,6 +14,7 @@ from svg.geo_math import get_5star, points_on_triangle, get_regular_ngons
 from graph.graphPoints import GraphPoints
 from graph.interPoints import GetLineSegInterPoint
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_widths=None, dash=None):
@@ -25,7 +26,8 @@ def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_wid
         y2 = clip_float(y2)
         if stroke_widths:
             stroke_width = stroke_widths[i]
-        svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width, color=color or random_color(), stroke_dasharray=dash))
+        svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width,
+                      color=color or random_color(), stroke_dasharray=dash))
 
 
 def drawlinePointsContinus(svg, pts, stroke_width=0.5, color=None, stroke_widths=None):
@@ -39,7 +41,8 @@ def drawlinePointsContinus(svg, pts, stroke_width=0.5, color=None, stroke_widths
         y2 = clip_float(y2)
         if stroke_widths:
             stroke_width = stroke_widths[i]
-        svg.draw(draw_line(x1, y1, x2, y2, stroke_width=stroke_width, color=color or random_color()))
+        svg.draw(draw_line(x1, y1, x2, y2, stroke_width=stroke_width,
+                 color=color or random_color()))
 
 
 def drawlinePointsContinusRainbow(svg, pts, stroke_width=0.5, color=None, colors=None, stroke_widths=None):
@@ -66,14 +69,17 @@ def drawTrianglePoints(svg, pt1, pt2, pt3, stroke_width=0.1, color=None):
     pts.append((pt1[0], pt1[1], pt3[0], pt3[1]))  # pt1,pt3
     pts.append((pt2[0], pt2[1], pt3[0], pt3[1]))  # pt2,pt3
 
-    drawlinePoints(svg, pts, stroke_width=stroke_width, color=color or random_color())
+    drawlinePoints(svg, pts, stroke_width=stroke_width,
+                   color=color or random_color())
 
 
 def drawPloygonNode(svg, pts, node=None, color=None):
     # print('pts',pts)
-    points = [str(clip_float(i[0])) + ',' + str(clip_float(i[1])) + ' ' for i in pts]
+    points = [str(clip_float(i[0])) + ',' +
+              str(clip_float(i[1])) + ' ' for i in pts]
     points = ''.join(points)
-    svg.draw_node(node, draw_polygon(points, stroke_width=0.5, color=color or random_color()))
+    svg.draw_node(node, draw_polygon(
+        points, stroke_width=0.5, color=color or random_color()))
 
 
 def drawPointsCircle(svg, pts=[], node=None, r=2, color='black'):
@@ -101,11 +107,12 @@ def drawPathContinuPoints(svg, pts, strokeWidth=0.5, color=None):
         x, y = pts[i]
         path = path + ' ' + str(clip_float(x)) + ' ' + str(clip_float(y))
 
-    svg.draw(draw_path(path, stroke_width=strokeWidth, color=color or random_color()))
+    svg.draw(draw_path(path, stroke_width=strokeWidth,
+             color=color or random_color()))
 
 
 def drawPointsLineGraphic(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx,cy = W//2,H//2
     N = 50
 
@@ -133,7 +140,7 @@ def drawPointsLineGraphic(svg):
 
 
 def drawPointsLineGraphic2(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx,cy = W//2,H//2
     N = 200
 
@@ -156,7 +163,7 @@ def drawPointsLineGraphic2(svg):
 
 
 def drawPointsLineGraphic3(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx,cy = W//2,H//2
     N = 100
     color1 = 'green'
@@ -169,14 +176,15 @@ def drawPointsLineGraphic3(svg):
     drawPointsCircle(svg, pts1, r=1, color=color1)
     drawPointsCircle(svg, pts2, r=1, color=color1)
 
-    linePoints = [(pt1[0], pt1[1], pt2[0], pt2[1]) for pt1, pt2 in zip(pts1, pts2)]
+    linePoints = [(pt1[0], pt1[1], pt2[0], pt2[1])
+                  for pt1, pt2 in zip(pts1, pts2)]
 
     drawlinePoints(svg, linePoints, color=color1, stroke_width=0.2)
     drawInterPointLines(svg, linePoints, r=1, color=color1)
 
 
 def drawPointsLineGraphic4(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     N = 300
     r0 = 80
@@ -189,7 +197,8 @@ def drawPointsLineGraphic4(svg):
     strokeWidths = []
     for _ in range(N):
         r = r0 + random.normalvariate(mu=0, sigma=1) * 4
-        theta = theta + 2 * np.pi / (N - 1) + random.normalvariate(mu=0, sigma=1) * .01
+        theta = theta + 2 * np.pi / \
+            (N - 1) + random.normalvariate(mu=0, sigma=1) * .01
         x = r * np.cos(theta) + offsetX
         y = r * np.sin(theta) + offsetY
         linePoints.append((offsetX, offsetY, x, y))
@@ -214,11 +223,12 @@ def drawInterPointLines(svg, linePoints, r=1, color=None):
             ptInter = GetLineSegInterPoint(line1, line2).get_inter()
             if ptInter:
                 # print('ptInter=',ptInter)
-                drawPointsCircle(svg, [ptInter], r=1, color=color)  # r=3, color='red'
+                # r=3, color='red'
+                drawPointsCircle(svg, [ptInter], r=1, color=color)
 
 
 def drawPointsLineGraphic5(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx,cy = W//2,H//2
     N = 10
 
@@ -255,7 +265,8 @@ def drawPloygon(svg, pts, color=None, stroke_color=None):
     # print('pts',pts)
     points = []
     for i in pts:
-        points.append(str(clip_float(i[0])) + ',' + str(clip_float(i[1])) + ' ')
+        points.append(str(clip_float(i[0])) +
+                      ',' + str(clip_float(i[1])) + ' ')
     points = ''.join(points)
     svg.draw(draw_polygon(points, stroke_width=0.5,
                           color=color or random_color(),
@@ -263,7 +274,7 @@ def drawPloygon(svg, pts, color=None, stroke_color=None):
 
 
 def drawPointsLineGraphic6(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx,cy = W//2,H//2
     N = 50
 
@@ -303,7 +314,7 @@ def IsIntersectionWithAlreayLines(conect, linePoints):
 
 
 def drawPointsLineGraphic7(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     r = 50
@@ -315,7 +326,8 @@ def drawPointsLineGraphic7(svg):
     for i in range(times):
         theta = i * (2 * np.pi / times)
         x, y = rotation_pts_xy_point(x0, y0, (cx, cy), theta)
-        drawPloygon(svg, [(x[0], y[0]), (x[1], y[1]), (x[2], y[2])], color='black')
+        drawPloygon(svg, [(x[0], y[0]), (x[1], y[1]),
+                    (x[2], y[2])], color='black')
 
 
 def drawPointsLineGraphic8(svg):  # Neuron network
@@ -326,7 +338,7 @@ def drawPointsLineGraphic8(svg):  # Neuron network
             return [H / 2]
         return np.linspace(offsetY, H - offsetY, N)
 
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
 
     layerNumbers = [8, 6, 6, 4]
@@ -370,7 +382,7 @@ def drawPointsLineGraphic8(svg):  # Neuron network
 
 
 def drawPointsLineGraphic9(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
     N = 50
 
@@ -434,23 +446,24 @@ def drawPointsLineGraphic10(svg):
         hInter = W // hNum
         vInter = H // vNum
         res = []
-        for i in range(hNum+1):
-            res.append([i*hInter, 0])
-            res.append([i*hInter, H])
+        for i in range(hNum + 1):
+            res.append([i * hInter, 0])
+            res.append([i * hInter, H])
 
         for i in range(1, vNum):
-            res.append([0, i*vInter])
-            res.append([W, i*vInter])
+            res.append([0, i * vInter])
+            res.append([W, i * vInter])
         res = np.asarray(res)
         # print('res=', res, res.shape)
         return res
 
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W / 2, H // 2
     N = 20
 
     # pts = random_points((100, 2), min=2, max=W - 2)
-    pts = uniform_random_points(W, H, N, N, x_offset=W//N/6, y_offset=H//N/6)
+    pts = uniform_random_points(
+        W, H, N, N, x_offset=W // N / 6, y_offset=H // N / 6)
 
     # print('pts.shape=', pts.shape)
     # s_pt = np.array([[0, 0], [W, 0], [0, H], [W, H]])  # 4 corners
@@ -491,7 +504,7 @@ def draw_plogon_subtriangle(svg, pts, center_pt, N=500):
 
 
 def drawPointsLineGraphic11(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     path = f'M{W/2} 0 V{H}'
@@ -500,21 +513,21 @@ def drawPointsLineGraphic11(svg):
     svg.draw(draw_path(path, stroke_width=0.5, color='green'))
 
     pts = get_regular_ngons(R=48, N=4)
-    draw_plogon_subtriangle(svg, pts, (W/4, H/4))
+    draw_plogon_subtriangle(svg, pts, (W / 4, H / 4))
 
     pts = get_regular_ngons(R=48, N=5)
-    draw_plogon_subtriangle(svg, pts, (W*3/4, H/4))
+    draw_plogon_subtriangle(svg, pts, (W * 3 / 4, H / 4))
 
     pts = get_regular_ngons(R=48, N=6)
-    pts2 = get_regular_ngons(R=22, N=6, offset_angle=np.pi/6)
+    pts2 = get_regular_ngons(R=22, N=6, offset_angle=np.pi / 6)
     pts = np.vstack((pts, pts2))
     # print('pts=', pts, pts.shape)
-    draw_plogon_subtriangle(svg, pts, (W/4, H*3/4), N=100)
+    draw_plogon_subtriangle(svg, pts, (W / 4, H * 3 / 4), N=100)
 
     pts = get_regular_ngons(R=48, N=7)
-    pts2 = get_regular_ngons(R=32, N=7, offset_angle=np.pi/7)
+    pts2 = get_regular_ngons(R=32, N=7, offset_angle=np.pi / 7)
     pts = np.vstack((pts, pts2))
-    draw_plogon_subtriangle(svg, pts, (W*3/4, H*3/4), N=100)
+    draw_plogon_subtriangle(svg, pts, (W * 3 / 4, H * 3 / 4), N=100)
 
 
 def get_voronoi_lines(vor):
@@ -641,20 +654,22 @@ def draw_voronoi_regions(svg, node, vor, radius=None):
 
 
 def drawPointsLineGraphic12(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     N = 10
 
     defs = svg.draw(draw_any('defs'))  # for cliping the outside drawing
     clip = svg.draw_node(defs, draw_any('clipPath', id='clip'))
-    svg.draw_node(clip, draw_any('rect', x="0", y="0", width=f"{W}", height=f"{H}"))
+    svg.draw_node(clip, draw_any(
+        'rect', x="0", y="0", width=f"{W}", height=f"{H}"))
 
     group = svg.draw(draw_any('g'))
     svg.set_node(group, 'clip-path', 'url(#clip)')
 
     offset = 6
     # pts = random_points((50, 2), min=offset, max=W-offset)
-    pts = uniform_random_points(W, H, N, N, x_offset=W//N/8, y_offset=H//N/8)
+    pts = uniform_random_points(
+        W, H, N, N, x_offset=W // N / 8, y_offset=H // N / 8)
     # pts = np.array([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]])*40
 
     # x, y = translation_pts(pts, (cx, cy))
@@ -702,13 +717,14 @@ def chord_length(r=1, pre_chord_len=1, N=6):
         pre_chord_len (float): chord length of N(6, 12, 24, 48, ...) regular polygon
     """
     # https://en.wikipedia.org/wiki/Liu_Hui's_%CF%80_algorithm
-    chord_len = np.sqrt(pre_chord_len**2/4 + (r - np.sqrt(r**2-pre_chord_len**2/4))**2)
-    s = pre_chord_len*r*N/2
+    chord_len = np.sqrt(pre_chord_len**2 / 4 +
+                        (r - np.sqrt(r**2 - pre_chord_len**2 / 4))**2)
+    s = pre_chord_len * r * N / 2
     return s, chord_len
 
 
 def drawPointsLineGraphic13(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     r = 55
     cy -= 20
@@ -740,8 +756,10 @@ def drawPointsLineGraphic13(svg):
     drawlinePointsContinus(svg, linePts, stroke_width=0.5, color='black')
 
     svg.draw_node(g, draw_text(52, 15, "Pi Day of 2022", fontsize='12px'))
-    svg.draw_node(g, draw_text(25, 145, "Liu Hui's π algorithm", fontsize='10px'))
-    svg.draw_node(g, draw_text(15, 155, "S_2N = Chord*R*N, where N=6,12,24,48,...", fontsize='8px'))
+    svg.draw_node(g, draw_text(
+        25, 145, "Liu Hui's π algorithm", fontsize='10px'))
+    svg.draw_node(g, draw_text(
+        15, 155, "S_2N = Chord*R*N, where N=6,12,24,48,...", fontsize='8px'))
 
     strs = []
     y0 = 165
@@ -764,8 +782,8 @@ def drawPointsLineGraphic13(svg):
             strs = []
 
 
-def drawPointLine():
-    file = gImageOutputPath + r'\pointsLine.svg'
+def main():
+    file = join_path(gImageOutputPath, r'pointsLine.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # drawPointsLineGraphic(svg)
     # drawPointsLineGraphic2(svg)
@@ -780,10 +798,6 @@ def drawPointLine():
     # drawPointsLineGraphic11(svg)
     # drawPointsLineGraphic12(svg)
     drawPointsLineGraphic13(svg)
-
-
-def main():
-    drawPointLine()
 
 
 if __name__ == '__main__':

@@ -88,7 +88,7 @@ def get_grid_coordinates(W, H, vNum=2, hNum=2):
     base = []
     for i in range(hNum):
         for j in range(vNum):
-            base.append([i*hInter, j*vInter])
+            base.append([i * hInter, j * vInter])
     return np.array(base)
 
 
@@ -99,8 +99,8 @@ def uniform_random_points(W, H, vNum=2, hNum=2, x_offset=2, y_offset=2):
 
     base = get_grid_coordinates(W, H, vNum, hNum)
 
-    x = random_points((hNum*vNum, 1), min=x_offset, max=hInter-x_offset)
-    y = random_points((hNum*vNum, 1), min=y_offset, max=vInter-y_offset)
+    x = random_points((hNum * vNum, 1), min=x_offset, max=hInter - x_offset)
+    y = random_points((hNum * vNum, 1), min=y_offset, max=vInter - y_offset)
 
     pts = np.concatenate((x, y), axis=1)
     return base + pts
@@ -115,9 +115,9 @@ def get_styles(style_dict):
 
 
 # ------------------------------draw function--------------------------------- #
-def draw_line(x, y, x2, y2, stroke_width=0.5, color='black', stroke_dasharray='None'):
+def draw_line(x1, y1, x2, y2, stroke_width=0.5, color='black', stroke_dasharray='None'):
     """Draw a line for svg"""
-    return f'<line x1="{x}" y1="{y}" x2="{x2}" y2="{y2}" stroke="{color}" \
+    return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" \
         stroke-width="{stroke_width}" stroke-dasharray="{stroke_dasharray}" />'
 
 
@@ -156,9 +156,17 @@ def draw_text(x, y, text, font='Consolas', fontsize='smaller',
               color='black', blank_space='pre'):
     # xml:space deprecated.
     # white-space: normal,pre,nowrap,pre-wrap,break-spaces,pre-line
-    return f'<text x="{x}" y="{y}" fill="{color}" white-space="{blank_space}" \
-        font-family="{font}" font-size="{fontsize}" font-style="normal" \
-            font-variant="normal">{text}</text>'
+    dict = {}
+    dict['x'] = str(x)
+    dict['y'] = str(y)
+    dict['fill'] = color
+    dict['white-space'] = blank_space
+    dict['font-family'] = font
+    dict['font-size'] = fontsize
+    dict['font-style'] = 'normal'
+    dict['font-variant'] = 'normal'
+
+    return draw_any('text', text, **dict)
 
 
 def draw_text_only(x, y, text):

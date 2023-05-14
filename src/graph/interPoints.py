@@ -27,7 +27,7 @@ class GetLineSegInterPoint():
         return False
 
     def calculate_cross_point(self, line1, line2):
-        """line[0]: line start point,line[1]: stop point"""
+        """line[0]: line start point, line[1]: stop point"""
         def getLinePara(line):
             a = line[0][1] - line[1][1]
             b = line[1][0] - line[0][0]
@@ -51,16 +51,12 @@ class GetLineSegInterPoint():
         return None
 
 
-def test():
+def main():
     line1 = [[0, 0], [1, 0]]
     line2 = [[0.5, 1], [0.5, -1.5]]
 
-    p = GetLineSegInterPoint(line1, line2).interPoint
+    p = GetLineSegInterPoint(line1, line2).get_inter()
     print('p=', p)
-
-
-def main():
-    test()
 
 
 if __name__ == '__main__':

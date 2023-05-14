@@ -21,7 +21,8 @@ class VertexPt():
             K = len(self.distance)
             # print('all K=', K)
         # top_k_idx = self.distance.argsort()[::-1][0:K+1]
-        low_k_idx = self.distance.argsort()[1:K + 1]  # start from 1,skip self index
+        # start from 1,skip self index
+        low_k_idx = self.distance.argsort()[1:K + 1]
         return low_k_idx
 
 
@@ -34,7 +35,8 @@ class GraphPoints():
         self.ptMatrix = None
         for i in range(len(self.VertexPt_list)):
             v = self.getVertextPoint(self.VertexPt_list[i])
-            self.ptMatrix = np.concatenate((self.ptMatrix, v), axis=1) if self.ptMatrix is not None else v
+            self.ptMatrix = np.concatenate(
+                (self.ptMatrix, v), axis=1) if self.ptMatrix is not None else v
 
         # print('self.ptMatrix=',self.ptMatrix)
         for v in self.VertexPt_list:
@@ -46,7 +48,8 @@ class GraphPoints():
 
             # print('sum1 res**2=',np.sum(res**2, axis=1))
             # print('sum0 res**2=',np.sum(res**2, axis=0))
-            distances = np.sqrt(np.sum(np.asarray(pt - self.ptMatrix) ** 2, axis=0))
+            distances = np.sqrt(
+                np.sum(np.asarray(pt - self.ptMatrix) ** 2, axis=0))
             # print('distances=',len(distances),distances)
             v.setDistance(distances)
 
@@ -103,7 +106,8 @@ class GraphPoints():
                 # print('start to choice:',i,shortest)
                 for s in random.sample(shortest, N):
                     con = np.array([[i, s]])
-                    conMatrix = np.concatenate((conMatrix, con)) if conMatrix is not None else con
+                    conMatrix = np.concatenate(
+                        (conMatrix, con)) if conMatrix is not None else con
         # print('conMatrix=',conMatrix)
         return conMatrix
 
@@ -125,7 +129,8 @@ class GraphPoints():
             # print('start:',id, shortest)
             if conId in shortest:
                 connect = np.array([[id, conId]])
-                conMatrix = np.concatenate((conMatrix, connect)) if conMatrix is not None else connect
+                conMatrix = np.concatenate(
+                    (conMatrix, connect)) if conMatrix is not None else connect
 
         return conMatrix
 

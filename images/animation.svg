@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='ASCII' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" style="border:1px solid black">
+  <g opacity="1.0">
+    <line x1="0" y1="0.6" x2="200" y2="222.8" stroke="black" stroke-width="0.5" stroke-dasharray="None"/>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 13.9 101.5 L 54.41923199976927 61.02136888863253 0.0 105.04898874774233"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 26.6 103.0 L 54.48521100616557 61.09467889573952 0.0 89.65699539205127"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 178.2 16.7 L 119.72866724913841 133.58740805459823 200.0 103.51213298699307"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 86.4 43.0 L 224.12223537996533 249.58026153329482 200.0 229.54246839894114"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 174.4 84.8 L 212.28856272807727 236.43173636453025 200.0 231.94404441247923"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 8.5 6.4 L 17.86542702683654 20.406030029818375 200.0 171.70108367485653"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 108.0 126.7 L 96.98604792374353 108.31783102638171 0.0 35.26191117872113"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 188.7 170.7 L 161.31819967321198 179.79799963690218 200.0 94.76332465691311"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 98.2 103.1 L 89.03662670343668 99.48514078159633 0.0 -215.67091902149352"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 136.7 143.0 L 132.24275345389336 147.49194828210372 200.0 92.67327142822779"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 138.6 125.7 L 133.8449605347391 149.2721783719323 200.0 143.15337711562478"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 60.6 6.8 L 31.670897697632935 35.74544188625882 200.0 -100.44041475032945"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 8.2 34.9 L 235.2006632115533 261.88962579061473 200.0 218.38073151049605"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 9.7 55.6 L 61.138779241607025 68.48753249067448 200.0 1055.203322302719"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 49.3 89.7 L 357.8883132138327 398.20923690425855 200.0 203.05535908095018"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 158.9 109.3 L 142.36184952427504 158.7353883603056 200.0 146.05293306779373"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 137.7 27.7 L 117.11587518890211 130.6843057654468 200.0 123.01820064146062"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 189.4 18.1 L 47.6614084675745 53.51267607508278 200.0 -363.63323276956606"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 8.3 158.3 L 251.3842151553239 279.871350172582 200.0 142.7261562016824"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 117.9 118.5 L 114.25073727513362 127.5008191945929 200.0 103.27528121794987"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 90.8 193.2 L 113.13131092774091 126.25701214193434 0.0 151.1499481779126"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 194.0 12.4 L -264.46331272103083 -293.2925696900342 0.0 211.195201771206"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 182.0 27.0 L 227.22664594767045 253.0296066085227 200.0 244.53093732860287"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 100.5 184.8 L 134.89488937033886 150.43876596704314 0.0 259.57483224153754"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 7.2 100.1 L 55.11832731386443 61.79814145984936 0.0 117.5251374188976"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 81.3 192.2 L 198.91338210671822 221.57042456302025 200.0 229.29168055470527"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 188.4 112.5 L 142.24546610481318 158.6060734497924 200.0 111.88004351449092"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 135.8 63.6 L 118.6030174123751 132.3366860137501 200.0 120.88163027746755"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 172.1 13.0 L 48.32132076184829 54.245911957609216 200.0 -279.1911845954579"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 145.8 94.0 L 103.27034354511564 115.30038171679516 200.0 -36.00609925162523"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 92.7 49.9 L 17.18731552694871 19.652572807720787 0.0 -41.18403837823373"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 85.0 43.9 L 53.259149919664104 59.73238879962678 200.0 -169.80261063796436"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 9.8 95.3 L -594.4546731639012 -659.9496368487792 0.0 -71.98779385293025"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 69.6 122.9 L 119.02368017086107 132.80408907873453 200.0 1008.3010058196627"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 185.8 100.6 L -772.0252854129035 -857.2503171254483 0.0 96.99211639733319"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 175.5 164.4 L 154.86904704023956 172.63227448915507 200.0 87.13143613462486"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 33.4 99.4 L 172.28322551536885 191.98136168374316 200.0 244.85362456201645"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 68.9 128.4 L 128.52519463106668 143.36132736785189 200.0 651.2448001336495"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 62.2 135.3 L 96.5435475468676 107.82616394096401 0.0 205.4358365527667"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 10.4 131.4 L 89.3697546126597 99.85528290295521 0.0 269.16677405924685"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 123.0 162.2 L 133.19641072007042 148.5515674667449 0.0 228.0922812043474"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 85.4 17.9 L 63.929334777248286 71.5881497524981 200.0 33.14601085694459"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 37.2 65.8 L 76.40342480395309 85.4482497821701 200.0 415.32924977725355"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 24.5 6.6 L 62.485396782011776 69.9837742022353 200.0 173.56832111020975"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 85.2 171.2 L 135.45450569692588 151.0605618854732 0.0 407.67986718382457"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 124.4 97.2 L 114.27646184494355 127.52940204993727 200.0 108.66715662404876"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 75.7 194.9 L -3.716280897009201 -3.5736454411213345 0.0 -1.6120354548809759"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 78.1 140.1 L 95.08630130419843 106.20700144910936 0.0 141.8330035208677"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 9.1 119.2 L 186.73731472470095 208.04146080522327 200.0 243.4397546033807"/>
+    </circle>
+    <circle cx="0" cy="0" r="5" fill="red">
+      <animateMotion dur="3.0s" repeatCount="indefinite" path="M 46.3 52.5 L 46.4087509327652 52.12083436973911 0.0 62.33241999537059"/>
+    </circle>
+  </g>
+</svg>

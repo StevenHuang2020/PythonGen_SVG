@@ -34,8 +34,10 @@ def get_5star(R=10, r=3):
     points = []
     for i in range(5):
         """ add or sub π/2 to adjust start point """
-        points.append([R*np.cos(i * 2 * np.pi / 5 - np.pi/2), R*np.sin(i*2*np.pi/5-np.pi/2)])
-        points.append([r*np.cos(i*2*np.pi/5-np.pi/2+np.pi/5), r*np.sin(i*2*np.pi/5-np.pi/2+np.pi/5)])
+        points.append([R*np.cos(i * 2 * np.pi / 5 - np.pi/2),
+                      R*np.sin(i*2*np.pi/5-np.pi/2)])
+        points.append([r*np.cos(i*2*np.pi/5-np.pi/2+np.pi/5),
+                      r*np.sin(i*2*np.pi/5-np.pi/2+np.pi/5)])
 
     return np.asarray(points)
 

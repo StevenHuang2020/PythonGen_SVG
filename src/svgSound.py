@@ -8,18 +8,18 @@
 # License: MIT License
 """
 import numpy as np
-# import matplotlib.pyplot as plt
 from svg.file import SVGFileV2
 from svg.basic import rainbow_colors
-from svgPointLine import drawlinePoints  # drawlinePointsContinus
-from svgPointLine import drawlinePointsContinusRainbow, drawPathContinuPoints
+from svgPointLine import drawlinePoints
+from svgPointLine import drawPathContinuPoints
 from common import gImageOutputPath
-# from svg.geo_transformation import translation_pts_xy
 import math
-
+from common_path import join_path
 
 # signed 16bit pcm, little-endian 1channel, sample rate 8000HZ
-def readSound(file=r'./res/test_signed16_SR8000HZ.pcm', N=200):
+
+
+def readSoundData(file, N=-1):
     data = np.memmap(file, dtype=np.short, mode='r')
     data = data[:N]
     print(type(data), data.shape, data)
@@ -30,14 +30,13 @@ def readSound(file=r'./res/test_signed16_SR8000HZ.pcm', N=200):
 
 
 def drawSoundGrapic(svg, data):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
-    data = H // 2 - data // 400  # shrink sound value to a range that svg can show
-    print('data=', data, np.min(data), np.max(data))
+    data = H // 2 - data // 400  # shrink sound value into a range that svg can show
+    print('data, min, max=', data, np.min(data), np.max(data))
     pts = []
 
-    # print('pts=', pts)
     xScale = 55
     if 0:  # style 1
         for i in range(len(data) - 1):
@@ -61,22 +60,12 @@ def drawSoundGrapic(svg, data):
                 # x, y = translation_pts_xy(x, y, (cx,cy))
                 pts.append((x, y))
 
-            # print('pts=', pts)
-
-        if 0:  # rainbowcolor and draw line
-            colors = []
-            c = rainbow_colors(N=W)
-            for pt in pts:
-                x, y = pt
-                colors.append(c[int(x) % W])
-            drawlinePointsContinusRainbow(svg, pts, colors=colors)
-        else:  # draw path
-            drawPathContinuPoints(svg, pts, strokeWidth=0.2)
+        drawPathContinuPoints(svg, pts, strokeWidth=0.2)
 
 
 def main():
-    data = readSound(N=-1)
-    file = gImageOutputPath + r'\soundGraphic.svg'
+    data = readSoundData(file=r'./res/test_signed16_SR8000HZ.pcm')
+    file = join_path(gImageOutputPath, r'soundGraphic.svg')
     svg = SVGFileV2(file, W=500, H=200, border=True)
     drawSoundGrapic(svg, data)
 

@@ -16,10 +16,11 @@ from svgPointLine import drawPointsCircle, drawPointsCircleFadeColor
 from svgPointLine import drawTrianglePoints
 from svgAnimation import addNodeAnitmation
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def drawLineGrapic(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     times = 100
     len = 0
     offsetX = W // 2
@@ -45,7 +46,7 @@ def drawLineGrapic(svg):
 
 
 def drawLineGrapic2(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     len = 0
     offsetX = W / 4
     offsetY = 0
@@ -53,52 +54,52 @@ def drawLineGrapic2(svg):
     wStep = 0.5
 
     pts = []
-    while(offsetY < H / 2):
+    while (offsetY < H / 2):
         offsetY = offsetY + yInter
         if offsetY < H / 4:
             len = len + wStep
         else:
             len = len - wStep
-            if(len < 0):
+            if (len < 0):
                 break
         pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
 
     offsetX = W * 3 / 4
     offsetY = 0
     len = 0
-    while(offsetY < H / 2):
+    while (offsetY < H / 2):
         offsetY = offsetY + yInter
         if offsetY < H / 4:
             len = len + wStep
         else:
             len = len - wStep
-            if(len < 0):
+            if (len < 0):
                 break
         pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
 
     offsetX = W / 4
     offsetY = H / 2
     len = 0
-    while(offsetY < H):
+    while (offsetY < H):
         offsetY = offsetY + yInter
         if offsetY < H * 3 / 4:
             len = len + wStep
         else:
             len = len - wStep
-            if(len < 0):
+            if (len < 0):
                 break
         pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
 
     offsetX = W * 3 / 4
     offsetY = H / 2
     len = 0
-    while(offsetY < H):
+    while (offsetY < H):
         offsetY = offsetY + yInter
         if offsetY < H * 3 / 4:
             len = len + wStep
         else:
             len = len - wStep
-            if(len < 0):
+            if (len < 0):
                 break
         pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
 
@@ -110,11 +111,12 @@ def drawTrianglePointsXY(svg, x, y, stroke_width=0.1, color=None):
     pt1 = (x[0], y[0])
     pt2 = (x[1], y[1])
     pt3 = (x[2], y[2])
-    drawTrianglePoints(svg, pt1, pt2, pt3, stroke_width=stroke_width, color=color)
+    drawTrianglePoints(svg, pt1, pt2, pt3,
+                       stroke_width=stroke_width, color=color)
 
 
 def drawLsoscelesTrianglePoints(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     times = 40
@@ -182,7 +184,7 @@ def get_inner_circle(A, B, C):
     ym, xm = solve([[1.0, -ka], [1.0, -kv]], [ya - ka * xa, y - kv * x])
     r1 = np.sqrt((x - xm)**2 + (y - ym)**2)
 
-    return(x, y, r1)
+    return (x, y, r1)
 
 
 def get_outer_circle(px1, px2, px3):
@@ -206,7 +208,7 @@ def get_outer_circle(px1, px2, px3):
 
 def drawRandomTrianglePoints(svg):
     """draw a random triangle and zoom this to seris"""
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     r = 10
@@ -250,7 +252,7 @@ def getTrianglesCenterPoints(points):
 
 def drawRandomTriangles(svg):
     """draw a random triangle and inter center triangles"""
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
     # r = 10
     color = None  # 'black'
@@ -272,7 +274,7 @@ def getLinePointFromSlope(slope=1, p0=(20, 0)):
 
 
 def drawAbstractLine(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
     N = 10
 
@@ -314,7 +316,7 @@ def drawArrowCircleLine(svg):
         pt2 = getPointCircle(r, theta + sTheta / 2)
         return pt1, pt2
 
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     N = 40
     R0 = 80
@@ -340,7 +342,7 @@ def drawArrowCircleLine(svg):
 
 
 def drawLineGrapic3(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     length = 160
 
@@ -379,7 +381,7 @@ def drawLineGrapic3(svg):
 
 
 def drawLineGrapic4(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     length = 160
 
@@ -402,7 +404,7 @@ def drawLineGrapic4(svg):
 
 
 def drawLineGrapic5(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     N = 40
@@ -426,7 +428,7 @@ def drawLineGrapic5(svg):
 
 
 def drawLineGrapic6(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     N = 18
@@ -483,7 +485,7 @@ def random_start_coordinates(startPt, W, H, margin=10, N=100, u=0.006):
     xl, xr = margin, W - margin
     yl, yr = margin, H - margin
     for i in range(N - 1):
-        while(True):
+        while (True):
             x = pts[-1][0] + noise(N=1, base=0).flatten()[0]
             y = pts[-1][1] + noise(N=1, base=0).flatten()[0]
             x = int(x)  # round(x, 2)
@@ -518,7 +520,7 @@ def random_coordinates(x_min, x_max, y_min, y_max, N=100):
 
 
 def drawLineGrapic7(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     pts = random_start_coordinates((cx, cy), W=W, H=H, N=5000)
@@ -549,12 +551,12 @@ def drawLineGrapic7(svg):
 
 
 def drawLineGrapic8(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     N = 10
     margin = 6
-    pts = random_coordinates(margin, W-margin, margin, H-margin, N=N)
+    pts = random_coordinates(margin, W - margin, margin, H - margin, N=N)
     pts = center_cordinates(pts, (cx, cy))
 
     length = len(pts)
@@ -570,10 +572,11 @@ def drawLineGrapic8(svg):
             p2 = pts[i + 1]
 
         stroke += 1.6
-        color = color_fader(c1, c2, i/length)
+        color = color_fader(c1, c2, i / length)
 
         # style1: lines
-        node = svg.draw(draw_line(p1[0], p1[1], p2[0], p2[1], stroke_width=stroke, color=color))
+        node = svg.draw(
+            draw_line(p1[0], p1[1], p2[0], p2[1], stroke_width=stroke, color=color))
         # svg.set_node(node, 'stroke-linejoin', 'round')  #miter round bevel miter-clip arcs
         # svg.set_node(node, 'stroke-linecap', 'round')  #butt round square
 
@@ -582,7 +585,7 @@ def drawLineGrapic8(svg):
 
 
 def get_anim_values(min, max):
-    s = [str(i) for i in range(min, max+1)]
+    s = [str(i) for i in range(min, max + 1)]
 
     rs = s.copy()
     rs.pop()  # remove the last item
@@ -613,7 +616,7 @@ def remove_covered(pts, w, h):
 
 
 def drawLineGrapic9(svg, anim=True):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     N = 5000
 
@@ -622,11 +625,12 @@ def drawLineGrapic9(svg, anim=True):
 
     rt_w = 10
     rt_h = 10
-    pts = random_coordinates(0, W-rt_w, 0, H-rt_h, N=N)
+    pts = random_coordinates(0, W - rt_w, 0, H - rt_h, N=N)
     # remove some points may be lead intersected rect
     pts = remove_covered(pts, rt_w, rt_h)
     for i, pt in enumerate(pts):
-        rect = svg.draw(draw_rect(pt[0], pt[1], width=rt_w, height=rt_h, color=random_color_hsv()))
+        rect = svg.draw(
+            draw_rect(pt[0], pt[1], width=rt_w, height=rt_h, color=random_color_hsv()))
 
         if anim:
             if 0:  # style1 : move rect
@@ -634,7 +638,7 @@ def drawLineGrapic9(svg, anim=True):
                 animateDict['attributeName'] = 'x'
                 # animateDict['from'] = f'{pt[0] - 1}'
                 # animateDict['to'] = f'{pt[0] + 1}'
-                animateDict["values"] = get_anim_values(pt[0]-1, pt[0]+1)
+                animateDict["values"] = get_anim_values(pt[0] - 1, pt[0] + 1)
                 animateDict['dur'] = str(random.randint(1, 3)) + 's'
                 # animateDict['fill'] = 'freeze'
                 animateDict["repeatCount"] = "indefinite"
@@ -645,7 +649,7 @@ def drawLineGrapic9(svg, anim=True):
                 animateDict['attributeName'] = 'y'
                 # animateDict['from'] = f'{pt[1] - 1}'
                 # animateDict['to'] = f'{pt[1] + 1}'
-                animateDict["values"] = get_anim_values(pt[1]-1, pt[1]+1)
+                animateDict["values"] = get_anim_values(pt[1] - 1, pt[1] + 1)
                 addNodeAnitmation(svg, rect, animateDict)
 
             else:  # style2: rotation
@@ -660,11 +664,12 @@ def drawLineGrapic9(svg, anim=True):
                 # animateDict["begin"] = str(random.randint(0, 10)) + 's'
                 animateDict['dur'] = str(random.randint(4, 6)) + 's'  # '8s'
                 animateDict["repeatCount"] = "indefinite"  # "5"
-                addNodeAnitmation(svg, rect, animateDict, elementName='animateTransform')
+                addNodeAnitmation(svg, rect, animateDict,
+                                  elementName='animateTransform')
 
 
-def drawLineGraphic():
-    file = gImageOutputPath + r'\lineGraphic.svg'
+def main():
+    file = join_path(gImageOutputPath, r'lineGraphic.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # drawLineGrapic(svg)
     # drawLineGrapic2(svg)
@@ -683,4 +688,4 @@ def drawLineGraphic():
 
 
 if __name__ == '__main__':
-    drawLineGraphic()
+    main()

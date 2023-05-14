@@ -10,6 +10,7 @@ from svg.basic import draw_line, random_color
 from svg.file import SVGFileV2
 from svgDrawArt import drawArtSvg
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def draw_first(svg):
@@ -41,12 +42,11 @@ def draw_basic_shapes(svg):
 
 
 def main():
-    file = gImageOutputPath + r'\test.svg'
-    H, W = 100, 100
-    svg = SVGFileV2(file, W, H, border=True)
+    file = join_path(gImageOutputPath, r'test.svg')
+    svg = SVGFileV2(file, W=100, H=100, border=True)
+    draw_first(svg)
+    # draw_basic_shapes(svg)
     # drawArtSvg()
-    # draw_first(svg)
-    draw_basic_shapes(svg)
 
 
 if __name__ == '__main__':

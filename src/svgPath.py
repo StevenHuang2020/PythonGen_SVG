@@ -5,7 +5,7 @@
 """
 Description: SVG path tag
 """
-import os
+
 import numpy as np
 import random
 from svg.file import SVGFileV2
@@ -22,12 +22,13 @@ from common import gImageOutputPath
 from svgFunction import funcSin
 from svgAnimation import addNodeAnitmation
 from svgImageMask import loadImg, OtsuMethodThresHold, showimage
+from common_path import join_path
 
 
 def split_string(src_str, delimiter=' ', length=24):
     new_str = ''
     str_list = src_str.split(delimiter)
-    parts = [str_list[i:i+length] for i in range(0, len(str_list), length)]
+    parts = [str_list[i:i + length] for i in range(0, len(str_list), length)]
     print('str_list=', str_list)
     print('parts=', parts, len(parts))
     for i in parts:
@@ -52,7 +53,7 @@ def draw_points_svg(svg, ptX, ptY, close=False, stroke=0.6, color=None, fillColo
 
 
 def draw_path_grid(svg, N=10, color='green', strokeWidth=0.2):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     for i in range(N + 1):
         path = f'M{i*(W//N)} 0 V{H}'
         svg.draw(draw_path(path, stroke_width=strokeWidth, color=color))
@@ -83,8 +84,8 @@ def draw_path_star(svg):
 
 
 def draw_path_star2(svg):
-    W, H = svg.get_size()
-    cx, cy = W//2, H//2
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
     pts = get_5star(R=70, r=30)
     # print('pts=', pts, pts.shape)
 
@@ -105,35 +106,35 @@ def svg_path_basic(svg):
 
 
 def svg_path(svg):
-    W, H = svg.get_size()
-    cx, cy = W//2, H//2
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
     N = 400
     xoffset = 0.5
-    x = np.linspace(xoffset, 10 - xoffset, N)*10
+    x = np.linspace(xoffset, 10 - xoffset, N) * 10
 
-    y = funcSin(x/3)*30
+    y = funcSin(x / 3) * 30
     x, y = translation_pts_xy(x, y, (0, cy))
     draw_points_svg(svg, x, y)
 
-    x1, y1 = rotation_pts_xy_point(x, y, (0, cy), -1*np.pi/6)
+    x1, y1 = rotation_pts_xy_point(x, y, (0, cy), -1 * np.pi / 6)
     draw_points_svg(svg, x1, y1)
-    x2, y2 = rotation_pts_xy_point(x, y, (0, cy), np.pi/6)
+    x2, y2 = rotation_pts_xy_point(x, y, (0, cy), np.pi / 6)
     draw_points_svg(svg, x2, y2)
 
 
 def svg_path2(svg):
-    W, H = svg.get_size()
-    cx, cy = W//2, H//2
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
     N = 400
     xoffset = 0.5
-    x = np.linspace(xoffset, 10-xoffset, N) * 20
+    x = np.linspace(xoffset, 10 - xoffset, N) * 20
     y = funcSin(x / 2) * 20
 
     for i in range(4):
         offsetY = i * H // 4 + 20 + 5
         ptx, pty = translation_pts_xy(x, y, (0, offsetY))
 
-        stroke = clip_float(random.random()*2)
+        stroke = clip_float(random.random() * 2)
         draw_points_svg(svg, ptx, pty, stroke=stroke)
 
 
@@ -147,11 +148,11 @@ def svg_path3(svg, anim=True):
 
         svg.draw(add_style('text', styleList))
 
-    W, H = svg.get_size()
-    cx, cy = W//2, H//2
+    H, W = svg.get_size()
+    cx, cy = W // 2, H // 2
     N = 400
     xoffset = 0.2
-    x = np.linspace(xoffset, 5-xoffset, N) * 20
+    x = np.linspace(xoffset, 5 - xoffset, N) * 20
     y = funcSin(x / 0.6) * x / 3
 
     x, y = translation_pts_xy(x, y, (cx, cy))
@@ -179,10 +180,10 @@ def svg_path3(svg, anim=True):
 
 
 def svg_path4(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # svg.set_background('#eeeeee')
 
-    cx, cy = W//2, H//2
+    cx, cy = W // 2, H // 2
     pts = get_5star(R=20, r=10)
     pts = np.hsplit(pts, 2)
     x, y = pts[0].ravel(), pts[1].ravel()
@@ -202,9 +203,9 @@ def svg_path4(svg):
 
 
 def svg_path5(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
 
-    cx, cy = W//2, H//2
+    cx, cy = W // 2, H // 2
     pts = get_5star(R=40, r=10)
     pts = np.hsplit(pts, 2)
     x, y = pts[0].ravel(), pts[1].ravel()
@@ -219,9 +220,9 @@ def svg_path5(svg):
 
 
 def svg_path6(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
 
-    cx, cy = W//2, H//2
+    cx, cy = W // 2, H // 2
     pts = get_5star(R=12, r=8)
     pts = np.hsplit(pts, 2)
     x, y = pts[0].ravel(), pts[1].ravel()
@@ -230,20 +231,20 @@ def svg_path6(svg):
 
     times = 28
     for i in range(times):
-        z = i**2/180  # i*0.5
+        z = i**2 / 180  # i*0.5
         x, y = zoom_pts_xy_point(ptx, pty, (cx, cy), z)
         draw_points_svg(svg, x, y, color=random_color_hsv(), stroke=0.4, close=True)
 
 
 def svg_path7(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     # dictStyle = {'stroke-width': "0.4", 'fill': "transparent"}
     # dictStyle = {'stroke-width': "0.4", 'fill': "transparent", 'stroke': "green"}
     dictStyle = {'stroke-width': "0.4", 'stroke': "green"}
     styleList = get_styles(dictStyle)
     svg.draw(add_style('path', styleList))
 
-    cx, cy = W//2, H//2
+    cx, cy = W // 2, H // 2
     pts = get_5star(R=12, r=8)
     pts = np.hsplit(pts, 2)
     x, y = pts[0].ravel(), pts[1].ravel()
@@ -253,7 +254,7 @@ def svg_path7(svg):
     times = 68
     pts = random_points((times, 2), 0, W)
     for i in range(times):
-        z = i/times
+        z = i / times
 
         x, y = zoom_pts_xy_point(ptx, pty, (pts[i][0], pts[i][1]), z)
 
@@ -288,7 +289,7 @@ def test_geo_transformation():
 
 def svg_transformation(svg):
     """basic transforms demonstration"""
-    W, H = svg.get_size()
+    H, W = svg.get_size()
 
     pts = get_5star(R=9, r=6)
     print('pts=', pts, pts.shape)
@@ -299,7 +300,7 @@ def svg_transformation(svg):
     N = 5  # lines
     hinter = H // N
     text_w = 22
-    start_w = (W-text_w)//2
+    start_w = (W - text_w) // 2
     text_x = 1
     text_y = 10
     fontsize = '3px'
@@ -339,7 +340,7 @@ def svg_transformation(svg):
     draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fillColor=fillColor, close=True)
 
     cx += start_w
-    px, py = rotation_pts_xy(x, y, np.pi/6)
+    px, py = rotation_pts_xy(x, y, np.pi / 6)
     px, py = translation_pts_xy(px, py, (cx, cy))
     draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fillColor=fillColor, close=True)
 
@@ -391,24 +392,24 @@ def svg_transformation(svg):
 
 def svg_transformation_cust(svg):
     """custom transform"""
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     cx, cy = W // 2, H // 2
     pts = get_5star(R=25, r=15)
     # print('pts=', pts, pts.shape)
 
-    px, py = translation_pts(pts, (cx-15, cy-15))
+    px, py = translation_pts(pts, (cx - 15, cy - 15))
     draw_points_svg(svg, px, py, stroke=None, color='green', fillColor='green', close=True)
 
     matrix = np.array([[0.2, 0.3],
                        [-1.2, 0.1]])
 
     px, py = transform_any_points(pts, matrix)
-    px, py = translation_pts_xy(px, py, (cx+15, cy+15))
+    px, py = translation_pts_xy(px, py, (cx + 15, cy + 15))
     draw_points_svg(svg, px, py, stroke=None, color='green', fillColor='green', close=True)
 
 
 def main():
-    file = os.path.join(gImageOutputPath, 'svgPath.svg')
+    file = join_path(gImageOutputPath, 'svgPath.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     svg_path_basic(svg)
     # svg_path(svg)

@@ -4,6 +4,7 @@ import numpy as np
 from svg.file import SVGFileV2
 from svg.basic import clip_float, draw_path, random_color
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def randomContinueNumbers(x0=0, N=100):
@@ -16,14 +17,15 @@ def randomContinueNumbers(x0=0, N=100):
 def random_walk(x, y, n=1, step=1):
     """Return coordinantes after n block random walk"""
     for _ in range(n):
-        (dx, dy) = random.choice([(0, 1 * step), (0, -1 * step), (1 * step, 0), (-1 * step, 0)])  # N,S,E,W
+        (dx, dy) = random.choice(
+            [(0, 1 * step), (0, -1 * step), (1 * step, 0), (-1 * step, 0)])  # N,S,E,W
         x += dx
         y += dy
     return x, y
 
 
 def drawRandomNumbersPath(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     times = 100
     N = 500
     xW = 5
@@ -32,8 +34,6 @@ def drawRandomNumbersPath(svg):
         path = 'M 0 0 L '
         ptX = np.arange(N) + xW
         ptY = randomContinueNumbers(N=N)
-        # print(ptX)
-        # print(ptY)
 
         for x, y in zip(ptX, ptY):
             path = path + ' ' + str(clip_float(x)) + ' ' + str(clip_float(y))
@@ -42,7 +42,7 @@ def drawRandomNumbersPath(svg):
 
 
 def drawRandomWalkPath(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     times = 1000
     cx, cy = W // 2, H // 2
 
@@ -56,10 +56,13 @@ def drawRandomWalkPath(svg):
     svg.draw(draw_path(path, stroke_width=0.2))
 
 
-if __name__ == '__main__':
-    file = gImageOutputPath + r'\randomWalkPath.svg'
-    H, W = 100, 100
-    svg = SVGFileV2(file, W, H)
+def main():
+    file = join_path(gImageOutputPath, r'randomWalk.svg')
+    svg = SVGFileV2(file, W=100, H=100)
 
-    # drawRandomNumbersPath(svg)
-    drawRandomWalkPath(svg)
+    drawRandomNumbersPath(svg)
+    # drawRandomWalkPath(svg)
+
+
+if __name__ == '__main__':
+    main()

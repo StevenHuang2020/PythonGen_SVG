@@ -7,6 +7,7 @@ from svg.basic import draw_circle, draw_any, random_color
 from svgFunction import circleFuc, getCirclePoints, heartFuc, getRectanglePoints
 from svg.geo_transformation import rotation_pts_xy, rotation_pts_xy_point
 from common import gImageOutputPath
+from common_path import join_path
 
 
 def addNoise(x, y, alpha=2):
@@ -40,7 +41,7 @@ def getCirclePtsSVG(svg, r=1, N=10, offsetX=50, offsetY=50, noise=True, onlyPath
 
 
 def drawRandomPath():
-    file = gImageOutputPath + r'\randomShapePath.svg'
+    file = join_path(gImageOutputPath, r'randomShapePath.svg')
     H, W = 500, 1000
     svg = SVGFileV2(file, W, H)
 
@@ -68,12 +69,13 @@ def drawRandomPath():
         # offsetX = 50 + random.random()*10
         # offsetY = 50 + random.random()*2
 
-        ptX, ptY = getCirclePtsSVG(svg, r=r, N=80, offsetX=offsetX, offsetY=offsetY, noise=True, onlyPath=onlyPath)
+        ptX, ptY = getCirclePtsSVG(
+            svg, r=r, N=80, offsetX=offsetX, offsetY=offsetY, noise=True, onlyPath=onlyPath)
         drawOnePathcSVG(svg, ptX, ptY, onlyPath=onlyPath)
 
 
 def draw_heart_curve():
-    file = gImageOutputPath + r'\heartPath.svg'
+    file = join_path(gImageOutputPath, r'heartPath.svg')
     H, W = 100, 100
     svg = SVGFileV2(file, W, H)
 
@@ -84,14 +86,18 @@ def draw_heart_curve():
 
     N = 100
     r = 30
-    path = 'M %.1f %.1f L ' % (0 + offsetX, heartFuc(0, r) + offsetY)  # start point
+    path = 'M %.1f %.1f L ' % (
+        0 + offsetX, heartFuc(0, r) + offsetY)  # start point
     x = np.linspace(-r, r, N)
-    y = heartFuc(x, r=r)    # Up part points of heart curve, set sqrt value positive
-    xr = np.flip(x)         # Down part points of heart curve, set sqrt value negative
+    # Up part points of heart curve, set sqrt value positive
+    y = heartFuc(x, r=r)
+    # Down part points of heart curve, set sqrt value negative
+    xr = np.flip(x)
     yr = heartFuc(xr, r=r, up=False)
 
     x = np.concatenate((x, xr), axis=0)
-    y = np.concatenate((y, yr), axis=0) * -1  # *-1  svg coordinate system different from standard cod system
+    # *-1  svg coordinate system different from standard cod system
+    y = np.concatenate((y, yr), axis=0) * -1
     # print('x=', x)
     # print('y=', y)
     x = x + offsetX
@@ -105,7 +111,7 @@ def draw_heart_curve():
 
 
 def drawRandomCirclePath(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
 
     styles = ['circles', 'circle points', 'circle points random']
 
@@ -119,14 +125,16 @@ def drawRandomCirclePath(svg):
     if style == styles[0]:
         for _ in range(times):
             r = r + random.random() * 8
-            ptX, ptY = getCirclePtsSVG(svg, r=r, N=200, offsetX=offsetX, offsetY=offsetY, noise=False, onlyPath=onlyPath)
+            ptX, ptY = getCirclePtsSVG(
+                svg, r=r, N=200, offsetX=offsetX, offsetY=offsetY, noise=False, onlyPath=onlyPath)
             drawOnePathcSVG(svg, ptX, ptY, onlyPath=onlyPath)
 
     elif style == styles[1]:
         times = 10
         for _ in range(times):
             r = r + random.random() * 18
-            ptX, ptY = getCirclePtsSVG(svg, r=r, N=20, offsetX=offsetX, offsetY=offsetY, noise=False, onlyPath=onlyPath)
+            ptX, ptY = getCirclePtsSVG(
+                svg, r=r, N=20, offsetX=offsetX, offsetY=offsetY, noise=False, onlyPath=onlyPath)
             ptNumber = int(5 * r)
             # ptX = np.random.choice(ptX, ptNumber)
 
@@ -157,7 +165,7 @@ def getRectanglePtsSVG(w, h, N=10, noise=True):
 
 
 def drawRandomRectanglePath(svg):
-    W, H = svg.get_size()
+    H, W = svg.get_size()
     styles = ['rectangle', 'rectangle roation', 'rotataion Center']
 
     onlyPath = False
@@ -258,12 +266,16 @@ def drawAllTypePath(svg):
     svg.draw_node(g, draw_any('path', **anyDict))
 
 
-if __name__ == '__main__':
+def main():
     # drawRandomPath()
     # draw_heart_curve()
 
-    file = gImageOutputPath + r'\randomShapePath.svg'
+    file = join_path(gImageOutputPath, r'randomShapePath.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
-    drawRandomCirclePath(svg)
-    # drawRandomRectanglePath(svg)
+    # drawRandomCirclePath(svg)
+    drawRandomRectanglePath(svg)
     # drawAllTypePath(svg)
+
+
+if __name__ == '__main__':
+    main()

@@ -90,17 +90,12 @@ def translation_matrix(x, y, to_pt):
 
     a = np.stack(([x, y]))
     one = np.array([[to_pt[0]], [to_pt[1]]])
-    # one = np.array([to_pt[0], to_pt[1]]).T.reshape((2,1))
 
-    # print('a.shape=', a.shape, a, one)
     M = one
     for _ in range(a.shape[1] - 1):
         M = np.concatenate((M, one), axis=1)
 
     res = a + M
-    # print('a=',a)
-    # print('M=',M)
-    # print('res=',res)
     return res[0][:], res[1][:]
 
 
@@ -168,30 +163,27 @@ def identity_trans(x, y):
     return transform(a, matrix)
 
 
-def shear_points(points, r=0.5, shearx=True):
+def shear_points(points, r=0.5, shear_x=True):
     """ shear transform:
     shear by x axis: x' = x + r * y; y' = y
     shear by y axis: x' = x; y' = r * x + y
     """
-
-    if shearx:
+    matrix = np.array([[1, 0], [r, 1]])
+    if shear_x:
         matrix = np.array([[1, r], [0, 1]])
-    else:
-        matrix = np.array([[1, 0], [r, 1]])
 
     return transform_any_points(points, matrix)
 
 
-def reflection_points(points, reflectx=True):
+def reflection_points(points, reflect_x=True):
     """ reflection transform:
     reflection by x axis: x' = -1 * x; y' = y
     reflection by y axis: x' = x; y' = -1*y
     """
 
-    if reflectx:
+    matrix = np.array([[1, 0], [0, -1]])
+    if reflect_x:
         matrix = np.array([[-1, 0], [0, 1]])
-    else:
-        matrix = np.array([[1, 0], [0, -1]])
 
     return transform_any_points(points, matrix)
 
@@ -230,7 +222,6 @@ def center_cordinates(points, center):
 
     x_min, x_max = np.amin(x), np.amax(x)
     y_min, y_max = np.amin(y), np.amax(y)
-    # print('x_min, x_max=', x_min, x_max)
     delta_x = cx - (x_max + x_min) / 2
     delta_y = cy - (y_max + y_min) / 2
     x = x + delta_x

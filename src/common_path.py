@@ -9,96 +9,158 @@ Description: Module for path, file oeprations
 import os
 
 
-def traverse_folders(path, sub_folder=False):
+def traverse_folders(path, recursive=False):
     """Traverse the folders under the path"""
     for dirpath, dirnames, filenames in os.walk(path):
         dirnames.sort()
-        # print(dirnames)
         for dirname in dirnames:
             yield os.path.join(dirpath, dirname)
-        if not sub_folder:
+        if not recursive:
             break
 
 
-def traverse_files(path, filters='', sub_folder=False):
+def traverse_files(path, extensions='', recursive=False):
     """Traverse the files under the path
 
     Args:
         path (str): path
-        filters (str, optional): Extension name list, 'cpp h txt jpg'. Defaults to ''.
-        sub_folder (bool, optional): Whether to traverse subfolders. Defaults to False.
+        extensions (str, optional): File extensions to include, e.g. 'cpp h txt jpg'. Defaults to ''.
+        recursive (bool, optional): Whether to traverse subfolders recursively. Defaults to False.
     """
 
-    def getExtFile(file):
-        return file[file.find('.')+1:]
+    if extensions:
+        extensions = set(extensions.split())
 
-    fmts = filters.split()
-    if fmts:
-        for dirpath, dirnames, filenames in os.walk(path):
-            filenames.sort()
-            print('filenames=', filenames)
-            for filename in filenames:
-                if getExtFile(get_file_names(filename)[1]) in fmts:
-                    yield os.path.join(dirpath, filename)
-            if not sub_folder:
-                break
-    else:
-        for dirpath, dirnames, filenames in os.walk(path):
-            filenames.sort()
-            for filename in filenames:
+    for dirpath, dirnames, filenames in os.walk(path):
+        filenames.sort()
+        for filename in filenames:
+            ext = os.path.splitext(filename)[1][1:]
+            if not extensions or ext in extensions:
                 yield os.path.join(dirpath, filename)
-            if not sub_folder:
-                break
+        if not recursive:
+            break
+
+
+def exists_file(file):
+    return os.path.exists(file)
 
 
 def delete_file(file_path):
+    """
+    Deletes a file if it exists.
+
+    Args:
+        file_path (str): The path of the file to be deleted.
+    """
     if os.path.exists(file_path):
         os.remove(file_path)
 
 
 def create_path(dirs):
+    """
+    Creates a directory if it does not exist.
+
+    Args:
+        dirs (str): The path of the directory to be created.
+    """
     if not os.path.exists(dirs):
         os.makedirs(dirs)
 
 
+def join_path(dirs, sub):
+    """
+    Joins two paths to create a new path.
+
+    Args:
+        dirs (str): The first part of the path.
+        sub (str): The second part of the path.
+
+    Returns:
+        str: The joined path.
+    """
+    return os.path.join(dirs, sub)
+
+
+def abs_path(dirs):
+    return os.path.abspath(dirs)
+
+
+def real_path(dirs):
+    return os.path.realpath(dirs)
+
+
+def dir_path(path):
+    return os.path.dirname(path)
+
+
 def delete_folder(file_path):
     if os.path.exists(file_path):
-        for lists in os.listdir(file_path):
-            f = os.path.join(file_path, lists)
-            if os.path.isfile(f):
-                os.remove(f)
+        for file in os.scandir(file_path):
+            if file.is_file():
+                os.remove(file.path)
 
 
-def get_file_name(path):
+def get_file_name(file):
     """get basename, 'name.exe' 'x.zip' """
-    return os.path.basename(path)
+    return os.path.basename(file)
 
 
-def get_file_names(path):
+def get_file_names(file):
     """get split names, 'name.exe'--> tuple('name', '.exe') """
-    name = get_file_name(path)
+    name = get_file_name(file)
     return os.path.splitext(name)
+
+
+def get_file_extension(file):
+    return get_file_names(file)[1]
+
+
+def file_size(file):
+    return os.path.getsize(file)  # file size in bytes
+
+
+def readable_file_size(size, decimal_places=2):
+    for unit in ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB']:
+        if size < 1024.0 or unit == 'PB':
+            break
+        size /= 1024.0
+    return f"{size:.{decimal_places}f} {unit}"
 
 
 def main():
     path = os. getcwd()
-    print(f'Folders list under path:{path}:')
+    print(f'\nFolders list under path: {path}:')
     for i in traverse_folders(path):
         print(i)
 
-    print(f'folders and subfolders list under path:{path}:')
+    print(f'\nfolders and subfolders list under path: {path}:')
     for i in traverse_folders(path, True):
         print(i)
 
-    print(f'Files list under path:{path}:')
-    for i in traverse_files(path, filters='txt py csv'):
+    print(f'\nFiles list under path: {path}:')
+    for i in traverse_files(path, extensions='txt py csv'):
         print(i)
 
-    file = os.path.join(path, 'abc.txt')
+    print(f'\nFiles list recursive under path: {path}:')
+    for i in traverse_files(path, extensions='txt py csv', recursive=True):
+        print(i)
+
+    print('\n')
+    file = join_path(path, 'abc.txt')
     print('file=', file)
     print('file_name=', get_file_name(file))
-    names = get_file_names(file)
-    print('names=', names)
+    print('names=', get_file_names(file))
+    print('extension=', get_file_extension(file))
+
+    realpath = real_path(__file__)
+    directory = dir_path(realpath)
+    print('__file__=', __file__)
+    print('realpath=', realpath)
+    print('directory=', directory)
+    print('x realpath=', real_path('common_path.py'))
+    print('x abs realpath=', abs_path('common_path.py'))
+    print('file size: ', file_size(realpath), 'bytes')
+    print('file size readable: ', readable_file_size(file_size(realpath)))
 
 
 if __name__ == "__main__":

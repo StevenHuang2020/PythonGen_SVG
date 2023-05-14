@@ -1,9 +1,10 @@
-import os
 import numpy as np
 import random
 from svg.basic import draw_circle, draw_line, draw_rect, random_color
 from svg.file import SVGFileV2
 from common import gImageOutputPath
+from common_path import join_path
+
 
 def draw_circleRings(x, y, radius, rings=5, color=None, fillColor='white'):
     """Draw circles rings for svg"""
@@ -135,7 +136,7 @@ def drawArtSvg():
     for N in recurse:
         for style in styles:
             fileName = 'art_' + style + '_' + str(N) + '.svg'
-            file = os.path.join(gImageOutputPath, fileName)
+            file = join_path(gImageOutputPath, fileName)
             H, W = 200, 200
             svg = SVGFileV2(file, W, H)
             draw = DrawArt(svg)

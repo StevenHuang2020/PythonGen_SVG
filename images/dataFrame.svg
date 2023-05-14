@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='ASCII' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="120" viewBox="0 0 200 120" style="border:1px solid black">
+  <title>Draw Dataframe data</title>
+  <g opacity="1.0">
+    <style> line { stroke: black; stroke-width: 0.5;  } </style>
+    <line x1="5" y1="5" x2="193" y2="5"/>
+    <line x1="5" y1="23" x2="193" y2="23"/>
+    <line x1="5" y1="41" x2="193" y2="41"/>
+    <line x1="5" y1="59" x2="193" y2="59"/>
+    <line x1="5" y1="77" x2="193" y2="77"/>
+    <line x1="5" y1="95" x2="193" y2="95"/>
+    <line x1="5" y1="113" x2="193" y2="113"/>
+    <line x1="5" y1="5" x2="5" y2="113"/>
+    <line x1="52" y1="5" x2="52" y2="113"/>
+    <line x1="99" y1="5" x2="99" y2="113"/>
+    <line x1="146" y1="5" x2="146" y2="113"/>
+    <line x1="193" y1="5" x2="193" y2="113"/>
+    <style> text { font-family: Consolas; dominant-baseline: middle; text-anchor: middle;  } </style>
+    <text font-size="14px" fill="red" x="28.5" y="32.0">0</text>
+    <text font-size="14px" fill="red" x="28.5" y="50.0">1</text>
+    <text font-size="14px" fill="red" x="28.5" y="68.0">2</text>
+    <text font-size="14px" fill="red" x="28.5" y="86.0">3</text>
+    <text font-size="14px" fill="red" x="28.5" y="104.0">4</text>
+    <text font-size="14px" fill="red" x="75.5" y="14.0">A</text>
+    <text font-size="14px" fill="red" x="122.5" y="14.0">B</text>
+    <text font-size="14px" fill="red" x="169.5" y="14.0">C</text>
+    <g opacity="1.0" id="0_0">
+      <circle cx="75.5" cy="32.0" r="8" fill="#FFC10E"/>
+      <circle cx="72.86" cy="29.28" r="1.28" fill="#333333"/>
+      <circle cx="78.14" cy="29.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 70.7 32.4 C 72.3 38.24, 78.7 38.24, 80.3 32.4"/>
+      <circle cx="70.7" cy="32.4" r="0.44" fill="black"/>
+      <circle cx="80.3" cy="32.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="0_1">
+      <circle cx="122.5" cy="32.0" r="8" fill="#FFC10E"/>
+      <circle cx="119.86" cy="29.28" r="1.28" fill="#333333"/>
+      <circle cx="125.14" cy="29.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 117.7 32.4 C 119.3 38.24, 125.7 38.24, 127.3 32.4"/>
+      <circle cx="117.7" cy="32.4" r="0.44" fill="black"/>
+      <circle cx="127.3" cy="32.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="0_2">
+      <circle cx="169.5" cy="32.0" r="8" fill="#FFC10E"/>
+      <circle cx="166.86" cy="29.28" r="1.28" fill="#333333"/>
+      <circle cx="172.14" cy="29.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 164.7 32.4 C 166.3 38.24, 172.7 38.24, 174.3 32.4"/>
+      <circle cx="164.7" cy="32.4" r="0.44" fill="black"/>
+      <circle cx="174.3" cy="32.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="1_0">
+      <circle cx="75.5" cy="50.0" r="8" fill="#FFC10E"/>
+      <circle cx="72.86" cy="47.28" r="1.28" fill="#333333"/>
+      <circle cx="78.14" cy="47.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 70.7 50.4 C 72.3 56.24, 78.7 56.24, 80.3 50.4"/>
+      <circle cx="70.7" cy="50.4" r="0.44" fill="black"/>
+      <circle cx="80.3" cy="50.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="1_1">
+      <circle cx="122.5" cy="50.0" r="8" fill="#FFC10E"/>
+      <circle cx="119.86" cy="47.28" r="1.28" fill="#333333"/>
+      <circle cx="125.14" cy="47.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 117.7 50.4 C 119.3 56.24, 125.7 56.24, 127.3 50.4"/>
+      <circle cx="117.7" cy="50.4" r="0.44" fill="black"/>
+      <circle cx="127.3" cy="50.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="1_2">
+      <circle cx="169.5" cy="50.0" r="8" fill="#FFC10E"/>
+      <circle cx="166.86" cy="47.28" r="1.28" fill="#333333"/>
+      <circle cx="172.14" cy="47.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 164.7 50.4 C 166.3 56.24, 172.7 56.24, 174.3 50.4"/>
+      <circle cx="164.7" cy="50.4" r="0.44" fill="black"/>
+      <circle cx="174.3" cy="50.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="2_0">
+      <circle cx="75.5" cy="68.0" r="8" fill="#FFC10E"/>
+      <circle cx="72.86" cy="65.28" r="1.28" fill="#333333"/>
+      <circle cx="78.14" cy="65.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 70.7 68.4 C 72.3 74.24, 78.7 74.24, 80.3 68.4"/>
+      <circle cx="70.7" cy="68.4" r="0.44" fill="black"/>
+      <circle cx="80.3" cy="68.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="2_1">
+      <circle cx="122.5" cy="68.0" r="8" fill="#FFC10E"/>
+      <circle cx="119.86" cy="65.28" r="1.28" fill="#333333"/>
+      <circle cx="125.14" cy="65.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 117.7 68.4 C 119.3 74.24, 125.7 74.24, 127.3 68.4"/>
+      <circle cx="117.7" cy="68.4" r="0.44" fill="black"/>
+      <circle cx="127.3" cy="68.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="2_2">
+      <circle cx="169.5" cy="68.0" r="8" fill="#FFC10E"/>
+      <circle cx="166.86" cy="65.28" r="1.28" fill="#333333"/>
+      <circle cx="172.14" cy="65.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 164.7 68.4 C 166.3 74.24, 172.7 74.24, 174.3 68.4"/>
+      <circle cx="164.7" cy="68.4" r="0.44" fill="black"/>
+      <circle cx="174.3" cy="68.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="3_0">
+      <circle cx="75.5" cy="86.0" r="8" fill="#FFC10E"/>
+      <circle cx="72.86" cy="83.28" r="1.28" fill="#333333"/>
+      <circle cx="78.14" cy="83.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 70.7 86.4 C 72.3 92.24, 78.7 92.24, 80.3 86.4"/>
+      <circle cx="70.7" cy="86.4" r="0.44" fill="black"/>
+      <circle cx="80.3" cy="86.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="3_1">
+      <circle cx="122.5" cy="86.0" r="8" fill="#FFC10E"/>
+      <circle cx="119.86" cy="83.28" r="1.28" fill="#333333"/>
+      <circle cx="125.14" cy="83.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 117.7 86.4 C 119.3 92.24, 125.7 92.24, 127.3 86.4"/>
+      <circle cx="117.7" cy="86.4" r="0.44" fill="black"/>
+      <circle cx="127.3" cy="86.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="3_2">
+      <circle cx="169.5" cy="86.0" r="8" fill="#FFC10E"/>
+      <circle cx="166.86" cy="83.28" r="1.28" fill="#333333"/>
+      <circle cx="172.14" cy="83.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 164.7 86.4 C 166.3 92.24, 172.7 92.24, 174.3 86.4"/>
+      <circle cx="164.7" cy="86.4" r="0.44" fill="black"/>
+      <circle cx="174.3" cy="86.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="4_0">
+      <circle cx="75.5" cy="104.0" r="8" fill="#FFC10E"/>
+      <circle cx="72.86" cy="101.28" r="1.28" fill="#333333"/>
+      <circle cx="78.14" cy="101.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 70.7 104.4 C 72.3 110.24, 78.7 110.24, 80.3 104.4"/>
+      <circle cx="70.7" cy="104.4" r="0.44" fill="black"/>
+      <circle cx="80.3" cy="104.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="4_1">
+      <circle cx="122.5" cy="104.0" r="8" fill="#FFC10E"/>
+      <circle cx="119.86" cy="101.28" r="1.28" fill="#333333"/>
+      <circle cx="125.14" cy="101.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 117.7 104.4 C 119.3 110.24, 125.7 110.24, 127.3 104.4"/>
+      <circle cx="117.7" cy="104.4" r="0.44" fill="black"/>
+      <circle cx="127.3" cy="104.4" r="0.44" fill="black"/>
+    </g>
+    <g opacity="1.0" id="4_2">
+      <circle cx="169.5" cy="104.0" r="8" fill="#FFC10E"/>
+      <circle cx="166.86" cy="101.28" r="1.28" fill="#333333"/>
+      <circle cx="172.14" cy="101.28" r="1.28" fill="#333333"/>
+      <path stroke="black" stroke-width="0.88" fill="transparent" fill-rule="nonzero" d="M 164.7 104.4 C 166.3 110.24, 172.7 110.24, 174.3 104.4"/>
+      <circle cx="164.7" cy="104.4" r="0.44" fill="black"/>
+      <circle cx="174.3" cy="104.4" r="0.44" fill="black"/>
+    </g>
+  </g>
+</svg>

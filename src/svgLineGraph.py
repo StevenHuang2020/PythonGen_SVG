@@ -5,7 +5,7 @@ import numpy as np
 from scipy.linalg import solve
 from svg.file import SVGFileV2
 from svg.basic import rainbow_colors, random_color, color_fader, random_color_hsv
-from svg.basic import draw_line, draw_circle, draw_rect, random_points
+from svg.basic import draw_line, draw_circle, draw_rect, random_points, random_coordinates
 from svg.geo_math import get_line
 
 from svgFunction import getRandomProper3Points
@@ -497,28 +497,6 @@ def random_start_coordinates(startPt, W, H, margin=10, N=100, u=0.006):
     return pts
 
 
-# def random_coordinates(W, H, margin=10, N=100):
-#     """generate random points
-#     W: width
-#     H: hight
-#     margin
-#     """
-#     x = np.random.randint(margin, W - margin, size=(N, 1))
-#     y = np.random.randint(margin, H - margin, size=(N, 1))
-#     return np.concatenate((x, y), axis=1)
-
-
-def random_coordinates(x_min, x_max, y_min, y_max, N=100):
-    """generate random points
-    W: width
-    H: hight
-    margin
-    """
-    x = np.random.randint(x_min, x_max, size=(N, 1))
-    y = np.random.randint(y_min, y_max, size=(N, 1))
-    return np.concatenate((x, y), axis=1)
-
-
 def drawLineGrapic7(svg):
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
@@ -557,7 +535,7 @@ def drawLineGrapic8(svg):
     N = 10
     margin = 6
     pts = random_coordinates(margin, W - margin, margin, H - margin, N=N)
-    pts = center_cordinates(pts, (cx, cy))
+    pts = center_cordinates(pts, np.array([cx, cy]))
 
     length = len(pts)
     c1 = random_color_hsv()
@@ -571,7 +549,7 @@ def drawLineGrapic8(svg):
         else:
             p2 = pts[i + 1]
 
-        stroke += 1.6
+        stroke += 1.5
         color = color_fader(c1, c2, i / length)
 
         # style1: lines
@@ -683,8 +661,8 @@ def main():
     # drawLineGrapic5(svg)
     # drawLineGrapic6(svg)
     # drawLineGrapic7(svg)
-    # drawLineGrapic8(svg)
-    drawLineGrapic9(svg)
+    drawLineGrapic8(svg)
+    # drawLineGrapic9(svg)
 
 
 if __name__ == '__main__':

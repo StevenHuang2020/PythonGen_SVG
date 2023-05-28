@@ -67,19 +67,54 @@ def clip_float(x, n=1):
     return x
 
 
+def clip_floats(x, n=1):
+    return np.round(x, n)
+
+
 def rand_str(num=6):
     """random string as ID"""
     return ''.join(random.sample(string.ascii_letters + string.digits, num))
 
 
-def random_points(size=(1, 2), min=0, max=5):
+def random_points(size=(1, 2), min=0, max=5, decimal=2):
     """get random points, size=(N, 2) to get N points(x,y) """
-    return np.random.random(size) * (max - min) + min  # [0,5)
+    pts = np.random.random(size) * (max - min) + min  # [min, max)
+    pts = np.round(pts, decimals=decimal)
+    return pts
 
 
 def random_point(min=0, max=5):
     """get one random point"""
     return random_points((2,), min=min, max=max)
+
+
+def grid_xy(xMin, xMax, yMin, yMax, N=10):
+    return random_coordinates(xMin, xMax, yMin, yMax, N)
+
+
+def random_coordinates(xMin, xMax, yMin, yMax, N=100):
+    """generate random points  """
+    x = random_points((N, 1), xMin, xMax)
+    y = random_points((N, 1), yMin, yMax)
+    return np.concatenate((x, y), axis=1)
+
+
+def mesh_grid_xy(xMin, xMax, yMin, yMax, N=10):
+    # x = np.linspace(xMin, xMax, N)
+    # y = np.linspace(yMin, yMax, N)
+    x = random_points((N, 1), xMin, xMax).flatten()
+    y = random_points((N, 1), yMin, yMax).flatten()
+    # x = np.sort(x)
+    # y = np.sort(y)
+
+    # print('x=', x)
+    # print('y=', y)
+    xv, yv = np.meshgrid(x, y)
+    xv = xv.flatten().reshape((N * N, 1))
+    yv = yv.flatten().reshape((N * N, 1))
+    # print('xv=', xv)
+    # print('yv=', yv)
+    return np.hstack((xv, yv))
 
 
 def get_grid_coordinates(W, H, vNum=2, hNum=2):
@@ -115,10 +150,29 @@ def get_styles(style_dict):
 
 
 # ------------------------------draw function--------------------------------- #
+SVG_ELEMENTS_NAMES = ['a', 'animate', 'animateMotion>', 'circle', 'defs', 'ellipse',
+                      'path', 'line', 'rect', 'ellipse', 'polyline', 'polygon', 'text', 'style']
+
+
+def is_element_name(name):
+    return name in SVG_ELEMENTS_NAMES
+
+
 def draw_line(x1, y1, x2, y2, stroke_width=0.5, color='black', stroke_dasharray='None'):
-    """Draw a line for svg"""
+    """Draw a line with style for svg"""
     return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" \
         stroke-width="{stroke_width}" stroke-dasharray="{stroke_dasharray}" />'
+
+
+def draw_line_stroke_width(x1, y1, x2, y2, stroke_width=0.5):
+    """Draw a line with stroke_width for svg"""
+    return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"\
+        stroke-width="{stroke_width}"  />'
+
+
+def draw_only_line(x1, y1, x2, y2):
+    """Draw a line for svg"""
+    return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" />'
 
 
 def draw_rect(x, y, width, height, stroke_width=0.5, color=None, stroke_color=None):
@@ -130,6 +184,12 @@ def draw_rect(x, y, width, height, stroke_width=0.5, color=None, stroke_color=No
 
 def draw_circle(x, y, radius, color='black'):
     return f'<circle cx="{x}" cy="{y}" r="{radius}" fill="{color}" />'
+
+
+def draw_only_circle(x, y, class_name=None):
+    if class_name is None or is_element_name(class_name):
+        return f'<circle cx="{x}" cy="{y}" />'
+    return f'<circle class="{class_name}" cx="{x}" cy="{y}" />'
 
 
 def draw_ring(x, y, radius, color='transparent', stroke_color='black', stroke_width=0.5):
@@ -165,7 +225,6 @@ def draw_text(x, y, text, font='Consolas', fontsize='smaller',
     dict['font-size'] = fontsize
     dict['font-style'] = 'normal'
     dict['font-variant'] = 'normal'
-
     return draw_any('text', text, **dict)
 
 
@@ -181,7 +240,11 @@ def draw_path(path, stroke_width=30, color='black', fill_color='transparent', fi
 
 
 def add_style(tag, style_list):
-    return '<style> %s { %s } </style>' % (tag, style_list)
+    return f'<style>{style_content(tag, style_list)}</style>'  # % (tag, style_list)
+
+
+def style_content(tag, style_list):
+    return ' %s{%s}' % (tag, style_list)
 
 
 def add_style_path(stroke='black', stroke_width=1, fill='transparent'):
@@ -211,3 +274,33 @@ def draw_any(tag, text=None, **kwargs):
     if text is not None:
         return "<{} {}>{}</{}>".format(tag, attris, text, tag)
     return "<{} {} />".format(tag, attris)
+
+
+def text_style(color='black', font='Consolas', font_size='12px', style='normal', variant='normal', white_space='pre', baseline='middle', anchor='middle'):
+    styleDict = {}
+
+    if color is None:
+        color = random_color()
+
+    styleDict['fill'] = color
+    styleDict['font-family'] = font
+    styleDict['font-size'] = font_size
+    styleDict['font-style'] = style
+    styleDict['font-variant'] = variant
+    # styleDict['xml:space'] = 'preserve' #deprecated
+    styleDict['white-space'] = white_space
+    styleDict['dominant-baseline'] = baseline
+    styleDict['text-anchor'] = anchor
+    return styleDict
+
+
+def line_style(color='black', stroke_width=0.5, stroke_dasharray='None'):
+    styleDict = {}
+
+    if color is None:
+        color = random_color()
+
+    styleDict['stroke'] = color
+    styleDict['stroke-width'] = str(stroke_width)
+    styleDict['stroke-dasharray'] = stroke_dasharray  # '0 1' '4' '4 1'
+    return styleDict

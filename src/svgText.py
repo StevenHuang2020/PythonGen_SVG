@@ -5,7 +5,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 Description: SVG text node exampls
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-from svg.basic import get_styles, add_style, draw_text, draw_text_only, random_color
+from svg.basic import get_styles, add_style, draw_text, draw_text_only, random_color,text_style
 from svg.file import SVGFileV2
 from common import gImageOutputPath
 from common_path import traverse_files, join_path
@@ -38,25 +38,6 @@ from common_path import traverse_files, join_path
 华文行楷：STXingkai
 华文新魏：STXinwei
 '''
-
-def text_style(color='black', font='Consolas', font_size='12px', style='normal', variant='normal', white_space='pre', baseline='middle', anchor='middle'):
-    styleDict = {}
-
-    if color is None:
-        color = random_color()
-
-    styleDict['fill'] = color
-    styleDict['font-family'] = font
-    styleDict['font-size'] = font_size
-    styleDict['font-style'] = style
-    styleDict['font-variant'] = variant
-    # styleDict['xml:space'] = 'preserve' #deprecated
-    styleDict['white-space'] = white_space
-    styleDict['dominant-baseline'] = baseline
-    styleDict['text-anchor'] = anchor
-
-    return styleDict
-
 
 def svg_draw_text(svg):
     styleDict = text_style()

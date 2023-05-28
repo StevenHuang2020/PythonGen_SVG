@@ -6,9 +6,9 @@ from scipy.spatial import Delaunay, Voronoi
 from itertools import combinations
 
 from svg.file import SVGFileV2
-from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader, random_color_hsv
-from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text, draw_ring
-from svg.basic import random_points, uniform_random_points
+from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader, random_color_hsv, add_style, clip_floats
+from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text, draw_ring, draw_only_circle
+from svg.basic import random_points, uniform_random_points, line_style, get_styles, draw_only_line, is_element_name, style_content
 from svg.geo_transformation import rotation_pts_xy_point, translation_pts, combine_xy, center_cordinates
 from svg.geo_math import get_5star, points_on_triangle, get_regular_ngons
 from graph.graphPoints import GraphPoints
@@ -17,17 +17,41 @@ from common import gImageOutputPath
 from common_path import join_path
 
 
-def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_widths=None, dash=None):
+def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_widths=None, dash=None, styles_opt=True):
+    if styles_opt:
+        return drawlinePoints_style(svg, pts, node, stroke_width, color, dash)
+    else:
+        for i, pt in enumerate(pts):
+            x1, y1, x2, y2 = pt
+            x1 = clip_float(x1)
+            y1 = clip_float(y1)
+            x2 = clip_float(x2)
+            y2 = clip_float(y2)
+            if stroke_widths:
+                stroke_width = stroke_widths[i]
+            svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width,
+                                          color=color or random_color(), stroke_dasharray=dash))
+
+
+def drawlinePoints_style(svg, pts, node=None, stroke_width=0.5, color=None, dash=None):
+    styleDict = line_style(color=color or random_color(), stroke_width=stroke_width, stroke_dasharray=dash)
+
+    styleNode = svg.get_child(childTag='style')
+    if styleNode is not None:
+        new_style = style_content('line', get_styles(styleDict))
+        if new_style not in styleNode.text:
+            styleNode.text += new_style
+    else:
+        svg.draw(add_style('line', get_styles(styleDict)))
+
+    # print('pts: ', pts)
     for i, pt in enumerate(pts):
         x1, y1, x2, y2 = pt
         x1 = clip_float(x1)
         y1 = clip_float(y1)
         x2 = clip_float(x2)
         y2 = clip_float(y2)
-        if stroke_widths:
-            stroke_width = stroke_widths[i]
-        svg.draw_node(node, draw_line(x1, y1, x2, y2, stroke_width=stroke_width,
-                      color=color or random_color(), stroke_dasharray=dash))
+        svg.draw_node(node, draw_only_line(x1, y1, x2, y2))
 
 
 def drawlinePointsContinus(svg, pts, stroke_width=0.5, color=None, stroke_widths=None):
@@ -73,20 +97,40 @@ def drawTrianglePoints(svg, pt1, pt2, pt3, stroke_width=0.1, color=None):
                    color=color or random_color())
 
 
-def drawPloygonNode(svg, pts, node=None, color=None):
+def drawPloygonNode(svg, pts, node=None, color=None, stroke_color=None):
     # print('pts',pts)
     points = [str(clip_float(i[0])) + ',' +
               str(clip_float(i[1])) + ' ' for i in pts]
     points = ''.join(points)
-    svg.draw_node(node, draw_polygon(
-        points, stroke_width=0.5, color=color or random_color()))
+    polygon = draw_polygon(
+        points, stroke_width=0.5, color=color or random_color(), stroke_color=stroke_color or random_color())
+    svg.draw_node(node, polygon)
 
 
-def drawPointsCircle(svg, pts=[], node=None, r=2, color='black'):
+def drawPointsCircle(svg, pts=[], node=None, r=2, color='black', styles_opt=True):
+    if styles_opt:
+        return drawPointsCircle_style(svg, pts, node, r, color)
+    else:
+        for pt in pts:
+            x = clip_float(pt[0])
+            y = clip_float(pt[1])
+            svg.draw_node(node, draw_circle(x, y, radius=r, color=color))
+
+
+def drawPointsCircle_style(svg, pts=[], node=None, r=2, color='black', style_class='circle'):
+    styleDict = {}
+    styleDict['fill'] = color or random_color()
+    styleDict['r'] = str(r)
+
+    style_name = style_class
+    if not is_element_name(style_name):
+        style_name = '.' + style_name
+    svg.draw(add_style(style_name, get_styles(styleDict)))
+
     for pt in pts:
         x = clip_float(pt[0])
         y = clip_float(pt[1])
-        svg.draw_node(node, draw_circle(x, y, radius=r, color=color))
+        svg.draw_node(node, draw_only_circle(x, y, class_name=style_class))
 
 
 def drawPointsCircleFadeColor(svg, pts, r=2):
@@ -103,12 +147,16 @@ def drawPointsCircleFadeColor(svg, pts, r=2):
 
 def drawPathContinuPoints(svg, pts, strokeWidth=0.5, color=None):
     path = 'M '
-    for i in range(len(pts)):
-        x, y = pts[i]
-        path = path + ' ' + str(clip_float(x)) + ' ' + str(clip_float(y))
+    last = None
+    for i in pts:
+        t = clip_floats(i)
+        # print('pts=', pts[i], 't=', t)
+        if np.array_equal(last, t):
+            continue
+        path = path + ' ' + str(t[0]) + ' ' + str(t[1])
+        last = t
 
-    svg.draw(draw_path(path, stroke_width=strokeWidth,
-             color=color or random_color()))
+    svg.draw(draw_path(path, stroke_width=strokeWidth, color=color or random_color()))
 
 
 def drawPointsLineGraphic(svg):
@@ -431,13 +479,16 @@ def draw_Delaunay_line(svg, tri, pts, color='green'):
     linePoints = list(set(map(tuple, map(sorted, linePoints))))
     # print('linePoints=', linePoints, len(linePoints))
 
-    con_ponts = [pts[[i[0], i[1]]] for i in linePoints]  # pts[[4,2]]
+    con_ponts = [pts[[i[0], i[1]]] for i in linePoints]
     # print('con_ponts=', con_ponts)
     con_ponts = [i.flatten() for i in con_ponts]
     # print('con_ponts=', con_ponts)
-    drawlinePoints(svg, con_ponts, color=color)  # draw lines
 
-    drawPointsCircle(svg, pts, r=0.8, color='black')  # draw node circle
+    # drawlinePoints(svg, con_ponts, color=color) # draw lines
+    drawlinePoints_style(svg, con_ponts, color=color)  # draw lines
+
+    # drawPointsCircle(svg, pts, r=0.8, color='black')  # draw points
+    drawPointsCircle_style(svg, pts, r=0.8, color='black')  # draw points
 
 
 def drawPointsLineGraphic10(svg):
@@ -475,7 +526,6 @@ def drawPointsLineGraphic10(svg):
 
     draw_Delaunay_line(svg, tri, pts)
     # draw_Delaunay_triangle(svg, tri, pts)
-
     # svg.draw(draw_text(x=30, y=cy, text='Delaunay triangulation', color='red', fontsize='12px'))
 
 
@@ -674,7 +724,7 @@ def drawPointsLineGraphic12(svg):
 
     # x, y = translation_pts(pts, (cx, cy))
     # pts = combine_xy(x, y)
-    # pts = center_cordinates(pts, (cx, cy))
+    # pts = center_cordinates(pts, np.array([cx, cy]))
     # print('pts.shape=', pts, pts.shape)
 
     vor = Voronoi(pts)

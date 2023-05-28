@@ -27,7 +27,8 @@ Python generator for SVG.   <br/>
 |<img src="images/pointsLine10-1.svg" width="200" height="200" />|<img src="images/pointsLine10-2.svg" width="200" height="200" />|
 |<img src="images/pointsLine10-23.svg" width="200" height="200" />|<img src="images/pointsLine11.svg" width="200" height="200" />|
 |<img src="images/pointsLine12-1.svg" width="200" height="200" />|<img src="images/pointsLine12-2.svg" width="200" height="200" />|
-|<img src="images/pointsLine13.svg" width="200" height="200" />||
+|<img src="images/pointsLine13.svg" width="200" height="200" />|<img src="images/Delaunay4.svg" width="200" height="200" />|
+|<img src="images/Cardioid.svg" width="200" height="200" />||
 
 Rerferences <br/>
 WiKi: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics <br/>

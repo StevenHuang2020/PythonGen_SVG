@@ -121,6 +121,16 @@ class SVGFileV2:
         self.add_child(node, child_node)
         return child_node
 
+    def get_child(self, node=None, childTag=None):
+        if node is None:
+            node = self._root
+        for i in node:
+            if i.tag == childTag:
+                # print(etree.tostring(i))
+                # print(i.text)
+                return i
+        return None
+
     def close(self):
         """ write lxml tree to file """
         tree = etree.ElementTree(self._root)
@@ -129,7 +139,7 @@ class SVGFileV2:
                        xml_declaration=True, encoding=r'UTF-8', standalone=False)
         else:
             content = etree.tostring(tree, pretty_print=True,
-                                     xml_declaration=True, standalone=False)
+                                     xml_declaration=True, encoding=r'UTF-8', standalone=False)
             with open(self._file, 'w', newline=SVGFileV2._WINDOWS_LINE_ENDING) as xml_fh:
                 xml_fh.write(content.decode(r'UTF-8'))
 

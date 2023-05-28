@@ -29,8 +29,7 @@ def split_points(points):
         tuple: x, y
     """
     res = np.hsplit(points, 2)
-    x, y = res[0].flatten(), res[1].flatten()
-    return x, y
+    return res[0].flatten(), res[1].flatten()
 
 
 def combine_xy(x, y):
@@ -78,8 +77,7 @@ def translation_pts_xy(x, y, to_pt):
         tuple: dst_x, dst_y
     """
     matrix = np.array([[to_pt[0]], [to_pt[1]]])
-    a = np.stack(([x, y]))
-    res = a + matrix
+    res = np.stack(([x, y])) + matrix
     return res[0], res[1]
 
 
@@ -131,7 +129,21 @@ def rotation_pts_xy_point(x, y, rotPoint, theta):
     return translation_pts_xy(x, y, transPt)  # move to rotPoint
 
 
-def zoom_pts_xy(x, y, z=2):
+def zoom_pts(points, z=1.0):
+    """ Uniform zoom points with (0, 0)"""
+    x, y = split_points(points)
+    x, y = zoom_pts_xy(x, y, z)
+    return combine_xy(x, y)
+
+
+def zoom_pts_point(points, point, z=1.0):
+    """ Uniform zoom points with point"""
+    x, y = split_points(points)
+    x, y = zoom_pts_xy_point(x, y, point, z)
+    return combine_xy(x, y)
+
+
+def zoom_pts_xy(x, y, z=1.0):
     """Uniform zoom or scaling points with (0,0), x' = x*z; y' = y*z """
     # return x * z, y * z  #method 1
     return zoom_non_pts_xy(x, y, z1=z, z2=z)
@@ -200,12 +212,11 @@ def transform_any_points(points, matrix):
     """
 
     x, y = split_points(points)
-    a = np.stack(([x, y]))
-    return transform(a, matrix)
+    return transform(np.stack(([x, y])), matrix)
 
 
 def center_cordinates(points, center):
-    """align points  to a center point
+    """ align points to a center point
 
     Args:
         points ([np.ndarray]): [points need to adjust, shape (N, 2)]
@@ -215,19 +226,23 @@ def center_cordinates(points, center):
         [np.ndarray]: [aligned points]
     """
 
-    cx, cy = center[0], center[1]
+    points += (center - center_of_cordinates(points))
+    return points
 
-    s = np.hsplit(points, 2)
-    x, y = s[0], s[1]
 
-    x_min, x_max = np.amin(x), np.amax(x)
-    y_min, y_max = np.amin(y), np.amax(y)
-    delta_x = cx - (x_max + x_min) / 2
-    delta_y = cy - (y_max + y_min) / 2
-    x = x + delta_x
-    y = y + delta_y
+def center_of_cordinates(points):
+    x_min, x_max, y_min, y_max = bounding_cordinates(points)
+    return np.array([(x_max + x_min) / 2, (y_max + y_min) / 2])
 
-    return np.concatenate((x, y), axis=1).astype(int)
+
+def bounding_cordinates(points):
+    """ calculate points' bounding cordinates
+
+    Args:
+        points (np.array): (N, 2)
+    """
+    x, y = np.hsplit(points, 2)
+    return np.amin(x), np.amax(x), np.amin(y), np.amax(y)
 
 
 def main():

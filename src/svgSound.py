@@ -11,7 +11,7 @@ import numpy as np
 from svg.file import SVGFileV2
 from svg.basic import rainbow_colors
 from svgPointLine import drawlinePoints
-from svgPointLine import drawPathContinuPoints
+from svgPointLine import drawPathContinuPoints, drawlinePointsContinusRainbow
 from common import gImageOutputPath
 import math
 from common_path import join_path
@@ -38,12 +38,13 @@ def drawSoundGrapic(svg, data):
     pts = []
 
     xScale = 55
-    if 0:  # style 1
+    if 0:
         for i in range(len(data) - 1):
             pts.append((i / xScale, data[i], (i + 1) / xScale, data[i + 1]))
-        drawlinePoints(svg, pts)
+        # drawlinePoints(svg, pts)  # style 1
+        drawlinePoints(svg, pts, styles_opt=False)
 
-    elif 1:  # style 2, rainbow color
+    elif 1:
         totlal = len(data)
         if 1:
             for i in range(totlal):
@@ -56,11 +57,9 @@ def drawSoundGrapic(svg, data):
                 angle = i * 2 * np.pi / totlal
                 r = R * math.fabs(data[i]) / maxV
                 x, y = cx + r * math.cos(angle), cy + r * math.sin(angle)
-                # print("x, y=", x, y)
-                # x, y = translation_pts_xy(x, y, (cx,cy))
                 pts.append((x, y))
 
-        drawPathContinuPoints(svg, pts, strokeWidth=0.2)
+        drawPathContinuPoints(svg, pts, strokeWidth=0.2)  # style 2
 
 
 def main():

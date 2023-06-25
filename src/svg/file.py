@@ -30,11 +30,12 @@ class SVGFileV2:
         self._height = H
 
         self._root = etree.Element("svg", nsmap={
-                                   None: SVGFileV2._url, "xlink": SVGFileV2._xlink}, version=SVGFileV2._version)
+                                   None: SVGFileV2._url, "xlink": SVGFileV2._xlink},
+                                   version=SVGFileV2._version)
 
         self.set_node(self._root, 'width', f'{self._width}')
         self.set_node(self._root, 'height', f'{self._height}')
-        view_box = '0 0 {} {}'.format(self._width, self._height)
+        view_box = f'0 0 {self._width} {self._height}'
         self.set_node(self._root, 'viewBox', view_box)
 
         self._bk_rect = None  # background rect
@@ -43,9 +44,11 @@ class SVGFileV2:
         self.set_title(title)
 
     def get_size(self):
+        """ get height, width """
         return self._height, self._width
 
     def add_root_style(self, new_style):
+        """ add root style """
         style = self._root.get('style')
         if style is not None:
             style = style + ';' + new_style
@@ -54,6 +57,7 @@ class SVGFileV2:
         self._root.set('style', style)
 
     def add_border(self, border_color, border_width):
+        """ add svg border """
         def setborder_1():
             """ Method 1: add to svg root node """
             style = f'border:{int(border_width)}px solid {border_color}'
@@ -70,6 +74,7 @@ class SVGFileV2:
         # setborder_2()
 
     def set_background(self, color):
+        """ set svg background """
         def bg_method1(color):
             # Method 1: set _root mode 'style'
             style = f'background-color:{color}'
@@ -83,10 +88,12 @@ class SVGFileV2:
         bg_method1(color)
 
     def set_title(self, title=None):
+        """ set svg title """
         if title is not None:
             self.draw(draw_tag('title', title))
 
     def get_root(self):
+        """ get root node """
         return self._root
 
     def set_node(self, node, attri, value):
@@ -100,10 +107,12 @@ class SVGFileV2:
             node.get(attri)
 
     def set_node_dict(self, node, attri_dict):
+        """ set node attributes """
         for key, value in attri_dict.items():
             self.set_node(node, key, value)
 
     def add_child(self, parent, child):
+        """ add child node """
         if parent is None:
             parent = self._root
         parent.append(child)
@@ -113,6 +122,7 @@ class SVGFileV2:
         return self.draw_node(self._root, content)
 
     def new_node(self, content: str = ''):
+        """ create a node """
         return etree.fromstring(content)
 
     def draw_node(self, node=None, content: str = ''):
@@ -121,11 +131,12 @@ class SVGFileV2:
         self.add_child(node, child_node)
         return child_node
 
-    def get_child(self, node=None, childTag=None):
+    def get_child(self, node=None, child_tag=None):
+        """ get child node by tag """
         if node is None:
             node = self._root
         for i in node:
-            if i.tag == childTag:
+            if i.tag == child_tag:
                 # print(etree.tostring(i))
                 # print(i.text)
                 return i
@@ -134,7 +145,7 @@ class SVGFileV2:
     def close(self):
         """ write lxml tree to file """
         tree = etree.ElementTree(self._root)
-        if 0:
+        if 1:
             tree.write(self._file, pretty_print=True,
                        xml_declaration=True, encoding=r'UTF-8', standalone=False)
         else:
@@ -144,6 +155,7 @@ class SVGFileV2:
                 xml_fh.write(content.decode(r'UTF-8'))
 
     def save(self):
+        """ save svg """
         self.close()
 
     def __del__(self):
@@ -188,10 +200,12 @@ class SVGFile:
         self._append_svg(tail)
 
     def draw(self, content):
+        """ append node to svg """
         content = '        ' + content + '\n'
         self._append_svg(content)
 
     def close(self):
+        """ close svg """
         self._svg_tail()
         self._write_svg()
 

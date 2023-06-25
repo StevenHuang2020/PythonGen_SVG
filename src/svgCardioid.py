@@ -8,7 +8,7 @@ Description: Cardioid Curve
 import numpy as np
 from svg.file import SVGFileV2
 from svg.geo_math import get_regular_ngons
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 from svg.basic import draw_circle, draw_ring
 from svgPointLine import drawPointsCircle_style, drawlinePoints
@@ -52,18 +52,19 @@ class CardioidData:
         return line_map
 
 
-def drawCardioid(svg, radius=90, divisions_N=100, multiplier=3):
+def drawCardioid(svg, radius=90, divisions_n=100, multiplier=3):
+    """ draw """
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
-    title = f'Cardioid Curve, parameters: divisions={divisions_N}, multiplier={multiplier}'
+    title = f'Cardioid Curve, parameters: divisions={divisions_n}, multiplier={multiplier}'
     svg.set_title(title)
 
     ###### draw big circle ########
     svg.draw(draw_ring(cx, cy, radius=radius, stroke_width=1))
 
     ###### draw points on circle ########
-    pts = get_regular_ngons(R=radius, N=divisions_N)  # circle
+    pts = get_regular_ngons(R=radius, N=divisions_n)  # circle
     pts = translation_pts(pts, np.array([cx, cy]), True)
     drawPointsCircle_style(svg, pts, r=0.5, color='red', style_class='points')
 
@@ -75,8 +76,8 @@ def drawCardioid(svg, radius=90, divisions_N=100, multiplier=3):
     line_map = []
     i = 0
     while True:
-        tmp = int(i * multiplier) % divisions_N
-        index = i % divisions_N
+        tmp = int(i * multiplier) % divisions_n
+        index = i % divisions_n
         print('index, tmp, line_map: ', index, tmp, line_map)
 
         if tmp != index:
@@ -92,8 +93,10 @@ def drawCardioid(svg, radius=90, divisions_N=100, multiplier=3):
 
 
 def draw_cardioid(svg, data: CardioidData):
+    """ step draws """
     ###### draw big circle ########
-    svg.draw(draw_ring(data._center[0], data._center[1], radius=data._radius, stroke_color='black', stroke_width=1))
+    svg.draw(draw_ring(data._center[0], data._center[1], radius=data._radius,
+                       stroke_color='black', stroke_width=1))
 
     ###### draw points on circle ########
     pts = data._points_on_circle
@@ -107,21 +110,23 @@ def draw_cardioid(svg, data: CardioidData):
 
 
 def drawCardioid_class(svg):
+    """ draw by using class """
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
     radius = 90
-    divisions_N = 100
+    divisions_n = 100
     multiplier = 2.2
 
-    title = f'Cardioid Curve, parameters: divisions={divisions_N}, multiplier={multiplier}'
+    title = f'Cardioid Curve, parameters: divisions={divisions_n}, multiplier={multiplier}'
     svg.set_title(title)
 
-    data = CardioidData(radius, (cx, cy), divisions_N, multiplier)
+    data = CardioidData(radius, (cx, cy), divisions_n, multiplier)
     draw_cardioid(svg, data)
 
 
 def drawCardioid_class_mul(svg):
+    """ draw mul cardioid """
     H, W = svg.get_size()
     svg.set_title('Cardioid Curve showing')
     r = H * 0.95 / 4
@@ -132,11 +137,12 @@ def drawCardioid_class_mul(svg):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'Cardioid.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'Cardioid.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
-    # drawCardioid(svg, divisions_N=200, multiplier=2)
-    # drawCardioid(svg, divisions_N=100, multiplier=0.2)
-    # drawCardioid(svg, divisions_N=100, multiplier=1.2)
+    # drawCardioid(svg, divisions_n=200, multiplier=2)
+    # drawCardioid(svg, divisions_n=100, multiplier=0.2)
+    # drawCardioid(svg, divisions_n=100, multiplier=1.2)
     # drawCardioid_class(svg)
     drawCardioid_class_mul(svg)
 

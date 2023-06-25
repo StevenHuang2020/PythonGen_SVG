@@ -5,16 +5,22 @@
 # Author: Steven Huang, Auckland, NZ
 # Copyright (c) 2020-2021, Steven Huang
 # License: MIT License
+""" calculate intersection point """
+
+__all__ = ['GetLineSegInterPoint']
 
 
 class GetLineSegInterPoint():
+    """ line inter point """
+
     def __init__(self, line1, line2):
         self.line1 = line1
         self.line2 = line2
-        self.interPoint = self.calculate_cross_point(line1, line2)
+        self.inter_point = self.calculate_cross_point(line1, line2)
 
     def get_inter(self):
-        return self.interPoint
+        """ get inter point """
+        return self.inter_point
 
     def inSegment(self, p, line1, line2):
         """"check the cross point is on line segment """
@@ -52,6 +58,7 @@ class GetLineSegInterPoint():
 
 
 def main():
+    """ main function """
     line1 = [[0, 0], [1, 0]]
     line2 = [[0.5, 1], [0.5, -1.5]]
 

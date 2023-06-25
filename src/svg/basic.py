@@ -7,11 +7,11 @@ Description: Basic svg functions and svg node(string) generating functions.
 """
 
 import random
+import string
+import colorsys
 import matplotlib as mpl
 from matplotlib.pyplot import cm
 import numpy as np
-import string
-import colorsys
 
 
 def color_fader(c1='#000000', c2='#ffffff', mix=0):
@@ -46,6 +46,7 @@ def random_color_hsv():
 
 
 def rainbow_colors(N=255):
+    """ get rainbow colors """
     res = []
     hsv_colors = cm.rainbow(np.linspace(0, 1, N))
     for i in hsv_colors:
@@ -56,18 +57,20 @@ def rainbow_colors(N=255):
     return res
 
 
-def convert_rgb(rgb):
+def convert_rgb(rgb, alpha=0xff):
     """covert from rgb to hex color"""
-    return "#{0:02x}{1:02x}{2:02x}".format(int(rgb[0]), int(rgb[1]), int(rgb[2]))
+    return f'#{int(rgb[0]):02x}{int(rgb[1]):02x}{int(rgb[2]):02x}{alpha:02x}'
 
 
 def clip_float(x, n=1):
+    """ clip float number """
     if isinstance(x, float):
         return round(x, n)
     return x
 
 
 def clip_floats(x, n=1):
+    """ numpy clip float numbers """
     return np.round(x, n)
 
 
@@ -76,19 +79,19 @@ def rand_str(num=6):
     return ''.join(random.sample(string.ascii_letters + string.digits, num))
 
 
-def random_points(size=(1, 2), min=0, max=5, decimal=2):
-    """get random points, size=(N, 2) to get N points(x,y) """
-    pts = np.random.random(size) * (max - min) + min  # [min, max)
-    pts = np.round(pts, decimals=decimal)
-    return pts
+def random_points(size=(1, 2), a=0, b=5, decimal=2):
+    """get random points, size=(N, 2) to get N points(x, y) """
+    pts = np.random.random(size) * (b - a) + a  # [a, b)
+    return np.round(pts, decimals=decimal)
 
 
-def random_point(min=0, max=5):
+def random_point(a=0, b=5):
     """get one random point"""
-    return random_points((2,), min=min, max=max)
+    return random_points((2,), a, b)
 
 
 def grid_xy(xMin, xMax, yMin, yMax, N=10):
+    """ grid points """
     return random_coordinates(xMin, xMax, yMin, yMax, N)
 
 
@@ -100,6 +103,7 @@ def random_coordinates(xMin, xMax, yMin, yMax, N=100):
 
 
 def mesh_grid_xy(xMin, xMax, yMin, yMax, N=10):
+    """ get mesh graid points """
     # x = np.linspace(xMin, xMax, N)
     # y = np.linspace(yMin, yMax, N)
     x = random_points((N, 1), xMin, xMax).flatten()
@@ -117,25 +121,26 @@ def mesh_grid_xy(xMin, xMax, yMin, yMax, N=10):
     return np.hstack((xv, yv))
 
 
-def get_grid_coordinates(W, H, vNum=2, hNum=2):
-    hInter = W // hNum
-    vInter = H // vNum
+def get_grid_coordinates(W, H, v_num=2, h_num=2):
+    """ get grid coorinates of svg """
+    h_inter = W // h_num
+    v_inter = H // v_num
     base = []
-    for i in range(hNum):
-        for j in range(vNum):
-            base.append([i * hInter, j * vInter])
+    for i in range(h_num):
+        for j in range(v_num):
+            base.append([i * h_inter, j * v_inter])
     return np.array(base)
 
 
-def uniform_random_points(W, H, vNum=2, hNum=2, x_offset=2, y_offset=2):
+def uniform_random_points(W, H, v_num=2, h_num=2, x_offset=2, y_offset=2):
     """get uniform position random points"""
-    hInter = W // hNum
-    vInter = H // vNum
+    h_inter = W // h_num
+    v_inter = H // v_num
 
-    base = get_grid_coordinates(W, H, vNum, hNum)
+    base = get_grid_coordinates(W, H, v_num, h_num)
 
-    x = random_points((hNum * vNum, 1), min=x_offset, max=hInter - x_offset)
-    y = random_points((hNum * vNum, 1), min=y_offset, max=vInter - y_offset)
+    x = random_points((h_num * v_num, 1), a=x_offset, b=h_inter - x_offset)
+    y = random_points((h_num * v_num, 1), a=y_offset, b=v_inter - y_offset)
 
     pts = np.concatenate((x, y), axis=1)
     return base + pts
@@ -155,6 +160,7 @@ SVG_ELEMENTS_NAMES = ['a', 'animate', 'animateMotion>', 'circle', 'defs', 'ellip
 
 
 def is_element_name(name):
+    """ check elements name """
     return name in SVG_ELEMENTS_NAMES
 
 
@@ -183,56 +189,65 @@ def draw_rect(x, y, width, height, stroke_width=0.5, color=None, stroke_color=No
 
 
 def draw_circle(x, y, radius, color='black'):
+    """ draw circle """
     return f'<circle cx="{x}" cy="{y}" r="{radius}" fill="{color}" />'
 
 
 def draw_only_circle(x, y, class_name=None):
+    """ draw circle """
     if class_name is None or is_element_name(class_name):
         return f'<circle cx="{x}" cy="{y}" />'
     return f'<circle class="{class_name}" cx="{x}" cy="{y}" />'
 
 
 def draw_ring(x, y, radius, color='transparent', stroke_color='black', stroke_width=0.5):
+    """ draw ring """
     return f'<circle cx="{x}" cy="{y}" r="{radius}" stroke-width="{stroke_width}" \
             stroke="{stroke_color}" fill="{color}" />'
 
 
 def draw_ellipse(cx, cy, rx, ry, color='transparent', stroke_color='black', stroke_width=0.5):
+    """ draw ellipse """
     return f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" \
         stroke="{stroke_color}" fill="{color}" stroke-width="{stroke_width}"/>'
 
 
 def draw_polyline(points, color=None, stroke_color=None, stroke_width=1.0):
+    """ draw polyline """
     return f'<polyline points="{points}" stroke="{stroke_color}" \
         stroke-width="{stroke_width}" fill="{color}" />'
 
 
 def draw_polygon(points, color=None, stroke_color=None, stroke_width=1.0):
+    """ draw polygon """
     return f'<polygon points="{points}" stroke="{stroke_color}" \
         stroke-width="{stroke_width}" fill="{color}" />'
 
 
-def draw_text(x, y, text, font='Consolas', fontsize='smaller',
+def draw_text(x=0, y=0, text='', font='Consolas', fontsize='smaller',
               color='black', blank_space='pre'):
+    """ draw text """
     # xml:space deprecated.
     # white-space: normal,pre,nowrap,pre-wrap,break-spaces,pre-line
-    dict = {}
-    dict['x'] = str(x)
-    dict['y'] = str(y)
-    dict['fill'] = color
-    dict['white-space'] = blank_space
-    dict['font-family'] = font
-    dict['font-size'] = fontsize
-    dict['font-style'] = 'normal'
-    dict['font-variant'] = 'normal'
-    return draw_any('text', text, **dict)
+    dict_text = {}
+    dict_text['x'] = str(x)
+    dict_text['y'] = str(y)
+    dict_text['fill'] = color
+    dict_text['white-space'] = blank_space
+    dict_text['font-family'] = font
+    dict_text['font-size'] = fontsize
+    dict_text['font-style'] = 'normal'
+    dict_text['font-variant'] = 'normal'
+    return draw_any('text', text, **dict_text)
 
 
 def draw_text_only(x, y, text):
+    """ draw text """
     return f'<text x="{x}" y="{y}" >{text}</text>'
 
 
 def draw_path(path, stroke_width=30, color='black', fill_color='transparent', fill_rule='nonzero'):
+    """ draw path """
     # https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
     # M 100 306 C 168 444, 304 444, 352 306
     return f'<path stroke="{color}" stroke-width="{stroke_width}" fill="{fill_color}" \
@@ -240,23 +255,29 @@ def draw_path(path, stroke_width=30, color='black', fill_color='transparent', fi
 
 
 def add_style(tag, style_list):
+    """ add style """
     return f'<style>{style_content(tag, style_list)}</style>'  # % (tag, style_list)
 
 
 def style_content(tag, style_list):
-    return ' %s{%s}' % (tag, style_list)
+    """ style format """
+    tmp = "{" + style_list + "}"
+    return f' {tag}{tmp}'
 
 
 def add_style_path(stroke='black', stroke_width=1, fill='transparent'):
+    """ add path style """
     style = f'stroke: {stroke}; stroke-width: {stroke_width}; fill: {fill};'
     return add_style(tag='path', style_list=style)
 
 
 def draw_only_path(path):
+    """ draw path """
     return draw_any('path', d=f'{path}')
 
 
 def draw_tag(tag, text=None):
+    """ draw path """
     return draw_any(tag, text)
 
 
@@ -272,35 +293,66 @@ def draw_any(tag, text=None, **kwargs):
     attris = ' '.join(attri_list)
     # print('attris=', attris)
     if text is not None:
-        return "<{} {}>{}</{}>".format(tag, attris, text, tag)
-    return "<{} {} />".format(tag, attris)
+        return f"<{tag} {attris}>{text}</{tag}>"
+    return f"<{tag} {attris} />"
 
 
-def text_style(color='black', font='Consolas', font_size='12px', style='normal', variant='normal', white_space='pre', baseline='middle', anchor='middle'):
-    styleDict = {}
+def text_style(color='black', font='Consolas', font_size='12px', style='normal', variant='normal',
+               white_space='pre', baseline='middle', anchor='middle'):
+    """ text style dict """
+    style_dict = {}
 
     if color is None:
         color = random_color()
 
-    styleDict['fill'] = color
-    styleDict['font-family'] = font
-    styleDict['font-size'] = font_size
-    styleDict['font-style'] = style
-    styleDict['font-variant'] = variant
-    # styleDict['xml:space'] = 'preserve' #deprecated
-    styleDict['white-space'] = white_space
-    styleDict['dominant-baseline'] = baseline
-    styleDict['text-anchor'] = anchor
-    return styleDict
+    style_dict['fill'] = color
+    style_dict['font-family'] = font
+    style_dict['font-size'] = font_size
+    style_dict['font-style'] = style
+    style_dict['font-variant'] = variant
+    # style_dict['xml:space'] = 'preserve' #deprecated
+    style_dict['white-space'] = white_space
+    style_dict['dominant-baseline'] = baseline
+    style_dict['text-anchor'] = anchor
+    return style_dict
 
 
 def line_style(color='black', stroke_width=0.5, stroke_dasharray='None'):
-    styleDict = {}
+    """ line style dict """
+    style_dict = {}
 
     if color is None:
         color = random_color()
 
-    styleDict['stroke'] = color
-    styleDict['stroke-width'] = str(stroke_width)
-    styleDict['stroke-dasharray'] = stroke_dasharray  # '0 1' '4' '4 1'
-    return styleDict
+    style_dict['stroke'] = color
+    style_dict['stroke-width'] = str(stroke_width)
+    style_dict['stroke-dasharray'] = stroke_dasharray  # '0 1' '4' '4 1'
+    return style_dict
+
+
+def transfrom_dict(from_x, from_y, to_x, to_y, trans_type='rotate', dur=1):
+    """ transform fict """
+    trans_dict = {}
+    trans_dict['attributeName'] = 'transform'
+    trans_dict['attributeType'] = 'xml'
+    trans_dict['type'] = trans_type
+    trans_dict['from'] = f'0 {from_x} {from_y}'
+    trans_dict['to'] = f'360 {to_x} {to_y}'
+    trans_dict['dur'] = f'{dur}s'
+    trans_dict["repeatCount"] = "indefinite"  # "5"
+    return trans_dict
+
+
+def main():
+    """ main function """
+    print(random_color_hsv())
+
+    x = '{china}'
+    f = f'i am a {x}'
+    print('f=', f)
+    print('list=', add_style('abc', 'a:1; b:2; ft:10pt;'))
+    print('text=', draw_text(text='hi'))
+
+
+if __name__ == '__main__':
+    main()

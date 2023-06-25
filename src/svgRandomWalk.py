@@ -1,9 +1,15 @@
-# python3 Steven
+# -*- encoding: utf-8 -*-
+# Date: 14/Sep/2021
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: svg random walk
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 import random
 import numpy as np
 from svg.file import SVGFileV2
 from svg.basic import clip_float, draw_path, random_color
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 
 
@@ -25,14 +31,13 @@ def random_walk(x, y, n=1, step=1):
 
 
 def drawRandomNumbersPath(svg):
-    H, W = svg.get_size()
+    # H, W = svg.get_size()
     times = 100
     N = 500
-    xW = 5
 
     for _ in range(times):
         path = 'M 0 0 L '
-        ptX = np.arange(N) + xW
+        ptX = np.arange(N) + 5
         ptY = randomContinueNumbers(N=N)
 
         for x, y in zip(ptX, ptY):
@@ -48,7 +53,7 @@ def drawRandomWalkPath(svg):
 
     x = cx
     y = cy
-    path = 'M %.1f %.1f L ' % (x, y)
+    path = f'M {x:.1f} {y:.1f} L '
     for _ in range(times):
         x, y = random_walk(x, y, 1, step=2)
         path = path + ' ' + str(clip_float(x)) + ' ' + str(clip_float(y))
@@ -57,7 +62,8 @@ def drawRandomWalkPath(svg):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'randomWalk.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'randomWalk.svg')
     svg = SVGFileV2(file, W=100, H=100)
 
     drawRandomNumbersPath(svg)

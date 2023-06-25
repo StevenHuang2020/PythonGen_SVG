@@ -1,31 +1,8 @@
-<?xml version='1.0' encoding='ASCII' standalone='no'?>
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" style="border:1px solid black">
-  <style> text { fill: red; font-family: LiSu; font-size: 22px; font-style: normal; font-variant: normal; white-space: pre; dominant-baseline: middle; text-anchor: middle;  } </style>
-  <text x="28" y="42">&#32005;</text>
-  <text x="28" y="68">&#27155;</text>
-  <text x="28" y="94">&#22818;</text>
-  <text x="58" y="42">&#21487;</text>
-  <text x="58" y="68">&#22022;</text>
-  <text x="58" y="94">&#20572;</text>
-  <text x="58" y="120">&#27231;</text>
-  <text x="58" y="146">&#24503;</text>
-  <text x="58" y="172">&#65292;</text>
-  <text x="88" y="42">&#22570;</text>
-  <text x="88" y="68">&#24976;</text>
-  <text x="88" y="94">&#35424;</text>
-  <text x="88" y="120">&#32110;</text>
-  <text x="88" y="146">&#25165;</text>
-  <text x="88" y="172">&#12290;</text>
-  <text x="118" y="42">&#29577;</text>
-  <text x="118" y="68">&#24118;</text>
-  <text x="118" y="94">&#26519;</text>
-  <text x="118" y="120">&#20013;</text>
-  <text x="118" y="146">&#25499;</text>
-  <text x="118" y="172">&#65292;</text>
-  <text x="148" y="42">&#37329;</text>
-  <text x="148" y="68">&#31786;</text>
-  <text x="148" y="94">&#38634;</text>
-  <text x="148" y="120">&#35041;</text>
-  <text x="148" y="146">&#22475;</text>
-  <text x="148" y="172">&#12290;</text>
+  <style> text{fill: red; font-family: Microsoft YaHei; font-size: 50px; font-style: normal; font-variant: normal; white-space: pre; dominant-baseline: middle; text-anchor: middle; }</style>
+  <text x="70.0" y="70.0" text-anchor="middle" dominant-baseline="central" fill="#328A4E" transform="rotate(0,70.0,70.0)">怡</text>
+  <text x="130.0" y="70.0" text-anchor="middle" dominant-baseline="central" fill="#F0AE83" transform="rotate(90,130.0,70.0)">红</text>
+  <text x="70.0" y="130.0" text-anchor="middle" dominant-baseline="central" fill="#856DF1" transform="rotate(180,70.0,130.0)">快</text>
+  <text x="130.0" y="130.0" text-anchor="middle" dominant-baseline="central" fill="#93B62E" transform="rotate(270,130.0,130.0)">绿</text>
 </svg>

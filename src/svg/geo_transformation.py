@@ -119,14 +119,14 @@ def rotation_pts_xy(x, y, theta):
     return transform(a, matrix)
 
 
-def rotation_pts_xy_point(x, y, rotPoint, theta):
+def rotation_pts_xy_point(x, y, rot_point, theta):
     """rotation with a point"""
-    transPt = (-1 * rotPoint[0], -1 * rotPoint[1])
-    x, y = translation_pts_xy(x, y, transPt)  # move to (0,0)
+    trans_pt = (-1 * rot_point[0], -1 * rot_point[1])
+    x, y = translation_pts_xy(x, y, trans_pt)  # move to (0,0)
     x, y = rotation_pts_xy(x, y, theta)  # rotation
 
-    transPt = (rotPoint[0], rotPoint[1])
-    return translation_pts_xy(x, y, transPt)  # move to rotPoint
+    trans_pt = (rot_point[0], rot_point[1])
+    return translation_pts_xy(x, y, trans_pt)  # move to rot_point
 
 
 def zoom_pts(points, z=1.0):
@@ -156,14 +156,14 @@ def zoom_non_pts_xy(x, y, z1=1, z2=1):
     return transform(a, matrix)
 
 
-def zoom_pts_xy_point(x, y, zooPoint, z=2):
+def zoom_pts_xy_point(x, y, zoo_point, z=2):
     """ zoom or scaling points with a point"""
-    transPt = (-1 * zooPoint[0], -1 * zooPoint[1])
-    x, y = translation_pts_xy(x, y, transPt)  # move to (0,0)
+    trans_pt = (-1 * zoo_point[0], -1 * zoo_point[1])
+    x, y = translation_pts_xy(x, y, trans_pt)  # move to (0,0)
     x, y = zoom_pts_xy(x, y, z=z)  # zoom
 
-    transPt = (zooPoint[0], zooPoint[1])
-    return translation_pts_xy(x, y, transPt)  # move to zooPoint
+    trans_pt = (zoo_point[0], zoo_point[1])
+    return translation_pts_xy(x, y, trans_pt)  # move to zoo_point
 
 
 def identity_trans(x, y):
@@ -231,6 +231,7 @@ def center_cordinates(points, center):
 
 
 def center_of_cordinates(points):
+    """ get center of points """
     x_min, x_max, y_min, y_max = bounding_cordinates(points)
     return np.array([(x_max + x_min) / 2, (y_max + y_min) / 2])
 
@@ -246,7 +247,7 @@ def bounding_cordinates(points):
 
 
 def main():
-    """translation examples """
+    """ translation examples """
     x = np.array([1, 2, 5])
     y = np.array([3, 4, 6])
 

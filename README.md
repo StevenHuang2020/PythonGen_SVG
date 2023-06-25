@@ -30,15 +30,9 @@ Python generator for SVG.   <br/>
 |<img src="images/pointsLine13.svg" width="200" height="200" />|<img src="images/Delaunay4.svg" width="200" height="200" />|
 |<img src="images/Cardioid.svg" width="200" height="200" />||
 
+
 Rerferences <br/>
 WiKi: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics <br/>
 SVG: https://www.w3.org/Graphics/SVG/
 <br/>
 <br/>
-
-Practical data visualization resources： <br/>
-https://en.wikipedia.org/wiki/Data_visualization <br/>
-https://www.visualcinnamon.com/ <br/>
-https://www.hongkiat.com/blog/svg-animations/ <br/>
-https://informationisbeautiful.net/ <br/>
-https://datavizproject.com/ <br/>

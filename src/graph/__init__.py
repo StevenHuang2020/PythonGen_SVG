@@ -6,5 +6,8 @@
 Description:
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
+__version__ = '1.0.1'
 
-IMAGE_OUTPUT_PATH = r'..\images'
+__author__ = 'Steven Huang'
+
+__all__ = ["graph", "graphPoints", "interPoints"]

@@ -10,8 +10,8 @@ import os
 
 
 def traverse_folders(path, recursive=False):
-    """Traverse the folders under the path"""
-    for dirpath, dirnames, filenames in os.walk(path):
+    """ Traverse the folders under the path """
+    for dirpath, dirnames, _ in os.walk(path):
         dirnames.sort()
         for dirname in dirnames:
             yield os.path.join(dirpath, dirname)
@@ -20,18 +20,18 @@ def traverse_folders(path, recursive=False):
 
 
 def traverse_files(path, extensions='', recursive=False):
-    """Traverse the files under the path
+    """ Traverse the files under the path
 
     Args:
         path (str): path
-        extensions (str, optional): File extensions to include, e.g. 'cpp h txt jpg'. Defaults to ''.
-        recursive (bool, optional): Whether to traverse subfolders recursively. Defaults to False.
+        extensions (str, optional): File extensions filters, e.g. 'cpp h txt jpg'. Defaults to ''.
+        recursive (bool, optional): Whether to traverse recursively. Defaults to False.
     """
 
     if extensions:
         extensions = set(extensions.split())
 
-    for dirpath, dirnames, filenames in os.walk(path):
+    for dirpath, _, filenames in os.walk(path):
         filenames.sort()
         for filename in filenames:
             ext = os.path.splitext(filename)[1][1:]
@@ -42,6 +42,7 @@ def traverse_files(path, extensions='', recursive=False):
 
 
 def exists_file(file):
+    """ if file exists """
     return os.path.exists(file)
 
 
@@ -82,18 +83,22 @@ def join_path(dirs, sub):
 
 
 def abs_path(dirs):
+    """ get absolute path """
     return os.path.abspath(dirs)
 
 
 def real_path(dirs):
+    """ get real path """
     return os.path.realpath(dirs)
 
 
 def dir_path(path):
+    """ get file folder """
     return os.path.dirname(path)
 
 
 def delete_folder(file_path):
+    """ delete folder """
     if os.path.exists(file_path):
         for file in os.scandir(file_path):
             if file.is_file():
@@ -112,14 +117,17 @@ def get_file_names(file):
 
 
 def get_file_extension(file):
+    """ get extension """
     return get_file_names(file)[1]
 
 
 def file_size(file):
+    """ get file size """
     return os.path.getsize(file)  # file size in bytes
 
 
 def readable_file_size(size, decimal_places=2):
+    """ convert bytes number to readable str """
     for unit in ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB']:
         if size < 1024.0 or unit == 'PB':
             break
@@ -128,6 +136,7 @@ def readable_file_size(size, decimal_places=2):
 
 
 def main():
+    """ main function """
     path = os. getcwd()
     print(f'\nFolders list under path: {path}:')
     for i in traverse_folders(path):

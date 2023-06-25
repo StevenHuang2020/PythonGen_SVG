@@ -7,7 +7,7 @@ Description: SVG text node exampls
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 from svg.basic import get_styles, add_style, draw_text, draw_text_only, random_color,text_style
 from svg.file import SVGFileV2
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import traverse_files, join_path
 
 ''' chinese font style font-family names:
@@ -40,28 +40,30 @@ from common_path import traverse_files, join_path
 '''
 
 def svg_draw_text(svg):
-    styleDict = text_style()
-    svg.draw(add_style('text', get_styles(styleDict)))
+    """ draw text svg """
+    style_dict = text_style()
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     y0 = 15
     for i in range(10):
-        svg.draw(draw_text(0, y0, '.  Hello   World!     {}'.format(i)))
+        svg.draw(draw_text(0, y0, f'.  Hello   World!     {i}'))
         # svg.draw(draw_text_only(0, y0, '.  Hello   World!     {}'.format(i)))
         y0 += 12
 
 
 def draw_text_file():
+    """ draw text svg from a file content """
     def GeFile(file = r'.\res\hi.txt'):
         with open(file, 'r', encoding='utf-8') as f:
             return f.readlines()
 
-    file = join_path(gImageOutputPath, r'Hi.svg')
+    file = join_path(IMAGE_OUTPUT_PATH, r'Hi.svg')
     H, W = 200, 1200
 
     svg = SVGFileV2(file, W, H, border=False)
 
-    styleDict = text_style(font_size='10px')
-    svg.draw(add_style('text', get_styles(styleDict)))
+    style_dict = text_style(font_size='10px')
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     x0 = 0
     y0 = 15
@@ -74,14 +76,15 @@ def draw_text_file():
         y0 += h
 
 
-def draw_str_list(svg, str_List, x0, y0, x_inter, y_inter, from_right=True):
+def draw_str_list(svg, str_list, x0, y0, x_inter, y_inter, from_right=True):
+    """ draw text lines """
     x = x0
     y = y0
 
     if from_right:
         x_inter *= -1
 
-    for i in str_List:
+    for i in str_list:
         for c in i:
             svg.draw(draw_text_only(x, y, text=c))
             y = y + y_inter
@@ -90,6 +93,8 @@ def draw_str_list(svg, str_List, x0, y0, x_inter, y_inter, from_right=True):
 
 
 def draw_poet(svg):
+    """ draw a poet """
+
     '''
     poet = []
     poet.append('感遇·其一')
@@ -106,22 +111,22 @@ def draw_poet(svg):
     poet.append('開軒面場圃，把酒話桑麻。')
     poet.append('待到重陽日，还來就菊花。')
 
-    styleDict = text_style(font='KaiTi', font_size='16px')
-    styleList = get_styles(styleDict)
-    svg.draw(add_style('text', styleList))
+    style_dict = text_style(font='KaiTi', font_size='16px')
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     H, W = svg.get_size()
-    offsetx = 25
-    offsety = 20
-    x0 = W - 2 * offsetx
-    y0 = offsety
-    yInter = 15
-    xInter = 32
+    offsetX = 25
+    offsetY = 20
+    x0 = W - 2 * offsetX
+    y0 = offsetY
+    y_inter = 15
+    x_inter = 32
 
-    draw_str_list(svg, poet, x0, y0, xInter, yInter)
+    draw_str_list(svg, poet, x0, y0, x_inter, y_inter)
 
 
 def draw_poet2(svg):
+    """ draw a poet """
     poet = []
     poet.append('紅樓夢')
     poet.append('可嘆停機德，')
@@ -129,54 +134,54 @@ def draw_poet2(svg):
     poet.append('玉帶林中掛，')
     poet.append('金簪雪裡埋。')
 
-    styleDict = text_style(color='red', font='LiSu', font_size='22px')
-    styleList = get_styles(styleDict)
-
-    H, W = svg.get_size()
-    svg.draw(add_style('text', styleList))
+    style_dict = text_style(color='red', font='LiSu', font_size='22px')
+    # H, W = svg.get_size()
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     offsetX = 28
     offsetY = 42
     x0 = offsetX
     y0 = offsetY
-    yInter = 26
-    xInter = 30
+    y_inter = 26
+    x_inter = 30
 
-    draw_str_list(svg, poet, x0, y0, xInter, yInter, False)
+    draw_str_list(svg, poet, x0, y0, x_inter, y_inter, False)
 
 
 def draw_style_text(svg):
+    """ rotation examples """
     text = '怡红快绿'
 
-    styleDict = text_style(color='red', font='Microsoft YaHei', font_size='50px')
-    svg.draw(add_style('text', get_styles(styleDict)))
+    style_dict = text_style(color='red', font='Microsoft YaHei', font_size='50px')
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     H, W = svg.get_size()
-    xInter = 60
-    yInter = 60
-    x0 = (W - xInter) / 2
-    y0 = (H - yInter) / 2
+    x_inter = 60
+    y_inter = 60
+    x0 = (W - x_inter) / 2
+    y0 = (H - y_inter) / 2
 
     theta = 0
     w, h = 2, 2
     for i, c in enumerate(text):
-        x = x0 + i % w * xInter
-        y = y0 + i // w * yInter
+        x = x0 + i % w * x_inter
+        y = y0 + i // w * y_inter
         node = svg.draw(draw_text_only(x, y, text=c))
         svg.set_node(node, 'text-anchor', 'middle')
         svg.set_node(node, 'dominant-baseline', 'central')
         svg.set_node(node, 'fill', random_color())
-        str_tmp = 'rotate({},{},{})'.format(theta, x, y)
+        str_tmp = f'rotate({theta},{x},{y})'
         svg.set_node(node, 'transform', str_tmp)
         # svg.draw(draw_circle(x, y, 5, color='red'))
         theta += 90
 
 
 def draw_style_text2(svg):
+    """ rotation examples """
     text = 'Text rotation!'
 
-    styleDict = text_style(font='Consolas', font_size='24px')
-    svg.draw(add_style('text', get_styles(styleDict)))
+    style_dict = text_style(font='Consolas', font_size='24px')
+    svg.draw(add_style('text', get_styles(style_dict)))
 
     x0 = 10
     y0 = 30
@@ -186,8 +191,8 @@ def draw_style_text2(svg):
         if 1:
             svg.set_node(node, 'rotate', theta)
         else:
-            strTmp = 'rotate({},{},{})'.format(theta, x0, y0)
-            svg.set_node(node, 'transform', strTmp)
+            str_tmp = f'rotate({theta},{x0},{y0})'
+            svg.set_node(node, 'transform', str_tmp)
             svg.set_node(node, 'text-anchor', 'middle')
             svg.set_node(node, 'dominant-baseline', 'central')
 
@@ -196,20 +201,22 @@ def draw_style_text2(svg):
 
 
 def getSystemFonts(folder = r'C:\Windows\fonts'):
+    """ print system fonts """
     for i in traverse_files(folder, 'ttf TTF ttc', True):
         print(i)
 
 
 def main():
+    """ main function """
     # draw_text_file()
     # getSystemFonts()
 
-    file = join_path(gImageOutputPath, r'text.svg')
+    file = join_path(IMAGE_OUTPUT_PATH, r'text.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # svg_draw_text(svg)
     # draw_poet(svg)
-    draw_poet2(svg)
-    # draw_style_text(svg)
+    # draw_poet2(svg)
+    draw_style_text(svg)
     # draw_style_text2(svg)
 
 

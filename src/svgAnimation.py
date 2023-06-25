@@ -1,32 +1,42 @@
-# python3 Steven 10/24/20 Auckland,NZ
+# -*- encoding: utf-8 -*-
+# Date: 24/Oct/2020
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: svg animation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 # https://developer.mozilla.org/en-US/docs/Web/SVG
 # https://css-tricks.com/guide-svg-animations-smil/
+
+
 import random
 import numpy as np
 from svg.basic import draw_circle, clip_float, draw_text
 from svg.basic import random_color, rainbow_colors, reverse_hex, random_color_hsv
 from svg.basic import rand_str, draw_tag, draw_any, draw_polygon, random_point
-from svg.basic import random_points, draw_path, draw_line
+from svg.basic import random_points, draw_path, draw_line, transfrom_dict
 from svg.file import SVGFileV2
 from svg.geo_math import get_distance, get_velocity_line, get_velocity_line_abc
-from svg.geo_math import get_line_ABC_inter, get_perpendicular_point_line_ABC, get_line_ABC, get_line_ABC_y, get_line_ABC_x
-from common import gImageOutputPath
+from svg.geo_math import get_line_ABC_inter, get_perpendicular_point_line_ABC
+from svg.geo_math import get_line_ABC, get_line_ABC_y, get_line_ABC_x
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 from svg.geo_transformation import rotation_pts_xy_point, reflection_points
 from svg.geo_transformation import combine_xy, translation_pts, translation_pts_xy
 from svgPointLine import drawPloygonNode, drawlinePoints
 
 
-def addNodeAnitmation(svg, objectNode, animateDict, elementName='animate'):
-    animate = svg.draw_node(objectNode, draw_tag(elementName))
-    svg.set_node_dict(animate, animateDict)
+def addNodeAnitmation(svg, object_node, animate_dict, element_name='animate'):
+    animate = svg.draw_node(object_node, draw_tag(element_name))
+    svg.set_node_dict(animate, animate_dict)
 
 
 def createCircle(svg, x, y, r, color=None):
-    id = 'circle_' + rand_str(4)
+    id_str = 'circle_' + rand_str(4)
     color = color or random_color()
     circle = svg.draw(draw_circle(x, y, r, color=color))
-    svg.set_node(circle, 'id', id)
+    svg.set_node(circle, 'id', id_str)
 
     if 1:  # rings
         svg.set_node(circle, 'fill', 'none')
@@ -35,32 +45,32 @@ def createCircle(svg, x, y, r, color=None):
     return id, circle
 
 
-def circleInflation(svg, x, y, r, color=None, fromR=0, toR=0, durS=5, begin=None):
+def circleInflation(svg, x, y, r, color=None, from_r=0, to_r=0, dur_s=5, begin=None):
     x, y, r = clip_float(x), clip_float(y), clip_float(r)
-    fromR, toR = clip_float(fromR), clip_float(toR)
+    from_r, to_r = clip_float(from_r), clip_float(to_r)
 
-    id, circle = createCircle(svg, x, y, r, color)
+    id_obj, circle = createCircle(svg, x, y, r, color)
 
-    animateDict = {}
-    # animateDict['xlink:href'] = f'#{id}'
-    animateDict["{{{}}}".format(svg.xlink) + 'href'] = f'#{id}'
-    animateDict['id'] = 'ani_' + id + '_' + rand_str(2)
-    animateDict['fill'] = 'freeze'
-    animateDict['attributeName'] = 'r'
-    animateDict['from'] = str(fromR)  # '10'
-    animateDict['to'] = str(toR)  # '50'
-    animateDict['dur'] = str(durS)  # str(random.randint(0,durS)) #'5'
-    animateDict['begin'] = begin or str(random.randint(0, 5)) + 's'  # '0s' #'click' #
-    animateDict["repeatCount"] = "indefinite"  # "5"
+    animate_dict = {}
+    # animate_dict['xlink:href'] = f'#{id_obj}'
+    animate_dict[f"{{{svg.xlink}}}" + 'href'] = f'#{id_obj}'
+    animate_dict['id'] = 'ani_' + id_obj + '_' + rand_str(2)
+    animate_dict['fill'] = 'freeze'
+    animate_dict['attributeName'] = 'r'
+    animate_dict['from'] = str(from_r)  # '10'
+    animate_dict['to'] = str(to_r)  # '50'
+    animate_dict['dur'] = str(dur_s)  # str(random.randint(0,dur_s)) #'5'
+    animate_dict['begin'] = begin or str(random.randint(0, 5)) + 's'  # '0s' #'click' #
+    animate_dict["repeatCount"] = "indefinite"  # "5"
 
-    addNodeAnitmation(svg, circle, animateDict)
-    return id, circle
+    addNodeAnitmation(svg, circle, animate_dict)
+    return id_obj, circle
 
 
 def animCircleInflation(svg):
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
-    circleInflation(svg, cx, cy, r=10, fromR=10, toR=50, durS=3)
+    circleInflation(svg, cx, cy, r=10, from_r=10, to_r=50, dur_s=3)
 
 
 def animCircleInflation2(svg):
@@ -68,28 +78,29 @@ def animCircleInflation2(svg):
 
     N = 30  # total points
     offset = 10  # margin to border
-    pts = random_points((N, 2), min=offset, max=W - offset)
+    pts = random_points((N, 2), a=offset, b=W - offset)
     # print(pts)
 
     color = None  # "black" #None
     for pt in pts:
         r = random.randint(1, 6)
-        circleInflation(svg, pt[0], pt[1], r=r, color=color, fromR=r, toR=r * 5, durS=3)
+        circleInflation(svg, pt[0], pt[1], r=r, color=color, from_r=r, to_r=r * 5, dur_s=3)
 
 
 def animCircleInflation3(svg):
     H, W = svg.get_size()
 
-    blockSize = 20  # blocksize
+    block_size = 20  # blocksize
     color = "black"  # None #
-    r0 = blockSize / 2
-    rList = np.linspace(1, r0 * 3 / 4, 20)
-    for i in range(0, W, blockSize):
-        for j in range(0, H, blockSize):
+    r0 = block_size / 2
+    r_list = np.linspace(1, r0 * 3 / 4, 20)
+    for i in range(0, W, block_size):
+        for j in range(0, H, block_size):
             x = i + r0
             y = j + r0
-            r = random.choice(rList)
-            circleInflation(svg, x, y, r=r, color=color, fromR=r, toR=r0 * 3 / 4, durS=random.randint(0, 10))
+            r = random.choice(r_list)
+            circleInflation(svg, x, y, r=r, color=color, from_r=r, to_r=r0 * 3 / 4,
+                            dur_s=random.randint(0, 10))
 
 
 def animCircleInflation4(svg):
@@ -102,36 +113,37 @@ def animCircleInflation4(svg):
     color = "black"  # None #
     for i in range(N):
         begin = str(i) + 's'
-        circleInflation(svg, cx, cy, r=r0, color=color, fromR=r0, toR=r1, durS=4, begin=begin)
+        circleInflation(svg, cx, cy, r=r0, color=color, from_r=r0, to_r=r1, dur_s=4, begin=begin)
 
 
 def animCircleInflation5(svg):
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
     N = 20  # total points
     r0 = 5
     r1 = 60
 
     offset = 10  # margin to border
-    pts = random_points((N, 2), min=offset, max=W - offset)
+    pts = random_points((N, 2), a=offset, b=W - offset)
 
     color = None  # "black"#
-    rList = np.linspace(1, r1 / 2, 20)
+    r_list = np.linspace(1, r1 / 2, 20)
     for i in range(N):
         begin = str(random.randint(1, 4)) + 's'  # str(i)+'s' #'0s'
         dur = random.randint(3, 6)
-        r = random.choice(rList)
-        id, circle = circleInflation(svg, pts[i][0], pts[i][1], r=r, color=color, fromR=r0, toR=r1, durS=dur, begin=begin)
+        r = random.choice(r_list)
+        id_obj, circle = circleInflation(svg, pts[i][0], pts[i][1], r=r, color=color, from_r=r0, to_r=r1,
+                                         dur_s=dur, begin=begin)
 
-        animateDict = {}
-        animateDict["{{{}}}".format(svg.xlink) + 'href'] = f'#{id}'
-        animateDict['id'] = 'ani_' + id + '_' + rand_str(2)
-        animateDict['attributeName'] = 'stroke-width'
-        animateDict['values'] = '0;2;4;2;1;0'
-        animateDict['dur'] = '5s'  # str(random.randint(0,durS)) #'5'
-        animateDict['begin'] = begin  # '0s'
-        animateDict["repeatCount"] = "indefinite"  # "5"
-        addNodeAnitmation(svg, circle, animateDict)
+        animate_dict = {}
+        animate_dict[f"{{{svg.xlink}}}" + 'href'] = f'#{id_obj}'
+        animate_dict['id'] = 'ani_' + id_obj + '_' + rand_str(2)
+        animate_dict['attributeName'] = 'stroke-width'
+        animate_dict['values'] = '0;2;4;2;1;0'
+        animate_dict['dur'] = '5s'  # str(random.randint(0,dur_s)) #'5'
+        animate_dict['begin'] = begin  # '0s'
+        animate_dict["repeatCount"] = "indefinite"  # "5"
+        addNodeAnitmation(svg, circle, animate_dict)
 
 
 def drawNodeShape(svg, node):
@@ -146,14 +158,16 @@ def drawNodeShape(svg, node):
 
     times = 8
     theta = 0
-    rainbowC = rainbow_colors(times)
+    # rainbow_color = rainbow_colors(times)
     for i in range(times):
         theta = i * (2 * np.pi / times)
         x, y = rotation_pts_xy_point(x0, y0, (cx, cy), theta)
         color = random_color_hsv()
         # color = random_color()
-        drawPloygonNode(svg, node=node, pts=[(x[0], y[0]), (x[1], y[1]), (x[2], y[2])], color=color)
-        # drawPloygonNode(svg, node=node, pts=[(x[0],y[0]), (x[1],y[1]), (x[2],y[2])], color=rainbowC[i])
+        drawPloygonNode(svg, node=node, pts=[(x[0], y[0]), (x[1], y[1]), (x[2], y[2])],
+                        color=color)
+        # drawPloygonNode(svg, node=node, pts=[(x[0],y[0]), (x[1],y[1]), (x[2],y[2])],
+        # color=rainbow_color[i])
 
         # --------- draw text-------------- #
         dis = get_distance([x0[0], y0[0]], [x0[1], y0[1]])
@@ -166,8 +180,8 @@ def drawNodeShape(svg, node):
         # print('x_t, y_t=', x_t, y_t)
         txt_child = svg.draw_node(node, draw_text(x_t, y_t, 'Love', color=reverse_hex(color)))
 
-        strTmp = 'rotate({},{},{})'.format(i * 360 / times, x0[0], y0[0])
-        svg.set_node(txt_child, 'transform', strTmp)
+        str_tmp = f'rotate({i * 360 / times},{x0[0]},{y0[0]})'
+        svg.set_node(txt_child, 'transform', str_tmp)
         svg.set_node(txt_child, 'text-anchor', 'middle')
         svg.set_node(txt_child, 'dominant-baseline', 'central')
 
@@ -180,16 +194,8 @@ def anim_Windmill(svg):
     svg.set_node(g, 'opacity', '1.0')
     drawNodeShape(svg, g)
 
-    animateTransDict = {}
-    animateTransDict['attributeName'] = 'transform'
-    animateTransDict['attributeType'] = 'xml'
-    animateTransDict['type'] = 'rotate'
-    animateTransDict['from'] = f'0 {cx} {cy}'
-    animateTransDict['to'] = f'360 {cx} {cy}'
-    animateTransDict['dur'] = '8s'
-    animateTransDict["repeatCount"] = "indefinite"  # "5"
-
-    addNodeAnitmation(svg, g, animateTransDict, elementName='animateTransform')
+    trans_dict = transfrom_dict(cx, cy, cx, cy, dur=8)
+    addNodeAnitmation(svg, g, trans_dict, element_name='animateTransform')
 
 
 def drawAny(svg):
@@ -201,51 +207,52 @@ def drawAny(svg):
     # anyNode = svg.draw_node(g, draw_any('test','222', a=10, b="4",c='red',xml='www.ss'))
     svg.draw_node(g, draw_any('test', 'hello'))
 
-    anyDict = {}
-    anyDict['test'] = 1
-    anyDict['xml'] = 'www.ggg'
-    anyDict['a'] = 'aaaaa anything else'
-    anyDict['b'] = 'red black xxxxxxxxxxxxxxxxx anything you want'
-    svg.draw_node(g, draw_any('test2', **anyDict))
-    svg.draw_node(g, draw_any('hello', **anyDict))
-    svg.draw_node(g, draw_any('anything', **anyDict))
+    any_dict = {}
+    any_dict['test'] = 1
+    any_dict['xml'] = 'www.ggg'
+    any_dict['a'] = 'aaaaa anything else'
+    any_dict['b'] = 'red black xxxxxxxxxxxxxxxxx anything you want'
+    svg.draw_node(g, draw_any('test2', **any_dict))
+    svg.draw_node(g, draw_any('hello', **any_dict))
+    svg.draw_node(g, draw_any('anything', **any_dict))
 
     for i in range(20):
-        anyDict = {}
-        anyDict['cx'] = cx
-        anyDict['cy'] = cy
-        anyDict['r'] = '5'
-        anyDict['stroke'] = '#80ff00'
-        anyDict['stroke-width'] = '2'
-        anyDict['fill'] = 'none'
+        any_dict = {}
+        any_dict['cx'] = cx
+        any_dict['cy'] = cy
+        any_dict['r'] = '5'
+        any_dict['stroke'] = '#80ff00'
+        any_dict['stroke-width'] = '2'
+        any_dict['fill'] = 'none'
 
-        circle = svg.draw_node(g, draw_any('circle', **anyDict))
+        circle = svg.draw_node(g, draw_any('circle', **any_dict))
         # 'from' is a key word of python for import libs, but here last resort change parameter
         # from(attribute of animate element for svg) to 'From' to avoid conflict.
-        svg.draw_node(circle, draw_any('animate', fill='freeze', attributeName='r', From="5", to="80", dur="4s", begin=str(i), repeatCount="indefinite"))
+        svg.draw_node(circle, draw_any('animate', fill='freeze', attributeName='r', From="5", to="80",
+                                       dur="4s", begin=str(i), repeatCount="indefinite"))
 
-        anyDict = {}
-        anyDict['fill'] = 'freeze'
-        anyDict['attributeName'] = 'fill'
-        anyDict['from'] = '#ff0000'
-        anyDict['to'] = '#00ff40'
-        anyDict['dur'] = '6s'
-        anyDict['begin'] = '0s'
-        anyDict['repeatCount'] = 'indefinite'
-        # svg.draw_node(circle, draw_any('animate', **anyDict))
+        any_dict = {}
+        any_dict['fill'] = 'freeze'
+        any_dict['attributeName'] = 'fill'
+        any_dict['from'] = '#ff0000'
+        any_dict['to'] = '#00ff40'
+        any_dict['dur'] = '6s'
+        any_dict['begin'] = '0s'
+        any_dict['repeatCount'] = 'indefinite'
+        # svg.draw_node(circle, draw_any('animate', **any_dict))
 
-        anyDict['attributeName'] = 'stroke-width'
-        anyDict['values'] = '1;2;3;2;1'
-        anyDict.pop("from", None)
-        anyDict.pop("to", None)
-        svg.draw_node(circle, draw_any('animate', **anyDict))
+        any_dict['attributeName'] = 'stroke-width'
+        any_dict['values'] = '1;2;3;2;1'
+        any_dict.pop("from", None)
+        any_dict.pop("to", None)
+        svg.draw_node(circle, draw_any('animate', **any_dict))
 
-        anyDict['attributeName'] = 'stroke'
-        anyDict['from'] = '#80ff00'
-        anyDict['to'] = '#0000ff'
-        anyDict['begin'] = '1s'
-        anyDict.pop("values", None)
-        svg.draw_node(circle, draw_any('animate', **anyDict))
+        any_dict['attributeName'] = 'stroke'
+        any_dict['from'] = '#80ff00'
+        any_dict['to'] = '#0000ff'
+        any_dict['begin'] = '1s'
+        any_dict.pop("values", None)
+        svg.draw_node(circle, draw_any('animate', **any_dict))
 
 
 def draw_circle_path_anim(svg, node, path, radius, color='red', duration=None):
@@ -260,7 +267,7 @@ def draw_circle_path_anim(svg, node, path, radius, color='red', duration=None):
     animate_dict["repeatCount"] = "indefinite"
     animate_dict["path"] = path
 
-    addNodeAnitmation(svg, circle, animate_dict, elementName='animateMotion')
+    addNodeAnitmation(svg, circle, animate_dict, element_name='animateMotion')
 
 
 def anim6(svg):
@@ -284,7 +291,7 @@ def anim6(svg):
     draw_moving_circle(svg, g, radius=r, y=ver, offset_x=offset_x)
 
     N = 20
-    for i in range(N):
+    for _ in range(N):
         rand_r = random.randint(2, r)
         rand_ver = random.randint(offset_y + rand_r, H - 2 * rand_r - offset_y)
         draw_moving_circle(svg, g, radius=rand_r, y=rand_ver,
@@ -295,7 +302,7 @@ def anim6(svg):
 def get_points_path(pts, close=False):
     x = pts[0][0]
     y = pts[0][1]
-    path = 'M %.1f %.1f L' % (x, y)
+    path = f'M {x:.1f} {y:.1f} L'
     for pt in pts[1:]:
         path = path + ' ' + str(pt[0]) + ' ' + str(pt[1])
 
@@ -304,7 +311,8 @@ def get_points_path(pts, close=False):
     return path
 
 
-def draw_ball_movin(svg, node, radius, W, H, start_pt, step_x, step_y, N=500, color=None, draw_path_line=False):
+def draw_ball_movin(svg, node, radius, W, H, start_pt, step_x, step_y, N=500,
+                    color=None, draw_path_line=False):
     ball = BallCoordinates(x=start_pt[0], y=start_pt[1],
                            vx=step_x, vy=step_y,
                            width=W, height=H, offset=radius, N=N)
@@ -345,7 +353,8 @@ def anim7(svg):
     pt = [cx, cy]
     # color = 'red'
     color = f"url('#{color_id}')"
-    draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=-2, step_y=3, N=500, color=color, draw_path_line=True)
+    draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=-2, step_y=3, N=500,
+                    color=color, draw_path_line=True)
 
 
 def anim8(svg):
@@ -355,13 +364,14 @@ def anim8(svg):
     g = svg.draw(draw_tag('g'))
     svg.set_node(g, 'opacity', '1.0')
     pt = (cx, cy)
-    for i in range(100):
+    for _ in range(100):
         r = random.randint(2, 8)
         # pt = (random.randint(2+r, W-2-r), random.randint(2+r, H-2-r))
         sx = random.randint(1, 8) * [-1, 1][random.randrange(2)]
         sy = random.randint(1, 8) * [-1, 1][random.randrange(2)]
         # print('r, sx, sy=', r, sx, sy)
-        draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=sx, step_y=sy, N=800, color=random_color_hsv())
+        draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=sx, step_y=sy, N=800,
+                        color=random_color_hsv())
 
 
 class BallCoordinates:
@@ -411,7 +421,7 @@ class BallCoordinates:
             # Flip the horizontal velocity.
             self.vx = -1 * self.vx
 
-            if (self.x < self.offset):  # if now negative, must be 2nd case
+            if self.x < self.offset:  # if now negative, must be 2nd case
                 self.x = self.offset
             else:
                 self.x = self.width - self.offset
@@ -423,7 +433,7 @@ class BallCoordinates:
             # Follow the same logic as above.
             self.vy = -1 * self.vy
 
-            if (self.y < self.offset):
+            if self.y < self.offset:
                 self.y = self.offset
             else:
                 self.y = self.height - self.offset
@@ -451,10 +461,10 @@ class BallCoordinates:
             # the first case, we’re done in the second, we just need to
             # add 2*width.
 
-            if (self.x < 0):  # if now negative, must be 2nd case
+            if self.x < 0:  # if now negative, must be 2nd case
                 self.x = -1 * self.x
             else:
-                self.x = (2 * self.width - self.x)
+                self.x = 2 * self.width - self.x
 
             # self.coordinates.append([self.x, self.y])
 
@@ -463,10 +473,10 @@ class BallCoordinates:
             # Follow the same logic as above.
             self.vy = -1 * self.vy
 
-            if (self.y < 0):
+            if self.y < 0:
                 self.y = -1 * self.y
             else:
-                self.y = (2 * self.height - self.y)
+                self.y = 2 * self.height - self.y
 
             # self.coordinates.append([self.x, self.y])
         self.coordinates.append([self.x, self.y])
@@ -488,7 +498,7 @@ def draw_line_param(svg, node, a, b, min_x=0, max_x=100):
 
 def draw_line_param_abc(line, min_x=0, max_x=100, min_y=0, max_y=100):
     """draw line  a*x + b*y + c = 0, line=[a, b, c]"""
-    a, b, c = line[0], line[1], line[2]
+    a, b, _ = line[0], line[1], line[2]
     pts = []
     if a == 0 and b == 0:
         print('Warning, line parameters error!')
@@ -522,7 +532,7 @@ def get_math_bounce_parameter(line, pt, vx, vy):
 def anim9(svg):
     """moving ball bounce with a line"""
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
 
     g = svg.draw(draw_tag('g'))
     svg.set_node(g, 'opacity', '1.0')
@@ -546,7 +556,8 @@ def anim9(svg):
     svg.draw_node(g, draw_circle(inter_pt[0], inter_pt[1], 1, color='black'))
 
     svg.draw_node(g, draw_line(pt[0], pt[1], reflect_pt[0], reflect_pt[1], stroke_dasharray="2"))
-    svg.draw_node(g, draw_line(inter_pt[0], inter_pt[1], reflect_pt[0], reflect_pt[1], stroke_dasharray="2"))
+    svg.draw_node(g, draw_line(inter_pt[0], inter_pt[1], reflect_pt[0], reflect_pt[1],
+                               stroke_dasharray="2"))
 
     if inter_pt is not None:
         min_x = min(pt[0], inter_pt[0])
@@ -585,7 +596,7 @@ def anim9(svg):
 def anim10(svg):
     """moving ball bounce with a line"""
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
 
     g = svg.draw(draw_tag('g'))
     svg.set_node(g, 'opacity', '1.0')
@@ -594,7 +605,7 @@ def anim10(svg):
     pts = draw_line_param_abc(wall_line, 0, W, 0, H)
     drawlinePoints(svg, pts, g, color='black')
 
-    for i in range(50):
+    for _ in range(50):
         pt = random_point(4, W - 5)
         # print(pt, type(pt))
         vx = random.randint(1, 5) * [-1, 1][random.randrange(2)]
@@ -627,7 +638,8 @@ def anim10(svg):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'animation.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'animation.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
 
     # animCircleInflation(svg)

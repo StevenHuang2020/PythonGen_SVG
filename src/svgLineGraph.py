@@ -1,4 +1,11 @@
-# python3 Steven
+# -*- encoding: utf-8 -*-
+# Date: 25/Jun/2023
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: Draw line graphic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 import random
 import numpy as np
 # from numpy.core.numeric import NaN
@@ -9,99 +16,100 @@ from svg.basic import draw_line, draw_circle, draw_rect, random_points, random_c
 from svg.geo_math import get_line
 
 from svgFunction import getRandomProper3Points
-from svg.geo_transformation import zoom_pts_xy_point, rotation_pts_xy_point, center_cordinates, translation_pts_xy
+from svg.geo_transformation import zoom_pts_xy_point, rotation_pts_xy_point
+from svg.geo_transformation import center_cordinates, translation_pts_xy
 from svgPointLine import drawPloygon  # drawlinePointsContinus
 from svgPointLine import drawlinePoints, drawlinePointsContinusRainbow
 from svgPointLine import drawPointsCircle, drawPointsCircleFadeColor
 from svgPointLine import drawTrianglePoints
 from svgAnimation import addNodeAnitmation
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 
 
 def drawLineGrapic(svg):
     H, W = svg.get_size()
     times = 100
-    len = 0
+    length = 0
     offsetX = W // 2
     offsetY = 0
 
     pts = []
     for _ in range(times):
-        len = len + 0.5
+        length = length + 0.5
         offsetY = offsetY + 0.5
 
-        x1 = offsetX - len
+        x1 = offsetX - length
         y1 = offsetY
-        x2 = offsetX + len
+        x2 = offsetX + length
         y2 = y1
         pts.append((x1, y1, x2, y2))
 
     for _ in range(times):
-        len = len - 0.5
+        length = length - 0.5
         offsetY = offsetY + 0.5
-        pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
+        pts.append((offsetX - length, offsetY, offsetX + length, offsetY))
 
     drawlinePoints(svg, pts)
 
 
 def drawLineGrapic2(svg):
     H, W = svg.get_size()
-    len = 0
+    length = 0
     offsetX = W / 4
     offsetY = 0
-    yInter = 0.5
-    wStep = 0.5
+    y_inter = 0.5
+    w_step = 0.5
 
     pts = []
-    while (offsetY < H / 2):
-        offsetY = offsetY + yInter
+    while offsetY < H / 2:
+        offsetY = offsetY + y_inter
         if offsetY < H / 4:
-            len = len + wStep
+            length = length + w_step
         else:
-            len = len - wStep
-            if (len < 0):
+            length = length - w_step
+            if length < 0:
                 break
-        pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
+        pts.append((offsetX - length, offsetY, offsetX + length, offsetY))
 
     offsetX = W * 3 / 4
     offsetY = 0
-    len = 0
-    while (offsetY < H / 2):
-        offsetY = offsetY + yInter
+    length = 0
+    while offsetY < H / 2:
+        offsetY = offsetY + y_inter
         if offsetY < H / 4:
-            len = len + wStep
+            length = length + w_step
         else:
-            len = len - wStep
-            if (len < 0):
+            length = length - w_step
+            if length < 0:
                 break
-        pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
+        pts.append((offsetX - length, offsetY, offsetX + length, offsetY))
 
     offsetX = W / 4
     offsetY = H / 2
-    len = 0
-    while (offsetY < H):
-        offsetY = offsetY + yInter
+    length = 0
+    while offsetY < H:
+        offsetY = offsetY + y_inter
         if offsetY < H * 3 / 4:
-            len = len + wStep
+            length = length + w_step
         else:
-            len = len - wStep
-            if (len < 0):
+            length = length - w_step
+            if length < 0:
                 break
-        pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
+        pts.append((offsetX - length, offsetY, offsetX + length, offsetY))
 
     offsetX = W * 3 / 4
     offsetY = H / 2
-    len = 0
-    while (offsetY < H):
-        offsetY = offsetY + yInter
+    length = 0
+    while offsetY < H:
+        offsetY = offsetY + y_inter
         if offsetY < H * 3 / 4:
-            len = len + wStep
+            length = length + w_step
         else:
-            len = len - wStep
-            if (len < 0):
+            length = length - w_step
+            if length < 0:
                 break
-        pts.append((offsetX - len, offsetY, offsetX + len, offsetY))
+        pts.append((offsetX - length, offsetY, offsetX + length, offsetY))
 
     drawlinePoints(svg, pts)
 
@@ -180,8 +188,8 @@ def get_inner_circle(A, B, C):
     kv = np.tan(alpha + np.pi / 2)
 
     # circle center calculate
-    y, x = solve([[1.0, -k1], [1.0, -k2]], [ya - k1 * xa, yb - k2 * xb])
-    ym, xm = solve([[1.0, -ka], [1.0, -kv]], [ya - ka * xa, y - kv * x])
+    y, x = solve([[1.0, -1 * k1], [1.0, -1 * k2]], [ya - k1 * xa, yb - k2 * xb])
+    ym, xm = solve([[1.0, -1 * ka], [1.0, -1 * kv]], [ya - ka * xa, y - kv * x])
     r1 = np.sqrt((x - xm)**2 + (y - ym)**2)
 
     return (x, y, r1)
@@ -213,9 +221,9 @@ def drawRandomTrianglePoints(svg):
 
     r = 10
     if 1:
-        pts = getRandomProper3Points(min=r, max=W - r)
+        pts = getRandomProper3Points(a=r, b=W - r)
     else:
-        pts = random_points((3, 2), min=cx - r, max=cx + r)
+        pts = random_points((3, 2), a=cx - r, b=cx + r)
         print(pts)
 
     # drawTrianglePoints(svg,pts[0],pts[1],pts[2])
@@ -225,11 +233,11 @@ def drawRandomTrianglePoints(svg):
     y = pts.T[1]
     print('cx,cy=', cx, cy)
 
-    # zoomPoint = (0,0)
-    zoomPoint = (cx, cy)
+    # zoom_point = (0,0)
+    zoom_point = (cx, cy)
     times = 30
     for z in np.linspace(0.1, 1.0, times):
-        zx, zy = zoom_pts_xy_point(x, y, zoomPoint, z)
+        zx, zy = zoom_pts_xy_point(x, y, zoom_point, z)
         drawTrianglePointsXY(svg, zx, zy)
 
 
@@ -256,7 +264,7 @@ def drawRandomTriangles(svg):
     # cx, cy = W // 2, H // 2
     # r = 10
     color = None  # 'black'
-    pts = getRandomProper3Points(min=10, max=W - 10)
+    pts = getRandomProper3Points(a=10, b=W - 10)
     # print(pts)
     drawTrianglePoints(svg, pts[0], pts[1], pts[2], color=color)
 
@@ -267,10 +275,10 @@ def drawRandomTriangles(svg):
 
 def getLinePointFromSlope(slope=1, p0=(20, 0)):
     b = slope * p0[0] - p0[1]
-    ptYaxis = [0, 0]
-    y = -slope * ptYaxis[0] + b
-    ptYaxis[1] = y
-    return ptYaxis
+    pt_y_axis = [0, 0]
+    y = -slope * pt_y_axis[0] + b
+    pt_y_axis[1] = y
+    return pt_y_axis
 
 
 def drawAbstractLine(svg):
@@ -281,9 +289,9 @@ def drawAbstractLine(svg):
     # svg.draw(draw_rect(0,0,W,H,color='#808B96'))  # background
 
     slope = 1.7
-    # ptYaxis = getLinePointFromSlope(slope,(20,0))
-    # print('ptYaxis=',ptYaxis)
-    pts1 = random_points((N,), min=0, max=W).reshape((N, 1))
+    # pt_y_axis = getLinePointFromSlope(slope,(20,0))
+    # print('pt_y_axis=',pt_y_axis)
+    pts1 = random_points((N,), a=0, b=W).reshape((N, 1))
     pts1 = np.append(pts1, np.zeros_like(pts1), axis=1)
 
     pts2 = None
@@ -297,13 +305,13 @@ def drawAbstractLine(svg):
     # print('pts1=',pts1)
     # print('pts2=',pts2)
 
-    linePoints = []
+    line_points = []
     widths = []
     for pt1, pt2 in zip(pts1, pts2):
-        linePoints.append((pt1[0], pt1[1], pt2[0], pt2[1]))
+        line_points.append((pt1[0], pt1[1], pt2[0], pt2[1]))
         widths.append(random.choice([2, 2, 4, 6, 8, 10]))
     # print(widths)
-    drawlinePoints(svg, linePoints, color=None, stroke_widths=widths)
+    drawlinePoints(svg, line_points, color=None, stroke_widths=widths)
 
 
 def drawArrowCircleLine(svg):
@@ -311,9 +319,9 @@ def drawArrowCircleLine(svg):
         # return np.array([[r*np.cos(theta), r*np.sin(theta)]])
         return (r * np.cos(theta), r * np.sin(theta))
 
-    def getTwinPoints(r, theta, sTheta=2 * np.pi / 80):
-        pt1 = getPointCircle(r, theta - sTheta / 2)
-        pt2 = getPointCircle(r, theta + sTheta / 2)
+    def getTwinPoints(r, theta, s_theta=2 * np.pi / 80):
+        pt1 = getPointCircle(r, theta - s_theta / 2)
+        pt2 = getPointCircle(r, theta + s_theta / 2)
         return pt1, pt2
 
     H, W = svg.get_size()
@@ -323,17 +331,17 @@ def drawArrowCircleLine(svg):
     rMin = 8
     rMax = 30
     theta = 0
-    for i in range(1, N):
+    for _ in range(1, N):
         theta = theta + 2 * np.pi / (N - 1)
         R = R0 + random.normalvariate(mu=0, sigma=1) * 3
         r = random.choice(np.linspace(rMin, rMax, 10))
 
-        ptInner = getPointCircle(r, theta)
-        sTheta = 2 * np.pi / random.choice(range(80, 200, 2))
-        ptOuter1, ptOuter2 = getTwinPoints(R, theta, sTheta=sTheta)
+        pt_inner = getPointCircle(r, theta)
+        s_theta = 2 * np.pi / random.choice(range(80, 200, 2))
+        pt_outer1, pt_outer2 = getTwinPoints(R, theta, s_theta=s_theta)
 
-        x = [ptInner[0], ptOuter1[0], ptOuter2[0]]
-        y = [ptInner[1], ptOuter1[1], ptOuter2[1]]
+        x = [pt_inner[0], pt_outer1[0], pt_outer2[0]]
+        y = [pt_inner[1], pt_outer1[1], pt_outer2[1]]
 
         x, y = translation_pts_xy(x, y, (cx, cy))
         # drawTrianglePoints(svg,(x[0],y[0]), (x[1],y[1]), (x[2],y[2]))
@@ -444,10 +452,10 @@ def drawLineGrapic6(svg):
 
     xs, ys = translation_pts_xy(xs, ys, (cx, cy))
     pts = np.vstack((xs, ys)).T
-    linePts = []
+    line_pts = []
     for i in pts:
-        linePts.append((cx, cy, i[0], i[1]))
-    drawlinePoints(svg, linePts, color='black')
+        line_pts.append((cx, cy, i[0], i[1]))
+    drawlinePoints(svg, line_pts, color='black')
     drawPointsCircle(svg, pts, r=5, color='#000000')
 
     xs, ys = [], []
@@ -460,17 +468,17 @@ def drawLineGrapic6(svg):
 
     xs, ys = translation_pts_xy(xs, ys, (cx, cy))
     pts = np.vstack((xs, ys)).T
-    linePts = []
+    line_pts = []
     for i in pts:
-        linePts.append((cx, cy, i[0], i[1]))
-    drawlinePoints(svg, linePts, color='black')
+        line_pts.append((cx, cy, i[0], i[1]))
+    drawlinePoints(svg, line_pts, color='black')
     # drawPointsCircle(svg, pts, r=5, color='#808B96')
     drawPointsCircleFadeColor(svg, pts, r=5)
 
 
-def random_start_coordinates(startPt, W, H, margin=10, N=100, u=0.006):
+def random_start_coordinates(start_pt, W, H, margin=10, N=100):
     '''generate random continue points from a start point
-    startPt: (x,y)
+    start_pt: (x,y)
     W: svg width
     H: svg hight
     margin: Margin to the edge
@@ -481,11 +489,11 @@ def random_start_coordinates(startPt, W, H, margin=10, N=100, u=0.006):
         # return np.random.normal(loc=0, scale=0.5, size=(N,))  # scale=0.0005
 
     pts = []
-    pts.append(startPt)
+    pts.append(start_pt)
     xl, xr = margin, W - margin
     yl, yr = margin, H - margin
-    for i in range(N - 1):
-        while (True):
+    for _ in range(N - 1):
+        while True:
             x = pts[-1][0] + noise(N=1, base=0).flatten()[0]
             y = pts[-1][1] + noise(N=1, base=0).flatten()[0]
             x = int(x)  # round(x, 2)
@@ -513,8 +521,8 @@ def drawLineGrapic7(svg):
         for pt in pts:
             x, y = pt
             # color = c[int(x)]
-            id = np.sqrt((x - cx) ** 2 + (y - cy) ** 2)
-            color = c[int(id)]
+            index = np.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            color = c[int(index)]
             colors.append(color)
         drawlinePointsContinusRainbow(svg, pts, colors=colors)
     else:  # 1/4 circle
@@ -522,8 +530,8 @@ def drawLineGrapic7(svg):
         for pt in pts:
             x, y = pt
             # color = c[int(x)]
-            id = np.sqrt((x - W) ** 2 + (y - 0) ** 2)
-            color = c[int(id)]
+            index = np.sqrt((x - W) ** 2 + (y - 0) ** 2)
+            color = c[int(index)]
             colors.append(color)
         drawlinePointsContinusRainbow(svg, pts, colors=colors)
 
@@ -562,8 +570,9 @@ def drawLineGrapic8(svg):
         # svg.draw(draw_circle(p1[0], p1[1], radius=stroke, color=color))
 
 
-def get_anim_values(min, max):
-    s = [str(i) for i in range(min, max + 1)]
+def get_anim_values(a, b):
+    """ a: min, b: max """
+    s = [str(i) for i in range(a, b + 1)]
 
     rs = s.copy()
     rs.pop()  # remove the last item
@@ -573,8 +582,7 @@ def get_anim_values(min, max):
 
 
 def remove_covered(pts, w, h):
-    """remove some intersection rects of start point in pts
-    """
+    """remove some intersection rects of start point in pts"""
     # print('pts=', pts)
     res = []
 
@@ -595,7 +603,7 @@ def remove_covered(pts, w, h):
 
 def drawLineGrapic9(svg, anim=True):
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
     N = 5000
 
     # svg.set_background(random_color())
@@ -606,48 +614,48 @@ def drawLineGrapic9(svg, anim=True):
     pts = random_coordinates(0, W - rt_w, 0, H - rt_h, N=N)
     # remove some points may be lead intersected rect
     pts = remove_covered(pts, rt_w, rt_h)
-    for i, pt in enumerate(pts):
+    for _, pt in enumerate(pts):
         rect = svg.draw(
             draw_rect(pt[0], pt[1], width=rt_w, height=rt_h, color=random_color_hsv()))
 
         if anim:
             if 0:  # style1 : move rect
-                animateDict = {}
-                animateDict['attributeName'] = 'x'
-                # animateDict['from'] = f'{pt[0] - 1}'
-                # animateDict['to'] = f'{pt[0] + 1}'
-                animateDict["values"] = get_anim_values(pt[0] - 1, pt[0] + 1)
-                animateDict['dur'] = str(random.randint(1, 3)) + 's'
-                # animateDict['fill'] = 'freeze'
-                animateDict["repeatCount"] = "indefinite"
-                animateDict["begin"] = str(random.randint(0, 10)) + 's'
-                # animateDict["additive"] = "replace"
-                addNodeAnitmation(svg, rect, animateDict)
+                animate_dict = {}
+                animate_dict['attributeName'] = 'x'
+                # animate_dict['from'] = f'{pt[0] - 1}'
+                # animate_dict['to'] = f'{pt[0] + 1}'
+                animate_dict["values"] = get_anim_values(pt[0] - 1, pt[0] + 1)
+                animate_dict['dur'] = str(random.randint(1, 3)) + 's'
+                # animate_dict['fill'] = 'freeze'
+                animate_dict["repeatCount"] = "indefinite"
+                animate_dict["begin"] = str(random.randint(0, 10)) + 's'
+                # animate_dict["additive"] = "replace"
+                addNodeAnitmation(svg, rect, animate_dict)
 
-                animateDict['attributeName'] = 'y'
-                # animateDict['from'] = f'{pt[1] - 1}'
-                # animateDict['to'] = f'{pt[1] + 1}'
-                animateDict["values"] = get_anim_values(pt[1] - 1, pt[1] + 1)
-                addNodeAnitmation(svg, rect, animateDict)
+                animate_dict['attributeName'] = 'y'
+                # animate_dict['from'] = f'{pt[1] - 1}'
+                # animate_dict['to'] = f'{pt[1] + 1}'
+                animate_dict["values"] = get_anim_values(pt[1] - 1, pt[1] + 1)
+                addNodeAnitmation(svg, rect, animate_dict)
 
             else:  # style2: rotation
                 rect_cx = int(pt[0] + rt_w / 2)
                 rect_cy = int(pt[1] + rt_h / 2)
-                animateDict = {}
-                animateDict['attributeName'] = 'transform'
-                animateDict['attributeType'] = 'xml'
-                animateDict['type'] = 'rotate'
-                animateDict['from'] = f'0 {rect_cx} {rect_cy}'
-                animateDict['to'] = f'360 {rect_cx} {rect_cy}'
-                # animateDict["begin"] = str(random.randint(0, 10)) + 's'
-                animateDict['dur'] = str(random.randint(4, 6)) + 's'  # '8s'
-                animateDict["repeatCount"] = "indefinite"  # "5"
-                addNodeAnitmation(svg, rect, animateDict,
-                                  elementName='animateTransform')
+                animate_dict = {}
+                animate_dict['attributeName'] = 'transform'
+                animate_dict['attributeType'] = 'xml'
+                animate_dict['type'] = 'rotate'
+                animate_dict['from'] = f'0 {rect_cx} {rect_cy}'
+                animate_dict['to'] = f'360 {rect_cx} {rect_cy}'
+                # animate_dict["begin"] = str(random.randint(0, 10)) + 's'
+                animate_dict['dur'] = str(random.randint(4, 6)) + 's'  # '8s'
+                animate_dict["repeatCount"] = "indefinite"  # "5"
+                addNodeAnitmation(svg, rect, animate_dict,
+                                  element_name='animateTransform')
 
 
 def main():
-    file = join_path(gImageOutputPath, r'lineGraphic.svg')
+    file = join_path(IMAGE_OUTPUT_PATH, r'lineGraphic.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # drawLineGrapic(svg)
     # drawLineGrapic2(svg)

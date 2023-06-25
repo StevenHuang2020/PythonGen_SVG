@@ -1,25 +1,35 @@
-# python3 Steven
-import numpy as np
+# -*- encoding: utf-8 -*-
+# Date: 25/Jun/2023
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: Draw points svg graphic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 import random
 import itertools
-from scipy.spatial import Delaunay, Voronoi
 from itertools import combinations
-
+import numpy as np
+from scipy.spatial import Delaunay, Voronoi
 from svg.file import SVGFileV2
-from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader, random_color_hsv, add_style, clip_floats
-from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text, draw_ring, draw_only_circle
-from svg.basic import random_points, uniform_random_points, line_style, get_styles, draw_only_line, is_element_name, style_content
-from svg.geo_transformation import rotation_pts_xy_point, translation_pts, combine_xy, center_cordinates
+from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader
+from svg.basic import random_color_hsv, add_style, clip_floats
+from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text
+from svg.basic import draw_ring, draw_only_circle
+from svg.basic import random_points, uniform_random_points, line_style, get_styles
+from svg.basic import draw_only_line, is_element_name, style_content
+from svg.geo_transformation import rotation_pts_xy_point, translation_pts
+from svg.geo_transformation import combine_xy, center_cordinates
 from svg.geo_math import get_5star, points_on_triangle, get_regular_ngons
 from graph.graphPoints import GraphPoints
 from graph.interPoints import GetLineSegInterPoint
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 
 
-def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_widths=None, dash=None, styles_opt=True):
+def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_widths=None,
+                   dash=None, styles_opt=True):
     if styles_opt:
-        return drawlinePoints_style(svg, pts, node, stroke_width, color, dash)
+        drawlinePoints_style(svg, pts, node, stroke_width, color, dash)
     else:
         for i, pt in enumerate(pts):
             x1, y1, x2, y2 = pt
@@ -34,18 +44,19 @@ def drawlinePoints(svg, pts, node=None, stroke_width=0.5, color=None, stroke_wid
 
 
 def drawlinePoints_style(svg, pts, node=None, stroke_width=0.5, color=None, dash=None):
-    styleDict = line_style(color=color or random_color(), stroke_width=stroke_width, stroke_dasharray=dash)
+    style_dict = line_style(color=color or random_color(), stroke_width=stroke_width,
+                            stroke_dasharray=dash)
 
-    styleNode = svg.get_child(childTag='style')
-    if styleNode is not None:
-        new_style = style_content('line', get_styles(styleDict))
-        if new_style not in styleNode.text:
-            styleNode.text += new_style
+    style_node = svg.get_child(child_tag='style')
+    if style_node is not None:
+        new_style = style_content('line', get_styles(style_dict))
+        if new_style not in style_node.text:
+            style_node.text += new_style
     else:
-        svg.draw(add_style('line', get_styles(styleDict)))
+        svg.draw(add_style('line', get_styles(style_dict)))
 
     # print('pts: ', pts)
-    for i, pt in enumerate(pts):
+    for _, pt in enumerate(pts):
         x1, y1, x2, y2 = pt
         x1 = clip_float(x1)
         y1 = clip_float(y1)
@@ -69,7 +80,8 @@ def drawlinePointsContinus(svg, pts, stroke_width=0.5, color=None, stroke_widths
                  color=color or random_color()))
 
 
-def drawlinePointsContinusRainbow(svg, pts, stroke_width=0.5, color=None, colors=None, stroke_widths=None):
+def drawlinePointsContinusRainbow(svg, pts, stroke_width=0.5, color=None, colors=None,
+                                  stroke_widths=None):
     # c = rainbow_colors(N=len(pts))
     for i in range(len(pts) - 1):
         (x1, y1), (x2, y2) = pts[i], pts[i + 1]
@@ -103,13 +115,14 @@ def drawPloygonNode(svg, pts, node=None, color=None, stroke_color=None):
               str(clip_float(i[1])) + ' ' for i in pts]
     points = ''.join(points)
     polygon = draw_polygon(
-        points, stroke_width=0.5, color=color or random_color(), stroke_color=stroke_color or random_color())
+        points, stroke_width=0.5, color=color or random_color(),
+        stroke_color=stroke_color or random_color())
     svg.draw_node(node, polygon)
 
 
 def drawPointsCircle(svg, pts=[], node=None, r=2, color='black', styles_opt=True):
     if styles_opt:
-        return drawPointsCircle_style(svg, pts, node, r, color)
+        drawPointsCircle_style(svg, pts, node, r, color)
     else:
         for pt in pts:
             x = clip_float(pt[0])
@@ -118,14 +131,14 @@ def drawPointsCircle(svg, pts=[], node=None, r=2, color='black', styles_opt=True
 
 
 def drawPointsCircle_style(svg, pts=[], node=None, r=2, color='black', style_class='circle'):
-    styleDict = {}
-    styleDict['fill'] = color or random_color()
-    styleDict['r'] = str(r)
+    style_dict = {}
+    style_dict['fill'] = color or random_color()
+    style_dict['r'] = str(r)
 
     style_name = style_class
     if not is_element_name(style_name):
         style_name = '.' + style_name
-    svg.draw(add_style(style_name, get_styles(styleDict)))
+    svg.draw(add_style(style_name, get_styles(style_dict)))
 
     for pt in pts:
         x = clip_float(pt[0])
@@ -145,7 +158,7 @@ def drawPointsCircleFadeColor(svg, pts, r=2):
         svg.draw(draw_circle(x, y, radius=r, color=color))
 
 
-def drawPathContinuPoints(svg, pts, strokeWidth=0.5, color=None):
+def drawPathContinuPoints(svg, pts, stroke_width=0.5, color=None):
     path = 'M '
     last = None
     for i in pts:
@@ -156,7 +169,7 @@ def drawPathContinuPoints(svg, pts, strokeWidth=0.5, color=None):
         path = path + ' ' + str(t[0]) + ' ' + str(t[1])
         last = t
 
-    svg.draw(draw_path(path, stroke_width=strokeWidth, color=color or random_color()))
+    svg.draw(draw_path(path, stroke_width=stroke_width, color=color or random_color()))
 
 
 def drawPointsLineGraphic(svg):
@@ -165,26 +178,26 @@ def drawPointsLineGraphic(svg):
     N = 50
 
     color = 'black'
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
     drawPointsCircle(svg, pts, r=1, color='red')
 
     graph = GraphPoints(pts)
     # graph.show()
 
-    # conMatrix = graph.getConnectionMatrix(K=3,KNearst=4)  # style1
-    conMatrix = graph.getConnectionMatrix2(KNearst=6)  # style2
-    # print('conMatrix=',conMatrix)
-    linePoints = []
-    for i in conMatrix:
+    # con_matrix = graph.getConnectionMatrix(K=3,k_nearst=4)  # style1
+    con_matrix = graph.getConnectionMatrix2(k_nearst=6)  # style2
+    # print('con_matrix=',con_matrix)
+    line_points = []
+    for i in con_matrix:
         s, t = i[0], i[1]  # start stop point index
         if t == -1:
             continue
 
         conect = (pts[s][0], pts[s][1], pts[t][0], pts[t][1])
-        linePoints.append(conect)
+        line_points.append(conect)
 
-    drawlinePoints(svg, linePoints, color=color)
-    # drawInterPointLines(svg, linePoints, r=1, color=color)  # draw intersection points
+    drawlinePoints(svg, line_points, color=color)
+    # drawInterPointLines(svg, line_points, r=1, color=color)  # draw intersection points
 
 
 def drawPointsLineGraphic2(svg):
@@ -196,18 +209,18 @@ def drawPointsLineGraphic2(svg):
     color2 = '#C70039'
 
     # svg.draw(draw_rect(0,0,W,H,color='#808B96')) #background
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
 
     pts1 = pts[:N // 2]
     pts2 = pts[N // 2:]
     drawPointsCircle(svg, pts1, color=color1)
     drawPointsCircle(svg, pts2, color=color2)
 
-    linePoints = [(0, 0, i[0], i[1]) for i in pts1]
-    drawlinePoints(svg, linePoints, color=color1, stroke_width=0.2)
+    line_points = [(0, 0, i[0], i[1]) for i in pts1]
+    drawlinePoints(svg, line_points, color=color1, stroke_width=0.2)
 
-    linePoints = [(i[0], i[1], W, H) for i in pts2]
-    drawlinePoints(svg, linePoints, color=color2, stroke_width=0.2)
+    line_points = [(i[0], i[1], W, H) for i in pts2]
+    drawlinePoints(svg, line_points, color=color2, stroke_width=0.2)
 
 
 def drawPointsLineGraphic3(svg):
@@ -217,18 +230,18 @@ def drawPointsLineGraphic3(svg):
     color1 = 'green'
     # color2 = 'yellow'
 
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
 
     pts1 = pts[: N // 2]
     pts2 = pts[N // 2:]
     drawPointsCircle(svg, pts1, r=1, color=color1)
     drawPointsCircle(svg, pts2, r=1, color=color1)
 
-    linePoints = [(pt1[0], pt1[1], pt2[0], pt2[1])
-                  for pt1, pt2 in zip(pts1, pts2)]
+    line_points = [(pt1[0], pt1[1], pt2[0], pt2[1])
+                   for pt1, pt2 in zip(pts1, pts2)]
 
-    drawlinePoints(svg, linePoints, color=color1, stroke_width=0.2)
-    drawInterPointLines(svg, linePoints, r=1, color=color1)
+    drawlinePoints(svg, line_points, color=color1, stroke_width=0.2)
+    drawInterPointLines(svg, line_points, r=1, color=color1)
 
 
 def drawPointsLineGraphic4(svg):
@@ -240,24 +253,24 @@ def drawPointsLineGraphic4(svg):
 
     offsetX = cx
     offsetY = cy
-    linePoints = []
+    line_points = []
     theta = 0
-    strokeWidths = []
+    stroke_widths = []
     for _ in range(N):
         r = r0 + random.normalvariate(mu=0, sigma=1) * 4
         theta = theta + 2 * np.pi / \
             (N - 1) + random.normalvariate(mu=0, sigma=1) * .01
         x = r * np.cos(theta) + offsetX
         y = r * np.sin(theta) + offsetY
-        linePoints.append((offsetX, offsetY, x, y))
-        strokeWidths.append(random.choice([0.2, 0.3, 0.8, 1.0, 1.5]))
+        line_points.append((offsetX, offsetY, x, y))
+        stroke_widths.append(random.choice([0.2, 0.3, 0.8, 1.0, 1.5]))
 
-    drawlinePoints(svg, linePoints, color=color, stroke_widths=strokeWidths)
+    drawlinePoints(svg, line_points, color=color, stroke_widths=stroke_widths)
 
 
-def drawInterPointLines(svg, linePoints, r=1, color=None):
-    for line in linePoints:
-        for i in linePoints:
+def drawInterPointLines(svg, line_points, r=1, color=None):
+    for line in line_points:
+        for i in line_points:
             if line == i:
                 continue
 
@@ -268,11 +281,11 @@ def drawInterPointLines(svg, linePoints, r=1, color=None):
             line2 = np.array(list(i)).reshape((2, 2))
             # print('line1=',line1)
             # print('line2=',line2)
-            ptInter = GetLineSegInterPoint(line1, line2).get_inter()
-            if ptInter:
-                # print('ptInter=',ptInter)
+            pt_inter = GetLineSegInterPoint(line1, line2).get_inter()
+            if pt_inter:
+                # print('pt_inter=',pt_inter)
                 # r=3, color='red'
-                drawPointsCircle(svg, [ptInter], r=1, color=color)
+                drawPointsCircle(svg, [pt_inter], r=r, color=color)
 
 
 def drawPointsLineGraphic5(svg):
@@ -281,32 +294,32 @@ def drawPointsLineGraphic5(svg):
     N = 10
 
     color = 'black'
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
     drawPointsCircle(svg, pts, r=1)
 
     graph = GraphPoints(pts)
     # graph.show()
 
-    conMatrix = graph.getConnectionMatrix2(KNearst=3)
-    print('conMatrix=', conMatrix)
+    con_matrix = graph.getConnectionMatrix2(k_nearst=3)
+    print('con_matrix=', con_matrix)
     # for i,pt in enumerate(pts):
-    #     #print(i,pt, conMatrix[i])
+    #     #print(i,pt, con_matrix[i])
     #     ptsTriangle=[]
     #     ptsTriangle.append(pts[i])
-    #     ptsTriangle.append(pts[conMatrix[i][0]])
-    #     ptsTriangle.append(pts[conMatrix[i][1]])
+    #     ptsTriangle.append(pts[con_matrix[i][0]])
+    #     ptsTriangle.append(pts[con_matrix[i][1]])
 
     #     color = None
     #     drawPloygon(svg,ptsTriangle,color=color)
 
-    linePoints = []
-    for i in conMatrix:
+    line_points = []
+    for i in con_matrix:
         s, t = i[0], i[1]  # start stop point index
         if t == -1:
             continue
-        linePoints.append((pts[s][0], pts[s][1], pts[t][0], pts[t][1]))
+        line_points.append((pts[s][0], pts[s][1], pts[t][0], pts[t][1]))
 
-    drawlinePoints(svg, linePoints, color=color)
+    drawlinePoints(svg, line_points, color=color)
 
 
 def drawPloygon(svg, pts, color=None, stroke_color=None):
@@ -327,34 +340,34 @@ def drawPointsLineGraphic6(svg):
     N = 50
 
     color = 'black'
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
     drawPointsCircle(svg, pts, r=1)
 
     graph = GraphPoints(pts)
     # graph.show()
 
-    # conMatrix = graph.getAllConnectionMatrix()
-    conMatrix = graph.getConnectionMatrix2(KNearst=4)
-    print('conMatrix=', conMatrix)
-    linePoints = []
-    for i in conMatrix:
+    # con_matrix = graph.getAllConnectionMatrix()
+    con_matrix = graph.getConnectionMatrix2(k_nearst=4)
+    print('con_matrix=', con_matrix)
+    line_points = []
+    for i in con_matrix:
         s, t = i[0], i[1]  # start stop point index
         if t == -1:
             continue
 
         conect = (pts[s][0], pts[s][1], pts[t][0], pts[t][1])
-        if not IsIntersectionWithAlreayLines(conect, linePoints):
-            linePoints.append(conect)
+        if not IsIntersectionWithAlreayLines(conect, line_points):
+            line_points.append(conect)
 
-    drawlinePoints(svg, linePoints, color=color)
+    drawlinePoints(svg, line_points, color=color)
 
 
-def IsIntersectionWithAlreayLines(conect, linePoints):
+def IsIntersectionWithAlreayLines(conect, line_points):
     def getLineFrom2Pts(connect):
         return np.array(list(connect)).reshape((2, 2))
 
     line1 = getLineFrom2Pts(conect)
-    for i in linePoints:
+    for i in line_points:
         line2 = getLineFrom2Pts(i)
         if GetLineSegInterPoint(line1, line2).get_inter():
             return True
@@ -369,10 +382,10 @@ def drawPointsLineGraphic7(svg):
     x0 = [cx, cx + 2 * r, cx + r]
     y0 = [cy, cy, cy - r * np.tan(np.pi / 6)]
 
-    times = 8
+    N = 10
     theta = 0
-    for i in range(times):
-        theta = i * (2 * np.pi / times)
+    for i in range(N):
+        theta = i * (2 * np.pi / N)
         x, y = rotation_pts_xy_point(x0, y0, (cx, cy), theta)
         drawPloygon(svg, [(x[0], y[0]), (x[1], y[1]),
                     (x[2], y[2])], color='black')
@@ -381,7 +394,7 @@ def drawPointsLineGraphic7(svg):
 def drawPointsLineGraphic8(svg):  # Neuron network
     def getNumberYs(H, N=3):
         offsetY = 190 / N
-        # hInter = (H - 2 * offsetY) / (N - 1)
+        # h_inter = (H - 2 * offsetY) / (N - 1)
         if N == 1:
             return [H / 2]
         return np.linspace(offsetY, H - offsetY, N)
@@ -389,44 +402,44 @@ def drawPointsLineGraphic8(svg):  # Neuron network
     H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
 
-    layerNumbers = [8, 6, 6, 4]
-    ptsLayers = []
+    layer_numbers = [8, 6, 6, 4]
+    pts_layers = []
 
     inter = 52
     x0 = 15
-    for i, N in enumerate(layerNumbers):
+    for i, N in enumerate(layer_numbers):
         # x = x0 + i*inter
         xs = np.zeros((N,)) + x0 + i * inter
         ys = getNumberYs(H, N)
         # print('xs=', len(xs), xs)
         # print('ys=', len(ys), ys)
 
-        ptLayer = np.stack(([xs, ys])).T
-        # print('ptLayer=',ptLayer)
-        ptsLayers.append(ptLayer)
+        pt_layer = np.stack(([xs, ys])).T
+        # print('pt_layer=',pt_layer)
+        pts_layers.append(pt_layer)
 
-    # print('ptsLayers=',ptsLayers)
-    for i, layPts in enumerate(ptsLayers):
-        x = layPts[0][0] - 15
-        y = layPts[0][1] - 8
+    # print('pts_layers=',pts_layers)
+    for i, lay_pts in enumerate(pts_layers):
+        x = lay_pts[0][0] - 15
+        y = lay_pts[0][1] - 8
         # print(x,y)
         svg.draw(draw_text(x, y, 'layer' + str(i)))
-        drawPointsCircle(svg, layPts, r=3, color=random_color())
+        drawPointsCircle(svg, lay_pts, r=3, color=random_color())
 
-    for i in range(len(ptsLayers) - 1):
-        layerPtsPre = ptsLayers[i]
-        layerPts = ptsLayers[i + 1]
-        # print('layerPtsPre=',layerPtsPre)
-        # print('layerPts=',layerPts)
+    for i in range(len(pts_layers) - 1):
+        layer_pts_pre = pts_layers[i]
+        layer_pts = pts_layers[i + 1]
+        # print('layer_pts_pre=',layer_pts_pre)
+        # print('layer_pts=',layer_pts)
 
-        linePoints = []
-        for pre in layerPtsPre:
-            for cur in layerPts:
+        line_points = []
+        for pre in layer_pts_pre:
+            for cur in layer_pts:
                 # print('pre,cur=', pre, cur)
                 conect = (pre[0], pre[1], cur[0], cur[1])
-                linePoints.append(conect)
+                line_points.append(conect)
 
-        drawlinePoints(svg, linePoints, color='black')
+        drawlinePoints(svg, line_points, color='black')
 
 
 def drawPointsLineGraphic9(svg):
@@ -434,31 +447,31 @@ def drawPointsLineGraphic9(svg):
     # cx, cy = W // 2, H // 2
     N = 50
 
-    pts = random_points((N, 2), min=2, max=W - 2)
+    pts = random_points((N, 2), a=2, b=W - 2)
     drawPointsCircle(svg, pts, r=2, color='black')
     drawPointsCircle(svg, pts, r=1.5, color='red')
 
     # print(pts, len(pts), type(pts))
-    ptsNum = list(itertools.combinations(range(len(pts)), 2))
-    # print(ptsNum)
-    linePts = np.array([]).reshape(0, 2)
-    for i, j in ptsNum:
+    pts_num = list(itertools.combinations(range(len(pts)), 2))
+    # print(pts_num)
+    line_pts = np.array([]).reshape(0, 2)
+    for i, j in pts_num:
         # print(i,j, pts[i], pts[j])
-        # linePts.append([pts[i], pts[j]])
-        linePts = np.vstack((linePts, pts[i]))
-        linePts = np.vstack((linePts, pts[j]))
+        # line_pts.append([pts[i], pts[j]])
+        line_pts = np.vstack((line_pts, pts[i]))
+        line_pts = np.vstack((line_pts, pts[j]))
 
-    # print('linePts=', linePts)
-    drawlinePointsContinus(svg, linePts, stroke_width=0.2, color='black')
+    # print('line_pts=', line_pts)
+    drawlinePointsContinus(svg, line_pts, stroke_width=0.2, color='black')
 
 
 def draw_Delaunay_triangle(svg, tri, pts):
     # print('tri.simplices=', tri.simplices, len(tri.simplices))
     con_ponts = pts[tri.simplices]
     # print('con_ponts=', con_ponts, len(con_ponts))
-    num = len(con_ponts)
-    ci = np.random.randint(num, size=num)
-    for i, pts in enumerate(con_ponts):
+    # num = len(con_ponts)
+    # ci = np.random.randint(num, size=num)
+    for _, pts in enumerate(con_ponts):
         # color = color_fader('#000000', '#ffffff', ci[i % num] / num)
         # color = color_fader('#F2F5F3', '#4A406C', ci[i % num] / num)  # purple
         # color = color_fader('#8FBC8F', '#4B8063', ci[i % num] / num)  # green
@@ -467,19 +480,19 @@ def draw_Delaunay_triangle(svg, tri, pts):
 
 
 def draw_Delaunay_line(svg, tri, pts, color='green'):
-    linePoints = []
+    line_points = []
     com = list(combinations(range(3), 2))
     # print(com)
     for pt in tri.simplices:
         for i in com:
-            linePoints.append((pt[i[0]], pt[i[1]]))
+            line_points.append((pt[i[0]], pt[i[1]]))
 
-    # print('linePoints=', linePoints, len(linePoints))
-    # linePoints = list(set(linePoints))
-    linePoints = list(set(map(tuple, map(sorted, linePoints))))
-    # print('linePoints=', linePoints, len(linePoints))
+    # print('line_points=', line_points, len(line_points))
+    # line_points = list(set(line_points))
+    line_points = list(set(map(tuple, map(sorted, line_points))))
+    # print('line_points=', line_points, len(line_points))
 
-    con_ponts = [pts[[i[0], i[1]]] for i in linePoints]
+    con_ponts = [pts[[i[0], i[1]]] for i in line_points]
     # print('con_ponts=', con_ponts)
     con_ponts = [i.flatten() for i in con_ponts]
     # print('con_ponts=', con_ponts)
@@ -493,23 +506,23 @@ def draw_Delaunay_line(svg, tri, pts, color='green'):
 
 def drawPointsLineGraphic10(svg):
     """ https://en.wikipedia.org/wiki/Delaunay_triangulation """
-    def get_edge_points(W, H, vNum, hNum):
-        hInter = W // hNum
-        vInter = H // vNum
+    def get_edge_points(W, H, v_num, h_num):
+        h_inter = W // h_num
+        v_inter = H // v_num
         res = []
-        for i in range(hNum + 1):
-            res.append([i * hInter, 0])
-            res.append([i * hInter, H])
+        for i in range(h_num + 1):
+            res.append([i * h_inter, 0])
+            res.append([i * h_inter, H])
 
-        for i in range(1, vNum):
-            res.append([0, i * vInter])
-            res.append([W, i * vInter])
+        for i in range(1, v_num):
+            res.append([0, i * v_inter])
+            res.append([W, i * v_inter])
         res = np.asarray(res)
         # print('res=', res, res.shape)
         return res
 
     H, W = svg.get_size()
-    cx, cy = W / 2, H // 2
+    # cx, cy = W / 2, H // 2
     N = 20
 
     # pts = random_points((100, 2), min=2, max=W - 2)
@@ -555,7 +568,7 @@ def draw_plogon_subtriangle(svg, pts, center_pt, N=500):
 
 def drawPointsLineGraphic11(svg):
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
 
     path = f'M{W/2} 0 V{H}'
     svg.draw(draw_path(path, stroke_width=0.5, color='green'))
@@ -599,7 +612,7 @@ def get_voronoi_lines(vor):
 
             midpoint = vor.points[pointidx].mean(axis=0)
             direction = np.sign(np.dot(midpoint - center, n)) * n
-            if (vor.furthest_site):
+            if vor.furthest_site:
                 direction = -direction
             far_point = vor.vertices[i] + direction * ptp_bound.max()
 
@@ -655,9 +668,9 @@ def get_vor_region_polygons(vor, radius=None):
                 new_vertices.append(far_point.tolist())
 
             # sort region counterclockwise
-            vs = np.asarray([new_vertices[v] for v in new_region])
-            c = vs.mean(axis=0)
-            angles = np.arctan2(vs[:, 1] - c[1], vs[:, 0] - c[0])
+            vt = np.asarray([new_vertices[v] for v in new_region])
+            c = vt.mean(axis=0)
+            angles = np.arctan2(vt[:, 1] - c[1], vt[:, 0] - c[0])
             new_region = np.array(new_region)[np.argsort(angles)]
 
             # finish
@@ -705,7 +718,7 @@ def draw_voronoi_regions(svg, node, vor, radius=None):
 
 def drawPointsLineGraphic12(svg):
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
+    # cx, cy = W // 2, H // 2
     N = 10
 
     defs = svg.draw(draw_any('defs'))  # for cliping the outside drawing
@@ -716,7 +729,7 @@ def drawPointsLineGraphic12(svg):
     group = svg.draw(draw_any('g'))
     svg.set_node(group, 'clip-path', 'url(#clip)')
 
-    offset = 6
+    # offset = 6
     # pts = random_points((50, 2), min=offset, max=W-offset)
     pts = uniform_random_points(
         W, H, N, N, x_offset=W // N / 8, y_offset=H // N / 8)
@@ -753,10 +766,9 @@ def drawPointsLineGraphic12(svg):
 
 
 def area_regular_polygon(r=1, N=6):
-    # len = 2 * np.sin(np.pi / N) * r / 2
-    len = np.sin(np.pi / N) * r
-    s = len * r * N
-    return s
+    # l = 2 * np.sin(np.pi / N) * r / 2
+    l = np.sin(np.pi / N) * r
+    return l * r * N
 
 
 def chord_length(r=1, pre_chord_len=1, N=6):
@@ -795,15 +807,15 @@ def drawPointsLineGraphic13(svg):
     drawPloygonNode(svg, pts_6, g, color='green')
 
     # draw lines
-    linePts = np.array([]).reshape(0, 2)
+    line_pts = np.array([]).reshape(0, 2)
     for pt in pts_6:
-        linePts = np.vstack((linePts, pt))
-        linePts = np.vstack((linePts, [cx, cy]))
+        line_pts = np.vstack((line_pts, pt))
+        line_pts = np.vstack((line_pts, [cx, cy]))
 
-    linePts = np.vstack((linePts, [cx, cy]))
-    linePts = np.vstack((linePts, pts_12[3]))
-    # print('linePts=', linePts)
-    drawlinePointsContinus(svg, linePts, stroke_width=0.5, color='black')
+    line_pts = np.vstack((line_pts, [cx, cy]))
+    line_pts = np.vstack((line_pts, pts_12[3]))
+    # print('line_pts=', line_pts)
+    drawlinePointsContinus(svg, line_pts, stroke_width=0.5, color='black')
 
     svg.draw_node(g, draw_text(52, 15, "Pi Day of 2022", fontsize='12px'))
     svg.draw_node(g, draw_text(
@@ -833,7 +845,8 @@ def drawPointsLineGraphic13(svg):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'pointsLine.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'pointsLine.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # drawPointsLineGraphic(svg)
     # drawPointsLineGraphic2(svg)
@@ -841,13 +854,13 @@ def main():
     # drawPointsLineGraphic4(svg)
     # drawPointsLineGraphic5(svg)
     # drawPointsLineGraphic6(svg)
-    # drawPointsLineGraphic7(svg)
+    drawPointsLineGraphic7(svg)
     # drawPointsLineGraphic8(svg)
     # drawPointsLineGraphic9(svg)
     # drawPointsLineGraphic10(svg)
     # drawPointsLineGraphic11(svg)
     # drawPointsLineGraphic12(svg)
-    drawPointsLineGraphic13(svg)
+    # drawPointsLineGraphic13(svg)
 
 
 if __name__ == '__main__':

@@ -8,17 +8,18 @@
 import svg.basic as sb
 from svg.basic import draw_line, random_color
 from svg.file import SVGFileV2
-from svgDrawArt import drawArtSvg
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 
 
 def draw_first(svg):
+    """ fisr first svg """
     H, W = svg.get_size()
     svg.draw(draw_line(0, 0, W, H))
 
 
 def draw_basic_shapes(svg):
+    """ draw svg basic shape examples """
     svg.draw(sb.draw_rect(x=3, y=3, width=20, height=20, stroke_width=1,
                           color='transparent', stroke_color='black'))
     rt = svg.draw(sb.draw_rect(x=28, y=3, width=20, height=20, stroke_width=1,
@@ -29,7 +30,7 @@ def draw_basic_shapes(svg):
     svg.draw(sb.draw_circle(x=60, y=13, radius=10, color='green'))
     svg.draw(sb.draw_ring(x=85, y=13, radius=8, stroke_color='red', stroke_width=3))
     svg.draw(sb.draw_ellipse(cx=25, cy=35, rx=20, ry=8))
-    svg.draw(sb.draw_line(x=50, y=30, x2=90, y2=45, stroke_width=1, color='#23ff67'))
+    svg.draw(sb.draw_line(x1=50, y1=30, x2=90, y2=45, stroke_width=1, color='#23ff67'))
 
     points = '8 50 18 70 28 50 38 70 48 50 58 70 68 50 78 70 88 50 98 70'
     svg.draw(sb.draw_polyline(points, stroke_width=0.5, stroke_color=random_color()))
@@ -42,7 +43,8 @@ def draw_basic_shapes(svg):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'test.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'test.svg')
     svg = SVGFileV2(file, W=100, H=100, border=True)
     draw_first(svg)
     # draw_basic_shapes(svg)

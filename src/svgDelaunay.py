@@ -5,19 +5,19 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 Description: Delaunay svg
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+# import timeit
 import numpy as np
-import timeit
 from scipy.spatial import Delaunay
+import matplotlib.path as mplPath
 from svg.file import SVGFileV2
 from svg.basic import random_points, mesh_grid_xy, grid_xy
 from svg.geo_transformation import bounding_cordinates, zoom_pts_point, center_of_cordinates
 from svg.geo_transformation import translation_pts
-
+from svg.randoms import random2d
 from svg.geo_math import get_5star, get_regular_ngons
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 from svgPointLine import draw_Delaunay_line
-import matplotlib.path as mplPath
 # from shapely.geometry import Point
 # from shapely.geometry.polygon import Polygon
 
@@ -40,7 +40,7 @@ def get_random_inner_pts(polygon_array, N=10, decimal=2):
     # print('pts=', pts)
     xMin, xMax, yMin, yMax = bounding_cordinates(polygon_array)
 
-    while (res.shape[0] < N):
+    while res.shape[0] < N:
         pts = grid_xy(xMin, xMax, yMin, yMax, N)  # mesh_grid_xy
         # pt = random_points((1, 2), min=xMin, max=xMax).flatten()
         for pt in pts:
@@ -87,11 +87,40 @@ def drawDelaunay(svg, polygon_array, N=10, offset=True, offset_factor=0.8):
     """
     N = int(N)
     if offset:
-        ct = center_of_cordinates(polygon_array)
-        polylines = zoom_pts_point(polygon_array, ct, z=offset_factor)
+        pt = center_of_cordinates(polygon_array)
+        polylines = zoom_pts_point(polygon_array, pt, z=offset_factor)
         pts = get_random_inner_pts(polylines, N)
     else:
         pts = get_random_inner_pts(polygon_array, N)
+
+    edge_centers = polygon_edge_centers(polygon_array)
+
+    pts = np.vstack((pts, edge_centers))  # add edge center points to Delaunay
+    pts = np.vstack((pts, polygon_array))  # add polygon points to Delaunay
+
+    # print('pts=', pts, pts.shape)
+    tri = Delaunay(pts)
+    draw_Delaunay_line(svg, tri, pts)
+
+
+def drawDelaunay_2dRandom(svg, polygon_array, N=10, div=0.6, mesh=False):
+    """ draw Delaunay in a polygon
+
+    Args:
+        svg (_type_): svg file handle
+        polygon_array (array): polylines, pointd of shape(N, 2)
+        N (int, optional): N Delaunay points. Defaults to 10.
+        div (float, optional): offset zoom factor. Defaults to 0.8.
+    """
+    N = int(N)
+
+    H, W = svg.get_size()
+    if mesh:
+        xMin, xMax, yMin, yMax = bounding_cordinates(polygon_array)
+        pts = mesh_grid_xy(xMin, xMax, yMin, yMax, N)
+    else:
+        pt = center_of_cordinates(polygon_array)
+        pts = random2d(pt, W / div, H / div, 10, N)  # random normal
 
     edge_centers = polygon_edge_centers(polygon_array)
 
@@ -131,14 +160,23 @@ def drawDelaunay4(svg, N=200, factor=0.99):
     return drawDelaunay(svg, pts, N, offset_factor=factor)
 
 
+def drawDelaunay5(svg, N=100, factor=0.3):
+    H, W = svg.get_size()
+    polygon_array = np.array([[0, 0], [W, 0], [W, H], [0, H]])  # rectangle
+    return drawDelaunay_2dRandom(svg, polygon_array, N, div=factor)
+
+
 def main():
+    """ main function """
     # print(timeit.timeit(test, number=1))
-    file = join_path(gImageOutputPath, r'Delaunay.svg')
+    file = join_path(IMAGE_OUTPUT_PATH, r'Delaunay.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
     # drawDelaunay1(svg, 90, 0.92)
     # drawDelaunay2(svg, 180, 0.98)
     # drawDelaunay3(svg)
-    drawDelaunay4(svg)
+    # drawDelaunay4(svg)
+    drawDelaunay5(svg)
+    # drawDelaunay5(svg, N=10)
 
 
 if __name__ == "__main__":

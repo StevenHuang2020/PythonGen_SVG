@@ -1,13 +1,22 @@
-import numpy as np
+# -*- encoding: utf-8 -*-
+# Date: 25/Jun/2023
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: Draw math functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 import random
+from itertools import combinations
+import numpy as np
 from svg.file import SVGFileV2
-from svg.basic import clip_float, draw_path, random_color, random_color_hsv
+from svg.basic import clip_float, draw_path, random_color
+from svg.basic import random_color_hsv, draw_only_path
 from svg.geo_transformation import translation_pts_xy, reflection_points
-from common import gImageOutputPath
+from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 # plot function to svg
 # from scipy.special import perm,comb
-from itertools import combinations
 
 
 def funcIdentity(x):
@@ -60,12 +69,12 @@ def sigmoid(x):
 def getCirclePoints(r=1, N=10, func=heartFuc):
     x = np.linspace(-r, r, N)
     y = func(x, r=r)  # Up part points of curve, set sqrt value positive
-    xDown = np.flip(x)  # Down part points of curve, set sqrt value negative
-    yDown = func(xDown, r=r, up=False)
+    x_down = np.flip(x)  # Down part points of curve, set sqrt value negative
+    y_down = func(x_down, r=r, up=False)
 
     # connect from start
-    x = np.concatenate((x, xDown), axis=0)
-    y = np.concatenate((y, yDown), axis=0)
+    x = np.concatenate((x, x_down), axis=0)
+    y = np.concatenate((y, y_down), axis=0)
 
     if 0:  # connect from random
         rand = np.random.randint(1, len(x), size=1)[0]
@@ -100,30 +109,30 @@ def getRectanglePoints(x0=0, y0=0, N=10, w=10, h=10):
     return x, y, center
 
 
-def getRandomProper3Points(min=0, max=5):
+def getRandomProper3Points(a=0, b=5):
     """get random point from 0,1,2,3 quadrants,
-       pt(x,y) = (min ~ max)
+       pt(x,y) = (a ~ b)
     """
     c = list(combinations(range(4), 3))
     # [(0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3)]
     # print(c)
     qds = random.choice(c)
     # print('qds=',qds)
-    center = (max - min) / 2.0
+    center = (b - a) / 2.0
     pts = None
-    for qd in qds:
-        if qd == 0:
-            x = np.random.random() * (center - min) + min
-            y = np.random.random() * (center - min) + min
-        elif qd == 1:
-            x = np.random.random() * (max - center) + center
-            y = np.random.random() * (center - min) + min
-        elif qd == 2:
-            x = np.random.random() * (center - min) + min
-            y = np.random.random() * (max - center) + center
-        elif qd == 3:
-            x = np.random.random() * (max - center) + center
-            y = np.random.random() * (max - center) + center
+    for i in qds:
+        if i == 0:
+            x = np.random.random() * (center - a) + a
+            y = np.random.random() * (center - a) + a
+        elif i == 1:
+            x = np.random.random() * (b - center) + center
+            y = np.random.random() * (center - a) + a
+        elif i == 2:
+            x = np.random.random() * (center - a) + a
+            y = np.random.random() * (b - center) + center
+        elif i == 3:
+            x = np.random.random() * (b - center) + center
+            y = np.random.random() * (b - center) + center
 
         pt = np.array([[x, y]])
         pts = np.concatenate((pts, pt), axis=0) if pts is not None else pt
@@ -134,52 +143,58 @@ def drawFuncSVG(svg, offsetX=0, offsetY=0, color=None):
     N = 500
     x = np.linspace(-100, 100, N)
 
-    fOffsetX = 50
-    fOffsetY = 100
+    offset_x = 50
+    offset_y = 100
     ptX = x + offsetX + offsetX
-    ptY = funcIdentity(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    ptY = funcIdentity(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
-    fOffsetX = 50
-    fOffsetY = 50
-    ptX = x + offsetX + fOffsetX
-    ptY = funcQuadratic(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    offset_x = 50
+    offset_y = 50
+    ptX = x + offsetX + offset_x
+    ptY = funcQuadratic(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
-    fOffsetX = 50
-    fOffsetY = 50
-    ptX = x + offsetX + fOffsetX
-    ptY = funcSin(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    offset_x = 50
+    offset_y = 50
+    ptX = x + offsetX + offset_x
+    ptY = funcSin(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
-    ptX = x + offsetX + fOffsetX
-    ptY = funcCos(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    ptX = x + offsetX + offset_x
+    ptY = funcCos(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
-    ptX = x + offsetX + fOffsetX
-    ptY = normalDistribution(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
-    ptX = x + offsetX + fOffsetX
-    ptY = softmaxFuc(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
-    ptX = x + offsetX + fOffsetX
-    ptY = sigmoid(x) * -1 + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    ptX = x + offsetX + offset_x
+    ptY = normalDistribution(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
+    ptX = x + offsetX + offset_x
+    ptY = softmaxFuc(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
+    ptX = x + offsetX + offset_x
+    ptY = sigmoid(x) * -1 + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
     ptX, ptY = getCirclePoints(r=10, N=10, func=circleFuc)
-    ptX = ptX + offsetX + fOffsetX
-    ptY = ptY + offsetY + fOffsetY
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=color)
+    ptX = ptX + offsetX + offset_x
+    ptY = ptY + offsetY + offset_y
+    drawOnePathcSVG(svg, ptX, ptY, color=color)
 
 
-def drawOneFuncSVG(svg, ptX, ptY, N=10, color=None):
+def drawOnePathcSVG(svg, ptX, ptY, color=None, stroke_width=0.5, only_path=False):
     x = ptX[0]
     y = ptY[0]
-    path = 'M %.1f %.1f L ' % (x, y)
-    for x, y in zip(ptX, ptY):
+    path = f'M {x:.1f} {y:.1f} L'
+    for i, (x, y) in enumerate(zip(ptX, ptY)):
+        if i == 0:
+            continue
         path = path + ' ' + str(clip_float(x)) + ' ' + str(clip_float(y))
+    path = path + 'z'
 
-    svg.draw(draw_path(path, stroke_width=0.5, color=color or random_color()))
+    if only_path:
+        svg.draw(draw_only_path(path))
+    else:
+        svg.draw(draw_path(path, stroke_width=stroke_width, color=color or random_color()))
 
 
 def reflect_xy(ptX, ptY):
@@ -207,35 +222,36 @@ def drawFuncSVG2(svg):
     ptX, ptY = getCirclePoints(r=45, N=N, func=heartFuc)
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
+    drawOnePathcSVG(svg, ptX, ptY, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
     ptY = funcQuadratic(ptX)
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy + 40))
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
+    drawOnePathcSVG(svg, ptX, ptY, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
     ptY = funcSin(ptX) * 20
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
+    drawOnePathcSVG(svg, ptX, ptY, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
     ptY = funcCos(ptX) * 20
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
+    drawOnePathcSVG(svg, ptX, ptY, color=random_color_hsv())
 
     ptX = np.linspace(-50, 50, num=200)
     ptY = sigmoid(ptX)
     ptX, ptY = reflect_xy(ptX, ptY)
     ptX, ptY = translation_pts_xy(ptX, ptY, (cx, cy))
-    drawOneFuncSVG(svg, ptX, ptY, N=N, color=random_color_hsv())
+    drawOnePathcSVG(svg, ptX, ptY, color=random_color_hsv())
 
 
 def main():
-    file = join_path(gImageOutputPath, r'func.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'func.svg')
     svg = SVGFileV2(file, 100, 100, border=True)
     # drawFuncSVG(svg, offsetX=10, offsetY=10)
     drawFuncSVG2(svg)

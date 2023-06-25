@@ -34,15 +34,16 @@ def get_5star(R=10, r=3):
     points = []
     for i in range(5):
         """ add or sub π/2 to adjust start point """
-        points.append([R*np.cos(i * 2 * np.pi / 5 - np.pi/2),
-                      R*np.sin(i*2*np.pi/5-np.pi/2)])
-        points.append([r*np.cos(i*2*np.pi/5-np.pi/2+np.pi/5),
-                      r*np.sin(i*2*np.pi/5-np.pi/2+np.pi/5)])
+        points.append([R * np.cos(i * 2 * np.pi / 5 - np.pi / 2),
+                      R * np.sin(i * 2 * np.pi / 5 - np.pi / 2)])
+        points.append([r * np.cos(i * 2 * np.pi / 5 - np.pi / 2 + np.pi / 5),
+                      r * np.sin(i * 2 * np.pi / 5 - np.pi / 2 + np.pi / 5)])
 
     return np.asarray(points)
 
 
 def get_regular_ngons(R=10, N=3, offset_angle=0):
+    """ get regular polygon vertex """
     points = []
     for i in range(N):
         """ add or sub π/2 to adjust start point """
@@ -59,7 +60,7 @@ def points_on_triangle(v, n):
     (2, 3) array *v*: one vertex per row.
     """
     x = np.sort(np.random.rand(2, n), axis=0)
-    x = np.column_stack([x[0], x[1]-x[0], 1.0-x[1]])
+    x = np.column_stack([x[0], x[1] - x[0], 1.0 - x[1]])
     return np.dot(x, v)
 
 
@@ -78,7 +79,7 @@ def get_velocity_line_abc(pt, vx, vy):
     """get line slope and bias from a start point and x, y change velocity,
     A*x + B*y + C = 0
     """
-    return get_line_ABC(pt, (pt[0]+vx, pt[1]+vy))
+    return get_line_ABC(pt, (pt[0] + vx, pt[1] + vy))
 
 
 def get_line_ABC(pt1, pt2):
@@ -98,10 +99,10 @@ def get_line_ABC_inter(line1, line2):
     inter = B1*A2 - A1*B2
     x = (C1*B2-B1*C2)/inter, y=(A1*C2-A2*C1)/inter
     """
-    inter = line1[1]*line2[0] - line1[0]*line2[1]
+    inter = line1[1] * line2[0] - line1[0] * line2[1]
     if inter != 0:
-        x = (line1[2]*line2[1]-line1[1]*line2[2])/inter
-        y = (line1[0]*line2[2] - line2[0]*line1[2])/inter
+        x = (line1[2] * line2[1] - line1[1] * line2[2]) / inter
+        y = (line1[0] * line2[2] - line2[0] * line1[2]) / inter
         return (x, y)
     return None
 
@@ -130,20 +131,17 @@ def get_perpendicular_point_line_ABC(line, pt, reflect=False):
     """
     deno = line[0]**2 + line[1]**2  # denominator
     if deno != 0:
-        tmp = -1*(line[0]*pt[0] + line[1]*pt[1] + line[2])/deno
+        tmp = -1 * (line[0] * pt[0] + line[1] * pt[1] + line[2]) / deno
         if reflect:
-            tmp = tmp*2
-        x = line[0]*tmp + pt[0]
-        y = line[1]*tmp + pt[1]
+            tmp = tmp * 2
+        x = line[0] * tmp + pt[0]
+        y = line[1] * tmp + pt[1]
         return (x, y)
     return None
 
 
-def get_inter_pt(line):
-    pass
-
-
 def main():
+    """ main function """
     x = [1, 2]
     y = [3, 4]
     # print(get_line(x, y))

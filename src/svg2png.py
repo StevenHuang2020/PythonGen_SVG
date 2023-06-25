@@ -1,13 +1,16 @@
-#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
-# Description: Convert svg file to png/pdf
+# Date: 08/May/2023
+# Author: Steven Huang, Auckland, NZ
+# License: MIT License
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Description: Convert svg file to png/pdf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 # 1.pip install cairosvg   # svg to pdf/png
 # 2.pip install svglib     # svg to pdf/png
 # 3.pip install pdf2image  # pdf to png/jpeg
-# Date: 2021/05/08
-# Author: Steven Huang, Auckland, NZ
 
-from common import gImageOutputPath
+
 from common_path import join_path
 import cairosvg
 from svglib.svglib import svg2rlg
@@ -15,9 +18,11 @@ from reportlab.graphics import renderPDF, renderPM
 from pdf2image import convert_from_path
 import PIL
 # import tempfile
+from common import IMAGE_OUTPUT_PATH
 
 
 def svg2Image(svg_file, dst, fmt='pdf', dpi=96):
+    """ svg to image """
     if 0:  # svglib
         drawing = svg2rlg(svg_file)
         if fmt == 'pdf':
@@ -52,7 +57,8 @@ def set_image_dpi_resize(image, dst):
     # return temp_filename
 
 
-def pdf2Image(file, dst, page=0, fmt='png', dpi=96):
+def pdf2Image(file, dst, page=0):
+    """ pdf to images """
     images = convert_from_path(file)
     for i, image in enumerate(images):
         if page == i:
@@ -63,15 +69,16 @@ def pdf2Image(file, dst, page=0, fmt='png', dpi=96):
 
 
 def main():
-    file = join_path(gImageOutputPath, r'text.svg')
+    """ main function """
+    file = join_path(IMAGE_OUTPUT_PATH, r'text.svg')
 
-    dst_file = join_path(gImageOutputPath, r'text.pdf')
+    dst_file = join_path(IMAGE_OUTPUT_PATH, r'text.pdf')
     svg2Image(svg_file=file, dst=dst_file)
 
-    dst_file = join_path(gImageOutputPath, r'text.png')
+    dst_file = join_path(IMAGE_OUTPUT_PATH, r'text.png')
     svg2Image(svg_file=file, dst=dst_file, fmt='png', dpi=96)
 
-    # dst_file = join_path(gImageOutputPath, r'text.svg.pdf.png')
+    # dst_file = join_path(IMAGE_OUTPUT_PATH, r'text.svg.pdf.png')
     # pdf2Image(file, dst_file)
 
 

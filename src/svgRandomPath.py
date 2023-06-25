@@ -62,7 +62,7 @@ def drawRandomPath():
         # offsetY = 50 + random.random()*2
 
         ptX, ptY = getCirclePtsSVG(
-            r=r, N=80, offsetX=offsetX, offsetY=offsetY, noise=True, only_path=only_path)
+            r=r, N=80, offsetX=offsetX, offsetY=offsetY, noise=True)
         drawOnePathcSVG(svg, ptX, ptY, only_path=only_path)
 
 
@@ -117,7 +117,7 @@ def drawRandomCirclePath(svg):
         for _ in range(times):
             r = r + random.random() * 8
             ptX, ptY = getCirclePtsSVG(
-                r=r, N=200, offsetX=offsetX, offsetY=offsetY, noise=False, only_path=only_path)
+                r=r, N=200, offsetX=offsetX, offsetY=offsetY, noise=False)
             drawOnePathcSVG(svg, ptX, ptY, only_path=only_path)
 
     elif style == styles[1]:
@@ -125,7 +125,7 @@ def drawRandomCirclePath(svg):
         for _ in range(times):
             r = r + random.random() * 18
             ptX, ptY = getCirclePtsSVG(
-                r=r, N=20, offsetX=offsetX, offsetY=offsetY, noise=False, only_path=only_path)
+                r=r, N=20, offsetX=offsetX, offsetY=offsetY, noise=False)
             pt_number = int(5 * r)
             # ptX = np.random.choice(ptX, pt_number)
 
@@ -212,7 +212,7 @@ def drawRandomRectanglePath(svg):
 
 
 def drawAllTypePath(svg):
-    H, W = svg.get_size()
+    # H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
     svg.set_title('draw path')
     g = svg.draw(draw_any('g', opacity=1.0))

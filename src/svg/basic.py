@@ -48,7 +48,8 @@ def random_color_hsv():
 def rainbow_colors(N=255):
     """ get rainbow colors """
     res = []
-    hsv_colors = cm.rainbow(np.linspace(0, 1, N))
+    rainbows = mpl.colormaps['rainbow']
+    hsv_colors = rainbows(np.linspace(0, 1, N))
     for i in hsv_colors:
         float_rgb = colorsys.hsv_to_rgb(i[0], i[1], i[2])  # h s v
         rgb = [int(x * 255) for x in float_rgb]
@@ -58,7 +59,7 @@ def rainbow_colors(N=255):
 
 
 def convert_rgb(rgb, alpha=0xff):
-    """covert from rgb to hex color"""
+    """ covert from rgb to hex color """
     return f'#{int(rgb[0]):02x}{int(rgb[1]):02x}{int(rgb[2]):02x}{alpha:02x}'
 
 
@@ -75,12 +76,12 @@ def clip_floats(x, n=1):
 
 
 def rand_str(num=6):
-    """random string as ID"""
+    """ random string as ID """
     return ''.join(random.sample(string.ascii_letters + string.digits, num))
 
 
 def random_points(size=(1, 2), a=0, b=5, decimal=2):
-    """get random points, size=(N, 2) to get N points(x, y) """
+    """ get random points, size=(N, 2) to get N points(x, y) """
     pts = np.random.random(size) * (b - a) + a  # [a, b)
     return np.round(pts, decimals=decimal)
 
@@ -352,6 +353,7 @@ def main():
     print('f=', f)
     print('list=', add_style('abc', 'a:1; b:2; ft:10pt;'))
     print('text=', draw_text(text='hi'))
+    print('color=', rainbow_colors())
 
 
 if __name__ == '__main__':

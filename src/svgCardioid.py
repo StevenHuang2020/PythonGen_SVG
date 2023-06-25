@@ -45,8 +45,9 @@ class CardioidData:
                 key = (index, tmp)
                 if key in line_map:
                     break
-                else:
-                    line_map.append(key)
+
+                line_map.append(key)
+
             i += 1
         print('line nums: ', len(line_map))
         return line_map
@@ -84,11 +85,11 @@ def drawCardioid(svg, radius=90, divisions_n=100, multiplier=3):
             key = (index, tmp)
             if key in line_map:
                 break
-            else:
-                line_map.append(key)
-                # draw line
-                points = [(pts[index][0], pts[index][1], pts[tmp][0], pts[tmp][1])]
-                drawlinePoints(svg, points, color='green')
+
+            line_map.append(key)
+            # draw line
+            points = [(pts[index][0], pts[index][1], pts[tmp][0], pts[tmp][1])]
+            drawlinePoints(svg, points, color='green')
         i += 1
 
 

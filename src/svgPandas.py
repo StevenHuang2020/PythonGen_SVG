@@ -149,7 +149,7 @@ def plotTable(svg, node, df, style=TableContentStyle.TEXT):
 
 def drawDataFrame(svg, style=TableContentStyle.TEXT):
     """ draw pandas data """
-    H, W = svg.get_size()
+    # H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
     svg.set_title('Draw Dataframe data')
 

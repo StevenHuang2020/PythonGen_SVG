@@ -11,13 +11,13 @@ Description: Convert svg file to png/pdf
 # 3.pip install pdf2image  # pdf to png/jpeg
 
 
-from common_path import join_path
 import cairosvg
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF, renderPM
 from pdf2image import convert_from_path
 import PIL
 # import tempfile
+from common_path import join_path
 from common import IMAGE_OUTPUT_PATH
 
 

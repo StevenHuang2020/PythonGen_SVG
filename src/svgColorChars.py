@@ -11,7 +11,7 @@ from svg.basic import text_style, add_style, get_styles, draw_any
 from svg.file import SVGFileV2
 from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
-from svgPointLine import calculate_pi
+# from svgPointLine import calculate_pi
 
 
 def Convert(s):

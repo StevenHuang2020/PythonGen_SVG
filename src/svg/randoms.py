@@ -6,18 +6,19 @@
 Description: Random values by numpy random generator
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 import numpy as np
-from numpy.random import Generator, PCG64
+# from numpy.random import Generator, PCG64
 import matplotlib.pyplot as plt
 
 
-def random2d(center, xScale=1, yScale=1, factor=0, N=100):
+def random2d(center, x_scale=1, y_scale=1, factor=0, N=100):
     rng = np.random.default_rng()  # seed=12345
-    cov = [[xScale, factor], [factor, yScale]]
+    cov = [[x_scale, factor], [factor, y_scale]]
     return rng.multivariate_normal(center, cov, size=(N,))
 
 
 def test_multivariate():
-    rng = np.random.default_rng(seed=12345)
+    """ test multivariate distribution """
+    # rng = np.random.default_rng(seed=12345)
 
     # mean = [100, 100]
     # cov = [[1, 0], [0, 1]]
@@ -32,6 +33,7 @@ def test_multivariate():
 
 
 def test_distributions():
+    """ test distribution random """
     # https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator
     rng = np.random.default_rng(seed=12345)
     # rng = np.random.default_rng()
@@ -44,44 +46,42 @@ def test_distributions():
     print('uniform arr=', rng.uniform(0, 1, size=(10,)))
 
     # print('multivariate_normal arr=', rng.multivariate_normal(5, 1, size=(5, 5)))
-
-    '''
-    print('chisquare arr=', rng.chisquare(5, 1, size=(5, 5)))
-    print('dirichlet arr=', rng.dirichlet(5, 1, size=(5, 5)))
-    print('exponential arr=', rng.exponential(5, 1, size=(5, 5)))
-    print('f arr=', rng.f(5, 1, size=(5, 5)))
-    print('gamma arr=', rng.gamma(5, 1, size=(5, 5)))
-    print('geometric arr=', rng.geometric(5, 1, size=(5, 5)))
-    print('gumbel arr=', rng.gumbel(5, 1, size=(5, 5)))
-    print('hypergeometric arr=', rng.hypergeometric(5, 1, size=(5, 5)))
-    print('laplace arr=', rng.laplace(5, 1, size=(5, 5)))
-    print('logistic arr=', rng.logistic(5, 1, size=(5, 5)))
-    print('lognormal arr=', rng.lognormal(5, 1, size=(5, 5)))
-    print('logseries arr=', rng.logseries(5, 1, size=(5, 5)))
-    print('multinomial arr=', rng.multinomial(5, 1, size=(5, 5)))
-    print('multivariate_hypergeometric arr=', rng.multivariate_hypergeometric(5, 1, size=(5, 5)))
-    print('multivariate_normal arr=', rng.multivariate_normal(5, 1, size=(5, 5)))
-    print('negative_binomial arr=', rng.negative_binomial(5, 1, size=(5, 5)))
-    print('noncentral_chisquare arr=', rng.noncentral_chisquare(5, 1, size=(5, 5)))
-    print('noncentral_f arr=', rng.noncentral_f(5, 1, size=(5, 5)))
-    print('pareto arr=', rng.pareto(5, 1, size=(5, 5)))
-    print('poisson arr=', rng.poisson(5, 1, size=(5, 5)))
-    print('power arr=', rng.power(5, 1, size=(5, 5)))
-    print('rayleigh arr=', rng.rayleigh(5, 1, size=(5, 5)))
-    print('standard_cauchy arr=', rng.standard_cauchy(5, 1, size=(5, 5)))
-    print('standard_exponential arr=', rng.standard_exponential(5, 1, size=(5, 5)))
-    print('standard_gamma arr=', rng.standard_gamma(5, 1, size=(5, 5)))
-    print('standard_normal arr=', rng.standard_normal(5, 1, size=(5, 5)))
-    print('standard_t arr=', rng.standard_t(5, 1, size=(5, 5)))
-    print('triangular arr=', rng.triangular(5, 1, size=(5, 5)))
-    print('vonmises arr=', rng.vonmises(5, 1, size=(5, 5)))
-    print('wald arr=', rng.wald(5, 1, size=(5, 5)))
-    print('weibull arr=', rng.weibull(5, 1, size=(5, 5)))
-    print('zipf arr=', rng.zipf(5, 1, size=(5, 5)))
-    '''
+    # print('chisquare arr=', rng.chisquare(5, 1, size=(5, 5)))
+    # print('dirichlet arr=', rng.dirichlet(5, 1, size=(5, 5)))
+    # print('exponential arr=', rng.exponential(5, 1, size=(5, 5)))
+    # print('f arr=', rng.f(5, 1, size=(5, 5)))
+    # print('gamma arr=', rng.gamma(5, 1, size=(5, 5)))
+    # print('geometric arr=', rng.geometric(5, 1, size=(5, 5)))
+    # print('gumbel arr=', rng.gumbel(5, 1, size=(5, 5)))
+    # print('hypergeometric arr=', rng.hypergeometric(5, 1, size=(5, 5)))
+    # print('laplace arr=', rng.laplace(5, 1, size=(5, 5)))
+    # print('logistic arr=', rng.logistic(5, 1, size=(5, 5)))
+    # print('lognormal arr=', rng.lognormal(5, 1, size=(5, 5)))
+    # print('logseries arr=', rng.logseries(5, 1, size=(5, 5)))
+    # print('multinomial arr=', rng.multinomial(5, 1, size=(5, 5)))
+    # print('multivariate_hypergeometric arr=', rng.multivariate_hypergeometric(5, 1, size=(5, 5)))
+    # print('multivariate_normal arr=', rng.multivariate_normal(5, 1, size=(5, 5)))
+    # print('negative_binomial arr=', rng.negative_binomial(5, 1, size=(5, 5)))
+    # print('noncentral_chisquare arr=', rng.noncentral_chisquare(5, 1, size=(5, 5)))
+    # print('noncentral_f arr=', rng.noncentral_f(5, 1, size=(5, 5)))
+    # print('pareto arr=', rng.pareto(5, 1, size=(5, 5)))
+    # print('poisson arr=', rng.poisson(5, 1, size=(5, 5)))
+    # print('power arr=', rng.power(5, 1, size=(5, 5)))
+    # print('rayleigh arr=', rng.rayleigh(5, 1, size=(5, 5)))
+    # print('standard_cauchy arr=', rng.standard_cauchy(5, 1, size=(5, 5)))
+    # print('standard_exponential arr=', rng.standard_exponential(5, 1, size=(5, 5)))
+    # print('standard_gamma arr=', rng.standard_gamma(5, 1, size=(5, 5)))
+    # print('standard_normal arr=', rng.standard_normal(5, 1, size=(5, 5)))
+    # print('standard_t arr=', rng.standard_t(5, 1, size=(5, 5)))
+    # print('triangular arr=', rng.triangular(5, 1, size=(5, 5)))
+    # print('vonmises arr=', rng.vonmises(5, 1, size=(5, 5)))
+    # print('wald arr=', rng.wald(5, 1, size=(5, 5)))
+    # print('weibull arr=', rng.weibull(5, 1, size=(5, 5)))
+    # print('zipf arr=', rng.zipf(5, 1, size=(5, 5)))
 
 
 def test_np_random():
+    """ test random """
     # rng = np.random.default_rng(seed=12345)
     rng = np.random.default_rng()
     # rng = Generator(PCG64())

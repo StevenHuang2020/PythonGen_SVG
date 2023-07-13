@@ -13,8 +13,8 @@ from svg.file import SVGFileV2
 from svg.basic import random_color, color_fader, draw_circle, draw_rect, random_color_hsv
 from svg.basic import convert_rgb, draw_any, clip_float, draw_path
 from svg.basic import draw_only_path, add_style, get_styles
-from svg.geo_transformation import translation_pts, translation_pts_xy
-from svg.geo_transformation import zoom_pts_xy, split_points, combine_xy, zoom_non_pts_xy
+from svg.geo_transformation import translation_pts_xy
+from svg.geo_transformation import split_points, combine_xy, zoom_non_pts_xy
 from svgSmile import drawSmileSVG
 from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
@@ -35,7 +35,7 @@ def loadImg(file, mode=cv2.IMREAD_COLOR):
     # mode = cv2.IMREAD_COLOR cv2.IMREAD_GRAYSCALE cv2.IMREAD_UNCHANGED
     try:
         img = cv2.imread(file, mode)
-    except BaseException:
+    except FileExistsError:
         print("Load image error,file=", file)
 
     if getImagChannel(img) == 3:
@@ -72,6 +72,8 @@ def showimage(img, name='image', auto_size=False):
 
 
 class SVGImageMask:
+    """ image to svg """
+
     def __init__(self, image_file, dst_svgfile, step=1):
         # cv2.IMREAD_GRAYSCALE
         self.image = loadImg(image_file, cv2.IMREAD_COLOR)
@@ -84,7 +86,7 @@ class SVGImageMask:
         print('step=', step, 'image H,W=', self.height,
               self.width, 'SVG H,W=', self.svg_h, self.svg_w)
 
-    def drawStep(self):
+    def drawStep(self, use_circle=False):
         r = self.step / 2
         for i in range(0, self.svg_h, self.step):
             for j in range(0, self.svg_w, self.step):
@@ -94,7 +96,7 @@ class SVGImageMask:
                 roi = self.image[i:i + self.step, j:j + self.step]
                 # print(i,j,self.svg_h,self.svg_w,i+self.step,j+self.step)
                 color = color_fader(mix=np.mean(roi) / 255)
-                if 0:
+                if use_circle:
                     self.svg.draw(draw_circle(y, x, r, color=color))
                 else:
                     self.svg.draw(
@@ -167,7 +169,7 @@ def imgSvgElement():
     svg.draw(draw_any('image ', **style_dict))
 
 
-def image2_svg():
+def image2_svg(use_rect=True):
     def drawPointsCircle_colors(svg, pts, r, colors):
         for i, pt in enumerate(pts):
             x = clip_float(pt[0])
@@ -188,8 +190,10 @@ def image2_svg():
     print('coords, coords.shape', coords, coords.shape)
     print('colors, colors.shape', colors, colors.shape)
 
-    # drawPointsCircle_colors(mask.svg, coords, r=step/2, colors=colors)
-    drawPointsRect_colors(mask.svg, coords, r=step, colors=colors)
+    if use_rect:
+        drawPointsRect_colors(mask.svg, coords, r=step, colors=colors)
+    else:
+        drawPointsCircle_colors(mask.svg, coords, r=step / 2, colors=colors)
 
 
 def my_path_potrace(paths, N=2):
@@ -248,7 +252,6 @@ def transform_points(de_points, zoom_x=0.5, zoom_y=0.5, to_point=(0, 0)):
 
     # start to translate
     x, y = split_points(de_points)
-    # x, y = zoom_pts_xy(x, y, zoom)
     x, y = zoom_non_pts_xy(x, y, zoom_x, zoom_y)
     x, y = translation_pts_xy(x, y, to_point)
     return combine_xy(x, y)
@@ -362,21 +365,16 @@ def image_svg_path3(file, dst_file):
     svg = SVGFileV2(dst_file, W=image.shape[1], H=image.shape[0], border=False)
 
     paths = get_potrace_path(image)
-    if 0:
-        for i, path in enumerate(my_path_potrace(paths)):
-            print(f'[{i}]', 'path=', path)
-            svg.draw(draw_path(path, stroke_width=1.8, color='None',
-                               fill_color='#000000', fill_rule='evenodd'))
-    else:
-        style_dict = {}
-        style_dict['stroke_width'] = '1.8'
-        style_dict['color'] = 'None'
-        style_dict['fill_color'] = '#000000'
-        style_dict['fill_rule'] = 'evenodd'
-        svg.draw(add_style('path', get_styles(style_dict)))
 
-        for i, path in enumerate(my_path_potrace(paths)):
-            svg.draw(draw_only_path(path))
+    style_dict = {}
+    style_dict['stroke_width'] = '1.8'
+    style_dict['color'] = 'None'
+    style_dict['fill_color'] = '#000000'
+    style_dict['fill_rule'] = 'evenodd'
+    svg.draw(add_style('path', get_styles(style_dict)))
+
+    for _, path in enumerate(my_path_potrace(paths)):
+        svg.draw(draw_only_path(path))
 
 
 def main():

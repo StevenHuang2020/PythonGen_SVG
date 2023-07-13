@@ -5,32 +5,36 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 Description: Cardioid Curve
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+from dataclasses import dataclass, field
 import numpy as np
-from svg.file import SVGFileV2
-from svg.geo_math import get_regular_ngons
 from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
-from svg.basic import draw_circle, draw_ring
-from svgPointLine import drawPointsCircle_style, drawlinePoints
+from svg.file import SVGFileV2
+from svg.geo_math import get_regular_ngons
+from svg.basic import draw_ring
 from svg.geo_transformation import translation_pts
+from svgPointLine import drawPointsCircle_style, drawlinePoints
 
 
+@dataclass(slots=True)
 class CardioidData:
-    def __init__(self, radius=90, center=(0, 0), divisions=100, multiplier=2):
-        self._radius = radius
-        self._center = center
-        self._divisions = divisions
-        self._multiplier = multiplier
-        self._points_on_circle = None
-        self._lines = None
+    """ Cardioid class"""
+    radius: float
+    center: tuple
+    divisions: int
+    multiplier: float
+    points_on_circle: np.ndarray = field(init=False)
+    lines: list[tuple] = field(default_factory=list)
+
+    def __post_init__(self):
         self._calculate()
 
     def _calculate(self):
-        pts = get_regular_ngons(R=self._radius, N=self._divisions)
-        pts = translation_pts(pts, np.array(self._center), True)
-        self._points_on_circle = pts
-        if self._multiplier != 1:
-            self._lines = self._lines_index()
+        pts = get_regular_ngons(R=self.radius, N=self.divisions)
+        pts = translation_pts(pts, np.array(self.center), True)
+        self.points_on_circle = pts
+        if self.multiplier != 1:
+            self.lines = self._lines_index()
         else:
             print('Warning, no meaning when multiplier=1!')
 
@@ -38,8 +42,8 @@ class CardioidData:
         line_map = []
         i = 0
         while True:
-            tmp = int(i * self._multiplier) % self._divisions
-            index = i % self._divisions
+            tmp = int(i * self.multiplier) % self.divisions
+            index = i % self.divisions
             # print('index, tmp, line_map: ', index, tmp, line_map)
             if tmp != index:
                 key = (index, tmp)
@@ -47,7 +51,6 @@ class CardioidData:
                     break
 
                 line_map.append(key)
-
             i += 1
         print('line nums: ', len(line_map))
         return line_map
@@ -58,8 +61,7 @@ def drawCardioid(svg, radius=90, divisions_n=100, multiplier=3):
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
 
-    title = f'Cardioid Curve, parameters: divisions={divisions_n}, multiplier={multiplier}'
-    svg.set_title(title)
+    svg.set_title(f'Cardioid: divisions={divisions_n}, multiplier={multiplier}')
 
     ###### draw big circle ########
     svg.draw(draw_ring(cx, cy, radius=radius, stroke_width=1))
@@ -96,16 +98,16 @@ def drawCardioid(svg, radius=90, divisions_n=100, multiplier=3):
 def draw_cardioid(svg, data: CardioidData):
     """ step draws """
     ###### draw big circle ########
-    svg.draw(draw_ring(data._center[0], data._center[1], radius=data._radius,
+    svg.draw(draw_ring(data.center[0], data.center[1], radius=data.radius,
                        stroke_color='black', stroke_width=1))
 
     ###### draw points on circle ########
-    pts = data._points_on_circle
+    pts = data.points_on_circle
     drawPointsCircle_style(svg, pts, r=0.5, color='red', style_class='points')
 
     ###### draw lines ########
-    if data._lines is not None:
-        for start, stop in data._lines:
+    if data.lines is not None:
+        for start, stop in data.lines:
             points = [(pts[start][0], pts[start][1], pts[stop][0], pts[stop][1])]
             drawlinePoints(svg, points, color='green')
 

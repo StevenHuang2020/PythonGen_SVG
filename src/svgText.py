@@ -10,34 +10,34 @@ from svg.file import SVGFileV2
 from common import IMAGE_OUTPUT_PATH
 from common_path import traverse_files, join_path
 
-''' chinese font style font-family names:
-新細明體：PMingLiU
-細明體：MingLiU
-標楷體：DFKai-SB
-黑体：SimHei
-宋体：SimSun
-新宋体：NSimSun
-仿宋：FangSong
-楷体：KaiTi
-仿宋_GB2312：FangSong_GB2312
-楷体_GB2312：KaiTi_GB2312
-微軟正黑體：Microsoft JhengHei
-微软雅黑体：Microsoft YaHei
-隶书：LiSu
-幼圆：YouYuan
-华文细黑：STXihei
-华文楷体：STKaiti
-华文宋体：STSong
-华文中宋：STZhongsong
-华文仿宋：STFangsong
-方正舒体：FZShuTi
-方正姚体：FZYaoti
-华文彩云：STCaiyun
-华文琥珀：STHupo
-华文隶书：STLiti
-华文行楷：STXingkai
-华文新魏：STXinwei
-'''
+# chinese font style font-family names:
+# 新細明體: PMingLiU
+# 細明體: MingLiU
+# 標楷體: DFKai-SB
+# 黑体: SimHei
+# 宋体: SimSun
+# 新宋体: NSimSun
+# 仿宋: FangSong
+# 楷体: KaiTi
+# 仿宋_GB2312: FangSong_GB2312
+# 楷体_GB2312: KaiTi_GB2312
+# 微軟正黑體: Microsoft JhengHei
+# 微软雅黑体: Microsoft YaHei
+# 隶书: LiSu
+# 幼圆: YouYuan
+# 华文细黑: STXihei
+# 华文楷体: STKaiti
+# 华文宋体: STSong
+# 华文中宋: STZhongsong
+# 华文仿宋: STFangsong
+# 方正舒体: FZShuTi
+# 方正姚体: FZYaoti
+# 华文彩云: STCaiyun
+# 华文琥珀: STHupo
+# 华文隶书: STLiti
+# 华文行楷: STXingkai
+# 华文新魏: STXinwei
+
 
 def svg_draw_text(svg):
     """ draw text svg """
@@ -94,16 +94,14 @@ def draw_str_list(svg, str_list, x0, y0, x_inter, y_inter, from_right=True):
 
 def draw_poet(svg):
     """ draw a poet """
+    # poet = []
+    # poet.append('感遇·其一')
+    # poet.append('张九龄')
+    # poet.append('兰叶春葳蕤，桂华秋皎洁。')
+    # poet.append('欣欣此生意，自尔为佳节。')
+    # poet.append('谁知林栖者，闻风坐相悦。')
+    # poet.append('草木有本心，何求美人折？')
 
-    '''
-    poet = []
-    poet.append('感遇·其一')
-    poet.append('张九龄')
-    poet.append('兰叶春葳蕤，桂华秋皎洁。')
-    poet.append('欣欣此生意，自尔为佳节。')
-    poet.append('谁知林栖者，闻风坐相悦。')
-    poet.append('草木有本心，何求美人折？')
-    '''
     poet = []
     poet.append('過故人莊 孟浩然')
     poet.append('故人具雞黍，邀我至田家。')
@@ -114,7 +112,7 @@ def draw_poet(svg):
     style_dict = text_style(font='KaiTi', font_size='16px')
     svg.draw(add_style('text', get_styles(style_dict)))
 
-    H, W = svg.get_size()
+    _, W = svg.get_size()
     offsetX = 25
     offsetY = 20
     x0 = W - 2 * offsetX
@@ -148,21 +146,15 @@ def draw_poet2(svg):
     draw_str_list(svg, poet, x0, y0, x_inter, y_inter, False)
 
 
-def draw_style_text(svg):
+def draw_style_text(svg, text = '怡红快绿', x_inter = 60, y_inter = 60):
     """ rotation examples """
-    text = '怡红快绿'
-
     style_dict = text_style(color='red', font='Microsoft YaHei', font_size='50px')
     svg.draw(add_style('text', get_styles(style_dict)))
 
     H, W = svg.get_size()
-    x_inter = 60
-    y_inter = 60
     x0 = (W - x_inter) / 2
     y0 = (H - y_inter) / 2
-
-    theta = 0
-    w, h = 2, 2
+    w, _ = 2, 2
     for i, c in enumerate(text):
         x = x0 + i % w * x_inter
         y = y0 + i // w * y_inter
@@ -170,25 +162,23 @@ def draw_style_text(svg):
         svg.set_node(node, 'text-anchor', 'middle')
         svg.set_node(node, 'dominant-baseline', 'central')
         svg.set_node(node, 'fill', random_color())
-        str_tmp = f'rotate({theta},{x},{y})'
-        svg.set_node(node, 'transform', str_tmp)
+        svg.set_node(node, 'transform', f'rotate({(i-1)*90},{x},{y})')
         # svg.draw(draw_circle(x, y, 5, color='red'))
-        theta += 90
 
 
-def draw_style_text2(svg):
+def draw_style_text2(svg, only_rotate=False):
     """ rotation examples """
     text = 'Text rotation!'
 
     style_dict = text_style(font='Consolas', font_size='24px')
     svg.draw(add_style('text', get_styles(style_dict)))
 
-    x0 = 10
+    x0 = 70
     y0 = 30
     theta = 0
     for _ in range(6):
         node = svg.draw(draw_text_only(x0, y0, text))
-        if 1:
+        if only_rotate:
             svg.set_node(node, 'rotate', theta)
         else:
             str_tmp = f'rotate({theta},{x0},{y0})'
@@ -216,8 +206,8 @@ def main():
     # svg_draw_text(svg)
     # draw_poet(svg)
     # draw_poet2(svg)
-    draw_style_text(svg)
-    # draw_style_text2(svg)
+    # draw_style_text(svg)
+    draw_style_text2(svg)
 
 
 if __name__ == '__main__':

@@ -21,9 +21,9 @@ from common_path import join_path
 from common import IMAGE_OUTPUT_PATH
 
 
-def svg2Image(svg_file, dst, fmt='pdf', dpi=96):
+def svg2Image(svg_file, dst, fmt='pdf', dpi=96, svglib=False):
     """ svg to image """
-    if 0:  # svglib
+    if svglib:  # svglib
         drawing = svg2rlg(svg_file)
         if fmt == 'pdf':
             renderPDF.drawToFile(drawing, dst)

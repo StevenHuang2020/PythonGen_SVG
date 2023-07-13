@@ -76,10 +76,10 @@ def getCirclePoints(r=1, N=10, func=heartFuc):
     x = np.concatenate((x, x_down), axis=0)
     y = np.concatenate((y, y_down), axis=0)
 
-    if 0:  # connect from random
-        rand = np.random.randint(1, len(x), size=1)[0]
-        x = np.concatenate((x[rand:], x[:rand]), axis=0)
-        y = np.concatenate((y[rand:], y[:rand]), axis=0)
+    # connect from random
+    # rand = np.random.randint(1, len(x), size=1)[0]
+    # x = np.concatenate((x[rand:], x[:rand]), axis=0)
+    # y = np.concatenate((y[rand:], y[:rand]), axis=0)
 
     # print('x=',x)
     # print('y=',y)
@@ -105,8 +105,7 @@ def getRectanglePoints(x0=0, y0=0, N=10, w=10, h=10):
     y = np.concatenate((y, y3), axis=0)
     y = np.concatenate((y, y4), axis=0)
 
-    center = ((x0 + w) / 2, (y0 + h) / 2)
-    return x, y, center
+    return x, y, ((x0 + w) / 2, (y0 + h) / 2)
 
 
 def getRandomProper3Points(a=0, b=5):

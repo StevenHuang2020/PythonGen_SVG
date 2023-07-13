@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" style="border:1px solid black">
-  <style> text{fill: red; font-family: Microsoft YaHei; font-size: 50px; font-style: normal; font-variant: normal; white-space: pre; dominant-baseline: middle; text-anchor: middle; }</style>
-  <text x="70.0" y="70.0" text-anchor="middle" dominant-baseline="central" fill="#328A4E" transform="rotate(0,70.0,70.0)">怡</text>
-  <text x="130.0" y="70.0" text-anchor="middle" dominant-baseline="central" fill="#F0AE83" transform="rotate(90,130.0,70.0)">红</text>
-  <text x="70.0" y="130.0" text-anchor="middle" dominant-baseline="central" fill="#856DF1" transform="rotate(180,70.0,130.0)">快</text>
-  <text x="130.0" y="130.0" text-anchor="middle" dominant-baseline="central" fill="#93B62E" transform="rotate(270,130.0,130.0)">绿</text>
+  <style> text{fill: black; font-family: Consolas; font-size: 24px; font-style: normal; font-variant: normal; white-space: pre; dominant-baseline: middle; text-anchor: middle; }</style>
+  <text x="70" y="30" transform="rotate(0,70,30)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
+  <text x="70" y="55" transform="rotate(30,70,55)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
+  <text x="70" y="80" transform="rotate(60,70,80)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
+  <text x="70" y="105" transform="rotate(90,70,105)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
+  <text x="70" y="130" transform="rotate(120,70,130)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
+  <text x="70" y="155" transform="rotate(150,70,155)" text-anchor="middle" dominant-baseline="central">Text rotation!</text>
 </svg>

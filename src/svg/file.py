@@ -8,7 +8,7 @@ Description: SVGFileV2, SVGFile class
 
 import os
 from lxml import etree
-from svg.basic import draw_rect, draw_tag
+from svg.basic import draw_tag
 
 __all__ = ['SVGFileV2', 'SVGFile']
 
@@ -43,6 +43,10 @@ class SVGFileV2:
             self.add_border(border_color, border_width)
         self.set_title(title)
 
+    def get_xlink(self):
+        """ get xlink """
+        return self._xlink
+
     def get_size(self):
         """ get height, width """
         return self._height, self._width
@@ -58,34 +62,12 @@ class SVGFileV2:
 
     def add_border(self, border_color, border_width):
         """ add svg border """
-        def setborder_1():
-            """ Method 1: add to svg root node """
-            style = f'border:{int(border_width)}px solid {border_color}'
-            self.add_root_style(style)
-
-        def setborder_2():
-            """ Method 2: add a background rect """
-            self._bk_rect = self.draw(draw_rect(0, 0, self._width, self._height, stroke_width=1,
-                                      color='None', stroke_color='black'))
-            self._bk_rect.set("id", "border")
-            self._bk_rect.set("opacity", "0.8")
-
-        setborder_1()
-        # setborder_2()
+        style = f'border:{int(border_width)}px solid {border_color}'
+        self.add_root_style(style)
 
     def set_background(self, color):
         """ set svg background """
-        def bg_method1(color):
-            # Method 1: set _root mode 'style'
-            style = f'background-color:{color}'
-            self.add_root_style(style)
-
-        def bg_method2(color):
-            # Method 2: set 'fill' attr of _bk_rect node
-            if self._bk_rect is not None:
-                self._bk_rect.set("fill", f"{color}")
-
-        bg_method1(color)
+        self.add_root_style(f'background-color:{color}')
 
     def set_title(self, title=None):
         """ set svg title """
@@ -142,16 +124,16 @@ class SVGFileV2:
                 return i
         return None
 
-    def close(self):
+    def close(self, end_of_line=False):
         """ write lxml tree to file """
         tree = etree.ElementTree(self._root)
-        if 1:
+        if not end_of_line:
             tree.write(self._file, pretty_print=True,
                        xml_declaration=True, encoding=r'UTF-8', standalone=False)
         else:
             content = etree.tostring(tree, pretty_print=True,
                                      xml_declaration=True, encoding=r'UTF-8', standalone=False)
-            with open(self._file, 'w', newline=SVGFileV2._WINDOWS_LINE_ENDING) as xml_fh:
+            with open(self._file, 'w', encoding=r'UTF-8', newline=SVGFileV2._WINDOWS_LINE_ENDING) as xml_fh:
                 xml_fh.write(content.decode(r'UTF-8'))
 
     def save(self):

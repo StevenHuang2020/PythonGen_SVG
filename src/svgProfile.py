@@ -18,7 +18,7 @@ class ProfileStyleSimple:
     def __init__(self, svg, data_dict=None):
         self.svg = svg
         self.data_dict = data_dict
-        self._draw_()
+        self.draw()
 
     def _prepare_svg(self):  # style css define
         self.svg.draw(draw_any('title ', text=self.data_dict['name']))
@@ -32,17 +32,15 @@ class ProfileStyleSimple:
         dict_style = {'fill': "black", 'font-family': "cursive", 'font-size': '20px'}
         self.svg.add_child(style_node, self.svg.new_node(add_style('.bodyText', get_styles(dict_style))))
 
-    def _draw_(self):
+    def draw(self, item_w=110, item_h=150, x0=5, y0=30):
         self._prepare_svg()
         H, W = self.svg.get_size()
         # ----------------header------------------- #
         dict_link = {}
-        dict_link[f"{{{self.svg._xlink}}}" + 'href'] = self.data_dict['wiki']
+        dict_link[f"{{{self.svg.get_xlink()}}}" + 'href'] = self.data_dict['wiki']
         a_link = self.svg.draw(draw_any(tag='a'))
         self.svg.set_node_dict(a_link, dict_link)
 
-        item_w = 110
-        item_h = 150
         style_img = {}
         style_img['width'] = str(item_w)
         style_img['height'] = str(item_h)
@@ -50,14 +48,9 @@ class ProfileStyleSimple:
         style_img['y'] = str(0)
         style_img['href'] = self.data_dict['photo']
 
-        if 0:
-            # self.svg.draw(draw_any('image', **style_img))
-            self.svg.add_child(a_link, self.svg.new_node(draw_any('image', **style_img)))
-        else:
-            self.draw_portrait(a_link, style_img['href'], item_w, item_h, (0, 0))
+        self.draw_portrait(a_link, style_img['href'], item_w, item_h, (0, 0))
 
-        y0 = 30
-        x0 = item_w + 5
+        x0 += item_w
         node = self.svg.draw(draw_any(tag='text', x=x0, y=y0, text=self.data_dict['name']))
         self.svg.set_node(node, 'class', 'big')
 
@@ -76,13 +69,15 @@ class ProfileStyleSimple:
                                 color='#FCC64A'))
 
         # ----------------body--------------------- #
-        y0 = item_h + 10
+        self._draw_body(item_h + 10)
+
+    def _draw_body(self, y0):
+        #y0 = item_h + 10
         node_text_body = self.svg.draw(draw_any(tag='text'))
         self.svg.set_node(node_text_body, 'class', 'bodyText')
 
         dict_style = {'dy': "0.2em", 'x': "10"}
         for i, txts in enumerate(self.data_dict['quotes'], start=1):
-            # dict_style['y'] = str(y0)
             for k, line_text in enumerate(txts, start=1):
                 if k == 1:
                     s = str(i) + '. ' + line_text
@@ -157,7 +152,8 @@ def KarlPopper():
     data_dict['quotes'].append('Those who promise us paradise on earth never \rproduced anything but a hell.'.splitlines())
     data_dict['quotes'].append('A theory that explains everything, explains nothing.'.splitlines())
     data_dict['quotes'].append('All life is problem solving.'.splitlines())
-    data_dict['quotes'].append('While differing widely in the various little bits we know, \rin our infinite ignorance we are all equal.'.splitlines())
+    data_dict['quotes'].append('While differing widely in the various little bits we know, \
+                               \rin our infinite ignorance we are all equal.'.splitlines())
     data_dict['quotes'].append('Science may be described as the art of systematic \roversimplification.'.splitlines())
     ProfileStyleSimple(svg, data_dict)
 

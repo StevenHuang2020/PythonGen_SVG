@@ -9,21 +9,20 @@ Description: svg animation
 # https://developer.mozilla.org/en-US/docs/Web/SVG
 # https://css-tricks.com/guide-svg-animations-smil/
 
-
+from dataclasses import dataclass, field
 import random
 import numpy as np
 from svg.basic import draw_circle, clip_float, draw_text
-from svg.basic import random_color, rainbow_colors, reverse_hex, random_color_hsv
-from svg.basic import rand_str, draw_tag, draw_any, draw_polygon, random_point
+from svg.basic import random_color, reverse_hex, random_color_hsv
+from svg.basic import rand_str, draw_tag, draw_any, random_point
 from svg.basic import random_points, draw_path, draw_line, transfrom_dict
 from svg.file import SVGFileV2
-from svg.geo_math import get_distance, get_velocity_line, get_velocity_line_abc
+from svg.geo_math import get_distance, get_velocity_line_abc
 from svg.geo_math import get_line_ABC_inter, get_perpendicular_point_line_ABC
 from svg.geo_math import get_line_ABC, get_line_ABC_y, get_line_ABC_x
+from svg.geo_transformation import rotation_pts_xy_point
 from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
-from svg.geo_transformation import rotation_pts_xy_point, reflection_points
-from svg.geo_transformation import combine_xy, translation_pts, translation_pts_xy
 from svgPointLine import drawPloygonNode, drawlinePoints
 
 
@@ -38,10 +37,10 @@ def createCircle(svg, x, y, r, color=None):
     circle = svg.draw(draw_circle(x, y, r, color=color))
     svg.set_node(circle, 'id', id_str)
 
-    if 1:  # rings
-        svg.set_node(circle, 'fill', 'none')
-        svg.set_node(circle, 'stroke-width', "2")
-        svg.set_node(circle, 'stroke', color)
+    # rings
+    svg.set_node(circle, 'fill', 'none')
+    svg.set_node(circle, 'stroke-width', "2")
+    svg.set_node(circle, 'stroke', color)
     return id, circle
 
 
@@ -116,24 +115,17 @@ def animCircleInflation4(svg):
         circleInflation(svg, cx, cy, r=r0, color=color, from_r=r0, to_r=r1, dur_s=4, begin=begin)
 
 
-def animCircleInflation5(svg):
+def animCircleInflation5(svg, N=20, r0=5, r1=60, offset=10, color=None):
     H, W = svg.get_size()
     # cx, cy = W // 2, H // 2
-    N = 20  # total points
-    r0 = 5
-    r1 = 60
 
-    offset = 10  # margin to border
     pts = random_points((N, 2), a=offset, b=W - offset)
-
-    color = None  # "black"#
     r_list = np.linspace(1, r1 / 2, 20)
     for i in range(N):
         begin = str(random.randint(1, 4)) + 's'  # str(i)+'s' #'0s'
-        dur = random.randint(3, 6)
-        r = random.choice(r_list)
-        id_obj, circle = circleInflation(svg, pts[i][0], pts[i][1], r=r, color=color, from_r=r0, to_r=r1,
-                                         dur_s=dur, begin=begin)
+        id_obj, circle = circleInflation(svg, pts[i][0], pts[i][1],
+                                         r=random.choice(r_list), color=color, from_r=r0, to_r=r1,
+                                         dur_s=random.randint(3, 6), begin=begin)
 
         animate_dict = {}
         animate_dict[f"{{{svg.xlink}}}" + 'href'] = f'#{id_obj}'
@@ -146,19 +138,14 @@ def animCircleInflation5(svg):
         addNodeAnitmation(svg, circle, animate_dict)
 
 
-def drawNodeShape(svg, node):
+def drawNodeShape(svg, node, r=45, angle=np.pi / 5, times=8, theta=0):
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
-    r = 45
 
-    angle = np.pi / 5
     x0 = [cx, cx + 2 * r, cx + r]
     y0 = [cy, cy, cy - r * np.tan(angle)]
     # print('x0 ,y0=', x0 ,y0)
 
-    times = 8
-    theta = 0
-    # rainbow_color = rainbow_colors(times)
     for i in range(times):
         theta = i * (2 * np.pi / times)
         x, y = rotation_pts_xy_point(x0, y0, (cx, cy), theta)
@@ -179,9 +166,7 @@ def drawNodeShape(svg, node):
 
         # print('x_t, y_t=', x_t, y_t)
         txt_child = svg.draw_node(node, draw_text(x_t, y_t, 'Love', color=reverse_hex(color)))
-
-        str_tmp = f'rotate({i * 360 / times},{x0[0]},{y0[0]})'
-        svg.set_node(txt_child, 'transform', str_tmp)
+        svg.set_node(txt_child, 'transform', f'rotate({i * 360 / times},{x0[0]},{y0[0]})')
         svg.set_node(txt_child, 'text-anchor', 'middle')
         svg.set_node(txt_child, 'dominant-baseline', 'central')
 
@@ -311,8 +296,9 @@ def get_points_path(pts, close=False):
     return path
 
 
-def draw_ball_movin(svg, node, radius, W, H, start_pt, step_x, step_y, N=500,
+def draw_ball_movin(svg, node, radius, start_pt, step_x, step_y, N=500,
                     color=None, draw_path_line=False):
+    H, W = svg.get_size()
     ball = BallCoordinates(x=start_pt[0], y=start_pt[1],
                            vx=step_x, vy=step_y,
                            width=W, height=H, offset=radius, N=N)
@@ -353,7 +339,7 @@ def anim7(svg):
     pt = [cx, cy]
     # color = 'red'
     color = f"url('#{color_id}')"
-    draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=-2, step_y=3, N=500,
+    draw_ball_movin(svg, g, r, start_pt=pt, step_x=-2, step_y=3, N=500,
                     color=color, draw_path_line=True)
 
 
@@ -370,38 +356,27 @@ def anim8(svg):
         sx = random.randint(1, 8) * [-1, 1][random.randrange(2)]
         sy = random.randint(1, 8) * [-1, 1][random.randrange(2)]
         # print('r, sx, sy=', r, sx, sy)
-        draw_ball_movin(svg, g, r, W, H, start_pt=pt, step_x=sx, step_y=sy, N=800,
+        draw_ball_movin(svg, g, r, start_pt=pt, step_x=sx, step_y=sy, N=800,
                         color=random_color_hsv())
 
 
+@dataclass(slots=True)
 class BallCoordinates:
     """get coordinates of a bouncing ball in a rect[0, 0, W, H]
     """
+    x: float
+    y: float
+    vx: float
+    vy: float
+    width: int
+    height: int
+    offset: int
+    N: int
+    coordinates: list[np.ndarray] = field(default_factory=list)
 
-    def __init__(self, x, y, vx, vy, width, height, offset=1, N=100):
-        """init parameters
-
-        Args:
-            x (int): start point x value
-            y (int): start point y value
-            vx (int): moving speed in x-axis
-            vy (int): moving speed in y-axis
-            width (int): width of moving rect
-            height (int): height of moving rect
-            offset (int, optional): border offset, equal to ball's radius. Defaults to 1.
-            N (int, optional): moving times. Defaults to 100.
-        """
-        self.x = x
-        self.y = y
-        self.vx = vx
-        self.vy = vy
-        self.width = width
-        self.height = height
-        self.offset = offset
-        self.coordinates = []
-
-        self.coordinates.append([x, y])
-        self.generate(N=N)
+    def __post_init__(self):
+        self.coordinates.append([self.x, self.y])
+        self.generate(N=self.N)
 
     def generate(self, N=100):
         for _ in range(N):
@@ -529,19 +504,16 @@ def get_math_bounce_parameter(line, pt, vx, vy):
     return (perpend_pt, reflect_pt, inter_pt, path_line, reflect_line)
 
 
-def anim9(svg):
+def anim9(svg, vx=-2, vy=1):
     """moving ball bounce with a line"""
     H, W = svg.get_size()
-    # cx, cy = W // 2, H // 2
 
     g = svg.draw(draw_tag('g'))
     svg.set_node(g, 'opacity', '1.0')
 
     wall_line = [2, -1.8, 1]  # line parameters
     pt = random_point(4, W - 5)
-    print(pt, type(pt))
-    vx = -2
-    vy = 1
+    # print(pt, type(pt))
 
     res = get_math_bounce_parameter(wall_line, pt, vx, vy)
     perpend_pt, reflect_pt, inter_pt, path_line, reflect_line = res
@@ -596,14 +568,14 @@ def anim9(svg):
 def anim10(svg):
     """moving ball bounce with a line"""
     H, W = svg.get_size()
-    # cx, cy = W // 2, H // 2
 
     g = svg.draw(draw_tag('g'))
     svg.set_node(g, 'opacity', '1.0')
 
     wall_line = [2, -1.8, 1]  # line parameters
-    pts = draw_line_param_abc(wall_line, 0, W, 0, H)
-    drawlinePoints(svg, pts, g, color='black')
+
+    drawlinePoints(svg, draw_line_param_abc(wall_line, 0, W, 0, H),
+                   g, color='black')
 
     for _ in range(50):
         pt = random_point(4, W - 5)
@@ -612,12 +584,11 @@ def anim10(svg):
         vy = random.randint(1, 5) * [-1, 1][random.randrange(2)]
 
         res = get_math_bounce_parameter(wall_line, pt, vx, vy)
-        perpend_pt, reflect_pt, inter_pt, path_line, reflect_line = res
+        _, reflect_pt, inter_pt, _, reflect_line = res
 
         coords = [pt, inter_pt]
         if reflect_pt is not None:
             min_x, max_x = 0, W
-            # min_y, max_y = 0, H
 
             far_pt = [0, 0]
             if reflect_pt[0] < inter_pt[0]:
@@ -652,8 +623,8 @@ def main():
     # anim6(svg)
     # anim7(svg)
     # anim8(svg)
-    # anim9(svg)
-    anim10(svg)
+    anim9(svg)
+    # anim10(svg)
 
 
 if __name__ == '__main__':

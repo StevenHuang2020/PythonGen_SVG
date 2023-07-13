@@ -110,13 +110,20 @@ def transform(a, matrix):
     return res[0], res[1]
 
 
+def rotation_pts(pts, theta):
+    """ rotation points with (0,0),
+    x' = x*cos(theta)-y*sin(theta), y' = x*sin(theta)+y*cos(theta) """
+    c, s = np.cos(theta), np.sin(theta)
+    matrix = np.array([[c, -s], [s, c]])
+    x, y = transform(pts.T, matrix)
+    return combine_xy(x, y)
+
+
 def rotation_pts_xy(x, y, theta):
     """ rotation points with (0,0),
     x' = x*cos(theta)-y*sin(theta), y' = x*sin(theta)+y*cos(theta) """
-    a = np.stack(([x, y]))
-    c, s = np.cos(theta), np.sin(theta)
-    matrix = np.array([[c, -s], [s, c]])
-    return transform(a, matrix)
+    a = np.stack(([x, y])).T
+    return rotation_pts(a, theta)
 
 
 def rotation_pts_xy_point(x, y, rot_point, theta):
@@ -184,7 +191,8 @@ def shear_points(points, r=0.5, shear_x=True):
     if shear_x:
         matrix = np.array([[1, r], [0, 1]])
 
-    return transform_any_points(points, matrix)
+    x, y = transform(points.T, matrix)
+    return combine_xy(x, y)
 
 
 def reflection_points(points, reflect_x=True):
@@ -197,7 +205,8 @@ def reflection_points(points, reflect_x=True):
     if reflect_x:
         matrix = np.array([[-1, 0], [0, 1]])
 
-    return transform_any_points(points, matrix)
+    x, y = transform(points.T, matrix)
+    return combine_xy(x, y)
 
 
 def transform_any_points(points, matrix):

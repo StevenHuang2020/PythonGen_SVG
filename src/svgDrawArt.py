@@ -25,12 +25,13 @@ def draw_circleRings(x, y, radius, rings=5, color=None, fill_color='white'):
 
 
 class DrawArt:
+    """ draw art class """
     styles = ['Line', 'DiagLine', 'Rectangle', 'Circle', 'Rings']
 
     def __init__(self, svg=None):
         self.svg = svg
 
-    def DrawCircleByPt(self, pt1, pt2, pt3, pt4, circle=True):
+    def DrawCircleByPt(self, pt1, pt3, circle=True):
         pt_center = np.array([(pt1[0] + pt3[0]) / 2, (pt1[1] + pt3[1]) / 2])
         r = abs(pt_center[0] - pt1[0])
 
@@ -104,7 +105,7 @@ class DrawArt:
         # a = [0, 1]
         if N == 1:
             # if random.choice(a):
-            self.DrawCircleByPt(pt1, pt2, pt3, pt4, circle=circle)
+            self.DrawCircleByPt(pt1, pt3, circle=circle)
 
         self.plotArt(pt1, pt_center, N - 1, style=style)
         self.plotArt(np.array([pt_center[0], pt2[1]]), np.array([pt2[0], pt_center[1]]),

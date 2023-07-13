@@ -57,7 +57,8 @@ def polygon_edge_centers(polygon_array):
 
     if num < 2:
         return res
-    elif num == 2:
+
+    if num == 2:
         x = (polygon_array[0][0] + polygon_array[1][0]) / 2
         y = (polygon_array[0][1] + polygon_array[1][1]) / 2
         res = np.vstack((res, [x, y]))

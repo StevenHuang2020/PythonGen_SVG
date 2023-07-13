@@ -9,9 +9,10 @@ Description: Basic svg functions and svg node(string) generating functions.
 import random
 import string
 import colorsys
-import matplotlib as mpl
-from matplotlib.pyplot import cm
 import numpy as np
+import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 
 def color_fader(c1='#000000', c2='#ffffff', mix=0):
@@ -19,6 +20,18 @@ def color_fader(c1='#000000', c2='#ffffff', mix=0):
     c1 = np.array(mpl.colors.to_rgb(c1))
     c2 = np.array(mpl.colors.to_rgb(c2))
     return mpl.colors.to_hex((1 - mix) * c1 + mix * c2)
+
+
+def random_color_generator():
+    """ random a css common string color """
+    # css_colors = list(mcolors.CSS4_COLORS.keys())
+    # print("css colors=", css_colors, len(css_colors)) # 148
+    return random.choice(list(mcolors.CSS4_COLORS.keys()))
+
+
+def random_color_rgb():
+    """ get a random rgb value """
+    return tuple(np.random.randint(0, 256, size=3))
 
 
 def random_color():
@@ -45,16 +58,31 @@ def random_color_hsv():
     return convert_rgb([int(x * 255) for x in float_rgb])
 
 
+def get_cmap(n, name='hsv'):
+    """ Returns a function that maps each index in 0, 1, ..., n-1 to a distinct
+    RGB color; the keyword argument name must be a standard mpl colormap name."""
+    return plt.cm.get_cmap(name, n)
+
+
+def list_colormaps():
+    """ list matplotlib color maps """
+    for i in mpl.colormaps:
+        print(i, type(i))
+
+
 def rainbow_colors(N=255):
     """ get rainbow colors """
+    return get_colors(N, color_map='rainbow')
+
+
+def get_colors(N=100, color_map='rainbow'):
     res = []
-    rainbows = mpl.colormaps['rainbow']
-    hsv_colors = rainbows(np.linspace(0, 1, N))
+    color_map = mpl.colormaps[color_map]
+    hsv_colors = color_map(np.linspace(0, 1, N))
     for i in hsv_colors:
         float_rgb = colorsys.hsv_to_rgb(i[0], i[1], i[2])  # h s v
         rgb = [int(x * 255) for x in float_rgb]
-        c = convert_rgb(rgb)
-        res.append(c)
+        res.append(convert_rgb(rgb))
     return res
 
 
@@ -353,7 +381,10 @@ def main():
     print('f=', f)
     print('list=', add_style('abc', 'a:1; b:2; ft:10pt;'))
     print('text=', draw_text(text='hi'))
-    print('color=', rainbow_colors())
+    # print('color=', rainbow_colors())
+    list_colormaps()
+    print('random color=', random_color_generator())
+    print('random rgb color=', random_color_rgb())
 
 
 if __name__ == '__main__':

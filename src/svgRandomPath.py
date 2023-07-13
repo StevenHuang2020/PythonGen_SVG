@@ -8,10 +8,10 @@ Description: svg random Path
 import random
 import numpy as np
 from svg.file import SVGFileV2
-from svg.basic import clip_float, draw_only_path, add_style_path, draw_path
+from svg.basic import clip_float, draw_only_path, add_style_path
 from svg.basic import draw_circle, draw_any, random_color
-from svgFunction import circleFuc, getCirclePoints, heartFuc, getRectanglePoints, drawOnePathcSVG
 from svg.geo_transformation import rotation_pts_xy, rotation_pts_xy_point
+from svgFunction import circleFuc, getCirclePoints, heartFuc, getRectanglePoints, drawOnePathcSVG
 from common import IMAGE_OUTPUT_PATH
 from common_path import join_path
 
@@ -101,14 +101,10 @@ def draw_heart_curve():
     svg.close()
 
 
-def drawRandomCirclePath(svg):
+def drawRandomCirclePath(svg, only_path=False, r=2, times=100):
     H, W = svg.get_size()
-
     styles = ['circles', 'circle points', 'circle points random']
 
-    only_path = False
-    times = 100
-    r = 2
     offsetX = W // 2
     offsetY = H // 2
     style = styles[1]
@@ -126,26 +122,20 @@ def drawRandomCirclePath(svg):
             r = r + random.random() * 18
             ptX, ptY = getCirclePtsSVG(
                 r=r, N=20, offsetX=offsetX, offsetY=offsetY, noise=False)
-            pt_number = int(5 * r)
-            # ptX = np.random.choice(ptX, pt_number)
-
             ptX = ptX.reshape((len(ptX), 1))
             ptY = ptY.reshape((len(ptY), 1))
             pts = np.concatenate((ptX, ptY), axis=1)
             # print(ptX.shape, pts.shape)
 
-            pts_index = np.random.randint(len(pts), size=pt_number)
+            pts_index = np.random.randint(len(pts), size=int(5 * r))
             # print('pts_index=', pts_index, len(pts))
             pts = pts[pts_index, :]
 
             for i in pts:
-                # print('i=', i)
-                # r = 0.5
                 r = np.random.random() * (3 - 0.2) + 0.2
                 r = clip_float(r)
-                x = clip_float(i[0])
-                y = clip_float(i[1])
-                svg.draw(draw_circle(x, y, radius=r, color=random_color()))
+                svg.draw(draw_circle(clip_float(i[0]), clip_float(i[1]),
+                                     radius=r, color=random_color()))
 
 
 def getRectanglePtsSVG(w, h, N=10, noise=True):

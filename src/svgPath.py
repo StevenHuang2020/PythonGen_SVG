@@ -9,12 +9,12 @@ Description: SVG path tag
 import random
 import numpy as np
 from svg.file import SVGFileV2
-from svg.basic import clip_float, random_color, random_color_hsv
+from svg.basic import clip_float, random_color_hsv
 from svg.basic import draw_path, draw_text, add_style, get_styles
-from svg.basic import random_points, random_point, transfrom_dict
-from svg.geo_transformation import translation_pts_xy, rotation_pts_xy, rotation_pts_xy_point
-from svg.geo_transformation import zoom_pts_xy_point, zoom_pts_xy
-from svg.geo_transformation import identity_trans, translation_pts
+from svg.basic import random_points, transfrom_dict
+from svg.geo_transformation import translation_pts_xy, rotation_pts, rotation_pts_xy_point
+from svg.geo_transformation import zoom_pts_xy_point, zoom_pts
+from svg.geo_transformation import translation_pts
 from svg.geo_transformation import shear_points, reflection_points
 from svg.geo_transformation import split_points, transform_any_points
 from svg.geo_math import get_5star
@@ -22,7 +22,6 @@ from svg.geo_math import get_5star
 from common import IMAGE_OUTPUT_PATH
 from svgFunction import funcSin
 from svgAnimation import addNodeAnitmation
-from svgImageMask import loadImg, OtsuMethodThresHold, showimage
 from common_path import join_path
 
 
@@ -139,7 +138,7 @@ def svg_path2(svg):
         draw_points_svg(svg, ptx, pty, stroke=stroke)
 
 
-def svg_path3(svg, anim=True):
+def svg_path3(svg, anim=True, N=400, xoffset=0.2):
     def drawStyleText(svg):
         style_dict = {}
         # style_dict['fill'] = 'black'
@@ -150,21 +149,20 @@ def svg_path3(svg, anim=True):
 
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
-    N = 400
-    xoffset = 0.2
+
     x = np.linspace(xoffset, 5 - xoffset, N) * 20
     y = funcSin(x / 0.6) * x / 3
 
     x, y = translation_pts_xy(x, y, (cx, cy))
-    # draw_points_svg(svg, x, y)
 
-    # drawStyleText(svg)
-    # svg.draw(draw_text(5, 10, 'y=sin(x)'))
+    draw_animt_path(svg, x, y, cx, cy, anim=anim)
 
-    N = 10
+
+def draw_animt_path(svg, x, y, cx, cy, N=10, anim=True):
+    """ draw path animation """
     for i in range(N):
         ptx, pty = rotation_pts_xy_point(x, y, (cx, cy), i * 2 * np.pi / N)
-        node = draw_points_svg(svg, ptx, pty)
+        node = draw_points_svg(svg, ptx, pty, color=random_color_hsv())
 
         if anim:
             trans_dict = transfrom_dict(cx, cy, cx, cy, dur=8)
@@ -268,118 +266,71 @@ def test_geo_transformation():
     x, y = split_points(pts)
 
     # print('x, x.shape=', x, x.shape)
-    # new_x, new_y = identity_trans(x, y)
     # new_x, new_y = translation_pts_xy(x, y, (1, -2))
     # new_x, new_y = translation_pts(pts, (1, -2))
-    # new_x, new_y = rotation_pts_xy(x, y, 0)
-    # new_x, new_y = zoom_pts_xy(x, y, 1.1)
     # new_x, new_y = shear_points(pts, 1)
     new_x, new_y = reflection_points(pts, 1)
     print('new_x =', new_x)
     print('new_y =', new_y)
 
 
-def svg_transformation(svg):
+def svg_transformation(svg, N=5, fill_color='green', stroke_w=0.3, text_w=38,
+                       fontsize='5px', text_x=2, text_y=20, offet_x=25, offet_y=20):
     """basic transforms demonstration"""
     H, W = svg.get_size()
 
-    pts = get_5star(R=9, r=6)
-    print('pts=', pts, pts.shape)
-    fill_color = 'green'  # random_color_hsv()
-    stroke_w = 0.3
-    stroke_color = None
-    line_color = 'green'
-    N = 5  # lines
+    pts = get_5star(R=18, r=10)
+    # print('pts=', pts, pts.shape)
     hinter = H // N
-    text_w = 22
     start_w = (W - text_w) // 2
-    text_x = 1
-    text_y = 10
-    fontsize = '3px'
-    offet_x, offet_y = 15, 11
 
-    # start to draw
-    path = f'M{text_w} 0 V{H}'
-    svg.draw(draw_path(path, stroke_width=stroke_w, color=line_color))
+    # draw vertical line
+    svg.draw(draw_path(f'M{text_w} 0 V{H}', stroke_width=stroke_w, color='green'))
 
     # draw grid lines
     for i in range(N):
-        path = f'M0 {i * hinter} h{W}'
-        svg.draw(draw_path(path, stroke_width=stroke_w, color=line_color))
+        svg.draw(draw_path(f'M0 {i * hinter} h{W}', stroke_width=stroke_w, color='green'))
 
-    # start translation
-    txt = 'Translation:'
-    svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
+    def draw_translation_line(svg, txt, org_pts, dst_pts, cx, cy):
+        # draw text
+        svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
 
-    x, y = split_points(pts)
+        # draw org
+        px, py = translation_pts(org_pts, (cx, cy))
+        draw_points_svg(svg, px, py, stroke=None, color=None, fill_color=fill_color, close=True)
+
+        # draw transformed
+        px, py = dst_pts
+        draw_points_svg(svg, px, py, stroke=None, color=None, fill_color=fill_color, close=True)
+
     cx = text_w + offet_x
     cy = offet_y
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
-
-    cx += start_w
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
+    dst = translation_pts(pts, (cx + start_w, cy))
+    draw_translation_line(svg, 'Translation:', pts, dst, cx, cy)
 
     # start rotation
     text_y += hinter
-    txt = 'Rotation:'
-    svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
-
-    cx = text_w + offet_x
     cy += hinter
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
-
-    cx += start_w
-    px, py = rotation_pts_xy(x, y, np.pi / 6)
-    px, py = translation_pts_xy(px, py, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
+    dst = translation_pts(rotation_pts(pts, np.pi / 6), (cx + start_w, cy))
+    draw_translation_line(svg, 'Rotation:', pts, dst, cx, cy)
 
     # start zoom
     text_y += hinter
-    txt = 'Zoom:'
-    svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
-
-    cx = text_w + offet_x
     cy += hinter
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
-
-    cx += start_w
-    px, py = zoom_pts_xy(x, y, 0.7)
-    px, py = translation_pts_xy(px, py, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
+    dst = translation_pts(zoom_pts(pts, 0.7), (cx + start_w, cy))
+    draw_translation_line(svg, 'Zoom:', pts, dst, cx, cy)
 
     # start shear
     text_y += hinter
-    txt = 'Shear:'
-    svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
-
-    cx = text_w + offet_x
     cy += hinter
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
-
-    cx += start_w
-    px, py = shear_points(pts, r=0.7)
-    px, py = translation_pts_xy(px, py, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
+    dst = translation_pts(shear_points(pts, r=0.7), (cx + start_w, cy))
+    draw_translation_line(svg, 'Shear:', pts, dst, cx, cy)
 
     # start reflection
     text_y += hinter
-    txt = 'Reflection:'
-    svg.draw(draw_text(x=text_x, y=text_y, text=txt, fontsize=fontsize))
-
-    cx = text_w + offet_x
     cy += hinter
-    px, py = translation_pts(pts, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
-
-    cx += start_w
-    px, py = reflection_points(pts, reflect_x=False)
-    px, py = translation_pts_xy(px, py, (cx, cy))
-    draw_points_svg(svg, px, py, stroke=None, color=stroke_color, fill_color=fill_color, close=True)
+    dst = translation_pts(reflection_points(pts, reflect_x=False), (cx + start_w, cy))
+    draw_translation_line(svg, 'Reflection:', pts, dst, cx, cy)
 
 
 def svg_transformation_cust(svg):
@@ -404,7 +355,7 @@ def main():
     """ main function """
     file = join_path(IMAGE_OUTPUT_PATH, 'svgPath.svg')
     svg = SVGFileV2(file, W=200, H=200, border=True)
-    svg_path_basic(svg)
+    # svg_path_basic(svg)
     # svg_path(svg)
     # svg_path2(svg)
     # svg_path3(svg)
@@ -413,7 +364,7 @@ def main():
     # svg_path6(svg)
     # svg_path7(svg)
     # test_geo_transformation()
-    # svg_transformation(svg)
+    svg_transformation(svg)
     # svg_transformation_cust(svg)
 
 

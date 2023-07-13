@@ -18,8 +18,7 @@ from svg.basic import draw_ring, draw_only_circle
 from svg.basic import random_points, uniform_random_points, line_style, get_styles
 from svg.basic import draw_only_line, is_element_name, style_content
 from svg.geo_transformation import rotation_pts_xy_point, translation_pts
-from svg.geo_transformation import combine_xy, center_cordinates
-from svg.geo_math import get_5star, points_on_triangle, get_regular_ngons
+from svg.geo_math import points_on_triangle, get_regular_ngons
 from graph.graphPoints import GraphPoints
 from graph.interPoints import GetLineSegInterPoint
 from common import IMAGE_OUTPUT_PATH
@@ -120,7 +119,7 @@ def drawPloygonNode(svg, pts, node=None, color=None, stroke_color=None):
     svg.draw_node(node, polygon)
 
 
-def drawPointsCircle(svg, pts=[], node=None, r=2, color='black', styles_opt=True):
+def drawPointsCircle(svg, pts, node=None, r=2, color='black', styles_opt=True):
     if styles_opt:
         drawPointsCircle_style(svg, pts, node, r, color)
     else:
@@ -130,7 +129,7 @@ def drawPointsCircle(svg, pts=[], node=None, r=2, color='black', styles_opt=True
             svg.draw_node(node, draw_circle(x, y, radius=r, color=color))
 
 
-def drawPointsCircle_style(svg, pts=[], node=None, r=2, color='black', style_class='circle'):
+def drawPointsCircle_style(svg, pts, node=None, r=2, color='black', style_class='circle'):
     style_dict = {}
     style_dict['fill'] = color or random_color()
     style_dict['r'] = str(r)
@@ -244,17 +243,12 @@ def drawPointsLineGraphic3(svg):
     drawInterPointLines(svg, line_points, r=1, color=color1)
 
 
-def drawPointsLineGraphic4(svg):
+def drawPointsLineGraphic4(svg, N=300, r0=80, color='#48C9B0', theta=0):  # 'green'
     H, W = svg.get_size()
-    cx, cy = W // 2, H // 2
-    N = 300
-    r0 = 80
-    color = '#48C9B0'  # 'green'
-
-    offsetX = cx
-    offsetY = cy
+    offsetX = W // 2
+    offsetY = H // 2
     line_points = []
-    theta = 0
+
     stroke_widths = []
     for _ in range(N):
         r = r0 + random.normalvariate(mu=0, sigma=1) * 4
@@ -391,46 +385,37 @@ def drawPointsLineGraphic7(svg):
                     (x[2], y[2])], color='black')
 
 
-def drawPointsLineGraphic8(svg):  # Neuron network
+def drawPointsLineGraphic8(svg, inter=52, x0=15):  # Neuron network
     def getNumberYs(H, N=3):
-        offsetY = 190 / N
-        # h_inter = (H - 2 * offsetY) / (N - 1)
+        offsetY = 200 / N
         if N == 1:
             return [H / 2]
         return np.linspace(offsetY, H - offsetY, N)
 
     H, W = svg.get_size()
-    # cx, cy = W // 2, H // 2
-
     layer_numbers = [8, 6, 6, 4]
-    pts_layers = []
 
-    inter = 52
-    x0 = 15
+    pts_layers = []
     for i, N in enumerate(layer_numbers):
-        # x = x0 + i*inter
         xs = np.zeros((N,)) + x0 + i * inter
         ys = getNumberYs(H, N)
-        # print('xs=', len(xs), xs)
-        # print('ys=', len(ys), ys)
+        pts_layers.append(np.stack(([xs, ys])).T)
+    draw_network_layers(svg, pts_layers)
 
-        pt_layer = np.stack(([xs, ys])).T
-        # print('pt_layer=',pt_layer)
-        pts_layers.append(pt_layer)
 
+def draw_network_layers(svg, pts_layers):
+    """ draw network layers """
     # print('pts_layers=',pts_layers)
     for i, lay_pts in enumerate(pts_layers):
         x = lay_pts[0][0] - 15
         y = lay_pts[0][1] - 8
         # print(x,y)
-        svg.draw(draw_text(x, y, 'layer' + str(i)))
+        svg.draw(draw_text(x, y, 'Layer' + str(i)))
         drawPointsCircle(svg, lay_pts, r=3, color=random_color())
 
     for i in range(len(pts_layers) - 1):
         layer_pts_pre = pts_layers[i]
         layer_pts = pts_layers[i + 1]
-        # print('layer_pts_pre=',layer_pts_pre)
-        # print('layer_pts=',layer_pts)
 
         line_points = []
         for pre in layer_pts_pre:
@@ -471,12 +456,12 @@ def draw_Delaunay_triangle(svg, tri, pts):
     # print('con_ponts=', con_ponts, len(con_ponts))
     # num = len(con_ponts)
     # ci = np.random.randint(num, size=num)
-    for _, pts in enumerate(con_ponts):
+    for _, x in enumerate(con_ponts):
         # color = color_fader('#000000', '#ffffff', ci[i % num] / num)
         # color = color_fader('#F2F5F3', '#4A406C', ci[i % num] / num)  # purple
         # color = color_fader('#8FBC8F', '#4B8063', ci[i % num] / num)  # green
         color = random_color_hsv()
-        drawPloygonNode(svg, pts=pts, color=color)
+        drawPloygonNode(svg, pts=x, color=color)
 
 
 def draw_Delaunay_line(svg, tri, pts, color='green'):
@@ -559,9 +544,9 @@ def draw_plogon_subtriangle(svg, pts, center_pt, N=500):
     # print('con_ponts=', con_ponts, len(con_ponts))
     num = len(con_ponts)
     colors = [random_color_hsv() for _ in range(num)]
-    for i, pts in enumerate(con_ponts):
-        # print(i, pts)
-        inner_pts = points_on_triangle(pts, N)
+    for i, x in enumerate(con_ponts):
+        # print(i, x)
+        inner_pts = points_on_triangle(x, N)
         # print(i, inner_pts)
         drawPointsCircle(svg, inner_pts, r=0.8, color=colors[i])
 
@@ -622,9 +607,6 @@ def get_voronoi_lines(vor):
 
 def get_vor_region_polygons(vor, radius=None):
     """get all finite and non-finite polygons"""
-    new_regions = []
-    new_vertices = vor.vertices.tolist()
-
     center = vor.points.mean(axis=0)
     if radius is None:
         radius = vor.points.ptp().max() * 2
@@ -637,6 +619,13 @@ def get_vor_region_polygons(vor, radius=None):
 
     # print('all_ridges=', all_ridges)
     # finit_polygons = []
+    return reconstruct(vor, all_ridges, center, radius)
+
+
+def reconstruct(vor, all_ridges, center, radius):
+    """ reconstruct """
+    new_regions = []
+    new_vertices = vor.vertices.tolist()
 
     # Reconstruct infinite regions
     for p1, region in enumerate(vor.point_region):
@@ -646,40 +635,42 @@ def get_vor_region_polygons(vor, radius=None):
             # polygon = [vor.vertices[i].tolist() for i in vertices]
             # finit_polygons.append(polygon)
         else:
-            # reconstruct a non-finite region
-            new_region = [v for v in vertices if v >= 0]
-            for p2, v1, v2 in all_ridges[p1]:
-                if v2 < 0:
-                    v1, v2 = v2, v1
-                if v1 >= 0:
-                    # finite ridge: already in the region
-                    continue
+            reconstruct_region(vor, p1, vertices, all_ridges, new_vertices, center, radius, new_regions)
 
-                # Compute the missing endpoint of an infinite ridge
-                t = vor.points[p2] - vor.points[p1]  # tangent
-                t /= np.linalg.norm(t)
-                n = np.array([-t[1], t[0]])  # normal
+    return new_regions, np.asarray(new_vertices)
 
-                midpoint = vor.points[[p1, p2]].mean(axis=0)
-                direction = np.sign(np.dot(midpoint - center, n)) * n
-                far_point = vor.vertices[v2] + direction * radius
 
-                new_region.append(len(new_vertices))
-                new_vertices.append(far_point.tolist())
+def reconstruct_region(vor, p1, vertices, all_ridges, new_vertices, center, radius, new_regions):
+    """ reconstruct region """
+    # reconstruct a non-finite region
+    new_region = [v for v in vertices if v >= 0]
+    for p2, v1, v2 in all_ridges[p1]:
+        if v2 < 0:
+            v1, v2 = v2, v1
+        if v1 >= 0:
+            # finite ridge: already in the region
+            continue
 
-            # sort region counterclockwise
-            vt = np.asarray([new_vertices[v] for v in new_region])
-            c = vt.mean(axis=0)
-            angles = np.arctan2(vt[:, 1] - c[1], vt[:, 0] - c[0])
-            new_region = np.array(new_region)[np.argsort(angles)]
+        # Compute the missing endpoint of an infinite ridge
+        t = vor.points[p2] - vor.points[p1]  # tangent
+        t /= np.linalg.norm(t)
+        n = np.array([-t[1], t[0]])  # normal
 
-            # finish
-            new_regions.append(new_region.tolist())
+        midpoint = vor.points[[p1, p2]].mean(axis=0)
+        direction = np.sign(np.dot(midpoint - center, n)) * n
+        far_point = vor.vertices[v2] + direction * radius
 
-    new_vertices = np.asarray(new_vertices)
-    # print('new_regions=', new_regions)
-    # print('new_vertices=', new_vertices)
-    return new_regions, new_vertices
+        new_region.append(len(new_vertices))
+        new_vertices.append(far_point.tolist())
+
+    # sort region counterclockwise
+    vt = np.asarray([new_vertices[v] for v in new_region])
+    c = vt.mean(axis=0)
+    angles = np.arctan2(vt[:, 1] - c[1], vt[:, 0] - c[0])
+    new_region = np.array(new_region)[np.argsort(angles)]
+
+    # finish
+    new_regions.append(new_region.tolist())
 
 
 def draw_voronoi_regions(svg, node, vor, radius=None):
@@ -694,26 +685,6 @@ def draw_voronoi_regions(svg, node, vor, radius=None):
         # color = color_fader('#8FBC8F', '#4B8063', ci[i % num] / num)  # green
         # color = random_color_hsv()
         drawPloygonNode(svg, pts=polygon, node=node, color=color)
-
-    '''
-    # color regions
-    polygons = []
-    for r in vor.point_region:
-        region = vor.regions[r]
-        if region is not None:
-            if not -1 in region:
-                polygon = [vor.vertices[i].tolist() for i in region]
-                # print('polygon=', polygon)
-                polygons.append(polygon)
-            else:
-                region = [x for x in region if x >= 0]  # finite end Voronoi vertex
-                print('region=', region)
-                # polygon = [vor.vertices[i].tolist() for i in region]
-                # polygons.append(polygon)
-
-    for i in polygons:
-        drawPloygonNode(svg, i, node=node, color=random_color_hsv())
-    '''
 
 
 def drawPointsLineGraphic12(svg):
@@ -734,11 +705,6 @@ def drawPointsLineGraphic12(svg):
     pts = uniform_random_points(
         W, H, N, N, x_offset=W // N / 8, y_offset=H // N / 8)
     # pts = np.array([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]])*40
-
-    # x, y = translation_pts(pts, (cx, cy))
-    # pts = combine_xy(x, y)
-    # pts = center_cordinates(pts, np.array([cx, cy]))
-    # print('pts.shape=', pts, pts.shape)
 
     vor = Voronoi(pts)
     # print('vor.vertices=', vor.vertices, vor.vertices.shape)
@@ -773,22 +739,22 @@ def area_regular_polygon(r=1, N=6):
 
 def chord_length(r=1, pre_chord_len=1, N=6):
     """regular polygon chord length
-
+    # https://en.wikipedia.org/wiki/Liu_Hui's_%CF%80_algorithm
     Args:
         r (float): radius of circle
         pre_chord_len (float): chord length of N(6, 12, 24, 48, ...) regular polygon
     """
-    # https://en.wikipedia.org/wiki/Liu_Hui's_%CF%80_algorithm
+
     chord_len = np.sqrt(pre_chord_len**2 / 4 +
                         (r - np.sqrt(r**2 - pre_chord_len**2 / 4))**2)
     s = pre_chord_len * r * N / 2
     return s, chord_len
 
 
-def drawPointsLineGraphic13(svg):
+def drawPointsLineGraphic13(svg, r=55):
     H, W = svg.get_size()
     cx, cy = W // 2, H // 2
-    r = 55
+
     cy -= 20
 
     g = svg.draw(draw_any('g'))
@@ -823,25 +789,35 @@ def drawPointsLineGraphic13(svg):
     svg.draw_node(g, draw_text(
         15, 155, "S_2N = Chord*R*N, where N=6,12,24,48,...", fontsize='8px'))
 
-    strs = []
-    y0 = 165
-    x0 = 2
+    draw_pi_text(svg, g)
 
-    r = 1
+
+def draw_pi_text(svg, g, r=1, x0=2, y0=165):
+    strs = []
+
     chord_len = r  # chord length of hexagon equal to r
     for i in range(1, 11):
         N = np.power(2, i - 1) * 6
         # s = area_regular_polygon(N=N)
         s, chord_len = chord_length(r=1, pre_chord_len=chord_len, N=N)
         # print('N, s, chord_len=', N, s, chord_len)
-        x = f'S_{2*N}={s}'
-        print(x)
-        strs.append(x)
+        strs.append(f'S_{2*N}={s}')
 
         if i % 2 == 0:
             svg.draw_node(g, draw_text(x0, y0, ','.join(strs), fontsize='7px'))
             y0 += 8
             strs = []
+
+
+def calculate_pi(N=20):
+    chord_len = 1  # chord length of hexagon equal to r
+    s = 0
+    n: np.uint64 = 0
+    for i in range(1, N):
+        n = np.power(2, i - 1) * 6
+        s, chord_len = chord_length(r=1, pre_chord_len=chord_len, N=n)
+        print('n, s, chord_len=', n, s, chord_len)
+    return s
 
 
 def main():
@@ -854,12 +830,12 @@ def main():
     # drawPointsLineGraphic4(svg)
     # drawPointsLineGraphic5(svg)
     # drawPointsLineGraphic6(svg)
-    drawPointsLineGraphic7(svg)
+    # drawPointsLineGraphic7(svg)
     # drawPointsLineGraphic8(svg)
     # drawPointsLineGraphic9(svg)
     # drawPointsLineGraphic10(svg)
     # drawPointsLineGraphic11(svg)
-    # drawPointsLineGraphic12(svg)
+    drawPointsLineGraphic12(svg)
     # drawPointsLineGraphic13(svg)
 
 

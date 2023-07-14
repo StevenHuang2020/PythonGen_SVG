@@ -52,7 +52,7 @@ def circleInflation(svg, x, y, r, color=None, from_r=0, to_r=0, dur_s=5, begin=N
 
     animate_dict = {}
     # animate_dict['xlink:href'] = f'#{id_obj}'
-    animate_dict[f"{{{svg.xlink}}}" + 'href'] = f'#{id_obj}'
+    animate_dict[f"{{{svg.get_xlink()}}}" + 'href'] = f'#{id_obj}'
     animate_dict['id'] = 'ani_' + id_obj + '_' + rand_str(2)
     animate_dict['fill'] = 'freeze'
     animate_dict['attributeName'] = 'r'
@@ -621,9 +621,9 @@ def main():
     # anim_Windmill(svg)
     # drawAny(svg)
     # anim6(svg)
-    # anim7(svg)
+    anim7(svg)
     # anim8(svg)
-    anim9(svg)
+    # anim9(svg)
     # anim10(svg)
 
 

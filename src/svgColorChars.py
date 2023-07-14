@@ -5,8 +5,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 Description: Color characters
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-import numpy as np
-from svg.basic import get_colors, draw_text, list_colormaps, draw_text_only
+from svg.basic import get_colors, list_colormaps
 from svg.basic import text_style, add_style, get_styles, draw_any
 from svg.file import SVGFileV2
 from common import IMAGE_OUTPUT_PATH
@@ -16,10 +15,8 @@ from common_path import join_path
 
 def Convert(s):
     """ get char list of a string"""
-    # list1 = []
-    # list1[:0] = s
-    # return list1
-    return [i for i in s]
+    # return [i for i in s]
+    return list(s)
 
 
 def get_text_colors(text):
@@ -37,8 +34,6 @@ def get_text_colors(text):
 
 def draw_char(svg, char, x0, y0, color):
     """ draw text lines """
-    # svg.draw(draw_text(x=x0, y=y0, text=char, color=color))
-    # svg.draw(draw_text_only(x=x0, y=y0, text=char))
     svg.draw(draw_any("text", text=char, x=x0, y=y0, fill=color))
 
 
@@ -76,7 +71,7 @@ def calculate_pi(N=1545):
         for j in range(N):
             if 4 * q + r - t < m * t:
                 yield m
-                q, r, t, k, m, x = 10 * q, 10 * (r - m * t), t, k, (10 * (3 * q + r)) // t - 10 * m, x
+                q, r, m = 10 * q, 10 * (r - m * t), (10 * (3 * q + r)) // t - 10 * m
             else:
                 q, r, t, k, m, x = q * k, (2 * q + r) * x, t * x, k + 1, (q * (7 * k + 2) + r * x) // (t * x), x + 2
 

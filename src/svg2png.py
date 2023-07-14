@@ -50,7 +50,7 @@ def set_image_dpi_resize(image, dst):
     length_x, width_y = image.size
     factor = min(1, float(1024.0 / length_x))
     size = int(factor * length_x), int(factor * width_y)
-    image_resize = image.resize(size, PIL.Image.ANTIALIAS)
+    image_resize = image.resize(size, PIL.Image.Resampling.LANCZOS)
     # temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='1.png')
     # temp_filename = temp_file.name
     image_resize.save(dst, dpi=(300, 300))

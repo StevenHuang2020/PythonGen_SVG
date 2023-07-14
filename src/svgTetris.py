@@ -42,9 +42,7 @@ def draw_type(svg, self_id, ref_id, fill, coordinates):
 
     dict_any = {}
     dict_any[f"{{{svg.get_xlink()}}}" + 'href'] = f'#{ref_id}'
-    if fill is None:
-        fill = random_color()
-    dict_any['fill'] = fill
+    dict_any['fill'] = fill if fill is not None else random_color()
 
     for i in coordinates:
         dict_any['x'] = str(i[0])

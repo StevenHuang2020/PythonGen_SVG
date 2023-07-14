@@ -93,28 +93,28 @@ class SVGFileV2:
         for key, value in attri_dict.items():
             self.set_node(node, key, value)
 
-    def add_child(self, parent, child):
+    def _add_child(self, parent, child):
         """ add child node """
         if parent is None:
             parent = self._root
         parent.append(child)
 
-    def draw(self, content: str = ''):
-        """ link child to svgRoot element """
-        return self.draw_node(self._root, content)
-
-    def new_node(self, content: str = ''):
+    def _new_node(self, content: str = ''):
         """ create a node """
         return etree.fromstring(content)
 
-    def draw_node(self, node=None, content: str = ''):
-        """ link child to node element """
-        child_node = self.new_node(content)
-        self.add_child(node, child_node)
+    def draw(self, content: str = ''):
+        """ link child to svgRoot """
+        return self.draw_node(self._root, content)
+
+    def draw_node(self, node_parent=None, content: str = ''):
+        """ link child to parent node """
+        child_node = self._new_node(content)
+        self._add_child(node_parent, child_node)
         return child_node
 
     def get_child(self, node=None, child_tag=None):
-        """ get child node by tag """
+        """ get first child node by tag """
         if node is None:
             node = self._root
         for i in node:

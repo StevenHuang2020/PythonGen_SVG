@@ -25,12 +25,14 @@ class ProfileStyleSimple:
         style_node = self.svg.draw(draw_any('style ', type="text/css"))
 
         dict_style = {'fill': "black", 'font-family': "sans-serif", 'font-size': '28px'}
-        self.svg.add_child(style_node, self.svg.new_node(add_style('.big', get_styles(dict_style))))
+        self.svg.draw_node(style_node, add_style('.big', get_styles(dict_style)))
+
         dict_style = {'fill': "black", 'font-family': "sans-serif", 'font-size': '20px'}
-        self.svg.add_child(style_node, self.svg.new_node(add_style('.small', get_styles(dict_style))))
+        self.svg.draw_node(style_node, add_style('.small', get_styles(dict_style)))
+
         # cursive  fantasy monospace
         dict_style = {'fill': "black", 'font-family': "cursive", 'font-size': '20px'}
-        self.svg.add_child(style_node, self.svg.new_node(add_style('.bodyText', get_styles(dict_style))))
+        self.svg.draw_node(style_node, add_style('.bodyText', get_styles(dict_style)))
 
     def draw(self, item_w=110, item_h=150, x0=5, y0=30):
         self._prepare_svg()
@@ -72,7 +74,7 @@ class ProfileStyleSimple:
         self._draw_body(item_h + 10)
 
     def _draw_body(self, y0):
-        #y0 = item_h + 10
+        # y0 = item_h + 10
         node_text_body = self.svg.draw(draw_any(tag='text'))
         self.svg.set_node(node_text_body, 'class', 'bodyText')
 
@@ -86,8 +88,8 @@ class ProfileStyleSimple:
 
                 y0 += 30
                 dict_style['y'] = str(y0)
-                line = self.svg.new_node(draw_any(tag='tspan', text=s, **dict_style))
-                self.svg.add_child(node_text_body, line)
+
+                self.svg.draw_node(node_text_body, draw_any(tag='tspan', text=s, **dict_style))
             y0 += 20
 
     def draw_portrait(self, node, file, width, height, to_point=(0, 0)):

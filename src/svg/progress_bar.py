@@ -22,6 +22,21 @@ class SimpleProgressBar():
         self._start_time = time.time()  # start time
         self._indent = len(str(self._total))
 
+    def update(self, x):
+        if self._total <= 0:
+            return
+
+        x = self._total if x > self._total else x
+        x = x if x > 0 else 0
+
+        percent = x * 100 / self._total
+        print(self._get_output(x, percent), end='\r')
+        if percent >= 100:
+            print('')
+
+    def get_total(self):
+        return self._total
+
     def _get_output(self, x, percent):
         pointer = int(self._width * (x / self._total))
 
@@ -36,34 +51,22 @@ class SimpleProgressBar():
 
         return f'{self._title}: {x:{self._indent}}/{self._total} [{str_tmp}] {percent:6.2f}%, time-elapsed: {time_str}'
 
-    def update(self, x):
-        if self._total <= 0:
-            return
-
-        x = self._total if x > self._total else x
-        x = x if x > 0 else 0
-
-        percent = x * 100 / self._total
-        print(self._get_output(x, percent), end='\r')
-        if percent >= 100:
-            print('')
-
 
 def main():
     """ exapmles """
     N = 50
     pb = SimpleProgressBar(total=N, title='Bar example1')
-    for i in range(N):
+    for i in range(pb.get_total()):
         pb.update(i + 1)
         time.sleep(0.05)
 
     pb = SimpleProgressBar(width=30, total=N, title='Bar example2', str_c='#', str_a='->')
-    for i in range(N):
+    for i in range(pb.get_total()):
         pb.update(i + 1)
         time.sleep(0.05)
 
     pb = SimpleProgressBar(width=60, title='Bar example3', str_c='-', str_a='', str_r='*')
-    for i in range(100):
+    for i in range(pb.get_total()):
         pb.update(i + 1)
         time.sleep(0.05)
 

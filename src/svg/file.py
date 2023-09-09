@@ -8,7 +8,7 @@ Description: SVGFileV2, SVGFile class
 
 import os
 from lxml import etree
-from svg.basic import draw_tag
+from svg.basic import draw_tag, style_content, get_styles, add_style
 
 __all__ = ['SVGFileV2', 'SVGFile']
 
@@ -38,7 +38,6 @@ class SVGFileV2:
         view_box = f'0 0 {self._width} {self._height}'
         self.set_node(self._root, 'viewBox', view_box)
 
-        self._bk_rect = None  # background rect
         if border:
             self.add_border(border_color, border_width)
         self.set_title(title)
@@ -51,8 +50,18 @@ class SVGFileV2:
         """ get height, width """
         return self._height, self._width
 
-    def add_root_style(self, new_style):
-        """ add root style """
+    def add_svg_style(self, tag: str, style_dict: dict):
+        """ add svg style """
+        style_node = self.get_child(child_tag='style')
+        if style_node is not None:
+            new_style = style_content(tag, get_styles(style_dict))
+            if new_style not in style_node.text:
+                style_node.text += new_style
+        else:
+            self.draw(add_style(tag, get_styles(style_dict)))
+
+    def add_root_style(self, new_style: str):
+        """ add root svg node style """
         style = self._root.get('style')
         if style is not None:
             style = style + ';' + new_style
@@ -62,12 +71,21 @@ class SVGFileV2:
 
     def add_border(self, border_color, border_width):
         """ add svg border """
-        style = f'border:{int(border_width)}px solid {border_color}'
+        style = f'border:{border_width}px solid {border_color}'
         self.add_root_style(style)
 
     def set_background(self, color):
         """ set svg background """
         self.add_root_style(f'background-color:{color}')
+
+    def add_style_node(self, style: str):
+        style_node = self.get_child(child_tag='style')
+        if style_node is None:
+            style_node = self.draw(draw_tag('style'))
+
+        if style_node.text is None:
+            style_node.text = ''
+        style_node.text += style
 
     def set_title(self, title=None):
         """ set svg title """
@@ -124,10 +142,10 @@ class SVGFileV2:
                 return i
         return None
 
-    def close(self, end_of_line=False):
+    def close(self, win_eof=True):
         """ write lxml tree to file """
         tree = etree.ElementTree(self._root)
-        if not end_of_line:
+        if not win_eof:
             tree.write(self._file, pretty_print=True,
                        xml_declaration=True, encoding=r'UTF-8', standalone=False)
         else:

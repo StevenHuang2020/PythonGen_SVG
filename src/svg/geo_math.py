@@ -6,11 +6,26 @@
 Description: math functions
 """
 import numpy as np
+from scipy.spatial import distance
 
 
 def get_distance(pt1, pt2):
     """ get distance of two points """
     return np.sqrt(np.power(pt1[0] - pt2[0], 2) + np.power(pt1[1] - pt2[1], 2))
+
+
+def distance_pts(p1, p2, metric='euclidean'):
+    """ calculate the distance of points """
+    # metric = 'minkowski'
+    # metric = 'cityblock'
+    return distance.cdist(p1, p2, metric=metric)
+
+
+def distance_array(arr1, arr2, average=False):
+    # print('arr1.shape=', arr1.shape)
+    dis = np.sqrt(np.sum(np.square(arr1 - arr2)))
+    dis = (dis / arr1.shape[0]) if average else dis
+    return dis
 
 
 def get_line(pt1, pt2):
@@ -139,12 +154,36 @@ def get_perpendicular_point_line_ABC(line, pt, reflect=False):
     return None
 
 
+def distance_pt_line(pt, p1, p2):
+    """ calculate the distance of a point to a line """
+    return np.linalg.norm(np.cross(p2 - p1, p1 - pt)) / np.linalg.norm(p2 - p1)
+
+
 def main():
     """ main function """
     x = [1, 2]
     y = [3, 4]
     # print(get_line(x, y))
-    print(get_distance(x, y))
+    print('get_distance=', get_distance(x, y))
+    print('distance_array=', distance_array(np.asarray(x), np.asarray(y)))
+
+    x = np.array([0, 0])
+    y = np.array([4, 0])
+    c = np.array([[4, 3]])
+    print('shortest distance=', distance_pt_line(c, x, y))
+    print('shortest distance=', distance_pt_line(c, y, x))
+    print('shortest distance=', distance_pt_line(y, c, x))
+    print('shortest distance=', distance_pt_line(y, x, c))
+
+    c = np.array([4, -3])
+    print('shortest distance=', distance_pt_line(c, x, y))
+
+    c = np.array([[4, 3], [4, 2]])
+    # x = np.array([[0, 0], [0, 0]])
+    # y = np.array([[4, 0], [4, 0]])
+    print('shortest distance mul-d=', distance_pt_line(c, x, y))
+    for i in c:
+        print('shortest distance mul-d=', distance_pt_line(i, x, y))
 
 
 if __name__ == '__main__':

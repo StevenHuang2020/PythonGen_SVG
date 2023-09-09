@@ -34,9 +34,10 @@ def random_color_rgb():
     return tuple(np.random.randint(0, 256, size=3))
 
 
-def random_color():
+def random_color(length=6, with_alpha=False):
     """random a web hex color format"""
-    return '#' + ''.join(random.sample('0123456789ABCDEF', 6))
+    length = length + 2 if with_alpha else length
+    return '#' + ''.join(random.sample('0123456789ABCDEF', length))
 
 
 def reverse_hex(color):
@@ -103,7 +104,7 @@ def clip_floats(x, n=1):
     return np.round(x, n)
 
 
-def rand_str(num=6):
+def rand_str(num=8):
     """ random string as ID """
     return ''.join(random.sample(string.ascii_letters + string.digits, num))
 
@@ -158,7 +159,7 @@ def get_grid_coordinates(W, H, v_num=2, h_num=2):
     for i in range(h_num):
         for j in range(v_num):
             base.append([i * h_inter, j * v_inter])
-    return np.array(base)
+    return np.asarray(base)
 
 
 def uniform_random_points(W, H, v_num=2, h_num=2, x_offset=2, y_offset=2):

@@ -192,10 +192,10 @@ good-names=a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, 
            p0, p1, p2, p3, v0, v1, v2, v3, vt, ci,
            xMin, xMax, yMin, yMax, offset, offsetX, offsetY, newX, newY,
            cx, cy, vx, vy, dx, dy, rt, xn, yn, xs, ys, xv, yv,
-           id, df, pt, ptX, ptY, px, py, rx, ry, sx, sy, 
-           xa, ya, za, xb, yb, zb, xc, yc, zc,zx,zy, 
-           xl,xr,yl,yr,xr,yr,          
-           ka,kb,k0,k1,k2,k3,kv, xm, ym,   
+           id, df, pt, ptX, ptY, px, py, rx, ry, sx, sy,
+           xa, ya, za, xb, yb, zb, xc, yc, zc,zx,zy,
+           xl,xr,yl,yr,xr,yr,
+           ka,kb,k0,k1,k2,k3,kv, xm, ym,
            R0,R1,R3,rMin,rMax,
            ex, up,
            Run,
@@ -297,7 +297,7 @@ ignored-parents=
 max-args=10
 
 # Maximum number of attributes for a class (see R0902).
-max-attributes=12
+max-attributes=30
 
 # Maximum number of boolean expressions in an if statement (see R0916).
 max-bool-expr=5
@@ -441,14 +441,15 @@ disable=raw-checker-failed,
         unbalanced-tuple-unpacking,
         C0103,
         C0116,
-        W0612
+        W0612,
+        W0613,
+        W0611
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
 # multiple time (only on the command line, not in the configuration file where
 # it should appear only once). See also the "--disable" option for examples.
 enable=c-extension-no-member
-
 
 [METHOD_ARGS]
 

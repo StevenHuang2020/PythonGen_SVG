@@ -12,7 +12,7 @@ import numpy as np
 from scipy.spatial import Delaunay, Voronoi
 from svg.file import SVGFileV2
 from svg.basic import clip_float, draw_any, draw_line, random_color, color_fader
-from svg.basic import random_color_hsv, add_style, clip_floats
+from svg.basic import random_color_hsv, clip_floats
 from svg.basic import draw_circle, rainbow_colors, draw_path, draw_polygon, draw_text
 from svg.basic import draw_ring, draw_only_circle
 from svg.basic import random_points, uniform_random_points, line_style, get_styles
@@ -46,13 +46,7 @@ def drawlinePoints_style(svg, pts, node=None, stroke_width=0.5, color=None, dash
     style_dict = line_style(color=color or random_color(), stroke_width=stroke_width,
                             stroke_dasharray=dash)
 
-    style_node = svg.get_child(child_tag='style')
-    if style_node is not None:
-        new_style = style_content('line', get_styles(style_dict))
-        if new_style not in style_node.text:
-            style_node.text += new_style
-    else:
-        svg.draw(add_style('line', get_styles(style_dict)))
+    svg.add_svg_style('line', style_dict)
 
     # print('pts: ', pts)
     for _, pt in enumerate(pts):
@@ -134,10 +128,12 @@ def drawPointsCircle_style(svg, pts, node=None, r=2, color='black', style_class=
     style_dict['fill'] = color or random_color()
     style_dict['r'] = str(r)
 
-    style_name = style_class
-    if not is_element_name(style_name):
-        style_name = '.' + style_name
-    svg.draw(add_style(style_name, get_styles(style_dict)))
+    if style_class:
+        style_name = style_class
+        if not is_element_name(style_name):
+            style_name = '.' + style_name
+
+        svg.add_style_node(style_content(style_name, get_styles(style_dict)))
 
     for pt in pts:
         x = clip_float(pt[0])
@@ -833,9 +829,9 @@ def main():
     # drawPointsLineGraphic7(svg)
     # drawPointsLineGraphic8(svg)
     # drawPointsLineGraphic9(svg)
-    # drawPointsLineGraphic10(svg)
+    drawPointsLineGraphic10(svg)
     # drawPointsLineGraphic11(svg)
-    drawPointsLineGraphic12(svg)
+    # drawPointsLineGraphic12(svg)
     # drawPointsLineGraphic13(svg)
 
 

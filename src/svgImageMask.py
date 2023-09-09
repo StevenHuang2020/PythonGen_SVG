@@ -49,6 +49,39 @@ def getImagChannel(img):
     return 1  # only one channel
 
 
+def loadGrayImg(file):
+    return loadImg(file, mode=cv2.IMREAD_GRAYSCALE)
+
+
+def writeImg(img, filePath):
+    cv2.imwrite(filePath, img)
+
+
+def infoImg(img, str_prex='image:'):
+    return print(str_prex, 'shape:', img.shape, 'size:', img.size, 'dims=', img.ndim, 'dtype:', img.dtype)
+
+
+def grayImg(img):
+    if getImagChannel(img) == 3:
+        return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    return img
+
+
+def resizeImg(img, NewW, NewH):
+    try:
+        return cv2.resize(img, (NewW, NewH), interpolation=cv2.INTER_CUBIC)  # INTER_CUBIC INTER_NEAREST INTER_LINEAR INTER_AREA
+    except ImportError:
+        print('img.shape,newW,newH', img.shape, NewW, NewH)
+        return img
+
+
+def rotateImg(img, angle=45):
+    height, width = img.shape[:2]
+    center = (width / 2, height / 2)
+    rotate_matrix = cv2.getRotationMatrix2D(center=center, angle=angle, scale=1)
+    return cv2.warpAffine(src=img, M=rotate_matrix, dsize=(width, height))
+
+
 def blur_img(img, size=(5, 5)):
     return cv2.GaussianBlur(img, size, 0)
 
@@ -313,8 +346,7 @@ def get_binary_image(file, show=False, binary=True):
     image = loadImg(file, cv2.IMREAD_GRAYSCALE)
     if binary:
         image = blur_img(image)
-        image = OtsuMethodThresHold(image)  # binary to white and black
-        # print('image=', image, image.shape, np.unique(image))
+        image = OtsuMethodThresHold(image)  # binary
 
     if show:
         showimage(image)
